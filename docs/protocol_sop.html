@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Library Prep SOP – Nanopore Sequencing Hub</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-de1d9db716a7ad7caf9a7f73279c5ec9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Nanopore Sequencing Hub</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Nanopore-hub</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./qc_standards.html"> 
+<span class="menu-text">Nucleotide QC</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./protocol_sop.html" aria-current="page"> 
+<span class="menu-text">Library build-up SOP</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Library Prep SOP</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+  /* 針對互動式 Checkbox 的樣式設定 */
+  .sop-step { display: flex; gap: 12px; padding: 12px; border-bottom: 1px solid #f1f5f9; cursor: pointer; border-radius: 6px; transition: background 0.1s; }
+  .sop-step:hover { background: #f8fafc; }
+  .sop-step.checked { background: #f0fdf4; opacity: 0.6; }
+  .step-cb { font-size: 18px; flex-shrink: 0; line-height: 1.2; user-select: none; }
+  .step-num { font-weight: 700; color: #2d4a7a; margin-right: 8px; }
+  .step-time { font-size: 10px; background: #dbeafe; color: #1e40af; border-radius: 4px; padding: 2px 6px; margin-left: 8px; font-family: monospace; }
+  .step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
+  .done-badge { background: #dcfce7; border: 1px solid #86efac; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 13px; color: #14532d; }
+  .warn-badge { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 12px; color: #1e40af; }
+</style>
+<p>依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">🌱 SQK-RBK114.24</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">🧬 SQK-NBD114.24</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><em>預估操作時間：~55 min</em></p>
+<section id="step-a-試劑準備-5-min" class="level3">
+<h3 class="anchored" data-anchor-id="step-a-試劑準備-5-min">🧊 Step A — 試劑準備 (~5 min)</h3>
+<p><em>設定好 thermal cycler 後，同步解凍以下試劑</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">試劑</th>
+<th style="text-align: left;">縮寫</th>
+<th style="text-align: left;">用量</th>
+<th style="text-align: left;">備注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rapid Barcodes (RB01-24)</td>
+<td style="text-align: left;"><strong>RB</strong></td>
+<td style="text-align: left;">1.5 µL / 樣本</td>
+<td style="text-align: left;">不冷凍保存，解凍後混勻置冰上</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rapid Adapter</td>
+<td style="text-align: left;"><strong>RA</strong></td>
+<td style="text-align: left;">依後續步驟</td>
+<td style="text-align: left;">不冷凍保存，混勻置冰上</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AMPure XP Beads</td>
+<td style="text-align: left;"><strong>AXP</strong></td>
+<td style="text-align: left;">依樣本數</td>
+<td style="text-align: left;">解凍後 vortex 充分混勻</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Elution Buffer</td>
+<td style="text-align: left;"><strong>EB</strong></td>
+<td style="text-align: left;">15 µL / 24 barcodes</td>
+<td style="text-align: left;">解凍混勻</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adapter Buffer</td>
+<td style="text-align: left;"><strong>ADB</strong></td>
+<td style="text-align: left;">3.5 µL</td>
+<td style="text-align: left;">解凍後 vortex 混勻</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rapid Adapter (Step D)</td>
+<td style="text-align: left;"><strong>RA</strong></td>
+<td style="text-align: left;">1.5 µL</td>
+<td style="text-align: left;">先配 diluted RA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adapter Buffer (Step D)</td>
+<td style="text-align: left;"><strong>ADB</strong></td>
+<td style="text-align: left;">3.5 µL</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total diluted RA</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>5 µL</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="步驟檢核表" class="level3">
+<h3 class="anchored" data-anchor-id="步驟檢核表">📝 步驟檢核表</h3>
+<div id="rbk-steps">
+
+</div>
+<div class="done-badge">
+<p>✅ <strong>Library 完成！</strong>置冰上保存。上機前取 <strong>12 µL</strong> loading。</p>
+</div>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><em>預估操作時間：~140 min</em> <em>(⚠️ 注意：勿 vortex Ligase！)</em></p>
+<section id="step-a-試劑準備-10-min" class="level3">
+<h3 class="anchored" data-anchor-id="step-a-試劑準備-10-min">🧊 Step A — 試劑準備 (~10 min)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">試劑</th>
+<th style="text-align: left;">縮寫</th>
+<th style="text-align: left;">用量</th>
+<th style="text-align: left;">備注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AMPure XP Beads</td>
+<td style="text-align: left;"><strong>AXP</strong></td>
+<td style="text-align: left;">依步驟</td>
+<td style="text-align: left;">Thaw + vortex 充分混勻</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DNA Control Sample (diluted)</td>
+<td style="text-align: left;"><strong>DCS</strong></td>
+<td style="text-align: left;">1 µL / 樣本</td>
+<td style="text-align: left;">105 µL EB 稀釋 1 管；多餘 -20°C 保存</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Native Barcodes (NB01-24)</td>
+<td style="text-align: left;"><strong>NB</strong></td>
+<td style="text-align: left;">2.5 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，各自 pipette mix，置冰上</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NEB Blunt/TA Ligase MM</td>
+<td style="text-align: left;"><strong>LMM</strong></td>
+<td style="text-align: left;">10 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，pipette mix 10 次，置冰上</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDTA (blue cap)</td>
+<td style="text-align: left;"><strong>EDTA</strong></td>
+<td style="text-align: left;">4 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，vortex，置冰上</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short Fragment Buffer</td>
+<td style="text-align: left;"><strong>SFB</strong></td>
+<td style="text-align: left;">700 µL × 2 wash</td>
+<td style="text-align: left;">RT 解凍，vortex</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NEBNext Quick Ligation Buffer</td>
+<td style="text-align: left;"><strong>QLB</strong></td>
+<td style="text-align: left;">10 µL（步驟 D）</td>
+<td style="text-align: left;">RT 解凍，vortex（可能有白色沉澱，混至澄清）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quick T4 DNA Ligase</td>
+<td style="text-align: left;"><strong>QLig</strong></td>
+<td style="text-align: left;">5 µL（步驟 D）</td>
+<td style="text-align: left;">RT 解凍，pipette mix，<strong>⚠️ 勿 vortex</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Native Adapter</td>
+<td style="text-align: left;"><strong>NA</strong></td>
+<td style="text-align: left;">5 µL（步驟 D）</td>
+<td style="text-align: left;">spin down，pipette mix，置冰上</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Long/Short Fragment Buffer</td>
+<td style="text-align: left;"><strong>LFB/SFB</strong></td>
+<td style="text-align: left;">125 µL × 2（步驟 D）</td>
+<td style="text-align: left;">依讀長需求選擇 LFB 或 SFB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elution Buffer</td>
+<td style="text-align: left;"><strong>EB</strong></td>
+<td style="text-align: left;">15 µL（步驟 D）</td>
+<td style="text-align: left;">RT 解凍，vortex</td>
+</tr>
+</tbody>
+</table>
+<div class="warn-badge">
+<p>📐 <strong>投入量換算（200 fmol）</strong>：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶<br> • 快速模式（環境/糞便）→ 直接用 <strong>1,000 ng</strong><br> • HMW gDNA (~20 kb) → 200 fmol ≈ <strong>2,600 ng</strong><br> • Partial (~5 kb) → 200 fmol ≈ <strong>650 ng</strong><br> • Degraded (~2 kb) → 200 fmol ≈ <strong>260 ng</strong></p>
+</div>
+</section>
+<section id="步驟檢核表-1" class="level3">
+<h3 class="anchored" data-anchor-id="步驟檢核表-1">📝 步驟檢核表</h3>
+<div id="nbd-steps">
+
+</div>
+<div class="done-badge">
+<p>✅ <strong>Library 完成！</strong>置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。</p>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  let checkedSteps = {};
+
+  const rbkSteps = [
+    { id: 'r1', text: '設定 thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>', note: '', time: '' },
+    { id: 'r2', text: '每個樣本取 200 ng DNA，加 NFW 調整至 <strong>10 µL</strong>，置 0.2 mL PCR tube', note: 'Pipette mix 10-15 次，避免剪切；短暫離心', time: '' },
+    { id: 'r3', text: '每管加入對應的 <strong>Rapid Barcode 1.5 µL</strong>，pipette mix 10-15 次後短暫離心', note: '每個樣本使用唯一的 barcode。總體積 11.5 µL', time: '' },
+    { id: 'r4', text: 'Thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>，結束後立即置冰上', note: '', time: '⏱ 4 min' },
+    { id: 'r5', text: '短暫離心收集液體至管底', note: '', time: '' },
+    { id: 'r6', text: '將所有 barcoded sample <strong>合併至 2 mL LoBind tube</strong>（n×11.5 µL）', note: '4 samples → 46 µL ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', time: '' },
+    { id: 'r7', text: 'Vortex 充分混勻 AMPure XP Beads（AXP）', note: '使用前必須充分混勻，沉澱的 beads 會影響回收率', time: '' },
+    { id: 'r8', text: '加入<strong>等體積 AXP</strong>（n×11.5 µL），flick tube 混勻', note: '4 samples → 46 µL AXP ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', time: '' },
+    { id: 'r9', text: 'Hula mixer 室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'r10', text: '短暫離心，磁架吸附，移除上清液', note: '', time: '' },
+    { id: 'r11', text: '加入 <strong>1 mL 80% ethanol</strong>（新鮮配製），不打散 pellet，移除 ethanol', note: '', time: '' },
+    { id: 'r12', text: '重複 Ethanol wash', note: '', time: '' },
+    { id: 'r13', text: '短暫離心，磁架吸附，移除殘餘 ethanol，<strong>風乾 30 秒</strong>（勿過乾龜裂）', note: '', time: '' },
+    { id: 'r14', text: '取離磁架，加入 <strong>15 µL Elution Buffer（EB）</strong>輕彈管壁重懸 pellet', note: '24 barcodes → 15 µL；48 → 30 µL', time: '' },
+    { id: 'r15', text: '室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'r16', text: '磁架吸附至澄清，轉移<strong>全量 eluate</strong> 至新 1.5 mL LoBind tube', note: '⚠️ Qubit 量測 1 µL 確認濃度', time: '' },
+    { id: 'r17', text: '取 <strong>11 µL barcoded DNA</strong> 至新 1.5 mL LoBind tube', note: '', time: '' },
+    { id: 'r18', text: '加入 <strong>1 µL diluted Rapid Adapter（RA）</strong>，gentle flick 混勻，短暫離心', note: '', time: '' },
+    { id: 'r19', text: '室溫孵育 <strong>5 min</strong>（此時可同步進行 flow cell priming）', note: 'Library 置冰上直到上機', time: '⏱ 5 min' }
+  ];
+
+  const nbdSteps = [
+    { id: 'n1', text: '每個樣本依換算結果取 DNA，加 NFW 至 <strong>11.5 µL</strong>', note: '置 0.2 mL PCR tube', time: '' },
+    { id: 'n2', text: '每管加入 <strong>1 µL 稀釋 DCS</strong>', note: '若省略 DCS，以 1 µL NFW 補足', time: '' },
+    { id: 'n3', text: '每管加入 end-prep reagents：Reaction Buffer 1.75 µL + Enzyme Mix 0.75 µL = 總 15 µL', note: '建議先配 master mix 再分裝', time: '' },
+    { id: 'n4', text: '短暫離心', note: '', time: '' },
+    { id: 'n5', text: 'Thermal cycler：<strong>20°C 5 min → 65°C 5 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'n6', text: '轉移每個樣本至 <strong>1.5 mL LoBind tube</strong>', note: '', time: '' },
+    { id: 'n7', text: '每管加入 <strong>15 µL AXP</strong>，flick 混勻', note: '', time: '' },
+    { id: 'n8', text: 'Hula mixer 室溫孵育 <strong>5 min</strong>', note: '', time: '⏱ 5 min' },
+    { id: 'n9', text: '磁架吸附澄清，移除上清液', note: '', time: '' },
+    { id: 'n10', text: '加入 <strong>200 µL 80% ethanol</strong> wash，不打散 pellet，移除', note: '', time: '' },
+    { id: 'n11', text: '重複 ethanol wash', note: '', time: '' },
+    { id: 'n12', text: '短暫離心，磁架，移除殘餘 ethanol，<strong>風乾 30 秒</strong>', note: '', time: '' },
+    { id: 'n13', text: '加入 <strong>10 µL NFW</strong> 重懸，室溫孵育 2 min', note: '', time: '⏱ 2 min' },
+    { id: 'n14', text: '磁架吸附澄清，轉移 <strong>10 µL eluate</strong>', note: '⚠️ Qubit 量測 1 µL 各樣本濃度，計算等莫耳取量', time: '' },
+    { id: 'n15', text: '每管加入 end-prepped DNA <strong>7.5 µL</strong> + NB <strong>2.5 µL</strong> + LMM <strong>10 µL</strong>（總 20 µL）', note: '依序加入，各樣本使用唯一 NB', time: '' },
+    { id: 'n16', text: '輕柔 pipette 混勻，短暫離心', note: '', time: '' },
+    { id: 'n17', text: '室溫孵育 <strong>20 min</strong>', note: '', time: '⏱ 20 min' },
+    { id: 'n18', text: '每管加入 <strong>4 µL EDTA</strong>（blue cap），pipette mix，短暫離心', note: 'EDTA 終止 ligation 反應', time: '' },
+    { id: 'n19', text: '合併所有 barcoded sample 至 1.5 mL LoBind tube', note: '6 samples → 144 µL ／ 12 → 288 µL ／ 24 → 576 µL', time: '' },
+    { id: 'n20', text: '加入 <strong>0.4× AXP</strong>，pipette mix', note: '6 → 58 µL AXP ／ 12 → 115 µL ／ 24 → 230 µL', time: '' },
+    { id: 'n21', text: 'Hula mixer 室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'n22', text: '磁架吸附 5 min 至澄清，移除上清液', note: '', time: '' },
+    { id: 'n23', text: '加入 <strong>700 µL SFB</strong>，flick 重懸，spin，磁架，移除', note: '', time: '' },
+    { id: 'n24', text: '重複 SFB wash', note: '', time: '' },
+    { id: 'n25', text: '短暫離心，磁架，移除殘餘 buffer', note: '', time: '' },
+    { id: 'n26', text: '加入 <strong>35 µL NFW</strong> 輕彈重懸', note: '', time: '' },
+    { id: 'n27', text: '<strong>37°C 孵育 10 min</strong>，每 2 min 輕彈混合 10 秒', note: '', time: '⏱ 10 min' },
+    { id: 'n28', text: '磁架吸附澄清，轉移 <strong>35 µL eluate</strong>', note: '⚠️ Qubit 量測 1 µL 確認 library 濃度', time: '' },
+    { id: 'n29', text: '依序加入：DNA 30 µL + NA 5 µL + QLB 10 µL + QLig 5 µL（總 50 µL）', note: '⚠️ 勿 vortex Ligase', time: '' },
+    { id: 'n30', text: '輕柔 pipette mix，短暫離心', note: '', time: '' },
+    { id: 'n31', text: '室溫孵育 <strong>20 min</strong>', note: '', time: '⏱ 20 min' },
+    { id: 'n32', text: '加入 <strong>20 µL AXP</strong>，pipette mix', note: '', time: '' },
+    { id: 'n33', text: 'Hula mixer 室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'n34', text: '磁架吸附，移除上清液', note: '', time: '' },
+    { id: 'n35', text: '加入 <strong>125 µL LFB 或 SFB</strong>，flick 重懸，spin，磁架，移除', note: '⚠️ 此步驟絕對不可用 ethanol！會破壞 sequencing adapter', time: '' },
+    { id: 'n36', text: '重複 LFB/SFB wash', note: '', time: '' },
+    { id: 'n37', text: '短暫離心，磁架，移除殘餘 buffer', note: '', time: '' },
+    { id: 'n38', text: '加入 <strong>15 µL Elution Buffer（EB）</strong>重懸', note: '', time: '' },
+    { id: 'n39', text: '<strong>37°C 孵育 10 min</strong>，每 2 min 輕彈混合', note: '', time: '⏱ 10 min' },
+    { id: 'n40', text: '磁架吸附澄清，轉移 <strong>15 µL eluate</strong>（最終 library）', note: '⚠️ Qubit 量測 1 µL；依片段長度計算 loading 量', time: '' }
+  ];
+
+  function toggleStep(id) {
+    checkedSteps[id] = !checkedSteps[id];
+    const el = document.getElementById(`step-${id}`);
+    const cb = document.getElementById(`cb-${id}`);
+    if (checkedSteps[id]) {
+      el.classList.add('checked');
+      cb.textContent = '✅';
+    } else {
+      el.classList.remove('checked');
+      cb.textContent = '⬜';
+    }
+  }
+
+  function renderSteps(containerId, stepsArray) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    let html = '';
+    stepsArray.forEach((s, idx) => {
+      let timeBadge = s.time ? `<span class="step-time">${s.time}</span>` : '';
+      let noteHtml = s.note ? `<div class="step-note">${s.note}</div>` : '';
+      html += `
+        <div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
+          <div class="step-cb" id="cb-${s.id}">⬜</div>
+          <div>
+            <span class="step-num">${idx + 1}.</span>${s.text} ${timeBadge}
+            ${noteHtml}
+          </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+  }
+
+  // Quarto 渲染完成後執行
+  document.addEventListener("DOMContentLoaded", function() {
+    renderSteps('rbk-steps', rbkSteps);
+    renderSteps('nbd-steps', nbdSteps);
+  });
+</script>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

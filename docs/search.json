@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "qc_standards.html",
+    "href": "qc_standards.html",
+    "title": "QC 判定標準",
+    "section": "",
+    "text": "Nanopore Sequencing Hub · v1.1 依據 ONT SQK-RBK114.24 / SQK-NBD114.24 官方 protocol 及 ONT Community 建議"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Nanopore Docs Hub",
+    "section": "",
+    "text": "Nanopore 定序技術文件中心。這裡收錄了最新的建庫 SOP 與品質判定標準。\n請由上方導覽列選擇您需要的說明文件。"
+  },
+  {
+    "objectID": "protocol_sop.html",
+    "href": "protocol_sop.html",
+    "title": "Library Prep SOP",
+    "section": "",
+    "text": "依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。\n\n🌱 SQK-RBK114.24🧬 SQK-NBD114.24\n\n\n預估操作時間：~55 min\n\n🧊 Step A — 試劑準備 (~5 min)\n設定好 thermal cycler 後，同步解凍以下試劑\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nRapid Barcodes (RB01-24)\nRB\n1.5 µL / 樣本\n不冷凍保存，解凍後混勻置冰上\n\n\nRapid Adapter\nRA\n依後續步驟\n不冷凍保存，混勻置冰上\n\n\nAMPure XP Beads\nAXP\n依樣本數\n解凍後 vortex 充分混勻\n\n\nElution Buffer\nEB\n15 µL / 24 barcodes\n解凍混勻\n\n\nAdapter Buffer\nADB\n3.5 µL\n解凍後 vortex 混勻\n\n\nRapid Adapter (Step D)\nRA\n1.5 µL\n先配 diluted RA\n\n\nAdapter Buffer (Step D)\nADB\n3.5 µL\n\n\n\nTotal diluted RA\n\n5 µL\n\n\n\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。上機前取 12 µL loading。\n\n\n\n\n預估操作時間：~140 min (⚠️ 注意：勿 vortex Ligase！)\n\n🧊 Step A — 試劑準備 (~10 min)\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nAMPure XP Beads\nAXP\n依步驟\nThaw + vortex 充分混勻\n\n\nDNA Control Sample (diluted)\nDCS\n1 µL / 樣本\n105 µL EB 稀釋 1 管；多餘 -20°C 保存\n\n\nNative Barcodes (NB01-24)\nNB\n2.5 µL / 樣本\nRT 解凍，各自 pipette mix，置冰上\n\n\nNEB Blunt/TA Ligase MM\nLMM\n10 µL / 樣本\nRT 解凍，pipette mix 10 次，置冰上\n\n\nEDTA (blue cap)\nEDTA\n4 µL / 樣本\nRT 解凍，vortex，置冰上\n\n\nShort Fragment Buffer\nSFB\n700 µL × 2 wash\nRT 解凍，vortex\n\n\nNEBNext Quick Ligation Buffer\nQLB\n10 µL（步驟 D）\nRT 解凍，vortex（可能有白色沉澱，混至澄清）\n\n\nQuick T4 DNA Ligase\nQLig\n5 µL（步驟 D）\nRT 解凍，pipette mix，⚠️ 勿 vortex\n\n\nNative Adapter\nNA\n5 µL（步驟 D）\nspin down，pipette mix，置冰上\n\n\nLong/Short Fragment Buffer\nLFB/SFB\n125 µL × 2（步驟 D）\n依讀長需求選擇 LFB 或 SFB\n\n\nElution Buffer\nEB\n15 µL（步驟 D）\nRT 解凍，vortex\n\n\n\n\n📐 投入量換算（200 fmol）：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶ • 快速模式（環境/糞便）→ 直接用 1,000 ng • HMW gDNA (~20 kb) → 200 fmol ≈ 2,600 ng • Partial (~5 kb) → 200 fmol ≈ 650 ng • Degraded (~2 kb) → 200 fmol ≈ 260 ng\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。"
+  },
+  {
+    "objectID": "qc_standards.html#兩種模式對照",
+    "href": "qc_standards.html#兩種模式對照",
+    "title": "QC 判定標準",
+    "section": "🔬 兩種模式對照",
+    "text": "🔬 兩種模式對照\n\n🧬 模式 A — gDNA（高品質基因組）🌱 模式 B — 環境 / 糞便（Metagenomics）\n\n\n\n\n\n\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.80–2.05\n1.70–1.79 (輕微蛋白污染)\n&lt; 1.70 或 &gt; 2.10\n\n\nA260/A230\n≥ 2.00\n1.50–1.99 (鹽/有機溶劑)\n&lt; 1.50\n\n\nQubit 濃度\n≥ 20 ng/µL\n5–19 ng/µL\n&lt; 5 ng/µL\n\n\nFragment\nHMW (&gt; 10 kb)\nPartial (5–10 kb)\nDegraded (&lt; 5 kb)\n\n\n最低投入量\n\n\n\n\n\n\nKit 推薦：🥇 NBD114.24 優先 / 🥈 RBK114.24 備選\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.60–2.20\n1.40–1.59 (加 BSA)\n&lt; 1.40\n\n\nA260/A230\n≥ 1.70\n1.20–1.69 (腐植酸殘留)\n&lt; 1.20\n\n\nQubit 濃度\n≥ 20 ng/µL\n3–19 ng/µL\n&lt; 3 ng/µL\n\n\nFragment\nHMW 或 Partial\nDegraded (讀長縮短)\n嚴重降解\n\n\n最低投入量\n\n\n\n\n\n\nKit 推薦：🥇 RBK114.24 強烈優先 / ❌ NBD114.24 不建議（ligation 對抑制物敏感）"
+  },
+  {
+    "objectID": "qc_standards.html#kit-比較nbd-vs-rbk",
+    "href": "qc_standards.html#kit-比較nbd-vs-rbk",
+    "title": "QC 判定標準",
+    "section": "⚗️ Kit 比較：NBD vs RBK",
+    "text": "⚗️ Kit 比較：NBD vs RBK\n\n\n\n\n\n\n\n\n比較項目\nSQK-NBD114.24 (Native Barcoding)\nSQK-RBK114.24 (Rapid Barcoding)\n\n\n\n\n建庫機制\nEnd-prep → Native barcode ligation → Adapter ligation\nTagmentation（transposome 切割 + barcode adapter）\n\n\n建庫時間\n約 140 分鐘\n約 30–40 分鐘\n\n\n每樣本 Input\n200 fmol（約 130 ng for 1 kb amplicons）\n200 ng / 樣本\n\n\nDNA 品質要求\n高；ligation 酵素對腐植酸、殘留乙醇/鹽、蛋白污染非常敏感\n較寬鬆；部分降解可接受；A260/A230 ≥ 1.5 通常可用\n\n\n片段大小影響\n保留原始長度，HMW 最佳，可獲 超長讀長（&gt; 100 kb）\nTagmentation 機械切割；讀長通常 5–30 kb\n\n\n適用樣本\n高品質 gDNA、Amplicon、需超長讀長（SV、phasing）\n環境樣本、糞便 metagenomics、哨兵動物樣本、品質次佳樣本"
+  },
+  {
+    "objectID": "qc_standards.html#kit-推薦評分邏輯",
+    "href": "qc_standards.html#kit-推薦評分邏輯",
+    "title": "QC 判定標準",
+    "section": "🧮 Kit 推薦評分邏輯",
+    "text": "🧮 Kit 推薦評分邏輯\n\n\n\n\n\n\nTip\n\n\n\n採評分制而非單一閾值： DNA 品質是多維度的。A260/A230 略低但片段完整且量足夠仍可建庫；A260/A280 完美但嚴重降解 NBD 讀長仍很短。系統綜合評分給出建議，最終決策由操作人員根據實驗目的判斷。\n\n\n\n\n\nNBD Score（最高 11 分）\n\n\n\n條件\n得分\n\n\n\n\nA260/A280 在 1.80–2.05\n+2\n\n\nA260/A230 ≥ 2.0\n+3\n\n\nA260/A230 1.80–1.99\n+1\n\n\nFragment = HMW\n+3\n\n\nFragment = Partial\n+1\n\n\n總量 ≥ 1,200 ng\n+3\n\n\n總量 800–1,199 ng\n+2\n\n\n總量 500–799 ng\n+1\n\n\n≥ 9 分\n強烈建議 NBD\n\n\n6–8 分 + 量 ≥ 800 ng\n建議 NBD\n\n\n\n\n\n\n\n\nRBK Score（最高 8 分）\n\n\n\n條件\n得分\n\n\n\n\n總量 ≥ 200 ng / 樣本\n+3\n\n\n總量 100–199 ng\n+1\n\n\nFragment ≠ Degraded\n+2\n\n\nA260/A230 ≥ 1.5\n+2\n\n\nA260/A230 ≥ 1.7（累加）\n+1\n\n\nA260/A280 ≥ 1.6\n+1\n\n\n≥ 5 分（meta）\n建議 RBK\n\n\n≥ 4 分（gDNA）+ 量 ≥ 400 ng\n建議 RBK"
+  },
+  {
+    "objectID": "qc_standards.html#absorbance-ratio-快速判讀",
+    "href": "qc_standards.html#absorbance-ratio-快速判讀",
+    "title": "QC 判定標準",
+    "section": "📊 Absorbance Ratio 快速判讀",
+    "text": "📊 Absorbance Ratio 快速判讀\n\n\n\nA260 / A280\n\n🔴 &lt; 1.6 : 嚴重蛋白質或酚類污染\n🟠 1.6–1.79 : 輕至中度蛋白污染\n🟢 1.8–2.05 : 純 dsDNA 的理想值\n🟠 2.05–2.2 : 可能有 RNA 殘留\n🔴 &gt; 2.2 : RNA 大量殘留；需 RNase A 處理\n\n\n\n\n\n\nA260 / A230\n\n🔴 &lt; 1.2 : 嚴重污染 (腐植酸/GTC/EDTA/多醣)\n🔴 1.2–1.49 : 明顯抑制物，建議 AMPure 重純化\n🟠 1.5–1.69 : 抑制物殘留，加 BSA 可緩解\n🟠 1.7–1.99 : 理想邊緣，NBD ligation 效率略降\n🟢 ≥ 2.0 : 理想值"
+  },
+  {
+    "objectID": "qc_standards.html#bsa牛血清白蛋白使用指引",
+    "href": "qc_standards.html#bsa牛血清白蛋白使用指引",
+    "title": "QC 判定標準",
+    "section": "🔬 BSA（牛血清白蛋白）使用指引",
+    "text": "🔬 BSA（牛血清白蛋白）使用指引\n\n作用機制：BSA 吸附腐植酸、單寧酸等酚類化合物及疏水性抑制物，降低其對 transposase / ligase 的抑制效果。對離子性抑制物（鹽類、EDTA）無效。\nTagmentation 反應（RBK）：終濃度 0.01 mg/mL\nFlow cell priming mix：終濃度 0.2 mg/mL (5 µL of 50 mg/mL per 1,170 µL FCF)\n\n(⚠️ 備註：使用 Invitrogen UltraPure BSA (AM2616)，不建議重組人血清白蛋白)"
+  }
+]
