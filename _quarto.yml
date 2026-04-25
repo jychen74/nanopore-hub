@@ -3,8 +3,8 @@ project:
   output-dir: docs
 
 website:
-  title: "Nanopore Hub"
-  description: "QC Standards and Protocals"
+  #title: "Nanopore Hub"
+  #description: "QC Standards and Protocals"
   navbar:
     left:
       - href: index.qmd
