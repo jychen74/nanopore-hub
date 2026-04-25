@@ -16,7 +16,7 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme: Spacelab
     toc: true
     toc-title: "本頁目錄"
     number-sections: false
