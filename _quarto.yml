@@ -12,7 +12,7 @@ website:
       - href: qc_standards.qmd
         text: "Nucleotide QC"
       - href: protocol_sop.qmd
-        text: "Library build-up SOP"
+        text: "Library Prep SOP"
 
 format:
   html:
