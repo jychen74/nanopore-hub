@@ -1,6 +1,8 @@
 ---
 title: "Library Prep SOP"
-format: html
+format:
+  html:
+    toc: false
 ---
 
 <style>
