@@ -1,0 +1,131 @@
+---
+title: "QC 判定標準"
+format:
+  html:
+    toc: true
+    toc-title: "本頁目錄"
+---
+
+::: {.callout-note appearance="simple"}
+**Nanopore Sequencing Hub · v1.1**
+依據 ONT SQK-RBK114.24 / SQK-NBD114.24 官方 protocol 及 ONT Community 建議
+:::
+
+::: {.callout-warning}
+**Nanodrop vs Qubit：**
+Nanodrop 同時偵測 RNA、短 fragment、游離核苷酸，**濃度值常高估**（尤其降解樣本）。本系統以 **Qubit dsDNA HS Assay 為準**計算投入量。A260/A280 及 A260/A230 比值仍有參考價值但須搭配 Qubit 解讀。
+:::
+
+## 🔬 兩種模式對照
+
+::: {.panel-tabset}
+### 🧬 模式 A — gDNA（高品質基因組）
+
+| 指標 | PASS | WARNING | FAIL |
+|:---|:---|:---|:---|
+| **A260/A280** | **1.80–2.05** | 1.70–1.79 *(輕微蛋白污染)* | < 1.70 或 > 2.10 |
+| **A260/A230** | **≥ 2.00** | 1.50–1.99 *(鹽/有機溶劑)* | < 1.50 |
+| **Qubit 濃度** | **≥ 20 ng/µL** | 5–19 ng/µL | < 5 ng/µL |
+| **Fragment** | **HMW (> 10 kb)** | Partial (5–10 kb) | Degraded (< 5 kb) |
+| **最低投入量** | <td colspan="3">**NBD：** ≥ 1,000 ng (目標 1,200 ng)<br>**RBK：** ≥ 400 ng (200 ng × 2 樣本)</td> |
+
+**Kit 推薦**：🥇 **NBD114.24** 優先 / 🥈 **RBK114.24** 備選
+
+### 🌱 模式 B — 環境 / 糞便（Metagenomics）
+
+| 指標 | PASS | WARNING | FAIL |
+|:---|:---|:---|:---|
+| **A260/A280** | **1.60–2.20** | 1.40–1.59 *(加 BSA)* | < 1.40 |
+| **A260/A230** | **≥ 1.70** | 1.20–1.69 *(腐植酸殘留)* | < 1.20 |
+| **Qubit 濃度** | **≥ 20 ng/µL** | 3–19 ng/µL | < 3 ng/µL |
+| **Fragment** | **HMW 或 Partial** | Degraded *(讀長縮短)* | 嚴重降解 |
+| **最低投入量** | <td colspan="3">**RBK Pool：** 200 ng / 樣本</td> |
+
+**Kit 推薦**：🥇 **RBK114.24** 強烈優先 / ❌ **NBD114.24** 不建議（ligation 對抑制物敏感）
+:::
+
+## ⚗️ Kit 比較：NBD vs RBK
+
+| 比較項目 | SQK-NBD114.24 (Native Barcoding) | SQK-RBK114.24 (Rapid Barcoding) |
+|:---|:---|:---|
+| **建庫機制** | End-prep → Native barcode **ligation** → Adapter ligation | **Tagmentation**（transposome 切割 + barcode adapter） |
+| **建庫時間** | 約 **140 分鐘** | 約 **30–40 分鐘** |
+| **每樣本 Input** | **200 fmol**（約 130 ng for 1 kb amplicons） | **200 ng / 樣本** |
+| **DNA 品質要求** | 高；ligation 酵素對腐植酸、殘留乙醇/鹽、蛋白污染非常敏感 | 較寬鬆；部分降解可接受；A260/A230 ≥ 1.5 通常可用 |
+| **片段大小影響**| 保留原始長度，HMW 最佳，可獲 **超長讀長**（> 100 kb） | Tagmentation 機械切割；讀長通常 **5–30 kb** |
+| **適用樣本** | 高品質 gDNA、Amplicon、需超長讀長（SV、phasing） | 環境樣本、糞便 metagenomics、哨兵動物樣本、品質次佳樣本 |
+
+## 🧮 Kit 推薦評分邏輯
+
+::: {.callout-tip}
+**採評分制而非單一閾值：**
+DNA 品質是多維度的。A260/A230 略低但片段完整且量足夠仍可建庫；A260/A280 完美但嚴重降解 NBD 讀長仍很短。系統綜合評分給出建議，最終決策由操作人員根據實驗目的判斷。
+:::
+
+:::: {.columns}
+::: {.column width="48%"}
+### NBD Score（最高 11 分）
+| 條件 | 得分 |
+|:---|:---|
+| A260/A280 在 1.80–2.05 | +2 |
+| A260/A230 ≥ 2.0 | +3 |
+| A260/A230 1.80–1.99 | +1 |
+| Fragment = HMW | +3 |
+| Fragment = Partial | +1 |
+| 總量 ≥ 1,200 ng | +3 |
+| 總量 800–1,199 ng | +2 |
+| 總量 500–799 ng | +1 |
+| **≥ 9 分** | **強烈建議 NBD** |
+| **6–8 分 + 量 ≥ 800 ng** | **建議 NBD** |
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+### RBK Score（最高 8 分）
+| 條件 | 得分 |
+|:---|:---|
+| 總量 ≥ 200 ng / 樣本 | +3 |
+| 總量 100–199 ng | +1 |
+| Fragment ≠ Degraded | +2 |
+| A260/A230 ≥ 1.5 | +2 |
+| A260/A230 ≥ 1.7（累加） | +1 |
+| A260/A280 ≥ 1.6 | +1 |
+| **≥ 5 分（meta）** | **建議 RBK** |
+| **≥ 4 分（gDNA）+ 量 ≥ 400 ng** | **建議 RBK** |
+:::
+::::
+
+## 📊 Absorbance Ratio 快速判讀
+
+:::: {.columns}
+::: {.column width="48%"}
+### A260 / A280
+* 🔴 **< 1.6** : 嚴重蛋白質或酚類污染
+* 🟠 **1.6–1.79** : 輕至中度蛋白污染
+* 🟢 **1.8–2.05** : 純 dsDNA 的理想值
+* 🟠 **2.05–2.2** : 可能有 RNA 殘留
+* 🔴 **> 2.2** : RNA 大量殘留；需 RNase A 處理
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+### A260 / A230
+* 🔴 **< 1.2** : 嚴重污染 (腐植酸/GTC/EDTA/多醣)
+* 🔴 **1.2–1.49** : 明顯抑制物，建議 AMPure 重純化
+* 🟠 **1.5–1.69** : 抑制物殘留，加 BSA 可緩解
+* 🟠 **1.7–1.99** : 理想邊緣，NBD ligation 效率略降
+* 🟢 **≥ 2.0** : 理想值
+:::
+::::
+
+## 🔬 BSA（牛血清白蛋白）使用指引
+
+* **作用機制**：BSA 吸附腐植酸、單寧酸等酚類化合物及疏水性抑制物，降低其對 transposase / ligase 的抑制效果。**對離子性抑制物（鹽類、EDTA）無效**。
+* **Tagmentation 反應（RBK）**：終濃度 `0.01 mg/mL`
+* **Flow cell priming mix**：終濃度 `0.2 mg/mL` (5 µL of 50 mg/mL per 1,170 µL FCF)
+
+*(⚠️ 備註：使用 Invitrogen UltraPure BSA (AM2616)，不建議重組人血清白蛋白)*

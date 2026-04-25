@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Nanopore Sequencing Hub"
+  description: "QC Standards and Protocals"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Nanopore-hub"
+      - href: qc_standards.qmd
+        text: "Nucleotide QC"
+      - href: protocol_sop.qmd
+        text: "Library build-up SOP"
+
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-title: "本頁目錄"
+    number-sections: false
+    code-copy: true

@@ -1,0 +1,195 @@
+---
+title: "Library Prep SOP"
+format:
+  html:
+    page-layout: full
+---
+
+<style>
+  /* 針對互動式 Checkbox 的樣式設定 */
+  .sop-step { display: flex; gap: 12px; padding: 12px; border-bottom: 1px solid #f1f5f9; cursor: pointer; border-radius: 6px; transition: background 0.1s; }
+  .sop-step:hover { background: #f8fafc; }
+  .sop-step.checked { background: #f0fdf4; opacity: 0.6; }
+  .step-cb { font-size: 18px; flex-shrink: 0; line-height: 1.2; user-select: none; }
+  .step-num { font-weight: 700; color: #2d4a7a; margin-right: 8px; }
+  .step-time { font-size: 10px; background: #dbeafe; color: #1e40af; border-radius: 4px; padding: 2px 6px; margin-left: 8px; font-family: monospace; }
+  .step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
+  .done-badge { background: #dcfce7; border: 1px solid #86efac; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 13px; color: #14532d; }
+  .warn-badge { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 12px; color: #1e40af; }
+</style>
+
+依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。
+
+::: {.panel-tabset}
+
+## 🌱 SQK-RBK114.24
+
+*預估操作時間：~55 min*
+
+### 🧊 Step A — 試劑準備 (~5 min)
+*設定好 thermal cycler 後，同步解凍以下試劑*
+
+| 試劑 | 縮寫 | 用量 | 備注 |
+| :--- | :--- | :--- | :--- |
+| Rapid Barcodes (RB01-24) | **RB** | 1.5 µL / 樣本 | 不冷凍保存，解凍後混勻置冰上 |
+| Rapid Adapter | **RA** | 依後續步驟 | 不冷凍保存，混勻置冰上 |
+| AMPure XP Beads | **AXP** | 依樣本數 | 解凍後 vortex 充分混勻 |
+| Elution Buffer | **EB** | 15 µL / 24 barcodes | 解凍混勻 |
+| Adapter Buffer | **ADB** | 3.5 µL | 解凍後 vortex 混勻 |
+| Rapid Adapter (Step D) | **RA** | 1.5 µL | 先配 diluted RA |
+| Adapter Buffer (Step D) | **ADB** | 3.5 µL | |
+| **Total diluted RA** | | **5 µL** | |
+
+### 📝 步驟檢核表
+<div id="rbk-steps"></div>
+
+<div class="done-badge">
+  ✅ **Library 完成！**置冰上保存。上機前取 **12 µL** loading。
+</div>
+
+
+## 🧬 SQK-NBD114.24
+
+*預估操作時間：~140 min*
+*(⚠️ 注意：勿 vortex Ligase！)*
+
+### 🧊 Step A — 試劑準備 (~10 min)
+
+| 試劑 | 縮寫 | 用量 | 備注 |
+| :--- | :--- | :--- | :--- |
+| AMPure XP Beads | **AXP** | 依步驟 | Thaw + vortex 充分混勻 |
+| DNA Control Sample (diluted) | **DCS** | 1 µL / 樣本 | 105 µL EB 稀釋 1 管；多餘 -20°C 保存 |
+| Native Barcodes (NB01-24) | **NB** | 2.5 µL / 樣本 | RT 解凍，各自 pipette mix，置冰上 |
+| NEB Blunt/TA Ligase MM | **LMM** | 10 µL / 樣本 | RT 解凍，pipette mix 10 次，置冰上 |
+| EDTA (blue cap) | **EDTA** | 4 µL / 樣本 | RT 解凍，vortex，置冰上 |
+| Short Fragment Buffer | **SFB** | 700 µL × 2 wash | RT 解凍，vortex |
+| NEBNext Quick Ligation Buffer | **QLB** | 10 µL（步驟 D） | RT 解凍，vortex（可能有白色沉澱，混至澄清） |
+| Quick T4 DNA Ligase | **QLig** | 5 µL（步驟 D） | RT 解凍，pipette mix，**⚠️ 勿 vortex** |
+| Native Adapter | **NA** | 5 µL（步驟 D） | spin down，pipette mix，置冰上 |
+| Long/Short Fragment Buffer| **LFB/SFB** | 125 µL × 2（步驟 D） | 依讀長需求選擇 LFB 或 SFB |
+| Elution Buffer | **EB** | 15 µL（步驟 D） | RT 解凍，vortex |
+
+<div class="warn-badge">
+  📐 **投入量換算（200 fmol）**：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶<br>
+  • 快速模式（環境/糞便）→ 直接用 <strong>1,000 ng</strong><br>
+  • HMW gDNA (~20 kb) → 200 fmol ≈ <strong>2,600 ng</strong><br>
+  • Partial (~5 kb) → 200 fmol ≈ <strong>650 ng</strong><br>
+  • Degraded (~2 kb) → 200 fmol ≈ <strong>260 ng</strong>
+</div>
+
+### 📝 步驟檢核表
+<div id="nbd-steps"></div>
+
+<div class="done-badge">
+  ✅ **Library 完成！**置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。
+</div>
+
+:::
+
+<script>
+  let checkedSteps = {};
+
+  const rbkSteps = [
+    { id: 'r1', text: '設定 thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>', note: '', time: '' },
+    { id: 'r2', text: '每個樣本取 200 ng DNA，加 NFW 調整至 <strong>10 µL</strong>，置 0.2 mL PCR tube', note: 'Pipette mix 10-15 次，避免剪切；短暫離心', time: '' },
+    { id: 'r3', text: '每管加入對應的 <strong>Rapid Barcode 1.5 µL</strong>，pipette mix 10-15 次後短暫離心', note: '每個樣本使用唯一的 barcode。總體積 11.5 µL', time: '' },
+    { id: 'r4', text: 'Thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>，結束後立即置冰上', note: '', time: '⏱ 4 min' },
+    { id: 'r5', text: '短暫離心收集液體至管底', note: '', time: '' },
+    { id: 'r6', text: '將所有 barcoded sample <strong>合併至 2 mL LoBind tube</strong>（n×11.5 µL）', note: '4 samples → 46 µL ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', time: '' },
+    { id: 'r7', text: 'Vortex 充分混勻 AMPure XP Beads（AXP）', note: '使用前必須充分混勻，沉澱的 beads 會影響回收率', time: '' },
+    { id: 'r8', text: '加入<strong>等體積 AXP</strong>（n×11.5 µL），flick tube 混勻', note: '4 samples → 46 µL AXP ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', time: '' },
+    { id: 'r9', text: 'Hula mixer 室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'r10', text: '短暫離心，磁架吸附，移除上清液', note: '', time: '' },
+    { id: 'r11', text: '加入 <strong>1 mL 80% ethanol</strong>（新鮮配製），不打散 pellet，移除 ethanol', note: '', time: '' },
+    { id: 'r12', text: '重複 Ethanol wash', note: '', time: '' },
+    { id: 'r13', text: '短暫離心，磁架吸附，移除殘餘 ethanol，<strong>風乾 30 秒</strong>（勿過乾龜裂）', note: '', time: '' },
+    { id: 'r14', text: '取離磁架，加入 <strong>15 µL Elution Buffer（EB）</strong>輕彈管壁重懸 pellet', note: '24 barcodes → 15 µL；48 → 30 µL', time: '' },
+    { id: 'r15', text: '室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'r16', text: '磁架吸附至澄清，轉移<strong>全量 eluate</strong> 至新 1.5 mL LoBind tube', note: '⚠️ Qubit 量測 1 µL 確認濃度', time: '' },
+    { id: 'r17', text: '取 <strong>11 µL barcoded DNA</strong> 至新 1.5 mL LoBind tube', note: '', time: '' },
+    { id: 'r18', text: '加入 <strong>1 µL diluted Rapid Adapter（RA）</strong>，gentle flick 混勻，短暫離心', note: '', time: '' },
+    { id: 'r19', text: '室溫孵育 <strong>5 min</strong>（此時可同步進行 flow cell priming）', note: 'Library 置冰上直到上機', time: '⏱ 5 min' }
+  ];
+
+  const nbdSteps = [
+    { id: 'n1', text: '每個樣本依換算結果取 DNA，加 NFW 至 <strong>11.5 µL</strong>', note: '置 0.2 mL PCR tube', time: '' },
+    { id: 'n2', text: '每管加入 <strong>1 µL 稀釋 DCS</strong>', note: '若省略 DCS，以 1 µL NFW 補足', time: '' },
+    { id: 'n3', text: '每管加入 end-prep reagents：Reaction Buffer 1.75 µL + Enzyme Mix 0.75 µL = 總 15 µL', note: '建議先配 master mix 再分裝', time: '' },
+    { id: 'n4', text: '短暫離心', note: '', time: '' },
+    { id: 'n5', text: 'Thermal cycler：<strong>20°C 5 min → 65°C 5 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'n6', text: '轉移每個樣本至 <strong>1.5 mL LoBind tube</strong>', note: '', time: '' },
+    { id: 'n7', text: '每管加入 <strong>15 µL AXP</strong>，flick 混勻', note: '', time: '' },
+    { id: 'n8', text: 'Hula mixer 室溫孵育 <strong>5 min</strong>', note: '', time: '⏱ 5 min' },
+    { id: 'n9', text: '磁架吸附澄清，移除上清液', note: '', time: '' },
+    { id: 'n10', text: '加入 <strong>200 µL 80% ethanol</strong> wash，不打散 pellet，移除', note: '', time: '' },
+    { id: 'n11', text: '重複 ethanol wash', note: '', time: '' },
+    { id: 'n12', text: '短暫離心，磁架，移除殘餘 ethanol，<strong>風乾 30 秒</strong>', note: '', time: '' },
+    { id: 'n13', text: '加入 <strong>10 µL NFW</strong> 重懸，室溫孵育 2 min', note: '', time: '⏱ 2 min' },
+    { id: 'n14', text: '磁架吸附澄清，轉移 <strong>10 µL eluate</strong>', note: '⚠️ Qubit 量測 1 µL 各樣本濃度，計算等莫耳取量', time: '' },
+    { id: 'n15', text: '每管加入 end-prepped DNA <strong>7.5 µL</strong> + NB <strong>2.5 µL</strong> + LMM <strong>10 µL</strong>（總 20 µL）', note: '依序加入，各樣本使用唯一 NB', time: '' },
+    { id: 'n16', text: '輕柔 pipette 混勻，短暫離心', note: '', time: '' },
+    { id: 'n17', text: '室溫孵育 <strong>20 min</strong>', note: '', time: '⏱ 20 min' },
+    { id: 'n18', text: '每管加入 <strong>4 µL EDTA</strong>（blue cap），pipette mix，短暫離心', note: 'EDTA 終止 ligation 反應', time: '' },
+    { id: 'n19', text: '合併所有 barcoded sample 至 1.5 mL LoBind tube', note: '6 samples → 144 µL ／ 12 → 288 µL ／ 24 → 576 µL', time: '' },
+    { id: 'n20', text: '加入 <strong>0.4× AXP</strong>，pipette mix', note: '6 → 58 µL AXP ／ 12 → 115 µL ／ 24 → 230 µL', time: '' },
+    { id: 'n21', text: 'Hula mixer 室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'n22', text: '磁架吸附 5 min 至澄清，移除上清液', note: '', time: '' },
+    { id: 'n23', text: '加入 <strong>700 µL SFB</strong>，flick 重懸，spin，磁架，移除', note: '', time: '' },
+    { id: 'n24', text: '重複 SFB wash', note: '', time: '' },
+    { id: 'n25', text: '短暫離心，磁架，移除殘餘 buffer', note: '', time: '' },
+    { id: 'n26', text: '加入 <strong>35 µL NFW</strong> 輕彈重懸', note: '', time: '' },
+    { id: 'n27', text: '<strong>37°C 孵育 10 min</strong>，每 2 min 輕彈混合 10 秒', note: '', time: '⏱ 10 min' },
+    { id: 'n28', text: '磁架吸附澄清，轉移 <strong>35 µL eluate</strong>', note: '⚠️ Qubit 量測 1 µL 確認 library 濃度', time: '' },
+    { id: 'n29', text: '依序加入：DNA 30 µL + NA 5 µL + QLB 10 µL + QLig 5 µL（總 50 µL）', note: '⚠️ 勿 vortex Ligase', time: '' },
+    { id: 'n30', text: '輕柔 pipette mix，短暫離心', note: '', time: '' },
+    { id: 'n31', text: '室溫孵育 <strong>20 min</strong>', note: '', time: '⏱ 20 min' },
+    { id: 'n32', text: '加入 <strong>20 µL AXP</strong>，pipette mix', note: '', time: '' },
+    { id: 'n33', text: 'Hula mixer 室溫孵育 <strong>10 min</strong>', note: '', time: '⏱ 10 min' },
+    { id: 'n34', text: '磁架吸附，移除上清液', note: '', time: '' },
+    { id: 'n35', text: '加入 <strong>125 µL LFB 或 SFB</strong>，flick 重懸，spin，磁架，移除', note: '⚠️ 此步驟絕對不可用 ethanol！會破壞 sequencing adapter', time: '' },
+    { id: 'n36', text: '重複 LFB/SFB wash', note: '', time: '' },
+    { id: 'n37', text: '短暫離心，磁架，移除殘餘 buffer', note: '', time: '' },
+    { id: 'n38', text: '加入 <strong>15 µL Elution Buffer（EB）</strong>重懸', note: '', time: '' },
+    { id: 'n39', text: '<strong>37°C 孵育 10 min</strong>，每 2 min 輕彈混合', note: '', time: '⏱ 10 min' },
+    { id: 'n40', text: '磁架吸附澄清，轉移 <strong>15 µL eluate</strong>（最終 library）', note: '⚠️ Qubit 量測 1 µL；依片段長度計算 loading 量', time: '' }
+  ];
+
+  function toggleStep(id) {
+    checkedSteps[id] = !checkedSteps[id];
+    const el = document.getElementById(`step-${id}`);
+    const cb = document.getElementById(`cb-${id}`);
+    if (checkedSteps[id]) {
+      el.classList.add('checked');
+      cb.textContent = '✅';
+    } else {
+      el.classList.remove('checked');
+      cb.textContent = '⬜';
+    }
+  }
+
+  function renderSteps(containerId, stepsArray) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    let html = '';
+    stepsArray.forEach((s, idx) => {
+      let timeBadge = s.time ? `<span class="step-time">${s.time}</span>` : '';
+      let noteHtml = s.note ? `<div class="step-note">${s.note}</div>` : '';
+      html += `
+        <div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
+          <div class="step-cb" id="cb-${s.id}">⬜</div>
+          <div>
+            <span class="step-num">${idx + 1}.</span>${s.text} ${timeBadge}
+            ${noteHtml}
+          </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+  }
+
+  // Quarto 渲染完成後執行
+  document.addEventListener("DOMContentLoaded", function() {
+    renderSteps('rbk-steps', rbkSteps);
+    renderSteps('nbd-steps', nbdSteps);
+  });
+</script>
