@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Nanopore Sequencing Hub"
+  title: "Nanopore Hub"
   description: "QC Standards and Protocals"
   navbar:
     left:

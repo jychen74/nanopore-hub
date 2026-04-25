@@ -7,20 +7,6 @@
     "text": "Nanopore Sequencing Hub · v1.1 依據 ONT SQK-RBK114.24 / SQK-NBD114.24 官方 protocol 及 ONT Community 建議"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Nanopore Docs Hub",
-    "section": "",
-    "text": "Nanopore 定序技術文件中心。這裡收錄了最新的建庫 SOP 與品質判定標準。\n請由上方導覽列選擇您需要的說明文件。"
-  },
-  {
-    "objectID": "protocol_sop.html",
-    "href": "protocol_sop.html",
-    "title": "Library Prep SOP",
-    "section": "",
-    "text": "依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。\n\n🌱 SQK-RBK114.24🧬 SQK-NBD114.24\n\n\n預估操作時間：~55 min\n\n🧊 Step A — 試劑準備 (~5 min)\n設定好 thermal cycler 後，同步解凍以下試劑\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nRapid Barcodes (RB01-24)\nRB\n1.5 µL / 樣本\n不冷凍保存，解凍後混勻置冰上\n\n\nRapid Adapter\nRA\n依後續步驟\n不冷凍保存，混勻置冰上\n\n\nAMPure XP Beads\nAXP\n依樣本數\n解凍後 vortex 充分混勻\n\n\nElution Buffer\nEB\n15 µL / 24 barcodes\n解凍混勻\n\n\nAdapter Buffer\nADB\n3.5 µL\n解凍後 vortex 混勻\n\n\nRapid Adapter (Step D)\nRA\n1.5 µL\n先配 diluted RA\n\n\nAdapter Buffer (Step D)\nADB\n3.5 µL\n\n\n\nTotal diluted RA\n\n5 µL\n\n\n\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。上機前取 12 µL loading。\n\n\n\n\n預估操作時間：~140 min (⚠️ 注意：勿 vortex Ligase！)\n\n🧊 Step A — 試劑準備 (~10 min)\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nAMPure XP Beads\nAXP\n依步驟\nThaw + vortex 充分混勻\n\n\nDNA Control Sample (diluted)\nDCS\n1 µL / 樣本\n105 µL EB 稀釋 1 管；多餘 -20°C 保存\n\n\nNative Barcodes (NB01-24)\nNB\n2.5 µL / 樣本\nRT 解凍，各自 pipette mix，置冰上\n\n\nNEB Blunt/TA Ligase MM\nLMM\n10 µL / 樣本\nRT 解凍，pipette mix 10 次，置冰上\n\n\nEDTA (blue cap)\nEDTA\n4 µL / 樣本\nRT 解凍，vortex，置冰上\n\n\nShort Fragment Buffer\nSFB\n700 µL × 2 wash\nRT 解凍，vortex\n\n\nNEBNext Quick Ligation Buffer\nQLB\n10 µL（步驟 D）\nRT 解凍，vortex（可能有白色沉澱，混至澄清）\n\n\nQuick T4 DNA Ligase\nQLig\n5 µL（步驟 D）\nRT 解凍，pipette mix，⚠️ 勿 vortex\n\n\nNative Adapter\nNA\n5 µL（步驟 D）\nspin down，pipette mix，置冰上\n\n\nLong/Short Fragment Buffer\nLFB/SFB\n125 µL × 2（步驟 D）\n依讀長需求選擇 LFB 或 SFB\n\n\nElution Buffer\nEB\n15 µL（步驟 D）\nRT 解凍，vortex\n\n\n\n\n📐 投入量換算（200 fmol）：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶ • 快速模式（環境/糞便）→ 直接用 1,000 ng • HMW gDNA (~20 kb) → 200 fmol ≈ 2,600 ng • Partial (~5 kb) → 200 fmol ≈ 650 ng • Degraded (~2 kb) → 200 fmol ≈ 260 ng\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。"
-  },
-  {
     "objectID": "qc_standards.html#兩種模式對照",
     "href": "qc_standards.html#兩種模式對照",
     "title": "QC 判定標準",
@@ -54,5 +40,19 @@
     "title": "QC 判定標準",
     "section": "🔬 BSA（牛血清白蛋白）使用指引",
     "text": "🔬 BSA（牛血清白蛋白）使用指引\n\n作用機制：BSA 吸附腐植酸、單寧酸等酚類化合物及疏水性抑制物，降低其對 transposase / ligase 的抑制效果。對離子性抑制物（鹽類、EDTA）無效。\nTagmentation 反應（RBK）：終濃度 0.01 mg/mL\nFlow cell priming mix：終濃度 0.2 mg/mL (5 µL of 50 mg/mL per 1,170 µL FCF)\n\n(⚠️ 備註：使用 Invitrogen UltraPure BSA (AM2616)，不建議重組人血清白蛋白)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Nanopore Docs Hub",
+    "section": "",
+    "text": "Nanopore 定序技術文件。這裡收錄了最新的建庫 SOP 與品質判定標準。\n請由上方導覽列選擇您需要的說明文件。"
+  },
+  {
+    "objectID": "protocol_sop.html",
+    "href": "protocol_sop.html",
+    "title": "Library Prep SOP",
+    "section": "",
+    "text": "依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。\n\n🌱 SQK-RBK114.24🧬 SQK-NBD114.24\n\n\n預估操作時間：~55 min\n\n🧊 Step A — 試劑準備 (~5 min)\n設定好 thermal cycler 後，同步解凍以下試劑\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nRapid Barcodes (RB01-24)\nRB\n1.5 µL / 樣本\n不冷凍保存，解凍後混勻置冰上\n\n\nRapid Adapter\nRA\n依後續步驟\n不冷凍保存，混勻置冰上\n\n\nAMPure XP Beads\nAXP\n依樣本數\n解凍後 vortex 充分混勻\n\n\nElution Buffer\nEB\n15 µL / 24 barcodes\n解凍混勻\n\n\nAdapter Buffer\nADB\n3.5 µL\n解凍後 vortex 混勻\n\n\nRapid Adapter (Step D)\nRA\n1.5 µL\n先配 diluted RA\n\n\nAdapter Buffer (Step D)\nADB\n3.5 µL\n\n\n\nTotal diluted RA\n\n5 µL\n\n\n\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。上機前取 12 µL loading。\n\n\n\n\n預估操作時間：~140 min (⚠️ 注意：勿 vortex Ligase！)\n\n🧊 Step A — 試劑準備 (~10 min)\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nAMPure XP Beads\nAXP\n依步驟\nThaw + vortex 充分混勻\n\n\nDNA Control Sample (diluted)\nDCS\n1 µL / 樣本\n105 µL EB 稀釋 1 管；多餘 -20°C 保存\n\n\nNative Barcodes (NB01-24)\nNB\n2.5 µL / 樣本\nRT 解凍，各自 pipette mix，置冰上\n\n\nNEB Blunt/TA Ligase MM\nLMM\n10 µL / 樣本\nRT 解凍，pipette mix 10 次，置冰上\n\n\nEDTA (blue cap)\nEDTA\n4 µL / 樣本\nRT 解凍，vortex，置冰上\n\n\nShort Fragment Buffer\nSFB\n700 µL × 2 wash\nRT 解凍，vortex\n\n\nNEBNext Quick Ligation Buffer\nQLB\n10 µL（步驟 D）\nRT 解凍，vortex（可能有白色沉澱，混至澄清）\n\n\nQuick T4 DNA Ligase\nQLig\n5 µL（步驟 D）\nRT 解凍，pipette mix，⚠️ 勿 vortex\n\n\nNative Adapter\nNA\n5 µL（步驟 D）\nspin down，pipette mix，置冰上\n\n\nLong/Short Fragment Buffer\nLFB/SFB\n125 µL × 2（步驟 D）\n依讀長需求選擇 LFB 或 SFB\n\n\nElution Buffer\nEB\n15 µL（步驟 D）\nRT 解凍，vortex\n\n\n\n\n📐 投入量換算（200 fmol）：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶ • 快速模式（環境/糞便）→ 直接用 1,000 ng • HMW gDNA (~20 kb) → 200 fmol ≈ 2,600 ng • Partial (~5 kb) → 200 fmol ≈ 650 ng • Degraded (~2 kb) → 200 fmol ≈ 260 ng\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。"
   }
 ]

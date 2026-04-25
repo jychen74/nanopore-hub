@@ -2,6 +2,6 @@
 title: "Nanopore Docs Hub"
 ---
 
-Nanopore 定序技術文件中心。這裡收錄了最新的建庫 SOP 與品質判定標準。
+Nanopore 定序技術文件。這裡收錄了最新的建庫 SOP 與品質判定標準。
 
 請由上方導覽列選擇您需要的說明文件。
