@@ -3,29 +3,29 @@ project:
   output-dir: docs
 
 website:
-   navbar:
+  navbar:
     left:
       - href: index.qmd
-        text: "🏠 首頁"
+        text: "首頁"
       - href: qc_standards.qmd
-        text: "🧬 核酸 QC 標準"
-      - text: "🧫 建庫 SOP"
+        text: "核酸 QC 標準"
+      - text: "建庫 SOP"
         menu:
           - href: sop_rbk114.qmd
-            text: "🌱 SQK-RBK114.24（Rapid Barcoding · ~55 min）"
+            text: "SQK-RBK114.24（Rapid Barcoding · ~55 min）"
           - href: sop_nbd114.qmd
-            text: "🔬 SQK-NBD114.24（Native Barcoding · ~140 min）"
+            text: "SQK-NBD114.24（Native Barcoding · ~140 min）"
           - href: sop_lsk114.qmd
-            text: "🔗 SQK-LSK114（Ligation 單樣本 · ~80 min）"
+            text: "SQK-LSK114（Ligation 單樣本 · ~80 min）"
           - href: sop_rpb114.qmd
-            text: "🧪 SQK-RPB114.24（PCR Barcoding · 低量）"
+            text: "SQK-RPB114.24（PCR Barcoding · 低量）"
           - href: sop_rad114.qmd
-            text: "⚡ SQK-RAD114（Rapid 單樣本 · ~10 min）"
+            text: "SQK-RAD114（Rapid 單樣本 · ~10 min）"
           - href: sop_mab114.qmd
-            text: "🦠 SQK-MAB114.24（16S/ITS Amplicon）"
+            text: "SQK-MAB114.24（16S/ITS Amplicon）"
     right:
       - text: "↗ Nanopore QC 系統"
-        href: "https://script.google.com/macros/s/AKfycbyfA3Ihe9B6FdhQEMPoWXxtFoTz8_nBzqSdL2lJ-AzhV8VyZAKWINtFCU4u6ZpSmtCP/exec"
+        href: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
 
 format:
   html:
@@ -33,6 +33,7 @@ format:
     toc: true
     toc-title: "本頁目錄"
     toc-depth: 3
+    toc-location: right
     number-sections: false
     code-copy: true
     lang: zh-TW
