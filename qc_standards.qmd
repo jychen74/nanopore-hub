@@ -95,8 +95,8 @@ $$\text{ng} = 200 \times \text{片段大小 (bp)} \times 650 \div 10^6$$
 | A260/A280 > 2.10 | RNA 殘留 | RNase A 處理後重純化 |
 | A260/A230 < 1.50 | 腐植酸 / EDTA / 鹽類 | PowerClean Pro 或 AMPure XP × 2 |
 | A260/A230 1.50–1.70 | 輕微抑制物 | 加 BSA（RBK/RPB）；評估重純化（LSK/NBD）|
-| Qubit < 1 ng/µL | 提取失敗或樣本量太少 | 重新提取；換更靈敏 kit |
-| 凝膠條帶彌散 | DNA 降解 | 評估 RBK；若 < 4 kb 不適合 RPB |
+| Qubit < 1 ng/µL | 提取失敗或樣本量太少 | 核酸重抽；換更靈敏 kit |
+| 條帶拖尾彌散 | DNA 降解 | 評估 RBK；若 < 4 kb 不適合 RPB |
 | RPB 產量低 | PCR 效率差 | 增加 cycle 數（+2–4 cycles）；確認 DNA ≥ 4 kb |
 
 ---

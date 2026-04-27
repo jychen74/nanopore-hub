@@ -158,7 +158,7 @@
     "href": "qc_standards.html#常見問題與處理",
     "title": "核酸 QC 判定標準",
     "section": "🚫 常見問題與處理",
-    "text": "🚫 常見問題與處理\n\n\n\n\n\n\n\n\n問題\n可能原因\n處理方式\n\n\n\n\nA260/A280 &lt; 1.70\n蛋白質 / 酚類殘留\nAMPure XP 重純化；PowerClean Pro\n\n\nA260/A280 &gt; 2.10\nRNA 殘留\nRNase A 處理後重純化\n\n\nA260/A230 &lt; 1.50\n腐植酸 / EDTA / 鹽類\nPowerClean Pro 或 AMPure XP × 2\n\n\nA260/A230 1.50–1.70\n輕微抑制物\n加 BSA（RBK/RPB）；評估重純化（LSK/NBD）\n\n\nQubit &lt; 1 ng/µL\n提取失敗或樣本量太少\n重新提取；換更靈敏 kit\n\n\n凝膠條帶彌散\nDNA 降解\n評估 RBK；若 &lt; 4 kb 不適合 RPB\n\n\nRPB 產量低\nPCR 效率差\n增加 cycle 數（+2–4 cycles）；確認 DNA ≥ 4 kb"
+    "text": "🚫 常見問題與處理\n\n\n\n\n\n\n\n\n問題\n可能原因\n處理方式\n\n\n\n\nA260/A280 &lt; 1.70\n蛋白質 / 酚類殘留\nAMPure XP 重純化；PowerClean Pro\n\n\nA260/A280 &gt; 2.10\nRNA 殘留\nRNase A 處理後重純化\n\n\nA260/A230 &lt; 1.50\n腐植酸 / EDTA / 鹽類\nPowerClean Pro 或 AMPure XP × 2\n\n\nA260/A230 1.50–1.70\n輕微抑制物\n加 BSA（RBK/RPB）；評估重純化（LSK/NBD）\n\n\nQubit &lt; 1 ng/µL\n提取失敗或樣本量太少\n核酸重抽；換更靈敏 kit\n\n\n條帶拖尾彌散\nDNA 降解\n評估 RBK；若 &lt; 4 kb 不適合 RPB\n\n\nRPB 產量低\nPCR 效率差\n增加 cycle 數（+2–4 cycles）；確認 DNA ≥ 4 kb"
   },
   {
     "objectID": "qc_standards.html#模式-c-16sits-ampliconsqk-mab114.24-專用",

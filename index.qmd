@@ -38,6 +38,7 @@ title: "Nanopore Sequencing Hub 文件站"
     │   └── 否（單樣本）
     │       ├── 需要最長讀長 / 甲基化 → 🔗 SQK-LSK114（~80 min）
     │       └── 需要最快速 → ⚡ SQK-RAD114（~10 min）
+    
 ```
 
 ---
