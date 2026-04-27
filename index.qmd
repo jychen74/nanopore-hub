@@ -1,5 +1,5 @@
 ---
-title: "Nanopore Sequencing Hub 文件站"
+title: "Nanopore Sequencing Hub"
 ---
 
 ::: {.callout-note appearance="simple"}
@@ -9,49 +9,58 @@ title: "Nanopore Sequencing Hub 文件站"
 
 ## 📋 可用文件
 
-| 文件 | 適用情境 | DNA 投入量 | 時間 |
+| 文件 | 適用情境 | DNA 投入量 | 建庫時間 |
 |:---|:---|:---:|:---:|
-| [🧬 核酸 QC 判定標準](qc_standards.qmd) | 所有樣本建庫前 | — | — |
-| [🌱 SQK-RBK114.24](sop_rbk114.qmd) | 多樣本、環境 DNA、低品質 | 200 ng / 樣本 | ~55 min |
-| [🔬 SQK-NBD114.24](sop_nbd114.qmd) | 多樣本、高品質 gDNA、最長讀長 | 1,000 ng / 樣本 | ~140 min |
-| [🔗 SQK-LSK114](sop_lsk114.qmd) | 單樣本、最大化輸出量、甲基化 | 1,000 ng | ~80 min |
-| [🧪 SQK-RPB114.24](sop_rpb114.qmd) | **超低量（1–5 ng）**、eDNA | **1–5 ng / 樣本** | ~90 min |
-| [⚡ SQK-RAD114](sop_rad114.qmd) | 單樣本、最快速定序 | 100–150 ng | **~10 min** |
-| [🦠 SQK-MAB114.24](sop_mab114.qmd) | **16S 細菌 / ITS 真菌** 群落鑑定 | 10 ng / 樣本 | ~75 min + PCR |
+| [核酸 QC 判定標準](qc_standards.qmd) | 所有樣本建庫前 | — | — |
+| [SQK-RBK114.24](sop_rbk114.qmd) | 多樣本、環境 DNA、低品質樣本 | 200 ng / 樣本 | ~55 min |
+| [SQK-NBD114.24](sop_nbd114.qmd) | 多樣本、高品質 gDNA、最長讀長 | 1,000 ng / 樣本 | ~140 min |
+| [SQK-LSK114](sop_lsk114.qmd) | 單樣本、最大化輸出量、甲基化分析 | 1,000 ng | ~80 min |
+| [SQK-RPB114.24](sop_rpb114.qmd) | 超低量（1–5 ng）、eDNA、水體過濾膜 | **1–5 ng / 樣本** | ~90 min |
+| [SQK-RAD114](sop_rad114.qmd) | 單樣本、最快速定序 | 100–150 ng | **~10 min** |
+| [SQK-MAB114.24](sop_mab114.qmd) | 16S 細菌 / ITS 真菌群落鑑定 | 10 ng / 樣本 | ~75 min + PCR |
 
 ---
 
-## 🔬 Kit 選擇決策流程
+## Kit 選擇決策流程
 
-```
-目標是 16S/ITS 微生物群落鑑定？
-├── 是 → 🦠 SQK-MAB114.24（最多 24 樣本，EPI2ME wf-16s）
-└── 否（基因組 DNA 定序）
-    ├── 需要多樣本 multiplex？
-    │   ├── 是 → DNA 量 ≥ 200 ng / 樣本？
-    │   │         ├── 是 → HMW + 高純度？
-    │   │         │         ├── 是 → 🔬 SQK-NBD114.24（最長讀長）
-    │   │         │         └── 否 → 🌱 SQK-RBK114.24（耐受抑制物）
-    │   │         └── 否 → DNA ≥ 4 kb 且 1–5 ng 可用？
-    │   │                   ├── 是 → 🧪 SQK-RPB114.24（PCR 增幅）
-    │   │                   └── 否 → 重新提取
-    │   └── 否（單樣本）
-    │       ├── 需要最長讀長 / 甲基化 → 🔗 SQK-LSK114（~80 min）
-    │       └── 需要最快速 → ⚡ SQK-RAD114（~10 min）
-    
-```
+::: {.callout-note appearance="minimal"}
+**目標是 16S/ITS 微生物群落鑑定？**
+
+- **是** → SQK-MAB114.24（最多 24 樣本，搭配 EPI2ME wf-16s）
+- **否**（基因組 DNA 定序）→ 繼續以下判斷
+:::
+
+::: {.callout-note appearance="minimal"}
+**需要多樣本 multiplex（barcoding）？**
+
+**是** → DNA 量是否充足（≥ 200 ng / 樣本）？
+
+- 是 → 高品質 gDNA（HMW fragment，A260/A230 ≥ 2.0）？
+  - **是 → SQK-NBD114.24**（最長讀長，native DNA）
+  - **否 → SQK-RBK114.24**（耐受抑制物，環境/糞便樣本）
+- 否（DNA 量不足）→ DNA ≥ 4 kb 且可取到 1–5 ng？
+  - **是 → SQK-RPB114.24**（PCR 增幅，eDNA 適用）
+  - **否** → 重新提取或濃縮
+
+**否**（單樣本）→
+
+- 需要最長讀長 / 保留甲基化 → **SQK-LSK114**（~80 min）
+- 需要最快速 → **SQK-RAD114**（~10 min）
+:::
 
 ---
 
 ## 📊 Kit 比較一覽
 
-| | 🌱 RBK | 🔬 NBD | 🔗 LSK | 🧪 RPB | ⚡ RAD | 🦠 MAB |
+| 項目 | RBK114.24 | NBD114.24 | LSK114 | RPB114.24 | RAD114 | MAB114.24 |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **DNA 投入量** | 200 ng | 1,000 ng | 1,000 ng | **1–5 ng** | 100–150 ng | 10 ng |
-| **建庫時間** | ~55 min | ~140 min | ~80 min | ~90 min | **~10 min** | ~75 min+PCR |
-| **最多樣本** | 24 | 24 | 1 | 24 | 1 | 24 |
-| **PCR** | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| **讀長** | 中等 | **最長** | **最長** | < 5 kb | 中等 | Amplicon |
-| **甲基化** | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| **適用** | gDNA | gDNA | gDNA | eDNA | gDNA | **16S/ITS** |
-| **Early Access** | ❌ | ❌ | ❌ | ⚠️ | ⚠️ | ⚠️ |
+| **DNA 投入量** | 200 ng | 1,000 ng | 1,000 ng | 1–5 ng | 100–150 ng | 10 ng |
+| **建庫時間** | ~55 min | ~140 min | ~80 min | ~90 min | ~10 min | ~75 min + PCR |
+| **最多樣本數** | 24 | 24 | 1 | 24 | 1 | 24 |
+| **PCR** | 否 | 否 | 否 | 是 | 否 | 是（16S/ITS）|
+| **讀長** | 中等 | 最長 | 最長 | < 5 kb | 中等 | Amplicon 長度 |
+| **甲基化保留** | 是 | 是 | 是 | 否 | 是 | 否 |
+| **Fragment 要求** | Partial 可 | HMW 優先 | HMW 優先 | ≥ 4 kb 必要 | HMW 優先 | 無要求 |
+| **抑制物耐受** | 高 | 低 | 低 | 中 | 高 | 中 |
+| **適合樣本** | 環境、糞便 | 高品質 gDNA | 高品質 gDNA | eDNA、低量 | 單樣本快速 | 微生物群落 |
+| **Protocol 版本** | [revS 27 Oct 2025](https://nanoporetech.com/document/rapid-sequencing-gdna-barcoding-sqk-rbk114) | [revW 03 Oct 2025](https://nanoporetech.com/document/ligation-sequencing-gdna-native-barcoding-v14-sqk-nbd114-24) | [revAC 24 Sep 2025](https://nanoporetech.com/document/genomic-dna-by-ligation-sqk-lsk114) | [revH 06 Nov 2025 ⚠️](https://nanoporetech.com/document/rapid-sequencing-dna-v14-pcr-barcoding-sqk-rpb114-24) | [revQ 12 Dec 2025 ⚠️](https://nanoporetech.com/document/rapid-sequencing-sqk-rad114) | [revB 26 Nov 2025 ⚠️](https://nanoporetech.com/document/microbial-amplicon-barcoding-sequencing-for-16s-and-its-sqk-mab114-24) |

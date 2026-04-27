@@ -3,149 +3,119 @@ title: "核酸 QC 判定標準"
 ---
 
 ::: {.callout-note appearance="simple"}
-**Nanopore Sequencing Hub · v1.2**  
-依據 ONT SQK-RBK114.24 / SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24 / SQK-RAD114 官方 protocol
+依據 ONT SQK-RBK114.24 / SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24 / SQK-RAD114 / SQK-MAB114.24 官方 protocol
 :::
 
 ::: {.callout-warning}
-## NanoDrop vs Qubit：務必使用 Qubit 作為計算依據
+## NanoDrop 與 Qubit 的差異
 
 NanoDrop 同時偵測 RNA、短 fragment、游離核苷酸，**濃度值常高估 19–24%**（尤其降解樣本）。  
-本系統以 **Qubit dsDNA HS Assay 為準**計算投入量。  
-A260/A280 及 A260/A230 仍有參考價值，但不可作為投入量計算依據。
+本系統以 **Qubit dsDNA HS Assay 為準**計算投入量。A260/A280 及 A260/A230 仍有參考價值，但不作為投入量計算依據。
 :::
 
 ---
 
-## 🔬 兩種樣本模式對照
+## 三種樣本模式
 
 ::: {.panel-tabset}
 
-### 🧬 模式 A — gDNA（高品質基因組）
+### 模式 A — gDNA（高品質基因組）
 
 適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本
 
-| 指標 | PASS ✅ | WARNING ⚠️ | FAIL ❌ |
+| 指標 | PASS | WARNING | FAIL |
 |:---|:---|:---|:---|
 | **A260/A280** | 1.80–2.05 | 1.70–1.79（輕微蛋白污染） | < 1.70 或 > 2.10 |
-| **A260/A230** | ≥ 2.00 | 1.50–1.99（鹽/有機溶劑殘留） | < 1.50 |
+| **A260/A230** | ≥ 2.00 | 1.50–1.99（鹽類/有機溶劑殘留） | < 1.50 |
 | **Qubit 濃度** | ≥ 20 ng/µL | 5–19 ng/µL | < 5 ng/µL |
 | **Fragment** | HMW（> 10 kb） | Partial（5–10 kb） | Degraded（< 5 kb） |
 
-**最低投入量（依 kit 選擇）：**
+**最低投入量（依 kit）：**
 
-- **SQK-LSK114**：1,000 ng（200 fmol，依片段換算）
-- **SQK-NBD114.24**：1,000 ng / 樣本（200 fmol，最多 24 樣本）
-- **SQK-RBK114.24**：200 ng / 樣本（最多 24 樣本）
-- **SQK-RAD114**：100–150 ng（單樣本）
+- SQK-LSK114：1,000 ng（200 fmol，依片段大小換算）
+- SQK-NBD114.24：1,000 ng / 樣本（最多 24 樣本）
+- SQK-RBK114.24：200 ng / 樣本（最多 24 樣本）
+- SQK-RAD114：100–150 ng（單樣本）
 
-**Kit 推薦：** 🥇 LSK114（單樣本，最大輸出） ／ 🥇 NBD114.24（多樣本，最長讀長） ／ 🥈 RBK114.24（快速）
+**建議優先順序：** LSK114（單樣本，最大輸出）/ NBD114.24（多樣本，最長讀長）/ RBK114.24（快速備選）
 
 ---
 
-### 🌱 模式 B — 環境 / 糞便（Metagenomics）
+### 模式 B — 環境 / 糞便（Metagenomics）
 
 適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本
 
-| 指標 | PASS ✅ | WARNING ⚠️ | FAIL ❌ |
+| 指標 | PASS | WARNING | FAIL |
 |:---|:---|:---|:---|
-| **A260/A280** | 1.60–2.20 | 1.40–1.59（加 BSA 可緩解） | < 1.40 |
+| **A260/A280** | 1.60–2.20 | 1.40–1.59 | < 1.40 |
 | **A260/A230** | ≥ 1.70 | 1.20–1.69（腐植酸殘留） | < 1.20 |
 | **Qubit 濃度** | ≥ 20 ng/µL | 3–19 ng/µL | < 3 ng/µL |
 | **Fragment** | HMW 或 Partial | Degraded（讀長縮短） | 嚴重降解 |
 
 **最低投入量：**
 
-- **SQK-RBK114.24**：200 ng / 樣本（最多 24 樣本）
-- **SQK-RPB114.24**：**1–5 ng / 樣本**（需 ≥ 4 kb，PCR 增幅）
+- SQK-RBK114.24：200 ng / 樣本
+- SQK-RPB114.24：1–5 ng / 樣本（需 ≥ 4 kb，PCR 增幅）
 
-**Kit 推薦：** 🥇 RBK114.24（常規量） ／ 🥇 RPB114.24（超低量 eDNA）
+**建議優先順序：** RBK114.24（常規量）/ RPB114.24（超低量 eDNA）
 
 ::: {.callout-tip}
-## 抑制物殘留的處理
 A260/A230 < 1.7 時，建議在 tagmentation reaction 中加入 **BSA（終濃度 0.01–0.2 mg/mL）** 可部分緩解腐植酸抑制效果。
 :::
 
+---
+
+### 模式 C — 16S/ITS Amplicon（MAB114.24）
+
+適用：微生物群落分析，input DNA 僅作為 PCR template，QC 要求較寬鬆。
+
+| 指標 | 建議值 | 注意事項 |
+|:---|:---|:---|
+| **A260/A280** | ≥ 1.8 | < 1.8 可能影響 PCR 效率，但耐受度高於 ligation |
+| **A260/A230** | ≥ 1.5 | < 1.5 建議重純化；腐植酸會抑制 LongAmp 聚合酶 |
+| **Qubit 濃度** | 可定量即可 | 只需確認能取到 10 ng |
+| **DNA 投入量** | 10 ng / 樣本 | < 12 樣本時 Barcoding 前取 20 ng amplicon |
+| **Fragment 長度** | 無要求 | PCR 擴增目標片段，基因組完整性不影響結果 |
+
+**判斷邏輯：**
+
+- A260/A230 ≥ 1.5 → 直接進 PCR
+- A260/A230 < 1.5 → AMPure XP 重純化後再嘗試；若 PCR 產量仍低，可增加 cycles（+3–5）
+
 :::
 
 ---
 
-## 📊 Fragment Status 判定（凝膠電泳）
+## Fragment Status 判定（凝膠電泳）
 
-| 等級 | 判定標準 | 對應 LSK/NBD fmol 換算 |
+| 等級 | 判定標準 | LSK114 / NBD114.24 fmol 換算 |
 |:---|:---|:---|
-| **HMW** | 條帶在 > 10 kb，無明顯瀰散 | 200 fmol ≈ 2,600 ng（20 kb）|
-| **Partial** | 主條帶在 5–10 kb | 200 fmol ≈ 650–1,300 ng |
-| **Degraded** | 條帶彌散，主要在 < 5 kb | 200 fmol ≈ 260 ng（2 kb）|
+| HMW | 條帶在 > 10 kb，無明顯瀰散 | 200 fmol ≈ 2,600 ng（以 20 kb 計）|
+| Partial | 主條帶在 5–10 kb | 200 fmol ≈ 650–1,300 ng |
+| Degraded | 條帶彌散，主要在 < 5 kb | 200 fmol ≈ 260 ng（以 2 kb 計）|
 
-::: {.callout-note}
-## fmol 換算公式（LSK114 / NBD114.24 適用）
+**fmol 換算公式（LSK114 / NBD114.24）：**
+
 $$\text{ng} = 200 \times \text{片段大小 (bp)} \times 650 \div 10^6$$
 
-不確定片段大小時，直接用 **1,000 ng**（保守估計）。
-:::
-
----
-
-## 🚫 常見問題與處理
-
-| 問題 | 可能原因 | 處理方式 |
-|:---|:---|:---|
-| A260/A280 < 1.70 | 蛋白質 / 酚類殘留 | AMPure XP 重純化；PowerClean Pro |
-| A260/A280 > 2.10 | RNA 殘留 | RNase A 處理後重純化 |
-| A260/A230 < 1.50 | 腐植酸 / EDTA / 鹽類 | PowerClean Pro 或 AMPure XP × 2 |
-| A260/A230 1.50–1.70 | 輕微抑制物 | 加 BSA（RBK/RPB）；評估重純化（LSK/NBD）|
-| Qubit < 1 ng/µL | 提取失敗或樣本量太少 | 核酸重抽；換更靈敏 kit |
-| 條帶拖尾彌散 | DNA 降解 | 評估 RBK；若 < 4 kb 不適合 RPB |
-| RPB 產量低 | PCR 效率差 | 增加 cycle 數（+2–4 cycles）；確認 DNA ≥ 4 kb |
-
----
-
-## 🦠 模式 C — 16S/ITS Amplicon（SQK-MAB114.24 專用）
-
-::: {.callout-note appearance="simple"}
-MAB114.24 的 input 是用來做 **PCR 擴增**（非直接建庫），QC 標準較寬鬆，但 PCR 效率仍受抑制物影響。
-:::
-
-| 指標 | 建議值 ✅ | 注意 ⚠️ |
-|:---|:---|:---|
-| **A260/A280** | ≥ 1.8 | < 1.8 可能影響 PCR 效率；但 PCR 耐受度高於 ligation |
-| **A260/A230** | ≥ 2.0 | < 1.5 建議重純化；腐植酸會抑制 LongAmp 聚合酶 |
-| **Qubit 濃度** | 可定量即可 | 只需確認能取到 10 ng |
-| **DNA 投入量** | **10 ng / 樣本** | PCR 前 input；< 12 樣本建議 20 ng amplicon 進 barcoding |
-| **Fragment 長度** | 不要求 HMW | PCR 會把目標片段擴增出來；基因組完整性不影響結果 |
-
-**與其他 kit 的關鍵差異：**
-
-- MAB114.24 不需要 HMW DNA，降解樣本也可以（目標是 16S/ITS 短片段）
-- 抑制物（腐植酸、EDTA）主要影響 PCR 效率，而非 adapter ligation
-- 若 PCR 產量偏低，先檢查抑制物再考慮增加 PCR cycle 數
-
-**QC 後的判斷邏輯：**
-
-```
-DNA 可定量（Qubit）且 A260/A230 ≥ 1.5？
-├── 是 → 直接進 PCR（MAB114.24 Step B）
-└── 否 → 建議 AMPure XP 重純化後再嘗試
-         若重純化後仍低，可嘗試增加 PCR cycles（+3–5 cycles）
-```
+不確定片段大小時，直接用 1,000 ng（保守估計）。
 
 ---
 
 ## ⚗️ 六種 Kit 完整比較（含 MAB114.24）
 
-| 比較項目 | SQK-LSK114 | SQK-NBD114.24 | SQK-RBK114.24 | SQK-RPB114.24 | SQK-RAD114 | SQK-MAB114.24 |
+| 項目 | RBK114.24 | NBD114.24 | LSK114 | RPB114.24 | RAD114 | MAB114.24 |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **建庫方式** | Ligation | Ligation + NB | Tagmentation | Tagmentation + PCR | Tagmentation | PCR + Amplicon BC |
-| **DNA 投入量** | 1,000 ng | 1,000 ng | 200 ng | **1–5 ng** | 100–150 ng | **10 ng** |
-| **建庫時間** | ~80 min | ~140 min | ~55 min | ~90 min | **~10 min** | ~75 min + PCR |
-| **最多樣本數** | 1 | 24 | 24 | 24 | 1 | 24 |
-| **PCR** | ❌ | ❌ | ❌ | ✅ | ❌ | ✅（16S/ITS）|
-| **讀長** | **最長** | **最長** | 中等 | < 5 kb | 中等 | Amplicon 長度 |
-| **甲基化保留** | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| **Fragment 要求** | HMW 優先 | HMW 優先 | Partial 可 | ≥ 4 kb 必要 | HMW 優先 | **無要求** |
-| **抑制物耐受** | 低 | 低 | 高 | 中 | 高 | 中（PCR 耐受）|
-| **純度要求（A260/A230）** | ≥ 2.0 | ≥ 2.0 | ≥ 1.5 | ≥ 1.5 | ≥ 1.8 | ≥ 1.5 |
-| **適合樣本** | 高品質 gDNA | 高品質 gDNA | 環境、糞便 | eDNA、低量 | 單樣本快速 | **微生物群落** |
-| **下游分析** | 自定義 | 自定義 | 自定義 | 自定義 | 自定義 | EPI2ME wf-16s |
-| **Early Access** | ❌ | ❌ | ❌ | ⚠️ | ⚠️ | ⚠️ |
+| **建庫方式** | Tagmentation | Ligation + NB | Ligation | Tagmentation + PCR | Tagmentation | PCR + Amplicon BC |
+| **DNA 投入量** | 200 ng | 1,000 ng | 1,000 ng | 1–5 ng | 100–150 ng | 10 ng |
+| **建庫時間** | ~55 min | ~140 min | ~80 min | ~90 min | ~10 min | ~75 min + PCR |
+| **最多樣本數** | 24 | 24 | 1 | 24 | 1 | 24 |
+| **PCR** | 否 | 否 | 否 | 是 | 否 | 是 |
+| **讀長** | 中等 | 最長 | 最長 | < 5 kb | 中等 | Amplicon 長度 |
+| **甲基化保留** | 是 | 是 | 是 | 否 | 是 | 否 |
+| **Fragment 要求** | Partial 可 | HMW 優先 | HMW 優先 | ≥ 4 kb 必要 | HMW 優先 | 無要求 |
+| **抑制物耐受** | 高 | 低 | 低 | 中 | 高 | 中 |
+| **純度 A260/A230** | ≥ 1.5 | ≥ 2.0 | ≥ 2.0 | ≥ 1.5 | ≥ 1.8 | ≥ 1.5 |
+| **適合樣本** | 環境、糞便 | 高品質 gDNA | 高品質 gDNA | eDNA、低量 | 單樣本快速 | 微生物群落 |
+| **EPI2ME workflow** | wf-metagenomics / wf-bacterial-genomes | wf-metagenomics / wf-bacterial-genomes | wf-bacterial-genomes | wf-metagenomics | wf-bacterial-genomes | **wf-16s**（指定）|
+| **Protocol 版本** | [revS 27 Oct 2025](https://nanoporetech.com/document/rapid-sequencing-gdna-barcoding-sqk-rbk114) | [revW 03 Oct 2025](https://nanoporetech.com/document/ligation-sequencing-gdna-native-barcoding-v14-sqk-nbd114-24) | [revAC 24 Sep 2025](https://nanoporetech.com/document/genomic-dna-by-ligation-sqk-lsk114) | [revH 06 Nov 2025 ⚠️](https://nanoporetech.com/document/rapid-sequencing-dna-v14-pcr-barcoding-sqk-rpb114-24) | [revQ 12 Dec 2025 ⚠️](https://nanoporetech.com/document/rapid-sequencing-sqk-rad114) | [revB 26 Nov 2025 ⚠️](https://nanoporetech.com/document/microbial-amplicon-barcoding-sequencing-for-16s-and-its-sqk-mab114-24) |
