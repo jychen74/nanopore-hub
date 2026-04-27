@@ -1,5 +1,8 @@
 ---
 title: "核酸 QC 判定標準"
+format: 
+  html:
+    toc: false
 ---
 
 ::: {.callout-note appearance="simple"}

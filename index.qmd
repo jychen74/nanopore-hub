@@ -1,5 +1,9 @@
 ---
 title: "Nanopore Sequencing Hub"
+
+format: 
+  html:
+    toc: false
 ---
 
 ::: {.callout-note appearance="simple"}
