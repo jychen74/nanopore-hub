@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" xml:lang="zh-TW"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -57,17 +57,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "沒有結果",
+    "search-matching-documents-text": "符合的文件",
+    "search-copy-link-title": "複製搜尋連結",
+    "search-hide-matches-text": "隱藏其他符合的結果",
+    "search-more-match-text": "更多符合結果",
+    "search-more-matches-text": "更多符合結果",
+    "search-clear-button-title": "清除",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "送出",
+    "search-label": "搜尋"
   }
 }</script>
 
@@ -80,23 +80,48 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="搜尋"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="切換導航列" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Nanopore-hub</span></a>
+<span class="menu-text">🏠 首頁</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./qc_standards.html"> 
-<span class="menu-text">Nucleotide QC</span></a>
+<span class="menu-text">🧬 核酸 QC 標準</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sop" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🧫 建庫 SOP</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sop">    
+        <li>
+    <a class="dropdown-item" href="./sop_rbk114.html">
+ <span class="dropdown-text">🌱 SQK-RBK114.24（Rapid Barcoding · ~55 min）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_nbd114.html">
+ <span class="dropdown-text">🔬 SQK-NBD114.24（Native Barcoding · ~140 min）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_rpb114.html">
+ <span class="dropdown-text">🧪 SQK-RPB114.24（PCR Barcoding · 1–5 ng）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_rad114.html">
+ <span class="dropdown-text">⚡ SQK-RAD114（Rapid 單樣本 · ~10 min）</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./protocol_sop.html" aria-current="page"> 
-<span class="menu-text">Library Prep SOP</span></a>
+    <a class="nav-link" href="https://script.google.com/macros/s/AKfycbyfA3Ihe9B6FdhQEMPoWXxtFoTz8_nBzqSdL2lJ-AzhV8VyZAKWINtFCU4u6ZpSmtCP/exec"> 
+<span class="menu-text">↗ 回Nanopore QC系統</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -470,12 +495,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "已複製");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "已複製");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

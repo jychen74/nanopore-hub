@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" xml:lang="zh-TW"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Nanopore Docs Hub</title>
+<title>Nanopore Sequencing Hub 文件站</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -57,17 +57,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "沒有結果",
+    "search-matching-documents-text": "符合的文件",
+    "search-copy-link-title": "複製搜尋連結",
+    "search-hide-matches-text": "隱藏其他符合的結果",
+    "search-more-match-text": "更多符合結果",
+    "search-more-matches-text": "更多符合結果",
+    "search-clear-button-title": "清除",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "送出",
+    "search-label": "搜尋"
   }
 }</script>
 
@@ -80,23 +80,48 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="搜尋"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="切換導航列" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Nanopore-hub</span></a>
+<span class="menu-text">🏠 首頁</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./qc_standards.html"> 
-<span class="menu-text">Nucleotide QC</span></a>
+<span class="menu-text">🧬 核酸 QC 標準</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sop" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🧫 建庫 SOP</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sop">    
+        <li>
+    <a class="dropdown-item" href="./sop_rbk114.html">
+ <span class="dropdown-text">🌱 SQK-RBK114.24（Rapid Barcoding · ~55 min）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_nbd114.html">
+ <span class="dropdown-text">🔬 SQK-NBD114.24（Native Barcoding · ~140 min）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_rpb114.html">
+ <span class="dropdown-text">🧪 SQK-RPB114.24（PCR Barcoding · 1–5 ng）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_rad114.html">
+ <span class="dropdown-text">⚡ SQK-RAD114（Rapid 單樣本 · ~10 min）</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./protocol_sop.html"> 
-<span class="menu-text">Library Prep SOP</span></a>
+    <a class="nav-link" href="https://script.google.com/macros/s/AKfycbyfA3Ihe9B6FdhQEMPoWXxtFoTz8_nBzqSdL2lJ-AzhV8VyZAKWINtFCU4u6ZpSmtCP/exec"> 
+<span class="menu-text">↗ 回Nanopore QC系統</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -109,15 +134,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">本頁目錄</h2>
+   
+  <ul>
+  <li><a href="#可用文件" id="toc-可用文件" class="nav-link active" data-scroll-target="#可用文件">📋 可用文件</a></li>
+  <li><a href="#kit-選擇決策流程" id="toc-kit-選擇決策流程" class="nav-link" data-scroll-target="#kit-選擇決策流程">🔬 Kit 選擇決策流程</a></li>
+  <li><a href="#kit-比較一覽" id="toc-kit-比較一覽" class="nav-link" data-scroll-target="#kit-比較一覽">📊 Kit 比較一覽</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Nanopore Docs Hub</h1>
+<h1 class="title">Nanopore Sequencing Hub 文件站</h1>
 </div>
 
 
@@ -134,10 +167,145 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Nanopore 定序技術文件。這裡收錄了最新的建庫 SOP 與品質判定標準。</p>
-<p>請由上方導覽列選擇您需要的說明文件。</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>本站收錄依據官方文件摘要的 Nanopore 定序的操作標準與建庫 SOP。<br>
+<strong>實驗記錄請至主系統操作</strong>，本站為純說明文件。</p>
+</div>
+</div>
+</div>
+<section id="可用文件" class="level2">
+<h2 class="anchored" data-anchor-id="可用文件">📋 可用文件</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">文件</th>
+<th style="text-align: left;">適用情境</th>
+<th style="text-align: center;">DNA 投入量</th>
+<th style="text-align: center;">時間</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="./qc_standards.html">🧬 核酸 QC 判定標準</a></td>
+<td style="text-align: left;">所有樣本建庫前</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="./sop_rbk114.html">🌱 SQK-RBK114.24</a></td>
+<td style="text-align: left;">多樣本、環境 DNA、低品質</td>
+<td style="text-align: center;">200 ng / 樣本</td>
+<td style="text-align: center;">~55 min</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="./sop_nbd114.html">🔬 SQK-NBD114.24</a></td>
+<td style="text-align: left;">高品質 gDNA、最長讀長</td>
+<td style="text-align: center;">1,000 ng / 樣本</td>
+<td style="text-align: center;">~140 min</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="./sop_rpb114.html">🧪 SQK-RPB114.24</a></td>
+<td style="text-align: left;"><strong>超低量（1–5 ng）</strong>、eDNA</td>
+<td style="text-align: center;"><strong>1–5 ng / 樣本</strong></td>
+<td style="text-align: center;">~90 min</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="./sop_rad114.html">⚡ SQK-RAD114</a></td>
+<td style="text-align: left;">單樣本、最快速</td>
+<td style="text-align: center;">100–150 ng</td>
+<td style="text-align: center;"><strong>~10 min</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="kit-選擇決策流程" class="level2">
+<h2 class="anchored" data-anchor-id="kit-選擇決策流程">🔬 Kit 選擇決策流程</h2>
+<pre><code>需要多樣本 multiplex？
+├── 是
+│   └── DNA 量是否充足（≥ 200 ng / 樣本）？
+│       ├── 是 → 高品質 gDNA（A260/A280 ≥ 1.8，HMW fragment）？
+│       │         ├── 是 → 🔬 SQK-NBD114.24（最長讀長）
+│       │         └── 否 → 🌱 SQK-RBK114.24（耐受抑制物）
+│       └── 否 → DNA 是否 ≥ 4 kb，且有 1–5 ng？
+│                 ├── 是 → 🧪 SQK-RPB114.24（PCR 增幅）
+│                 └── 否 → 重新提取或濃縮
+└── 否（單樣本）
+    └── ⚡ SQK-RAD114（~10 min，最快）</code></pre>
+<hr>
+</section>
+<section id="kit-比較一覽" class="level2">
+<h2 class="anchored" data-anchor-id="kit-比較一覽">📊 Kit 比較一覽</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">🧪 RBK114.24</th>
+<th style="text-align: center;">🧪 NBD114.24</th>
+<th style="text-align: center;">🧪 RPB114.24</th>
+<th style="text-align: center;">🧪 RAD114</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>DNA 投入量</strong></td>
+<td style="text-align: center;">200 ng</td>
+<td style="text-align: center;">400 ~ 1000 ng</td>
+<td style="text-align: center;"><strong>1–5 ng</strong></td>
+<td style="text-align: center;">100–150 ng</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>建庫時間</strong></td>
+<td style="text-align: center;">~55 min</td>
+<td style="text-align: center;">~140 min</td>
+<td style="text-align: center;">~90 min</td>
+<td style="text-align: center;"><strong>~10 min</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>最多樣本數</strong></td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">1（無 barcode）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PCR</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>讀長</strong></td>
+<td style="text-align: center;">中等</td>
+<td style="text-align: center;"><strong>最長</strong></td>
+<td style="text-align: center;">&lt; 5 kb</td>
+<td style="text-align: center;">中等</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>對抑制物耐受</strong></td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">低</td>
+<td style="text-align: center;">中</td>
+<td style="text-align: center;">高</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Early Access</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⚠️ 是</td>
+<td style="text-align: center;">⚠️ 是</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -165,12 +333,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "已複製");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "已複製");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -1,52 +1,143 @@
 [
   {
-    "objectID": "qc_standards.html",
-    "href": "qc_standards.html",
-    "title": "QC 判定標準",
+    "objectID": "sop_rpb114.html",
+    "href": "sop_rpb114.html",
+    "title": "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）",
     "section": "",
-    "text": "Nanopore Sequencing Hub · v1.1 依據 ONT SQK-RBK114.24 / SQK-NBD114.24 官方 protocol 及 ONT Community 建議"
+    "text": "警告⚠️ Early Access 產品\n\n\n\n目前版本：RPB_9191_v114_revH_06Nov2025。Barcode Primers 有兩種格式（plate 1 µM / vial 10 µM），用量不同，請確認你的 kit 格式。"
   },
   {
-    "objectID": "qc_standards.html#兩種模式對照",
-    "href": "qc_standards.html#兩種模式對照",
-    "title": "QC 判定標準",
-    "section": "🔬 兩種模式對照",
-    "text": "🔬 兩種模式對照\n\n🧬 模式 A — gDNA（高品質基因組）🌱 模式 B — 環境 / 糞便（Metagenomics）\n\n\n\n\n\n\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.80–2.05\n1.70–1.79 (輕微蛋白污染)\n&lt; 1.70 或 &gt; 2.10\n\n\nA260/A230\n≥ 2.00\n1.50–1.99 (鹽/有機溶劑)\n&lt; 1.50\n\n\nQubit 濃度\n≥ 20 ng/µL\n5–19 ng/µL\n&lt; 5 ng/µL\n\n\nFragment\nHMW (&gt; 10 kb)\nPartial (5–10 kb)\nDegraded (&lt; 5 kb)\n\n\n最低投入量\n\n\n\n\n\n\nKit 推薦：🥇 NBD114.24 優先 / 🥈 RBK114.24 備選\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.60–2.20\n1.40–1.59 (加 BSA)\n&lt; 1.40\n\n\nA260/A230\n≥ 1.70\n1.20–1.69 (腐植酸殘留)\n&lt; 1.20\n\n\nQubit 濃度\n≥ 20 ng/µL\n3–19 ng/µL\n&lt; 3 ng/µL\n\n\nFragment\nHMW 或 Partial\nDegraded (讀長縮短)\n嚴重降解\n\n\n最低投入量\n\n\n\n\n\n\nKit 推薦：🥇 RBK114.24 強烈優先 / ❌ NBD114.24 不建議（ligation 對抑制物敏感）"
+    "objectID": "sop_rpb114.html#kit-特性",
+    "href": "sop_rpb114.html#kit-特性",
+    "title": "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）",
+    "section": "📋 Kit 特性",
+    "text": "📋 Kit 特性\n\n\n\n項目\n規格\n\n\n\n\nDNA 投入量\n1–5 ng / 樣本（⚠️ 需 ≥ 4 kb 長度）\n\n\n建庫時間\n~90 min\n\n\nBarcoding\n最多 24 個樣本（RLB01–24 或 RPB01–24）\n\n\nPCR\n✅ 有（LongAmp Hot Start，預設 14 cycles）\n\n\nFlow cell\nR10.4.1（FLO-MIN114）\n\n\n適合樣本\neDNA、水體過濾膜、低量環境樣本\n\n\n注意事項\nPCR 產物 &lt; 5 kb；不適合長讀長應用"
+  },
+  {
+    "objectID": "sop_rpb114.html#step-a-試劑準備",
+    "href": "sop_rpb114.html#step-a-試劑準備",
+    "title": "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）",
+    "section": "Step A — 試劑準備",
+    "text": "Step A — 試劑準備\nThermal cycler 程式（提前設定兩個程式）：\n程式 1 — Tagmentation：30°C 2 min → 80°C 2 min（hold 4°C）\n程式 2 — PCR：\n  95°C 3 min × 1\n  [95°C 15 sec → 56°C 15 sec → 65°C 6 min] × 14 cycles\n  65°C 6 min × 1\n  4°C hold\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n保存\n解凍方式\n\n\n\n\nRapid Barcode Primers（RLB01–24 @ 10 µM 或 RPB01–24 @ 1 µM）\nRLB/RPB\n-20°C\nRT 解凍，pipette mix，置冰上\n\n\nFragmentation Mix\nFRM\n室溫\n無需解凍，pipette mix\n\n\nRapid Adapter\nRA\n室溫\n無需解凍，pipette mix\n\n\nAdapter Buffer\nADB\n-20°C\nRT 解凍，vortex\n\n\nAMPure XP Beads\nAXP\n4°C\n使用前充分混勻\n\n\nElution Buffer\nEB\n-20°C\nRT 解凍，vortex\n\n\nEDTA\nEDTA\n-20°C\nRT 解凍，vortex\n\n\nLongAmp Hot Start Taq 2X MM\n—\n-20°C\nRT 解凍，pipette mix"
+  },
+  {
+    "objectID": "sop_rpb114.html#step-b-tagmentation",
+    "href": "sop_rpb114.html#step-b-tagmentation",
+    "title": "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）",
+    "section": "Step B — Tagmentation",
+    "text": "Step B — Tagmentation"
+  },
+  {
+    "objectID": "sop_rpb114.html#step-c-pcr-增幅",
+    "href": "sop_rpb114.html#step-c-pcr-增幅",
+    "title": "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）",
+    "section": "Step C — PCR 增幅",
+    "text": "Step C — PCR 增幅\n\n\n\n\n\n\n註釋\n\n\n\nBarcode Primer 用量依 kit 格式不同：\n\n\n\n格式\nTagmented DNA\nNFW\nBarcode Primers\nLongAmp 2X MM\nTotal\n\n\n\n\nPlate（1 µM）\n4 µL\n11 µL\n10 µL\n25 µL\n50 µL\n\n\nVial（10 µM）\n4 µL\n20 µL\n1 µL\n25 µL\n50 µL"
+  },
+  {
+    "objectID": "sop_rpb114.html#step-d-pcr-clean-up-adapter-ligation",
+    "href": "sop_rpb114.html#step-d-pcr-clean-up-adapter-ligation",
+    "title": "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）",
+    "section": "Step D — PCR Clean-up + Adapter Ligation",
+    "text": "Step D — PCR Clean-up + Adapter Ligation\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n✅ Library 完成！ 置冰上，上機取 12 µL loading。建議 Qubit 確認濃度 ≥ 5 ng/µL。"
+  },
+  {
+    "objectID": "sop_rad114.html",
+    "href": "sop_rad114.html",
+    "title": "SQK-RAD114 · Rapid Sequencing（單樣本）",
+    "section": "",
+    "text": "警告⚠️ Early Access 產品\n\n\n\n目前版本：RSE_9177_v114_revQ_12Dec2025。\n建議首次使用先以 Lambda DNA 控制組熟悉流程。"
+  },
+  {
+    "objectID": "sop_rad114.html#kit-特性",
+    "href": "sop_rad114.html#kit-特性",
+    "title": "SQK-RAD114 · Rapid Sequencing（單樣本）",
+    "section": "📋 Kit 特性",
+    "text": "📋 Kit 特性\n\n\n\n項目\n規格\n\n\n\n\nDNA 投入量\n100–150 ng gDNA\n\n\n建庫時間\n~10 min（最快）\n\n\nBarcoding\n❌ 無（單樣本）\n\n\nPCR\n❌ 無\n\n\nFlow cell\nR10.4.1（FLO-MIN114）\n\n\n適合樣本\n單樣本快速定序、gDNA QC、探索性實驗\n\n\n注意事項\n無法 multiplex；Adapter 後立即上機效果最佳"
+  },
+  {
+    "objectID": "sop_rad114.html#step-a-試劑準備",
+    "href": "sop_rad114.html#step-a-試劑準備",
+    "title": "SQK-RAD114 · Rapid Sequencing（單樣本）",
+    "section": "Step A — 試劑準備",
+    "text": "Step A — 試劑準備\n所有試劑室溫保存，無需解凍：\n\n\n\n試劑\n縮寫\n備注\n\n\n\n\nFragmentation Mix\nFRA\n室溫，pipette mix\n\n\nRapid Adapter\nRA\n室溫，pipette mix\n\n\nAdapter Buffer\nADB\n室溫，pipette mix 或 vortex\n\n\n\nThermal cycler 程式：\n30°C 30 sec → 80°C 2 min（hold 4°C）\n建議： 開始 library prep 前先完成 flow cell priming（可節省等待時間）。"
+  },
+  {
+    "objectID": "sop_rad114.html#step-b-library-preparation10-min",
+    "href": "sop_rad114.html#step-b-library-preparation10-min",
+    "title": "SQK-RAD114 · Rapid Sequencing（單樣本）",
+    "section": "Step B — Library Preparation（~10 min）",
+    "text": "Step B — Library Preparation（~10 min）\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n✅ Library 完成！ Adapter ligation 後強烈建議立即上機。\nLoading 準備：見下方 Loading Mix 配製。"
+  },
+  {
+    "objectID": "sop_rad114.html#loading-mix-配製",
+    "href": "sop_rad114.html#loading-mix-配製",
+    "title": "SQK-RAD114 · Rapid Sequencing（單樣本）",
+    "section": "Loading Mix 配製",
+    "text": "Loading Mix 配製\n在 1.5 mL LoBind tube 中混合：\n\n\n\n試劑\n體積\n\n\n\n\nSequencing Buffer（SB）\n37.5 µL\n\n\nLibrary Beads（LIB）先充分混勻\n25.5 µL\n\n\nNuclease-free water\n3 µL\n\n\nLibrary（adapted DNA）\n12 µL\n\n\nTotal\n75 µL\n\n\n\n從 SpotON port 緩慢滴入 flow cell，讓液體自然流入，避免氣泡。"
+  },
+  {
+    "objectID": "qc_standards.html",
+    "href": "qc_standards.html",
+    "title": "核酸 QC 判定標準",
+    "section": "",
+    "text": "Nanopore Sequencing Hub · v1.1\n依據 ONT SQK-RBK114.24 / SQK-NBD114.24 官方 protocol 及 ONT Community 建議"
+  },
+  {
+    "objectID": "qc_standards.html#兩種樣本模式對照",
+    "href": "qc_standards.html#兩種樣本模式對照",
+    "title": "核酸 QC 判定標準",
+    "section": "🔬 兩種樣本模式對照",
+    "text": "🔬 兩種樣本模式對照\n\n🧬 模式 A — gDNA（高品質基因組）🌱 模式 B — 環境 / 糞便（Metagenomics）\n\n\n適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本\n\n\n\n\n\n\n\n\n\n指標\nPASS ✅\nWARNING ⚠️\nFAIL ❌\n\n\n\n\nA260/A280\n1.80–2.05\n1.70–1.79（輕微蛋白污染）\n&lt; 1.70 或 &gt; 2.10\n\n\nA260/A230\n≥ 2.00\n1.50–1.99（鹽/有機溶劑殘留）\n&lt; 1.50\n\n\nQubit 濃度\n≥ 20 ng/µL\n5–19 ng/µL\n&lt; 5 ng/µL\n\n\nFragment\nHMW（&gt; 10 kb）\nPartial（5–10 kb）\nDegraded（&lt; 5 kb）\n\n\n\n最低投入量：\n\nSQK-NBD114.24：≥ 1,000 ng（目標 1,200 ng，每樣本 200 fmol）\nSQK-RBK114.24：≥ 400 ng（200 ng × 2 樣本）\n\nKit 推薦： 🥇 NBD114.24 優先 ／ 🥈 RBK114.24 備選\n\n\n\n適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本\n\n\n\n指標\nPASS ✅\nWARNING ⚠️\nFAIL ❌\n\n\n\n\nA260/A280\n1.60–2.20\n1.40–1.59（加 BSA 可緩解）\n&lt; 1.40\n\n\nA260/A230\n≥ 1.70\n1.20–1.69（腐植酸殘留）\n&lt; 1.20\n\n\nQubit 濃度\n≥ 20 ng/µL\n3–19 ng/µL\n&lt; 3 ng/µL\n\n\nFragment\nHMW 或 Partial\nDegraded（讀長縮短）\n嚴重降解\n\n\n\n最低投入量：\n\nSQK-RBK114.24：200 ng / 樣本（Pool 建庫）\n\nKit 推薦： 🥇 RBK114.24 強烈優先 ／ ❌ NBD114.24 不建議（ligation 對抑制物敏感）\n\n\n\n\n\n\n提示抑制物殘留的處理\n\n\n\nA260/A230 &lt; 1.7 時，建議在 tagmentation reaction 中加入 BSA（終濃度 0.01 mg/mL） 可部分緩解腐植酸抑制效果。"
   },
   {
     "objectID": "qc_standards.html#kit-比較nbd-vs-rbk",
     "href": "qc_standards.html#kit-比較nbd-vs-rbk",
-    "title": "QC 判定標準",
+    "title": "核酸 QC 判定標準",
     "section": "⚗️ Kit 比較：NBD vs RBK",
-    "text": "⚗️ Kit 比較：NBD vs RBK\n\n\n\n\n\n\n\n\n比較項目\nSQK-NBD114.24 (Native Barcoding)\nSQK-RBK114.24 (Rapid Barcoding)\n\n\n\n\n建庫機制\nEnd-prep → Native barcode ligation → Adapter ligation\nTagmentation（transposome 切割 + barcode adapter）\n\n\n建庫時間\n約 140 分鐘\n約 30–40 分鐘\n\n\n每樣本 Input\n200 fmol（約 130 ng for 1 kb amplicons）\n200 ng / 樣本\n\n\nDNA 品質要求\n高；ligation 酵素對腐植酸、殘留乙醇/鹽、蛋白污染非常敏感\n較寬鬆；部分降解可接受；A260/A230 ≥ 1.5 通常可用\n\n\n片段大小影響\n保留原始長度，HMW 最佳，可獲 超長讀長（&gt; 100 kb）\nTagmentation 機械切割；讀長通常 5–30 kb\n\n\n適用樣本\n高品質 gDNA、Amplicon、需超長讀長（SV、phasing）\n環境樣本、糞便 metagenomics、哨兵動物樣本、品質次佳樣本"
+    "text": "⚗️ Kit 比較：NBD vs RBK\n\n\n\n\n\n\n\n\n比較項目\nSQK-NBD114.24\nSQK-RBK114.24\n\n\n\n\n建庫方式\nLigation（末端修補 + 連接）\nTagmentation（酵素切割 + 加尾）\n\n\n建庫時間\n~140 min\n~55 min\n\n\nDNA 投入量\n1,000 ng（200 fmol）\n200 ng / 樣本\n\n\nFragment 要求\nHMW 優先（&gt; 10 kb）\n可接受 Partial / Degraded\n\n\n純度要求\n嚴格（A260/A230 ≥ 2.0 佳）\n寬鬆（A260/A230 ≥ 1.5 可用）\n\n\n抑制物耐受\n低（ligation 效率受影響）\n較高（tagmentation 耐受度好）\n\n\n讀長\n最長（native DNA，無剪切）\n略短（tagmentation 有切割）\n\n\n適合樣本\n高品質 gDNA、基因組研究\n環境樣本、糞便、低品質 DNA\n\n\nBarcode 數\n最多 24\n最多 24"
   },
   {
-    "objectID": "qc_standards.html#kit-推薦評分邏輯",
-    "href": "qc_standards.html#kit-推薦評分邏輯",
-    "title": "QC 判定標準",
-    "section": "🧮 Kit 推薦評分邏輯",
-    "text": "🧮 Kit 推薦評分邏輯\n\n\n\n\n\n\nTip\n\n\n\n採評分制而非單一閾值： DNA 品質是多維度的。A260/A230 略低但片段完整且量足夠仍可建庫；A260/A280 完美但嚴重降解 NBD 讀長仍很短。系統綜合評分給出建議，最終決策由操作人員根據實驗目的判斷。\n\n\n\n\n\nNBD Score（最高 11 分）\n\n\n\n條件\n得分\n\n\n\n\nA260/A280 在 1.80–2.05\n+2\n\n\nA260/A230 ≥ 2.0\n+3\n\n\nA260/A230 1.80–1.99\n+1\n\n\nFragment = HMW\n+3\n\n\nFragment = Partial\n+1\n\n\n總量 ≥ 1,200 ng\n+3\n\n\n總量 800–1,199 ng\n+2\n\n\n總量 500–799 ng\n+1\n\n\n≥ 9 分\n強烈建議 NBD\n\n\n6–8 分 + 量 ≥ 800 ng\n建議 NBD\n\n\n\n\n\n\n\n\nRBK Score（最高 8 分）\n\n\n\n條件\n得分\n\n\n\n\n總量 ≥ 200 ng / 樣本\n+3\n\n\n總量 100–199 ng\n+1\n\n\nFragment ≠ Degraded\n+2\n\n\nA260/A230 ≥ 1.5\n+2\n\n\nA260/A230 ≥ 1.7（累加）\n+1\n\n\nA260/A280 ≥ 1.6\n+1\n\n\n≥ 5 分（meta）\n建議 RBK\n\n\n≥ 4 分（gDNA）+ 量 ≥ 400 ng\n建議 RBK"
+    "objectID": "qc_standards.html#fragment-status-判定凝膠電泳",
+    "href": "qc_standards.html#fragment-status-判定凝膠電泳",
+    "title": "核酸 QC 判定標準",
+    "section": "📊 Fragment Status 判定（凝膠電泳）",
+    "text": "📊 Fragment Status 判定（凝膠電泳）\n\n\n\n\n\n\n\n\n\n等級\n判定標準\n主要條帶位置\n對應 NBD fmol 換算\n\n\n\n\nHMW（高分子量）\n條帶在 &gt; 10 kb，無明顯瀰散\n&gt; 10 kb\n200 fmol ≈ 2,600 ng（20 kb 為例）\n\n\nPartial（部分降解）\n主條帶在 5–10 kb\n5–10 kb\n200 fmol ≈ 650–1,300 ng\n\n\nDegraded（降解）\n條帶彌散，主要在 &lt; 5 kb\n&lt; 5 kb\n200 fmol ≈ 260 ng（2 kb 為例）\n\n\n\n\n\n\n\n\n\n註釋NBD 投入量換算公式\n\n\n\nng = 200 × 片段大小 (bp) × 650 ÷ 10⁶\n\n快速模式（gDNA / 環境樣本，不確定片段大小）→ 直接使用 1,000 ng\n已知 HMW（~20 kb）→ 200 fmol ≈ 2,600 ng\nPartial（~5 kb）→ 200 fmol ≈ 650 ng\nDegraded（~2 kb）→ 200 fmol ≈ 260 ng"
   },
   {
-    "objectID": "qc_standards.html#absorbance-ratio-快速判讀",
-    "href": "qc_standards.html#absorbance-ratio-快速判讀",
-    "title": "QC 判定標準",
-    "section": "📊 Absorbance Ratio 快速判讀",
-    "text": "📊 Absorbance Ratio 快速判讀\n\n\n\nA260 / A280\n\n🔴 &lt; 1.6 : 嚴重蛋白質或酚類污染\n🟠 1.6–1.79 : 輕至中度蛋白污染\n🟢 1.8–2.05 : 純 dsDNA 的理想值\n🟠 2.05–2.2 : 可能有 RNA 殘留\n🔴 &gt; 2.2 : RNA 大量殘留；需 RNase A 處理\n\n\n\n\n\n\nA260 / A230\n\n🔴 &lt; 1.2 : 嚴重污染 (腐植酸/GTC/EDTA/多醣)\n🔴 1.2–1.49 : 明顯抑制物，建議 AMPure 重純化\n🟠 1.5–1.69 : 抑制物殘留，加 BSA 可緩解\n🟠 1.7–1.99 : 理想邊緣，NBD ligation 效率略降\n🟢 ≥ 2.0 : 理想值"
-  },
-  {
-    "objectID": "qc_standards.html#bsa牛血清白蛋白使用指引",
-    "href": "qc_standards.html#bsa牛血清白蛋白使用指引",
-    "title": "QC 判定標準",
-    "section": "🔬 BSA（牛血清白蛋白）使用指引",
-    "text": "🔬 BSA（牛血清白蛋白）使用指引\n\n作用機制：BSA 吸附腐植酸、單寧酸等酚類化合物及疏水性抑制物，降低其對 transposase / ligase 的抑制效果。對離子性抑制物（鹽類、EDTA）無效。\nTagmentation 反應（RBK）：終濃度 0.01 mg/mL\nFlow cell priming mix：終濃度 0.2 mg/mL (5 µL of 50 mg/mL per 1,170 µL FCF)\n\n(⚠️ 備註：使用 Invitrogen UltraPure BSA (AM2616)，不建議重組人血清白蛋白)"
+    "objectID": "qc_standards.html#常見問題與處理",
+    "href": "qc_standards.html#常見問題與處理",
+    "title": "核酸 QC 判定標準",
+    "section": "🚫 常見問題與處理",
+    "text": "🚫 常見問題與處理\n\n\n\n\n\n\n\n\n問題\n可能原因\n處理方式\n\n\n\n\nA260/A280 &lt; 1.70\n蛋白質 / 酚類殘留\nAMPure XP 重純化；PowerClean Pro\n\n\nA260/A280 &gt; 2.10\nRNA 殘留\nRNase A 處理後重純化\n\n\nA260/A230 &lt; 1.50\n腐植酸 / EDTA / 鹽類\nPowerClean Pro 或 AMPure XP × 2\n\n\nA260/A230 1.50–1.70\n輕微抑制物\n加 BSA（RBK）；評估重純化（NBD）\n\n\nQubit 極低（&lt; 1 ng/µL）\n提取失敗或樣本量太少\n重新提取；換用更靈敏 kit\n\n\n凝膠條帶彌散\nDNA 降解\n檢查保存條件；改用 RBK；評估 RPB"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Nanopore Docs Hub",
+    "title": "Nanopore Sequencing Hub 文件站",
     "section": "",
-    "text": "Nanopore 定序技術文件。這裡收錄了最新的建庫 SOP 與品質判定標準。\n請由上方導覽列選擇您需要的說明文件。"
+    "text": "本站收錄依據官方文件摘要的 Nanopore 定序的操作標準與建庫 SOP。\n實驗記錄請至主系統操作，本站為純說明文件。"
+  },
+  {
+    "objectID": "index.html#可用文件",
+    "href": "index.html#可用文件",
+    "title": "Nanopore Sequencing Hub 文件站",
+    "section": "📋 可用文件",
+    "text": "📋 可用文件\n\n\n\n文件\n適用情境\nDNA 投入量\n時間\n\n\n\n\n🧬 核酸 QC 判定標準\n所有樣本建庫前\n—\n—\n\n\n🌱 SQK-RBK114.24\n多樣本、環境 DNA、低品質\n200 ng / 樣本\n~55 min\n\n\n🔬 SQK-NBD114.24\n高品質 gDNA、最長讀長\n1,000 ng / 樣本\n~140 min\n\n\n🧪 SQK-RPB114.24\n超低量（1–5 ng）、eDNA\n1–5 ng / 樣本\n~90 min\n\n\n⚡ SQK-RAD114\n單樣本、最快速\n100–150 ng\n~10 min"
+  },
+  {
+    "objectID": "index.html#kit-選擇決策流程",
+    "href": "index.html#kit-選擇決策流程",
+    "title": "Nanopore Sequencing Hub 文件站",
+    "section": "🔬 Kit 選擇決策流程",
+    "text": "🔬 Kit 選擇決策流程\n需要多樣本 multiplex？\n├── 是\n│   └── DNA 量是否充足（≥ 200 ng / 樣本）？\n│       ├── 是 → 高品質 gDNA（A260/A280 ≥ 1.8，HMW fragment）？\n│       │         ├── 是 → 🔬 SQK-NBD114.24（最長讀長）\n│       │         └── 否 → 🌱 SQK-RBK114.24（耐受抑制物）\n│       └── 否 → DNA 是否 ≥ 4 kb，且有 1–5 ng？\n│                 ├── 是 → 🧪 SQK-RPB114.24（PCR 增幅）\n│                 └── 否 → 重新提取或濃縮\n└── 否（單樣本）\n    └── ⚡ SQK-RAD114（~10 min，最快）"
+  },
+  {
+    "objectID": "index.html#kit-比較一覽",
+    "href": "index.html#kit-比較一覽",
+    "title": "Nanopore Sequencing Hub 文件站",
+    "section": "📊 Kit 比較一覽",
+    "text": "📊 Kit 比較一覽\n\n\n\n\n🧪 RBK114.24\n🧪 NBD114.24\n🧪 RPB114.24\n🧪 RAD114\n\n\n\n\nDNA 投入量\n200 ng\n400 ~ 1000 ng\n1–5 ng\n100–150 ng\n\n\n建庫時間\n~55 min\n~140 min\n~90 min\n~10 min\n\n\n最多樣本數\n24\n24\n24\n1（無 barcode）\n\n\nPCR\n❌\n❌\n✅\n❌\n\n\n讀長\n中等\n最長\n&lt; 5 kb\n中等\n\n\n對抑制物耐受\n高\n低\n中\n高\n\n\nEarly Access\n❌\n❌\n⚠️ 是\n⚠️ 是"
   },
   {
     "objectID": "protocol_sop.html",
@@ -54,5 +145,96 @@
     "title": "Library Prep SOP",
     "section": "",
     "text": "依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。\n\n🌱 SQK-RBK114.24🧬 SQK-NBD114.24\n\n\n預估操作時間：~55 min\n\n🧊 Step A — 試劑準備 (~5 min)\n設定好 thermal cycler 後，同步解凍以下試劑\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nRapid Barcodes (RB01-24)\nRB\n1.5 µL / 樣本\n不冷凍保存，解凍後混勻置冰上\n\n\nRapid Adapter\nRA\n依後續步驟\n不冷凍保存，混勻置冰上\n\n\nAMPure XP Beads\nAXP\n依樣本數\n解凍後 vortex 充分混勻\n\n\nElution Buffer\nEB\n15 µL / 24 barcodes\n解凍混勻\n\n\nAdapter Buffer\nADB\n3.5 µL\n解凍後 vortex 混勻\n\n\nRapid Adapter (Step D)\nRA\n1.5 µL\n先配 diluted RA\n\n\nAdapter Buffer (Step D)\nADB\n3.5 µL\n\n\n\nTotal diluted RA\n\n5 µL\n\n\n\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。上機前取 12 µL loading。\n\n\n\n\n預估操作時間：~140 min (⚠️ 注意：勿 vortex Ligase！)\n\n🧊 Step A — 試劑準備 (~10 min)\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nAMPure XP Beads\nAXP\n依步驟\nThaw + vortex 充分混勻\n\n\nDNA Control Sample (diluted)\nDCS\n1 µL / 樣本\n105 µL EB 稀釋 1 管；多餘 -20°C 保存\n\n\nNative Barcodes (NB01-24)\nNB\n2.5 µL / 樣本\nRT 解凍，各自 pipette mix，置冰上\n\n\nNEB Blunt/TA Ligase MM\nLMM\n10 µL / 樣本\nRT 解凍，pipette mix 10 次，置冰上\n\n\nEDTA (blue cap)\nEDTA\n4 µL / 樣本\nRT 解凍，vortex，置冰上\n\n\nShort Fragment Buffer\nSFB\n700 µL × 2 wash\nRT 解凍，vortex\n\n\nNEBNext Quick Ligation Buffer\nQLB\n10 µL（步驟 D）\nRT 解凍，vortex（可能有白色沉澱，混至澄清）\n\n\nQuick T4 DNA Ligase\nQLig\n5 µL（步驟 D）\nRT 解凍，pipette mix，⚠️ 勿 vortex\n\n\nNative Adapter\nNA\n5 µL（步驟 D）\nspin down，pipette mix，置冰上\n\n\nLong/Short Fragment Buffer\nLFB/SFB\n125 µL × 2（步驟 D）\n依讀長需求選擇 LFB 或 SFB\n\n\nElution Buffer\nEB\n15 µL（步驟 D）\nRT 解凍，vortex\n\n\n\n\n📐 投入量換算（200 fmol）：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶ • 快速模式（環境/糞便）→ 直接用 1,000 ng • HMW gDNA (~20 kb) → 200 fmol ≈ 2,600 ng • Partial (~5 kb) → 200 fmol ≈ 650 ng • Degraded (~2 kb) → 200 fmol ≈ 260 ng\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。"
+  },
+  {
+    "objectID": "sop_nbd114.html",
+    "href": "sop_nbd114.html",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "",
+    "text": "適用：高品質 gDNA、需要最長讀長的應用 · 預估時間 ~140 min\n方法：End-prep → Native Barcode Ligation → Adapter Ligation\n最多 24 個樣本；PCR-free；讀長最長"
+  },
+  {
+    "objectID": "sop_nbd114.html#kit-特性",
+    "href": "sop_nbd114.html#kit-特性",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "📋 Kit 特性",
+    "text": "📋 Kit 特性\n\n\n\n項目\n規格\n\n\n\n\nDNA 投入量\n1,000 ng / 樣本（200 fmol，依片段大小換算）\n\n\n建庫時間\n~140 min\n\n\nBarcoding\n最多 24 個樣本（NB01–24）\n\n\nPCR\n❌ 無（native DNA，保留甲基化）\n\n\nFlow cell\nR10.4.1（FLO-MIN114）\n\n\n適合樣本\n高品質 gDNA（HMW 優先）、甲基化研究"
+  },
+  {
+    "objectID": "sop_nbd114.html#投入量換算200-fmol",
+    "href": "sop_nbd114.html#投入量換算200-fmol",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "投入量換算（200 fmol）",
+    "text": "投入量換算（200 fmol）\n\\[\\text{ng} = 200 \\times \\text{片段大小 (bp)} \\times 650 \\div 10^6\\]\n\n\n\nFragment 狀態\n預設 bp\n200 fmol ≈\n\n\n\n\n快速模式（不確定大小）\n—\n直接用 1,000 ng\n\n\nHMW（~20 kb）\n20,000\n2,600 ng\n\n\nPartial（~5 kb）\n5,000\n650 ng\n\n\nDegraded（~2 kb）\n2,000\n260 ng"
+  },
+  {
+    "objectID": "sop_nbd114.html#step-a-試劑準備",
+    "href": "sop_nbd114.html#step-a-試劑準備",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "Step A — 試劑準備",
+    "text": "Step A — 試劑準備\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nAMPure XP Beads\nAXP\n依步驟\nvortex 充分混勻\n\n\nDNA Control Sample（稀釋）\nDCS\n1 µL / 樣本\n105 µL EB 稀釋 1 管；多餘 -20°C\n\n\nNative Barcodes（NB01–24）\nNB\n2.5 µL / 樣本\nRT 解凍，各自 pipette mix，置冰上\n\n\nNEB Blunt/TA Ligase MM\nLMM\n10 µL / 樣本\nRT 解凍，pipette mix 10 次，勿 vortex\n\n\nEDTA（blue cap）\nEDTA\n4 µL / 樣本\n解凍，vortex\n\n\nShort Fragment Buffer\nSFB\n700 µL × 2\n解凍，vortex\n\n\nNEBNext Quick Ligation Buffer（5X）\nQLB\n10 µL（Step D）\n解凍，vortex（白色沉澱需混至澄清）\n\n\nQuick T4 DNA Ligase\nQLig\n5 µL（Step D）\n解凍，pipette mix，⚠️ 勿 vortex\n\n\nNative Adapter\nNA\n5 µL（Step D）\nspin down，pipette mix\n\n\nLong/Short Fragment Buffer\nLFB/SFB\n125 µL × 2（Step D）\n依讀長需求選擇\n\n\nElution Buffer\nEB\n15 µL（Step D）\n解凍，vortex"
+  },
+  {
+    "objectID": "sop_nbd114.html#step-b-end-prep-dna-末端修補",
+    "href": "sop_nbd114.html#step-b-end-prep-dna-末端修補",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "Step B — End-Prep / DNA 末端修補",
+    "text": "Step B — End-Prep / DNA 末端修補"
+  },
+  {
+    "objectID": "sop_nbd114.html#step-c-native-barcode-ligation",
+    "href": "sop_nbd114.html#step-c-native-barcode-ligation",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "Step C — Native Barcode Ligation",
+    "text": "Step C — Native Barcode Ligation"
+  },
+  {
+    "objectID": "sop_nbd114.html#step-d-adapter-ligation-clean-up",
+    "href": "sop_nbd114.html#step-d-adapter-ligation-clean-up",
+    "title": "SQK-NBD114.24 · Native Barcoding",
+    "section": "Step D — Adapter Ligation & Clean-up",
+    "text": "Step D — Adapter Ligation & Clean-up\n\n\n\n\n\n\n警告\n\n\n\n⚠️ 此步驟 wash 用 LFB 或 SFB，絕對不可用 ethanol！ 乙醇會破壞 sequencing adapter。\n\nLFB（Long Fragment Buffer）→ 保留 &gt; 3 kb 讀長，去除短片段\nSFB（Short Fragment Buffer）→ 保留所有片段大小\n\n\n\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n✅ Library 完成！ 可 4°C 隔夜或 -80°C 長期保存。\nLoading：12 µL（依片段長度計算 fmol 量）。"
+  },
+  {
+    "objectID": "sop_rbk114.html",
+    "href": "sop_rbk114.html",
+    "title": "SQK-RBK114.24 · Rapid Barcoding",
+    "section": "",
+    "text": "適用：多樣本、環境 DNA、糞便、低品質樣本 · 預估時間 ~55 min\n方法：Tagmentation + AMPure 清洗 + Rapid Adapter 連接\n最多 24 個樣本；PCR-free；對抑制物耐受性高"
+  },
+  {
+    "objectID": "sop_rbk114.html#kit-特性",
+    "href": "sop_rbk114.html#kit-特性",
+    "title": "SQK-RBK114.24 · Rapid Barcoding",
+    "section": "📋 Kit 特性",
+    "text": "📋 Kit 特性\n\n\n\n項目\n規格\n\n\n\n\nDNA 投入量\n200 ng / 樣本（目標值）\n\n\n建庫時間\n~55 min\n\n\nBarcoding\n最多 24 個樣本（RB01–24）\n\n\nPCR\n❌ 無\n\n\nFlow cell\nR10.4.1（FLO-MIN114）\n\n\n適合樣本\n環境、糞便、metagenomics、低品質 gDNA"
+  },
+  {
+    "objectID": "sop_rbk114.html#step-a-試劑準備",
+    "href": "sop_rbk114.html#step-a-試劑準備",
+    "title": "SQK-RBK114.24 · Rapid Barcoding",
+    "section": "Step A — 試劑準備",
+    "text": "Step A — 試劑準備\n設定好 thermal cycler 後，同步解凍以下試劑：\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nRapid Barcodes（RB01–24）\nRB\n1.5 µL / 樣本\n不冷凍保存，pipette mix，置冰上\n\n\nRapid Adapter\nRA\n依後續步驟\n不冷凍，pipette mix\n\n\nAdapter Buffer\nADB\n3.5 µL\n解凍，vortex\n\n\nAMPure XP Beads\nAXP\n依樣本數\n4°C 取出，使用前充分 vortex\n\n\nElution Buffer\nEB\n15 µL / 24 barcodes\n解凍，vortex\n\n\n\nThermal cycler 程式（提前設定）：\n30°C 2 min → 80°C 2 min（hold 4°C）"
+  },
+  {
+    "objectID": "sop_rbk114.html#step-b-dna-barcoding-tagmentation",
+    "href": "sop_rbk114.html#step-b-dna-barcoding-tagmentation",
+    "title": "SQK-RBK114.24 · Rapid Barcoding",
+    "section": "Step B — DNA Barcoding / Tagmentation",
+    "text": "Step B — DNA Barcoding / Tagmentation"
+  },
+  {
+    "objectID": "sop_rbk114.html#step-c-ampure-xp-清洗",
+    "href": "sop_rbk114.html#step-c-ampure-xp-清洗",
+    "title": "SQK-RBK114.24 · Rapid Barcoding",
+    "section": "Step C — AMPure XP 清洗",
+    "text": "Step C — AMPure XP 清洗"
+  },
+  {
+    "objectID": "sop_rbk114.html#step-d-adapter-ligation",
+    "href": "sop_rbk114.html#step-d-adapter-ligation",
+    "title": "SQK-RBK114.24 · Rapid Barcoding",
+    "section": "Step D — Adapter Ligation",
+    "text": "Step D — Adapter Ligation\n先在新 1.5 mL LoBind tube 配製 diluted RA：RA 1.5 µL + ADB 3.5 µL = 5 µL\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n✅ Library 完成！ 置冰上保存。上機取 12 µL loading。可 4°C 隔夜保存。"
   }
 ]

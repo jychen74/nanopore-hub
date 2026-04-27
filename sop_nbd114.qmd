@@ -1,0 +1,139 @@
+---
+title: "SQK-NBD114.24 · Native Barcoding"
+---
+
+::: {.callout-note appearance="simple"}
+**適用：高品質 gDNA、需要最長讀長的應用 · 預估時間 ~140 min**  
+方法：End-prep → Native Barcode Ligation → Adapter Ligation  
+最多 24 個樣本；PCR-free；讀長最長
+:::
+
+::: {.callout-warning}
+⚠️ **勿 vortex 任何 Ligase（LMM、QLig）！** 輕柔 pipette mix 即可。
+:::
+
+## 📋 Kit 特性
+
+| 項目 | 規格 |
+|:---|:---|
+| **DNA 投入量** | 1,000 ng / 樣本（200 fmol，依片段大小換算）|
+| **建庫時間** | ~140 min |
+| **Barcoding** | 最多 24 個樣本（NB01–24）|
+| **PCR** | ❌ 無（native DNA，保留甲基化）|
+| **Flow cell** | R10.4.1（FLO-MIN114）|
+| **適合樣本** | 高品質 gDNA（HMW 優先）、甲基化研究 |
+
+---
+
+## 投入量換算（200 fmol）
+
+$$\text{ng} = 200 \times \text{片段大小 (bp)} \times 650 \div 10^6$$
+
+| Fragment 狀態 | 預設 bp | 200 fmol ≈ |
+|:---|:---|:---|
+| 快速模式（不確定大小） | — | 直接用 **1,000 ng** |
+| HMW（~20 kb） | 20,000 | **2,600 ng** |
+| Partial（~5 kb） | 5,000 | **650 ng** |
+| Degraded（~2 kb） | 2,000 | **260 ng** |
+
+---
+
+## Step A — 試劑準備
+
+| 試劑 | 縮寫 | 用量 | 備注 |
+|:---|:---|:---|:---|
+| AMPure XP Beads | **AXP** | 依步驟 | vortex 充分混勻 |
+| DNA Control Sample（稀釋） | **DCS** | 1 µL / 樣本 | 105 µL EB 稀釋 1 管；多餘 -20°C |
+| Native Barcodes（NB01–24） | **NB** | 2.5 µL / 樣本 | RT 解凍，各自 pipette mix，置冰上 |
+| NEB Blunt/TA Ligase MM | **LMM** | 10 µL / 樣本 | RT 解凍，pipette mix 10 次，**勿 vortex** |
+| EDTA（blue cap） | **EDTA** | 4 µL / 樣本 | 解凍，vortex |
+| Short Fragment Buffer | **SFB** | 700 µL × 2 | 解凍，vortex |
+| NEBNext Quick Ligation Buffer（5X） | **QLB** | 10 µL（Step D） | 解凍，vortex（白色沉澱需混至澄清）|
+| Quick T4 DNA Ligase | **QLig** | 5 µL（Step D） | 解凍，pipette mix，**⚠️ 勿 vortex** |
+| Native Adapter | **NA** | 5 µL（Step D） | spin down，pipette mix |
+| Long/Short Fragment Buffer | **LFB/SFB** | 125 µL × 2（Step D）| 依讀長需求選擇 |
+| Elution Buffer | **EB** | 15 µL（Step D） | 解凍，vortex |
+
+---
+
+## Step B — End-Prep / DNA 末端修補
+
+<div id="nbd-B"></div>
+
+---
+
+## Step C — Native Barcode Ligation
+
+<div id="nbd-C"></div>
+
+---
+
+## Step D — Adapter Ligation & Clean-up
+
+::: {.callout-warning}
+**⚠️ 此步驟 wash 用 LFB 或 SFB，絕對不可用 ethanol！** 乙醇會破壞 sequencing adapter。
+
+- **LFB**（Long Fragment Buffer）→ 保留 > 3 kb 讀長，去除短片段
+- **SFB**（Short Fragment Buffer）→ 保留所有片段大小
+:::
+
+<div id="nbd-D"></div>
+
+::: {.callout-tip}
+✅ **Library 完成！** 可 4°C 隔夜或 -80°C 長期保存。  
+Loading：12 µL（依片段長度計算 fmol 量）。
+:::
+
+---
+
+<script>
+const nbdB = [
+  { id:'nbdb1', text:'每個樣本取 DNA（依換算結果），加 NFW 至 <strong>11.5 µL</strong>，置 0.2 mL PCR tube', note:'', warn:'' },
+  { id:'nbdb2', text:'每管加入 <strong>1 µL 稀釋 DCS</strong>', note:'若省略 DCS，以 1 µL NFW 補足', warn:'' },
+  { id:'nbdb3', text:'加入 end-prep reagents：Ultra II End-prep Reaction Buffer <strong>1.75 µL</strong> + Enzyme Mix <strong>0.75 µL</strong>（總 15 µL）', note:'建議先配 master mix 再分裝；各加一種後 pipette mix 10–20 次', warn:'' },
+  { id:'nbdb4', text:'短暫離心', note:'', warn:'' },
+  { id:'nbdb5', text:'Thermal cycler：<strong>20°C 5 min → 65°C 5 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'nbdb6', text:'轉移至 1.5 mL LoBind tube，加入 <strong>15 µL AXP</strong>，flick 混勻', note:'', warn:'' },
+  { id:'nbdb7', text:'Hula mixer 室溫孵育 <strong>5 min</strong>', note:'', time:'⏱ 5 min', warn:'' },
+  { id:'nbdb8', text:'磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'nbdb9', text:'加入 <strong>200 µL 80% ethanol</strong> wash，不打散 pellet，移除（× 2）', note:'', warn:'' },
+  { id:'nbdb10', text:'短暫離心，磁架，移除殘餘 ethanol，<strong>風乾 30 秒</strong>', note:'', warn:'' },
+  { id:'nbdb11', text:'加入 <strong>10 µL NFW</strong> 重懸，室溫孵育 2 min', note:'', time:'⏱ 2 min', warn:'' },
+  { id:'nbdb12', text:'磁架吸附，轉移 <strong>10 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL 各樣本濃度，計算等莫耳取量', warn:'' },
+];
+const nbdC = [
+  { id:'nbdc1', text:'每管：end-prepped DNA <strong>7.5 µL</strong> + NB <strong>2.5 µL</strong> + LMM <strong>10 µL</strong> = 總 20 µL', note:'各樣本使用唯一 NB；依序加入，每加一種 pipette mix 10–20 次', warn:'勿 vortex LMM' },
+  { id:'nbdc2', text:'輕柔 pipette mix，短暫離心', note:'', warn:'' },
+  { id:'nbdc3', text:'室溫孵育 <strong>20 min</strong>', note:'', time:'⏱ 20 min', warn:'' },
+  { id:'nbdc4', text:'每管加入 <strong>4 µL EDTA</strong>（blue cap），pipette mix，短暫離心', note:'EDTA 終止 ligation', warn:'' },
+  { id:'nbdc5', text:'合併所有 barcoded sample 至 1.5 mL LoBind tube', note:'6 → 144 µL ／ 12 → 288 µL ／ 24 → 576 µL', warn:'' },
+  { id:'nbdc6', text:'加入 <strong>0.4× AXP</strong>（pooled volume × 0.4），pipette mix', note:'6 → 58 µL ／ 12 → 115 µL ／ 24 → 230 µL', warn:'' },
+  { id:'nbdc7', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'nbdc8', text:'磁架吸附 5 min 至澄清，移除上清液', note:'', warn:'' },
+  { id:'nbdc9', text:'加入 <strong>700 µL SFB</strong>，flick 重懸，spin，磁架，移除（× 2）', note:'', warn:'' },
+  { id:'nbdc10', text:'短暫離心，磁架，移除殘餘 buffer', note:'', warn:'' },
+  { id:'nbdc11', text:'加入 <strong>35 µL NFW</strong> 輕彈重懸', note:'', warn:'' },
+  { id:'nbdc12', text:'<strong>37°C 孵育 10 min</strong>，每 2 min 輕彈混合 10 秒', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'nbdc13', text:'磁架吸附，轉移 <strong>35 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL 確認 library 濃度', warn:'' },
+];
+const nbdD = [
+  { id:'nbdd1', text:'在 1.5 mL LoBind tube 中依序加入：Pooled DNA <strong>30 µL</strong> + NA <strong>5 µL</strong> + QLB <strong>10 µL</strong> + QLig <strong>5 µL</strong> = 總 50 µL', note:'依序加入，每加一種 pipette mix 10–20 次', warn:'勿 vortex QLig' },
+  { id:'nbdd2', text:'輕柔 pipette mix，短暫離心', note:'', warn:'' },
+  { id:'nbdd3', text:'室溫孵育 <strong>20 min</strong>', note:'', time:'⏱ 20 min', warn:'' },
+  { id:'nbdd4', text:'加入 <strong>20 µL AXP</strong>，pipette mix', note:'', warn:'' },
+  { id:'nbdd5', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'nbdd6', text:'磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'nbdd7', text:'加入 <strong>125 µL LFB 或 SFB</strong>，flick 重懸，spin，磁架，移除（× 2）', note:'', warn:'此步驟絕對不可用 ethanol！' },
+  { id:'nbdd8', text:'短暫離心，磁架，移除殘餘 buffer', note:'', warn:'' },
+  { id:'nbdd9', text:'加入 <strong>15 µL EB</strong> 重懸', note:'', warn:'' },
+  { id:'nbdd10', text:'<strong>37°C 孵育 10 min</strong>，每 2 min 輕彈混合', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'nbdd11', text:'磁架吸附，轉移 <strong>15 µL eluate</strong>（最終 library）', note:'⚠️ Qubit 量測 1 µL；依片段長度計算 loading 量', warn:'' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('nbd-B', nbdB, 0);
+  renderSteps('nbd-C', nbdC, nbdB.length);
+  renderSteps('nbd-D', nbdD, nbdB.length + nbdC.length);
+});
+</script>
+
+{{< include _sop_shared.html >}}

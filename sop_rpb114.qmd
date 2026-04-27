@@ -1,0 +1,121 @@
+---
+title: "SQK-RPB114.24 · Rapid PCR Barcoding（低量樣本）"
+---
+
+::: {.callout-warning}
+## ⚠️ Early Access 產品
+目前版本：RPB_9191_v114_revH_06Nov2025。Barcode Primers 有兩種格式（plate 1 µM / vial 10 µM），用量不同，請確認你的 kit 格式。
+:::
+
+::: {.callout-note appearance="simple"}
+**適用：超低 DNA 量（1–5 ng）、eDNA、水體過濾膜、環境低量樣本 · 預估時間 ~90 min**  
+方法：Tagmentation + PCR 增幅（含 barcode） + AMPure 清洗 + Adapter 連接  
+⚠️ 注意：PCR 後片段平均 < 5 kb，讀長短於 RBK/NBD；input DNA 需 ≥ 4 kb
+:::
+
+## 📋 Kit 特性
+
+| 項目 | 規格 |
+|:---|:---|
+| **DNA 投入量** | **1–5 ng** / 樣本（⚠️ 需 ≥ 4 kb 長度）|
+| **建庫時間** | ~90 min |
+| **Barcoding** | 最多 24 個樣本（RLB01–24 或 RPB01–24）|
+| **PCR** | ✅ 有（LongAmp Hot Start，預設 14 cycles）|
+| **Flow cell** | R10.4.1（FLO-MIN114）|
+| **適合樣本** | eDNA、水體過濾膜、低量環境樣本 |
+| **注意事項** | PCR 產物 < 5 kb；不適合長讀長應用 |
+
+---
+
+## Step A — 試劑準備
+
+**Thermal cycler 程式（提前設定兩個程式）：**
+
+```
+程式 1 — Tagmentation：30°C 2 min → 80°C 2 min（hold 4°C）
+程式 2 — PCR：
+  95°C 3 min × 1
+  [95°C 15 sec → 56°C 15 sec → 65°C 6 min] × 14 cycles
+  65°C 6 min × 1
+  4°C hold
+```
+
+| 試劑 | 縮寫 | 保存 | 解凍方式 |
+|:---|:---|:---|:---|
+| Rapid Barcode Primers（RLB01–24 @ 10 µM 或 RPB01–24 @ 1 µM）| **RLB/RPB** | -20°C | RT 解凍，pipette mix，置冰上 |
+| Fragmentation Mix | **FRM** | 室溫 | 無需解凍，pipette mix |
+| Rapid Adapter | **RA** | 室溫 | 無需解凍，pipette mix |
+| Adapter Buffer | **ADB** | -20°C | RT 解凍，vortex |
+| AMPure XP Beads | **AXP** | 4°C | 使用前充分混勻 |
+| Elution Buffer | **EB** | -20°C | RT 解凍，vortex |
+| EDTA | **EDTA** | -20°C | RT 解凍，vortex |
+| LongAmp Hot Start Taq 2X MM | — | -20°C | RT 解凍，pipette mix |
+
+---
+
+## Step B — Tagmentation
+
+<div id="rpb-B"></div>
+
+---
+
+## Step C — PCR 增幅
+
+::: {.callout-note}
+**Barcode Primer 用量依 kit 格式不同：**
+
+| 格式 | Tagmented DNA | NFW | Barcode Primers | LongAmp 2X MM | Total |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Plate（1 µM） | 4 µL | 11 µL | **10 µL** | 25 µL | 50 µL |
+| Vial（10 µM） | 4 µL | 20 µL | **1 µL** | 25 µL | 50 µL |
+:::
+
+<div id="rpb-C"></div>
+
+---
+
+## Step D — PCR Clean-up + Adapter Ligation
+
+<div id="rpb-D"></div>
+
+::: {.callout-tip}
+✅ **Library 完成！** 置冰上，上機取 **12 µL** loading。建議 Qubit 確認濃度 ≥ 5 ng/µL。
+:::
+
+---
+
+<script>
+const rpbB = [
+  { id:'rpbb1', text:'確認 Barcode Primers 格式（plate 1 µM 或 vial 10 µM）', note:'Plate format 每孔單次使用，勿重複使用已開封孔位', warn:'' },
+  { id:'rpbb2', text:'每樣本取 <strong>1–5 ng DNA</strong>，加 NFW 至 <strong>3 µL</strong>，置 1.5 mL LoBind tube', note:'DNA 需 ≥ 4 kb；flick 混勻，勿 vortex；短暫離心', warn:'' },
+  { id:'rpbb3', text:'在 0.2 mL PCR tube 中混合：DNA <strong>3 µL</strong> + FRM <strong>1 µL</strong> = 總 <strong>4 µL</strong>', note:'', warn:'' },
+  { id:'rpbb4', text:'Flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'rpbb5', text:'Thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 4 min', warn:'' },
+];
+const rpbC = [
+  { id:'rpbc1', text:'在 0.2 mL PCR tube 中配製 PCR 反應（依 kit 格式選用上方表格）', note:'各樣本使用唯一 barcode；確認格式（plate 或 vial）再取量', warn:'' },
+  { id:'rpbc2', text:'Flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'rpbc3', text:'PCR 程式（14 cycles，可視需求調至最多 25 cycles）', note:'cycle 數增加可提升產量，但可能增加非特異產物', time:'⏱ ~30 min', warn:'' },
+  { id:'rpbc4', text:'加入 <strong>4 µL EDTA</strong>，pipette mix，短暫離心', note:'EDTA 終止反應', warn:'' },
+];
+const rpbD = [
+  { id:'rpbd1', text:'合併所有 barcoded PCR sample 至 1.5 mL LoBind tube', note:'', warn:'' },
+  { id:'rpbd2', text:'加入<strong>等體積 AXP</strong>（pooled volume × 1.0），充分混勻', note:'PCR 產物較短，需較高 AXP 比例確保回收', warn:'' },
+  { id:'rpbd3', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'rpbd4', text:'磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'rpbd5', text:'加入 <strong>200 µL 80% ethanol</strong> wash（× 2），不打散 pellet', note:'', warn:'' },
+  { id:'rpbd6', text:'短暫離心，磁架，移除殘餘 ethanol，風乾 30 秒', note:'', warn:'' },
+  { id:'rpbd7', text:'加入 <strong>30 µL EB</strong> 重懸，室溫孵育 2 min', note:'', time:'⏱ 2 min', warn:'' },
+  { id:'rpbd8', text:'磁架吸附，轉移 <strong>30 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL', warn:'' },
+  { id:'rpbd9', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL', note:'', warn:'' },
+  { id:'rpbd10', text:'取 eluate <strong>29 µL</strong> + diluted RA <strong>1 µL</strong>，flick 混勻', note:'', warn:'' },
+  { id:'rpbd11', text:'室溫孵育 <strong>5 min</strong>（同步進行 flow cell priming）', note:'', time:'⏱ 5 min', warn:'' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('rpb-B', rpbB, 0);
+  renderSteps('rpb-C', rpbC, rpbB.length);
+  renderSteps('rpb-D', rpbD, rpbB.length + rpbC.length);
+});
+</script>
+
+{{< include _sop_shared.html >}}

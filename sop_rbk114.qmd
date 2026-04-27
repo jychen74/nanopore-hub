@@ -1,0 +1,99 @@
+---
+title: "SQK-RBK114.24 · Rapid Barcoding"
+---
+
+::: {.callout-note appearance="simple"}
+**適用：多樣本、環境 DNA、糞便、低品質樣本 · 預估時間 ~55 min**  
+方法：Tagmentation + AMPure 清洗 + Rapid Adapter 連接  
+最多 24 個樣本；PCR-free；對抑制物耐受性高
+:::
+
+## 📋 Kit 特性
+
+| 項目 | 規格 |
+|:---|:---|
+| **DNA 投入量** | 200 ng / 樣本（目標值） |
+| **建庫時間** | ~55 min |
+| **Barcoding** | 最多 24 個樣本（RB01–24）|
+| **PCR** | ❌ 無 |
+| **Flow cell** | R10.4.1（FLO-MIN114）|
+| **適合樣本** | 環境、糞便、metagenomics、低品質 gDNA |
+
+---
+
+## Step A — 試劑準備
+
+設定好 thermal cycler 後，同步解凍以下試劑：
+
+| 試劑 | 縮寫 | 用量 | 備注 |
+|:---|:---|:---|:---|
+| Rapid Barcodes（RB01–24） | **RB** | 1.5 µL / 樣本 | 不冷凍保存，pipette mix，置冰上 |
+| Rapid Adapter | **RA** | 依後續步驟 | 不冷凍，pipette mix |
+| Adapter Buffer | **ADB** | 3.5 µL | 解凍，vortex |
+| AMPure XP Beads | **AXP** | 依樣本數 | 4°C 取出，使用前充分 vortex |
+| Elution Buffer | **EB** | 15 µL / 24 barcodes | 解凍，vortex |
+
+**Thermal cycler 程式（提前設定）：**
+```
+30°C 2 min → 80°C 2 min（hold 4°C）
+```
+
+---
+
+## Step B — DNA Barcoding / Tagmentation
+
+<div id="rbk-B"></div>
+
+---
+
+## Step C — AMPure XP 清洗
+
+<div id="rbk-C"></div>
+
+---
+
+## Step D — Adapter Ligation
+
+先在新 1.5 mL LoBind tube 配製 diluted RA：RA **1.5 µL** + ADB **3.5 µL** = **5 µL**
+
+<div id="rbk-D"></div>
+
+::: {.callout-tip}
+✅ **Library 完成！** 置冰上保存。上機取 **12 µL** loading。可 4°C 隔夜保存。
+:::
+
+---
+
+<script>
+const rbkB = [
+  { id:'rbkb1', text:'每個樣本取 <strong>200 ng DNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 0.2 mL PCR tube', note:'Pipette mix 10–15 次，避免剪切；短暫離心', warn:'' },
+  { id:'rbkb2', text:'每管加入對應 <strong>Rapid Barcode（RBxx）1.5 µL</strong>，pipette mix 10–15 次，短暫離心', note:'每個樣本使用唯一 barcode。總體積 11.5 µL', warn:'' },
+  { id:'rbkb3', text:'Thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 4 min', warn:'' },
+  { id:'rbkb4', text:'短暫離心收集液體至管底', note:'', warn:'' },
+  { id:'rbkb5', text:'合併所有 barcoded sample 至 <strong>2 mL LoBind tube</strong>（n × 11.5 µL）', note:'4 → 46 µL ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', warn:'' },
+];
+const rbkC = [
+  { id:'rbkc1', text:'充分 vortex AMPure XP Beads（AXP）', note:'使用前必須充分混勻', warn:'' },
+  { id:'rbkc2', text:'加入<strong>等體積 AXP</strong>（n × 11.5 µL），flick 混勻', note:'4 → 46 µL ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', warn:'' },
+  { id:'rbkc3', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'rbkc4', text:'短暫離心，磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'rbkc5', text:'加入 <strong>1 mL 80% ethanol</strong>（新鮮配製），不打散 pellet，移除', note:'', warn:'' },
+  { id:'rbkc6', text:'重複 ethanol wash', note:'', warn:'' },
+  { id:'rbkc7', text:'短暫離心，磁架，移除殘餘 ethanol，<strong>風乾 30 秒</strong>（勿過乾）', note:'', warn:'' },
+  { id:'rbkc8', text:'加入 <strong>15 µL EB</strong> 輕彈重懸', note:'24 barcodes → 15 µL；48 → 30 µL', warn:'' },
+  { id:'rbkc9', text:'室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'rbkc10', text:'磁架吸附至澄清，轉移<strong>全量 eluate</strong> 至新 1.5 mL LoBind tube', note:'⚠️ Qubit 量測 1 µL 確認濃度', warn:'' },
+];
+const rbkD = [
+  { id:'rbkd1', text:'取 <strong>11 µL barcoded DNA</strong> 至新 1.5 mL LoBind tube', note:'', warn:'' },
+  { id:'rbkd2', text:'加入 <strong>1 µL diluted RA</strong>，gentle flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'rbkd3', text:'室溫孵育 <strong>5 min</strong>（此時同步進行 flow cell priming）', note:'Library 置冰上直到上機', time:'⏱ 5 min', warn:'' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('rbk-B', rbkB, 0);
+  renderSteps('rbk-C', rbkC, rbkB.length);
+  renderSteps('rbk-D', rbkD, rbkB.length + rbkC.length);
+});
+</script>
+
+{{< include _sop_shared.html >}}

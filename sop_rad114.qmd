@@ -1,0 +1,92 @@
+---
+title: "SQK-RAD114 · Rapid Sequencing（單樣本）"
+---
+
+::: {.callout-warning}
+## ⚠️ Early Access 產品
+目前版本：RSE_9177_v114_revQ_12Dec2025。  
+建議首次使用先以 **Lambda DNA 控制組**熟悉流程。
+:::
+
+::: {.callout-note appearance="simple"}
+**適用：單樣本快速定序、gDNA QC 確認、初步探索實驗 · 預估時間 ~10 min**  
+方法：Tagmentation + Rapid Adapter 直接連接；無 PCR、無 Barcoding  
+Adapter ligation 後建議**立即上機**
+:::
+
+## 📋 Kit 特性
+
+| 項目 | 規格 |
+|:---|:---|
+| **DNA 投入量** | **100–150 ng** gDNA |
+| **建庫時間** | **~10 min**（最快）|
+| **Barcoding** | ❌ 無（單樣本）|
+| **PCR** | ❌ 無 |
+| **Flow cell** | R10.4.1（FLO-MIN114）|
+| **適合樣本** | 單樣本快速定序、gDNA QC、探索性實驗 |
+| **注意事項** | 無法 multiplex；Adapter 後立即上機效果最佳 |
+
+---
+
+## Step A — 試劑準備
+
+所有試劑**室溫保存，無需解凍**：
+
+| 試劑 | 縮寫 | 備注 |
+|:---|:---|:---|
+| Fragmentation Mix | **FRA** | 室溫，pipette mix |
+| Rapid Adapter | **RA** | 室溫，pipette mix |
+| Adapter Buffer | **ADB** | 室溫，pipette mix 或 vortex |
+
+**Thermal cycler 程式：**
+```
+30°C 30 sec → 80°C 2 min（hold 4°C）
+```
+
+**建議：** 開始 library prep 前先完成 flow cell priming（可節省等待時間）。
+
+---
+
+## Step B — Library Preparation（~10 min）
+
+<div id="rad-B"></div>
+
+::: {.callout-tip}
+✅ **Library 完成！** Adapter ligation 後強烈建議**立即上機**。  
+Loading 準備：見下方 Loading Mix 配製。
+:::
+
+---
+
+## Loading Mix 配製
+
+在 1.5 mL LoBind tube 中混合：
+
+| 試劑 | 體積 |
+|:---|:---|
+| Sequencing Buffer（SB） | 37.5 µL |
+| Library Beads（LIB）先充分混勻 | 25.5 µL |
+| Nuclease-free water | 3 µL |
+| Library（adapted DNA）| 12 µL |
+| **Total** | **75 µL** |
+
+從 SpotON port 緩慢滴入 flow cell，讓液體自然流入，避免氣泡。
+
+---
+
+<script>
+const radB = [
+  { id:'radb1', text:'取 <strong>100–150 ng gDNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；flick 混勻，勿 vortex；短暫離心', warn:'' },
+  { id:'radb2', text:'加入 <strong>FRA 1 µL</strong>（總 11 µL），flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'radb3', text:'Thermal cycler：<strong>30°C 30 sec → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 3 min', warn:'' },
+  { id:'radb4', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
+  { id:'radb5', text:'加入 <strong>diluted RA 1 µL</strong> 至 tagmented DNA（共 12 µL），gentle flick 混勻', note:'', warn:'' },
+  { id:'radb6', text:'室溫孵育 <strong>5 min</strong>（此時完成 flow cell priming）', note:'', time:'⏱ 5 min', warn:'Adapter ligation 後立即上機，勿放置過久' },
+  { id:'radb7', text:'配製 Loading Mix（見上方表格），取 <strong>75 µL</strong> 注入 flow cell SpotON port', note:'緩慢滴入，讓液體自然流入；避免氣泡；loading 後啟動 MinKNOW 開始 sequencing', warn:'' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('rad-B', radB, 0);
+});
+</script>
+
+{{< include _sop_shared.html >}}

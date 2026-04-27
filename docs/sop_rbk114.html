@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>核酸 QC 判定標準</title>
+<title>SQK-RBK114.24 · Rapid Barcoding</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">🏠 首頁</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./qc_standards.html" aria-current="page"> 
+    <a class="nav-link" href="./qc_standards.html"> 
 <span class="menu-text">🧬 核酸 QC 標準</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -139,10 +139,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#兩種樣本模式對照" id="toc-兩種樣本模式對照" class="nav-link active" data-scroll-target="#兩種樣本模式對照">🔬 兩種樣本模式對照</a></li>
-  <li><a href="#kit-比較nbd-vs-rbk" id="toc-kit-比較nbd-vs-rbk" class="nav-link" data-scroll-target="#kit-比較nbd-vs-rbk">⚗️ Kit 比較：NBD vs RBK</a></li>
-  <li><a href="#fragment-status-判定凝膠電泳" id="toc-fragment-status-判定凝膠電泳" class="nav-link" data-scroll-target="#fragment-status-判定凝膠電泳">📊 Fragment Status 判定（凝膠電泳）</a></li>
-  <li><a href="#常見問題與處理" id="toc-常見問題與處理" class="nav-link" data-scroll-target="#常見問題與處理">🚫 常見問題與處理</a></li>
+  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
+  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
+  <li><a href="#step-b-dna-barcoding-tagmentation" id="toc-step-b-dna-barcoding-tagmentation" class="nav-link" data-scroll-target="#step-b-dna-barcoding-tagmentation">Step B — DNA Barcoding / Tagmentation</a></li>
+  <li><a href="#step-c-ampure-xp-清洗" id="toc-step-c-ampure-xp-清洗" class="nav-link" data-scroll-target="#step-c-ampure-xp-清洗">Step C — AMPure XP 清洗</a></li>
+  <li><a href="#step-d-adapter-ligation" id="toc-step-d-adapter-ligation" class="nav-link" data-scroll-target="#step-d-adapter-ligation">Step D — Adapter Ligation</a></li>
   </ul>
 </nav>
     </div>
@@ -151,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">核酸 QC 判定標準</h1>
+<h1 class="title">SQK-RBK114.24 · Rapid Barcoding</h1>
 </div>
 
 
@@ -174,34 +175,53 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Nanopore Sequencing Hub · v1.1</strong><br>
-依據 ONT SQK-RBK114.24 / SQK-NBD114.24 官方 protocol 及 ONT Community 建議</p>
+<p><strong>適用：多樣本、環境 DNA、糞便、低品質樣本 · 預估時間 ~55 min</strong><br>
+方法：Tagmentation + AMPure 清洗 + Rapid Adapter 連接<br>
+最多 24 個樣本；PCR-free；對抑制物耐受性高</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>NanoDrop vs Qubit：務必使用 Qubit 作為計算依據
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>NanoDrop 同時偵測 RNA、短 fragment、游離核苷酸，<strong>濃度值常高估 19–24%</strong>（尤其降解樣本）。<br>
-本系統以 <strong>Qubit dsDNA HS Assay 為準</strong>計算投入量。<br>
-A260/A280 及 A260/A230 比值仍有參考價值，須搭配 Qubit 解讀。</p>
-</div>
-</div>
+<section id="kit-特性" class="level2">
+<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">規格</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>DNA 投入量</strong></td>
+<td style="text-align: left;">200 ng / 樣本（目標值）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>建庫時間</strong></td>
+<td style="text-align: left;">~55 min</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Barcoding</strong></td>
+<td style="text-align: left;">最多 24 個樣本（RB01–24）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PCR</strong></td>
+<td style="text-align: left;">❌ 無</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Flow cell</strong></td>
+<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>適合樣本</strong></td>
+<td style="text-align: left;">環境、糞便、metagenomics、低品質 gDNA</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<section id="兩種樣本模式對照" class="level2">
-<h2 class="anchored" data-anchor-id="兩種樣本模式對照">🔬 兩種樣本模式對照</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">🧬 模式 A — gDNA（高品質基因組）</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">🌱 模式 B — 環境 / 糞便（Metagenomics）</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本</p>
+</section>
+<section id="step-a-試劑準備" class="level2">
+<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
+<p>設定好 thermal cycler 後，同步解凍以下試劑：</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -211,280 +231,160 @@ A260/A280 及 A260/A230 比值仍有參考價值，須搭配 Qubit 解讀。</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">指標</th>
-<th style="text-align: left;">PASS ✅</th>
-<th style="text-align: left;">WARNING ⚠️</th>
-<th style="text-align: left;">FAIL ❌</th>
+<th style="text-align: left;">試劑</th>
+<th style="text-align: left;">縮寫</th>
+<th style="text-align: left;">用量</th>
+<th style="text-align: left;">備注</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>A260/A280</strong></td>
-<td style="text-align: left;">1.80–2.05</td>
-<td style="text-align: left;">1.70–1.79（輕微蛋白污染）</td>
-<td style="text-align: left;">&lt; 1.70 或 &gt; 2.10</td>
+<td style="text-align: left;">Rapid Barcodes（RB01–24）</td>
+<td style="text-align: left;"><strong>RB</strong></td>
+<td style="text-align: left;">1.5 µL / 樣本</td>
+<td style="text-align: left;">不冷凍保存，pipette mix，置冰上</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>A260/A230</strong></td>
-<td style="text-align: left;">≥ 2.00</td>
-<td style="text-align: left;">1.50–1.99（鹽/有機溶劑殘留）</td>
-<td style="text-align: left;">&lt; 1.50</td>
+<td style="text-align: left;">Rapid Adapter</td>
+<td style="text-align: left;"><strong>RA</strong></td>
+<td style="text-align: left;">依後續步驟</td>
+<td style="text-align: left;">不冷凍，pipette mix</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Qubit 濃度</strong></td>
-<td style="text-align: left;">≥ 20 ng/µL</td>
-<td style="text-align: left;">5–19 ng/µL</td>
-<td style="text-align: left;">&lt; 5 ng/µL</td>
+<td style="text-align: left;">Adapter Buffer</td>
+<td style="text-align: left;"><strong>ADB</strong></td>
+<td style="text-align: left;">3.5 µL</td>
+<td style="text-align: left;">解凍，vortex</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Fragment</strong></td>
-<td style="text-align: left;">HMW（&gt; 10 kb）</td>
-<td style="text-align: left;">Partial（5–10 kb）</td>
-<td style="text-align: left;">Degraded（&lt; 5 kb）</td>
+<td style="text-align: left;">AMPure XP Beads</td>
+<td style="text-align: left;"><strong>AXP</strong></td>
+<td style="text-align: left;">依樣本數</td>
+<td style="text-align: left;">4°C 取出，使用前充分 vortex</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elution Buffer</td>
+<td style="text-align: left;"><strong>EB</strong></td>
+<td style="text-align: left;">15 µL / 24 barcodes</td>
+<td style="text-align: left;">解凍，vortex</td>
 </tr>
 </tbody>
 </table>
-<p><strong>最低投入量：</strong></p>
-<ul>
-<li><strong>SQK-NBD114.24</strong>：≥ 1,000 ng（目標 1,200 ng，每樣本 200 fmol）</li>
-<li><strong>SQK-RBK114.24</strong>：≥ 400 ng（200 ng × 2 樣本）</li>
-</ul>
-<p><strong>Kit 推薦：</strong> 🥇 NBD114.24 優先 ／ 🥈 RBK114.24 備選</p>
+<p><strong>Thermal cycler 程式（提前設定）：</strong></p>
+<pre><code>30°C 2 min → 80°C 2 min（hold 4°C）</code></pre>
 <hr>
+</section>
+<section id="step-b-dna-barcoding-tagmentation" class="level2">
+<h2 class="anchored" data-anchor-id="step-b-dna-barcoding-tagmentation">Step B — DNA Barcoding / Tagmentation</h2>
+<div id="rbk-B">
+
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">指標</th>
-<th style="text-align: left;">PASS ✅</th>
-<th style="text-align: left;">WARNING ⚠️</th>
-<th style="text-align: left;">FAIL ❌</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>A260/A280</strong></td>
-<td style="text-align: left;">1.60–2.20</td>
-<td style="text-align: left;">1.40–1.59（加 BSA 可緩解）</td>
-<td style="text-align: left;">&lt; 1.40</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>A260/A230</strong></td>
-<td style="text-align: left;">≥ 1.70</td>
-<td style="text-align: left;">1.20–1.69（腐植酸殘留）</td>
-<td style="text-align: left;">&lt; 1.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Qubit 濃度</strong></td>
-<td style="text-align: left;">≥ 20 ng/µL</td>
-<td style="text-align: left;">3–19 ng/µL</td>
-<td style="text-align: left;">&lt; 3 ng/µL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Fragment</strong></td>
-<td style="text-align: left;">HMW 或 Partial</td>
-<td style="text-align: left;">Degraded（讀長縮短）</td>
-<td style="text-align: left;">嚴重降解</td>
-</tr>
-</tbody>
-</table>
-<p><strong>最低投入量：</strong></p>
-<ul>
-<li><strong>SQK-RBK114.24</strong>：200 ng / 樣本（Pool 建庫）</li>
-</ul>
-<p><strong>Kit 推薦：</strong> 🥇 RBK114.24 強烈優先 ／ ❌ NBD114.24 不建議（ligation 對抑制物敏感）</p>
+<hr>
+</section>
+<section id="step-c-ampure-xp-清洗" class="level2">
+<h2 class="anchored" data-anchor-id="step-c-ampure-xp-清洗">Step C — AMPure XP 清洗</h2>
+<div id="rbk-C">
+
+</div>
+<hr>
+</section>
+<section id="step-d-adapter-ligation" class="level2">
+<h2 class="anchored" data-anchor-id="step-d-adapter-ligation">Step D — Adapter Ligation</h2>
+<p>先在新 1.5 mL LoBind tube 配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = <strong>5 µL</strong></p>
+<div id="rbk-D">
+
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">提示</span>抑制物殘留的處理
+提示
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A260/A230 &lt; 1.7 時，建議在 tagmentation reaction 中加入 <strong>BSA（終濃度 0.01 mg/mL）</strong> 可部分緩解腐植酸抑制效果。</p>
-</div>
-</div>
-</div>
+<p>✅ <strong>Library 完成！</strong> 置冰上保存。上機取 <strong>12 µL</strong> loading。可 4°C 隔夜保存。</p>
 </div>
 </div>
 <hr>
-</section>
-<section id="kit-比較nbd-vs-rbk" class="level2">
-<h2 class="anchored" data-anchor-id="kit-比較nbd-vs-rbk">⚗️ Kit 比較：NBD vs RBK</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">比較項目</th>
-<th style="text-align: left;">SQK-NBD114.24</th>
-<th style="text-align: left;">SQK-RBK114.24</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>建庫方式</strong></td>
-<td style="text-align: left;">Ligation（末端修補 + 連接）</td>
-<td style="text-align: left;">Tagmentation（酵素切割 + 加尾）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: left;">~140 min</td>
-<td style="text-align: left;">~55 min</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;">1,000 ng（200 fmol）</td>
-<td style="text-align: left;">200 ng / 樣本</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Fragment 要求</strong></td>
-<td style="text-align: left;">HMW 優先（&gt; 10 kb）</td>
-<td style="text-align: left;">可接受 Partial / Degraded</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>純度要求</strong></td>
-<td style="text-align: left;">嚴格（A260/A230 ≥ 2.0 佳）</td>
-<td style="text-align: left;">寬鬆（A260/A230 ≥ 1.5 可用）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>抑制物耐受</strong></td>
-<td style="text-align: left;">低（ligation 效率受影響）</td>
-<td style="text-align: left;">較高（tagmentation 耐受度好）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>讀長</strong></td>
-<td style="text-align: left;">最長（native DNA，無剪切）</td>
-<td style="text-align: left;">略短（tagmentation 有切割）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: left;">高品質 gDNA、基因組研究</td>
-<td style="text-align: left;">環境樣本、糞便、低品質 DNA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Barcode 數</strong></td>
-<td style="text-align: left;">最多 24</td>
-<td style="text-align: left;">最多 24</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="fragment-status-判定凝膠電泳" class="level2">
-<h2 class="anchored" data-anchor-id="fragment-status-判定凝膠電泳">📊 Fragment Status 判定（凝膠電泳）</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">等級</th>
-<th style="text-align: left;">判定標準</th>
-<th style="text-align: left;">主要條帶位置</th>
-<th style="text-align: left;">對應 NBD fmol 換算</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>HMW</strong>（高分子量）</td>
-<td style="text-align: left;">條帶在 &gt; 10 kb，無明顯瀰散</td>
-<td style="text-align: left;">&gt; 10 kb</td>
-<td style="text-align: left;">200 fmol ≈ 2,600 ng（20 kb 為例）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Partial</strong>（部分降解）</td>
-<td style="text-align: left;">主條帶在 5–10 kb</td>
-<td style="text-align: left;">5–10 kb</td>
-<td style="text-align: left;">200 fmol ≈ 650–1,300 ng</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Degraded</strong>（降解）</td>
-<td style="text-align: left;">條帶彌散，主要在 &lt; 5 kb</td>
-<td style="text-align: left;">&lt; 5 kb</td>
-<td style="text-align: left;">200 fmol ≈ 260 ng（2 kb 為例）</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">註釋</span>NBD 投入量換算公式
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>ng = 200 × 片段大小 (bp) × 650 ÷ 10⁶</strong></p>
-<ul>
-<li>快速模式（gDNA / 環境樣本，不確定片段大小）→ 直接使用 <strong>1,000 ng</strong></li>
-<li>已知 HMW（~20 kb）→ 200 fmol ≈ <strong>2,600 ng</strong></li>
-<li>Partial（~5 kb）→ 200 fmol ≈ <strong>650 ng</strong></li>
-<li>Degraded（~2 kb）→ 200 fmol ≈ <strong>260 ng</strong></li>
-</ul>
-</div>
-</div>
-<hr>
-</section>
-<section id="常見問題與處理" class="level2">
-<h2 class="anchored" data-anchor-id="常見問題與處理">🚫 常見問題與處理</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">問題</th>
-<th style="text-align: left;">可能原因</th>
-<th style="text-align: left;">處理方式</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">A260/A280 &lt; 1.70</td>
-<td style="text-align: left;">蛋白質 / 酚類殘留</td>
-<td style="text-align: left;">AMPure XP 重純化；PowerClean Pro</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A260/A280 &gt; 2.10</td>
-<td style="text-align: left;">RNA 殘留</td>
-<td style="text-align: left;">RNase A 處理後重純化</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">A260/A230 &lt; 1.50</td>
-<td style="text-align: left;">腐植酸 / EDTA / 鹽類</td>
-<td style="text-align: left;">PowerClean Pro 或 AMPure XP × 2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A260/A230 1.50–1.70</td>
-<td style="text-align: left;">輕微抑制物</td>
-<td style="text-align: left;">加 BSA（RBK）；評估重純化（NBD）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Qubit 極低（&lt; 1 ng/µL）</td>
-<td style="text-align: left;">提取失敗或樣本量太少</td>
-<td style="text-align: left;">重新提取；換用更靈敏 kit</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">凝膠條帶彌散</td>
-<td style="text-align: left;">DNA 降解</td>
-<td style="text-align: left;">檢查保存條件；改用 RBK；評估 RPB</td>
-</tr>
-</tbody>
-</table>
+<script>
+const rbkB = [
+  { id:'rbkb1', text:'每個樣本取 <strong>200 ng DNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 0.2 mL PCR tube', note:'Pipette mix 10–15 次，避免剪切；短暫離心', warn:'' },
+  { id:'rbkb2', text:'每管加入對應 <strong>Rapid Barcode（RBxx）1.5 µL</strong>，pipette mix 10–15 次，短暫離心', note:'每個樣本使用唯一 barcode。總體積 11.5 µL', warn:'' },
+  { id:'rbkb3', text:'Thermal cycler：<strong>30°C 2 min → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 4 min', warn:'' },
+  { id:'rbkb4', text:'短暫離心收集液體至管底', note:'', warn:'' },
+  { id:'rbkb5', text:'合併所有 barcoded sample 至 <strong>2 mL LoBind tube</strong>（n × 11.5 µL）', note:'4 → 46 µL ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', warn:'' },
+];
+const rbkC = [
+  { id:'rbkc1', text:'充分 vortex AMPure XP Beads（AXP）', note:'使用前必須充分混勻', warn:'' },
+  { id:'rbkc2', text:'加入<strong>等體積 AXP</strong>（n × 11.5 µL），flick 混勻', note:'4 → 46 µL ／ 6 → 69 µL ／ 12 → 138 µL ／ 24 → 276 µL', warn:'' },
+  { id:'rbkc3', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'rbkc4', text:'短暫離心，磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'rbkc5', text:'加入 <strong>1 mL 80% ethanol</strong>（新鮮配製），不打散 pellet，移除', note:'', warn:'' },
+  { id:'rbkc6', text:'重複 ethanol wash', note:'', warn:'' },
+  { id:'rbkc7', text:'短暫離心，磁架，移除殘餘 ethanol，<strong>風乾 30 秒</strong>（勿過乾）', note:'', warn:'' },
+  { id:'rbkc8', text:'加入 <strong>15 µL EB</strong> 輕彈重懸', note:'24 barcodes → 15 µL；48 → 30 µL', warn:'' },
+  { id:'rbkc9', text:'室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'rbkc10', text:'磁架吸附至澄清，轉移<strong>全量 eluate</strong> 至新 1.5 mL LoBind tube', note:'⚠️ Qubit 量測 1 µL 確認濃度', warn:'' },
+];
+const rbkD = [
+  { id:'rbkd1', text:'取 <strong>11 µL barcoded DNA</strong> 至新 1.5 mL LoBind tube', note:'', warn:'' },
+  { id:'rbkd2', text:'加入 <strong>1 µL diluted RA</strong>，gentle flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'rbkd3', text:'室溫孵育 <strong>5 min</strong>（此時同步進行 flow cell priming）', note:'Library 置冰上直到上機', time:'⏱ 5 min', warn:'' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('rbk-B', rbkB, 0);
+  renderSteps('rbk-C', rbkC, rbkB.length);
+  renderSteps('rbk-D', rbkD, rbkB.length + rbkC.length);
+});
+</script>
+<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
+<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
+<style>
+.sop-step {
+  display: flex; gap: 12px; padding: 10px 14px;
+  border-bottom: 1px solid #f1f5f9; cursor: pointer;
+  border-radius: 6px; transition: background 0.15s;
+  align-items: flex-start;
+}
+.sop-step:hover { background: #f8fafc; }
+.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
+.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
+.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
+.step-time {
+  font-size: 10px; background: #dbeafe; color: #1e40af;
+  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
+  font-family: monospace; white-space: nowrap;
+}
+.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
+.step-warn {
+  font-size: 11px; color: #92400e; background: #fef3c7;
+  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
+}
+</style>
+<script>
+const _checkedSteps = {};
+function renderSteps(containerId, steps, globalOffset) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = steps.map((s, i) => {
+    const num = (globalOffset || 0) + i + 1;
+    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
+    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
+    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
+    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
+      <span class="step-cb" id="cb-${s.id}">⬜</span>
+      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
+    </div>`;
+  }).join('');
+}
+function toggleStep(id) {
+  _checkedSteps[id] = !_checkedSteps[id];
+  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
+  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
+}
+</script>
 
 
 </section>
