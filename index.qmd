@@ -3,7 +3,7 @@ title: "Nanopore Sequencing Hub 文件站"
 ---
 
 ::: {.callout-note appearance="simple"}
-本站收錄國家生物模式中心 Nanopore 定序的操作標準與建庫 SOP。  
+本站收錄由 Nanopore 定序的操作標準與建庫 SOP 等相關資訊。  
 **實驗記錄請至主系統操作**，本站為純說明文件。
 :::
 
