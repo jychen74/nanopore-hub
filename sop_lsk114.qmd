@@ -1,0 +1,145 @@
+---
+title: "SQK-LSK114 · Ligation Sequencing（單樣本）"
+---
+
+::: {.callout-note appearance="simple"}
+**版本：GDE_9161_v114_revAC_24Sep2025**  
+**適用：單一樣本、最大化讀長與輸出量、甲基化分析 · 預估時間 ~65 min**  
+方法：DNA Repair + End-prep → Ligation Adapter 直接連接；無 PCR、無 Barcoding
+:::
+
+::: {.callout-warning}
+## 注意事項
+- ⚠️ **勿 vortex FFPE DNA Repair Mix 或 Ultra II End-prep Enzyme Mix**
+- ⚠️ Adapter ligation 後的 wash **不可用 ethanol**，改用 LFB 或 SFB
+- ⚠️ 建議完成後**立即上機**（4°C 可短期保存）
+:::
+
+## 📋 Kit 特性
+
+| 項目 | 規格 |
+|:---|:---|
+| **DNA 投入量** | **1 µg（或 100–200 fmol）** HMW gDNA |
+| **建庫時間** | **~65 min**（含 repair + end-prep 35 min + ligation 20 min）|
+| **Barcoding** | ❌ 無（單樣本）|
+| **PCR** | ❌ 無（PCR-free，保留 native DNA 甲基化）|
+| **Flow cell** | R10.4.1（FLO-MIN114）|
+| **適合樣本** | 高品質 gDNA、基因組組裝、SV 分析、甲基化修飾研究 |
+| **與 NBD 差異** | 無 Barcode Ligation 步驟；使用 **Ligation Adapter（LA）** 而非 Native Adapter |
+| **獨特之處** | 含 **FFPE DNA Repair** 步驟（修復 nick 和氧化損傷，提升長讀長效率）|
+
+---
+
+## 投入量換算
+
+| Fragment 長度 | 建議起始量 |
+|:---|:---|
+| Very short（< 1 kb） | 200 fmol |
+| Short（1–10 kb） | 100–200 fmol |
+| Long（> 10 kb）| **1 µg** |
+
+---
+
+## Step A — 試劑準備
+
+所有試劑置冰上解凍，注意以下事項：
+
+| 試劑 | 縮寫 | 備注 |
+|:---|:---|:---|
+| NEBNext FFPE DNA Repair Buffer v2 | — | vortex 至沉澱完全溶解（可能有白色沉澱/黃色是正常的）|
+| NEBNext FFPE DNA Repair Mix | — | ⚠️ **勿 vortex**，flick 混勻 |
+| Ultra II End-prep Enzyme Mix | — | ⚠️ **勿 vortex**，flick 混勻 |
+| AMPure XP Beads | **AXP** | vortex 充分混勻 |
+| DNA Control Sample | **DCS** | 可選用，加入可用於 troubleshooting |
+| Ligation Adapter | **LA** | spin down，pipette mix |
+| Ligation Buffer | **LNB** | flick 混勻 |
+| Salt-T4® DNA Ligase（NEB M0467）| — | pipette mix，**勿 vortex** |
+| Long/Short Fragment Buffer | **LFB/SFB** | 依讀長需求選擇（LFB → > 3 kb；SFB → 所有大小）|
+| Elution Buffer | **EB** | 解凍，vortex |
+
+**Thermal cycler 程式（提前設定）：**
+```
+Repair + End-prep：20°C 5 min → 65°C 5 min（hold 4°C）
+```
+
+---
+
+## Step B — DNA Repair & End-Prep（~35 min）
+
+<div id="lsk-B"></div>
+
+---
+
+## Step C — Adapter Ligation & Clean-up（~20 min）
+
+::: {.callout-warning}
+**⚠️ Wash 步驟絕對不可用 ethanol！** 改用 LFB 或 SFB：
+
+- **LFB（Long Fragment Buffer）** → 保留 > 3 kb，去除短片段（建議用於長讀長應用）
+- **SFB（Short Fragment Buffer）** → 保留所有片段大小
+:::
+
+<div id="lsk-C"></div>
+
+::: {.callout-tip}
+✅ **Library 完成！**  
+4°C 短期保存（可重複上機） ／ -80°C 長期保存（> 3 個月）
+:::
+
+---
+
+## Loading Mix 配製 & 上機量
+
+| Fragment 長度 | Loading 量 |
+|:---|:---|
+| Very short（< 1 kb） | 100 fmol |
+| Short（1–10 kb） | 35–50 fmol |
+| Long（> 10 kb） | **300 ng** |
+
+Priming mix（加 BSA 可改善 MinION R10.4.1 效能）：
+
+| 試劑 | 體積 |
+|:---|:---|
+| Flow Cell Flush（FCF） | 1,170 µL |
+| BSA（50 mg/mL） | 5 µL |
+| Flow Cell Tether（FCT） | 30 µL |
+| **Total** | **1,205 µL** |
+
+---
+
+<script>
+const lskB = [
+  { id:'lskb1', text:'取 <strong>1 µg（或 100–200 fmol）gDNA</strong>，加 nuclease-free water 至 <strong>47 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；pipette mix 或 flick 混勻；短暫離心', warn:'' },
+  { id:'lskb2', text:'在 0.2 mL PCR tube 中依序加入（每加一種 pipette mix 10–20 次）：<br>DNA <strong>47 µL</strong> + DCS <strong>1 µL</strong>（可選）+ FFPE Repair Buffer v2 <strong>7 µL</strong> + FFPE Repair Mix <strong>2 µL</strong> + Ultra II End-prep Enzyme Mix <strong>3 µL</strong> = 總 <strong>60 µL</strong>', note:'勿 vortex FFPE Repair Mix 和 Enzyme Mix；若省略 DCS 以 1 µL NFW 補足', warn:'' },
+  { id:'lskb3', text:'輕柔 pipette 混勻，短暫離心', note:'', warn:'' },
+  { id:'lskb4', text:'Thermal cycler：<strong>20°C 5 min → 65°C 5 min</strong>，結束後置冰上或 4°C', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'lskb5', text:'Vortex 充分混勻 AXP beads', note:'', warn:'' },
+  { id:'lskb6', text:'轉移 DNA 樣本至 1.5 mL LoBind tube，加入 <strong>AXP 60 µL</strong>，flick 混勻', note:'', warn:'' },
+  { id:'lskb7', text:'Hula mixer 室溫孵育 <strong>5 min</strong>', note:'', time:'⏱ 5 min', warn:'' },
+  { id:'lskb8', text:'新鮮配製 <strong>500 µL 80% ethanol</strong>', note:'', warn:'' },
+  { id:'lskb9', text:'磁架吸附至澄清，移除上清液', note:'', warn:'' },
+  { id:'lskb10', text:'加入 <strong>200 µL 80% ethanol</strong> wash，不打散 pellet，移除（× 2）', note:'', warn:'' },
+  { id:'lskb11', text:'短暫離心，磁架，移除殘餘 ethanol，<strong>風乾約 30 秒</strong>（勿過乾龜裂）', note:'', warn:'' },
+  { id:'lskb12', text:'加入 <strong>61 µL nuclease-free water</strong> 輕彈重懸，室溫孵育 2 min', note:'', time:'⏱ 2 min', warn:'' },
+  { id:'lskb13', text:'磁架吸附至澄清，轉移 <strong>61 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL 確認濃度。可 4°C 隔夜保存', warn:'' },
+];
+const lskC = [
+  { id:'lskc1', text:'確認 LFB 或 SFB 已在室溫解凍，vortex 混勻，spin down，置室溫備用', note:'LFB → 保留 > 3 kb；SFB → 保留所有片段', warn:'' },
+  { id:'lskc2', text:'在 1.5 mL LoBind tube 中依序加入（每加一種 pipette mix 10–20 次）：<br>End-prepped DNA <strong>60 µL</strong> + LA <strong>5 µL</strong> + LNB <strong>25 µL</strong> + Salt-T4® Ligase <strong>10 µL</strong> = 總 <strong>100 µL</strong>', note:'', warn:'勿 vortex Ligase' },
+  { id:'lskc3', text:'輕柔 pipette 混勻，短暫離心', note:'', warn:'' },
+  { id:'lskc4', text:'室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'lskc5', text:'Vortex 充分混勻 AXP beads，加入 <strong>40 µL AXP</strong>，flick 混勻', note:'', warn:'' },
+  { id:'lskc6', text:'Hula mixer 室溫孵育 <strong>5 min</strong>', note:'', time:'⏱ 5 min', warn:'' },
+  { id:'lskc7', text:'磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'lskc8', text:'加入 <strong>250 µL LFB 或 SFB</strong>，flick 重懸，spin，磁架，移除（× 2）', note:'', warn:'此步驟絕對不可用 ethanol！' },
+  { id:'lskc9', text:'短暫離心，磁架，移除殘餘 buffer，<strong>風乾約 30 秒</strong>', note:'', warn:'' },
+  { id:'lskc10', text:'加入 <strong>15 µL EB</strong> 重懸，室溫孵育 10 min（HMW DNA 可改 37°C 孵育以提升長片段回收）', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'lskc11', text:'磁架吸附至澄清，轉移 <strong>15 µL eluate</strong>（最終 library）', note:'⚠️ Qubit 量測 1 µL；依 fragment 長度決定 loading 量', warn:'' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('lsk-B', lskB, 0);
+  renderSteps('lsk-C', lskC, lskB.length);
+});
+</script>
+
+{{< include _sop_shared.html >}}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>核酸 QC 判定標準</title>
+<title>SQK-MAB114.24 · Microbial Amplicon 16S/ITS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -120,7 +91,7 @@ window.Quarto = {
 <span class="menu-text">🏠 首頁</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./qc_standards.html" aria-current="page"> 
+    <a class="nav-link" href="./qc_standards.html"> 
 <span class="menu-text">🧬 核酸 QC 標準</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -176,11 +147,13 @@ window.Quarto = {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#兩種樣本模式對照" id="toc-兩種樣本模式對照" class="nav-link active" data-scroll-target="#兩種樣本模式對照">🔬 兩種樣本模式對照</a></li>
-  <li><a href="#fragment-status-判定凝膠電泳" id="toc-fragment-status-判定凝膠電泳" class="nav-link" data-scroll-target="#fragment-status-判定凝膠電泳">📊 Fragment Status 判定（凝膠電泳）</a></li>
-  <li><a href="#常見問題與處理" id="toc-常見問題與處理" class="nav-link" data-scroll-target="#常見問題與處理">🚫 常見問題與處理</a></li>
-  <li><a href="#模式-c-16sits-ampliconsqk-mab114.24-專用" id="toc-模式-c-16sits-ampliconsqk-mab114.24-專用" class="nav-link" data-scroll-target="#模式-c-16sits-ampliconsqk-mab114.24-專用">🦠 模式 C — 16S/ITS Amplicon（SQK-MAB114.24 專用）</a></li>
-  <li><a href="#六種-kit-完整比較含-mab114.24" id="toc-六種-kit-完整比較含-mab114.24" class="nav-link" data-scroll-target="#六種-kit-完整比較含-mab114.24">⚗️ 六種 Kit 完整比較（含 MAB114.24）</a></li>
+  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
+  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
+  <li><a href="#step-b-pcr-擴增-16s-或-its40-min-pcr" id="toc-step-b-pcr-擴增-16s-或-its40-min-pcr" class="nav-link" data-scroll-target="#step-b-pcr-擴增-16s-或-its40-min-pcr">Step B — PCR 擴增 16S 或 ITS（~40 min + PCR）</a></li>
+  <li><a href="#step-c-amplicon-barcoding15-min" id="toc-step-c-amplicon-barcoding15-min" class="nav-link" data-scroll-target="#step-c-amplicon-barcoding15-min">Step C — Amplicon Barcoding（~15 min）</a></li>
+  <li><a href="#step-d-惰化-合池-ampure-清洗40-min" id="toc-step-d-惰化-合池-ampure-清洗40-min" class="nav-link" data-scroll-target="#step-d-惰化-合池-ampure-清洗40-min">Step D — 惰化 + 合池 + AMPure 清洗（~40 min）</a></li>
+  <li><a href="#step-e-rapid-adapter-連接5-min" id="toc-step-e-rapid-adapter-連接5-min" class="nav-link" data-scroll-target="#step-e-rapid-adapter-連接5-min">Step E — Rapid Adapter 連接（~5 min）</a></li>
+  <li><a href="#loading-mix-配製" id="toc-loading-mix-配製" class="nav-link" data-scroll-target="#loading-mix-配製">Loading Mix 配製</a></li>
   </ul>
 </nav>
     </div>
@@ -189,7 +162,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">核酸 QC 判定標準</h1>
+<h1 class="title">SQK-MAB114.24 · Microbial Amplicon 16S/ITS</h1>
 </div>
 
 
@@ -206,462 +179,385 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Nanopore Sequencing Hub · v1.2</strong><br>
-依據 ONT SQK-RBK114.24 / SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24 / SQK-RAD114 官方 protocol</p>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>NanoDrop vs Qubit：務必使用 Qubit 作為計算依據
+<span class="screen-reader-only">警告</span>⚠️ Early Access 產品
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>NanoDrop 同時偵測 RNA、短 fragment、游離核苷酸，<strong>濃度值常高估 19–24%</strong>（尤其降解樣本）。<br>
-本系統以 <strong>Qubit dsDNA HS Assay 為準</strong>計算投入量。<br>
-A260/A280 及 A260/A230 仍有參考價值，但不可作為投入量計算依據。</p>
+<p>目前版本：MAB_9229_v114_revB_26Nov2025。</p>
 </div>
 </div>
-<hr>
-<section id="兩種樣本模式對照" class="level2">
-<h2 class="anchored" data-anchor-id="兩種樣本模式對照">🔬 兩種樣本模式對照</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">🧬 模式 A — gDNA（高品質基因組）</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">🌱 模式 B — 環境 / 糞便（Metagenomics）</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">指標</th>
-<th style="text-align: left;">PASS ✅</th>
-<th style="text-align: left;">WARNING ⚠️</th>
-<th style="text-align: left;">FAIL ❌</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>A260/A280</strong></td>
-<td style="text-align: left;">1.80–2.05</td>
-<td style="text-align: left;">1.70–1.79（輕微蛋白污染）</td>
-<td style="text-align: left;">&lt; 1.70 或 &gt; 2.10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>A260/A230</strong></td>
-<td style="text-align: left;">≥ 2.00</td>
-<td style="text-align: left;">1.50–1.99（鹽/有機溶劑殘留）</td>
-<td style="text-align: left;">&lt; 1.50</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Qubit 濃度</strong></td>
-<td style="text-align: left;">≥ 20 ng/µL</td>
-<td style="text-align: left;">5–19 ng/µL</td>
-<td style="text-align: left;">&lt; 5 ng/µL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Fragment</strong></td>
-<td style="text-align: left;">HMW（&gt; 10 kb）</td>
-<td style="text-align: left;">Partial（5–10 kb）</td>
-<td style="text-align: left;">Degraded（&lt; 5 kb）</td>
-</tr>
-</tbody>
-</table>
-<p><strong>最低投入量（依 kit 選擇）：</strong></p>
-<ul>
-<li><strong>SQK-LSK114</strong>：1,000 ng（200 fmol，依片段換算）</li>
-<li><strong>SQK-NBD114.24</strong>：1,000 ng / 樣本（200 fmol，最多 24 樣本）</li>
-<li><strong>SQK-RBK114.24</strong>：200 ng / 樣本（最多 24 樣本）</li>
-<li><strong>SQK-RAD114</strong>：100–150 ng（單樣本）</li>
-</ul>
-<p><strong>Kit 推薦：</strong> 🥇 LSK114（單樣本，最大輸出） ／ 🥇 NBD114.24（多樣本，最長讀長） ／ 🥈 RBK114.24（快速）</p>
-<hr>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">指標</th>
-<th style="text-align: left;">PASS ✅</th>
-<th style="text-align: left;">WARNING ⚠️</th>
-<th style="text-align: left;">FAIL ❌</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>A260/A280</strong></td>
-<td style="text-align: left;">1.60–2.20</td>
-<td style="text-align: left;">1.40–1.59（加 BSA 可緩解）</td>
-<td style="text-align: left;">&lt; 1.40</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>A260/A230</strong></td>
-<td style="text-align: left;">≥ 1.70</td>
-<td style="text-align: left;">1.20–1.69（腐植酸殘留）</td>
-<td style="text-align: left;">&lt; 1.20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Qubit 濃度</strong></td>
-<td style="text-align: left;">≥ 20 ng/µL</td>
-<td style="text-align: left;">3–19 ng/µL</td>
-<td style="text-align: left;">&lt; 3 ng/µL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Fragment</strong></td>
-<td style="text-align: left;">HMW 或 Partial</td>
-<td style="text-align: left;">Degraded（讀長縮短）</td>
-<td style="text-align: left;">嚴重降解</td>
-</tr>
-</tbody>
-</table>
-<p><strong>最低投入量：</strong></p>
-<ul>
-<li><strong>SQK-RBK114.24</strong>：200 ng / 樣本（最多 24 樣本）</li>
-<li><strong>SQK-RPB114.24</strong>：<strong>1–5 ng / 樣本</strong>（需 ≥ 4 kb，PCR 增幅）</li>
-</ul>
-<p><strong>Kit 推薦：</strong> 🥇 RBK114.24（常規量） ／ 🥇 RPB114.24（超低量 eDNA）</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">提示</span>抑制物殘留的處理
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A260/A230 &lt; 1.7 時，建議在 tagmentation reaction 中加入 <strong>BSA（終濃度 0.01–0.2 mg/mL）</strong> 可部分緩解腐植酸抑制效果。</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="fragment-status-判定凝膠電泳" class="level2">
-<h2 class="anchored" data-anchor-id="fragment-status-判定凝膠電泳">📊 Fragment Status 判定（凝膠電泳）</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">等級</th>
-<th style="text-align: left;">判定標準</th>
-<th style="text-align: left;">對應 LSK/NBD fmol 換算</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>HMW</strong></td>
-<td style="text-align: left;">條帶在 &gt; 10 kb，無明顯瀰散</td>
-<td style="text-align: left;">200 fmol ≈ 2,600 ng（20 kb）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Partial</strong></td>
-<td style="text-align: left;">主條帶在 5–10 kb</td>
-<td style="text-align: left;">200 fmol ≈ 650–1,300 ng</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Degraded</strong></td>
-<td style="text-align: left;">條帶彌散，主要在 &lt; 5 kb</td>
-<td style="text-align: left;">200 fmol ≈ 260 ng（2 kb）</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">註釋</span>fmol 換算公式（LSK114 / NBD114.24 適用）
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[\text{ng} = 200 \times \text{片段大小 (bp)} \times 650 \div 10^6\]</span></p>
-<p>不確定片段大小時，直接用 <strong>1,000 ng</strong>（保守估計）。</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="常見問題與處理" class="level2">
-<h2 class="anchored" data-anchor-id="常見問題與處理">🚫 常見問題與處理</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">問題</th>
-<th style="text-align: left;">可能原因</th>
-<th style="text-align: left;">處理方式</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">A260/A280 &lt; 1.70</td>
-<td style="text-align: left;">蛋白質 / 酚類殘留</td>
-<td style="text-align: left;">AMPure XP 重純化；PowerClean Pro</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A260/A280 &gt; 2.10</td>
-<td style="text-align: left;">RNA 殘留</td>
-<td style="text-align: left;">RNase A 處理後重純化</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">A260/A230 &lt; 1.50</td>
-<td style="text-align: left;">腐植酸 / EDTA / 鹽類</td>
-<td style="text-align: left;">PowerClean Pro 或 AMPure XP × 2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">A260/A230 1.50–1.70</td>
-<td style="text-align: left;">輕微抑制物</td>
-<td style="text-align: left;">加 BSA（RBK/RPB）；評估重純化（LSK/NBD）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Qubit &lt; 1 ng/µL</td>
-<td style="text-align: left;">提取失敗或樣本量太少</td>
-<td style="text-align: left;">重新提取；換更靈敏 kit</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">凝膠條帶彌散</td>
-<td style="text-align: left;">DNA 降解</td>
-<td style="text-align: left;">評估 RBK；若 &lt; 4 kb 不適合 RPB</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RPB 產量低</td>
-<td style="text-align: left;">PCR 效率差</td>
-<td style="text-align: left;">增加 cycle 數（+2–4 cycles）；確認 DNA ≥ 4 kb</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="模式-c-16sits-ampliconsqk-mab114.24-專用" class="level2">
-<h2 class="anchored" data-anchor-id="模式-c-16sits-ampliconsqk-mab114.24-專用">🦠 模式 C — 16S/ITS Amplicon（SQK-MAB114.24 專用）</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>MAB114.24 的 input 是用來做 <strong>PCR 擴增</strong>（非直接建庫），QC 標準較寬鬆，但 PCR 效率仍受抑制物影響。</p>
+<p><strong>適用：微生物群落分析（16S rRNA 細菌鑑定 / ITS 真菌鑑定）· 預估時間 ~75 min + PCR</strong><br>
+方法：PCR 擴增 16S 或 ITS → Amplicon Barcoding → AMPure 清洗 → Rapid Adapter 連接<br>
+最多 24 個樣本；保留 full-length amplicon；下游分析用 EPI2ME <strong>wf-16s</strong> workflow</p>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>⚠️ 16S 與 ITS 不可混用於同一 flow cell
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>建議同一次 run 只定序同類型 amplicon（16S only 或 ITS only）。<br>
+ITS primers 可能產生少量 dimer artifacts，EPI2ME wf-16s 會自動過濾。</p>
+</div>
+</div>
+<section id="kit-特性" class="level2">
+<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">指標</th>
-<th style="text-align: left;">建議值 ✅</th>
-<th style="text-align: left;">注意 ⚠️</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">規格</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>A260/A280</strong></td>
-<td style="text-align: left;">≥ 1.8</td>
-<td style="text-align: left;">&lt; 1.8 可能影響 PCR 效率；但 PCR 耐受度高於 ligation</td>
+<td style="text-align: left;"><strong>DNA 投入量（PCR 前）</strong></td>
+<td style="text-align: left;">10 ng gDNA / 樣本</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>A260/A230</strong></td>
-<td style="text-align: left;">≥ 2.0</td>
-<td style="text-align: left;">&lt; 1.5 建議重純化；腐植酸會抑制 LongAmp 聚合酶</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Qubit 濃度</strong></td>
-<td style="text-align: left;">可定量即可</td>
-<td style="text-align: left;">只需確認能取到 10 ng</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;"><strong>10 ng / 樣本</strong></td>
-<td style="text-align: left;">PCR 前 input；&lt; 12 樣本建議 20 ng amplicon 進 barcoding</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Fragment 長度</strong></td>
-<td style="text-align: left;">不要求 HMW</td>
-<td style="text-align: left;">PCR 會把目標片段擴增出來；基因組完整性不影響結果</td>
-</tr>
-</tbody>
-</table>
-<p><strong>與其他 kit 的關鍵差異：</strong></p>
-<ul>
-<li>MAB114.24 不需要 HMW DNA，降解樣本也可以（目標是 16S/ITS 短片段）</li>
-<li>抑制物（腐植酸、EDTA）主要影響 PCR 效率，而非 adapter ligation</li>
-<li>若 PCR 產量偏低，先檢查抑制物再考慮增加 PCR cycle 數</li>
-</ul>
-<p><strong>QC 後的判斷邏輯：</strong></p>
-<pre><code>DNA 可定量（Qubit）且 A260/A230 ≥ 1.5？
-├── 是 → 直接進 PCR（MAB114.24 Step B）
-└── 否 → 建議 AMPure XP 重純化後再嘗試
-         若重純化後仍低，可嘗試增加 PCR cycles（+3–5 cycles）</code></pre>
-<hr>
-</section>
-<section id="六種-kit-完整比較含-mab114.24" class="level2">
-<h2 class="anchored" data-anchor-id="六種-kit-完整比較含-mab114.24">⚗️ 六種 Kit 完整比較（含 MAB114.24）</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">比較項目</th>
-<th style="text-align: center;">SQK-LSK114</th>
-<th style="text-align: center;">SQK-NBD114.24</th>
-<th style="text-align: center;">SQK-RBK114.24</th>
-<th style="text-align: center;">SQK-RPB114.24</th>
-<th style="text-align: center;">SQK-RAD114</th>
-<th style="text-align: center;">SQK-MAB114.24</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>建庫方式</strong></td>
-<td style="text-align: center;">Ligation</td>
-<td style="text-align: center;">Ligation + NB</td>
-<td style="text-align: center;">Tagmentation</td>
-<td style="text-align: center;">Tagmentation + PCR</td>
-<td style="text-align: center;">Tagmentation</td>
-<td style="text-align: center;">PCR + Amplicon BC</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: center;">1,000 ng</td>
-<td style="text-align: center;">1,000 ng</td>
-<td style="text-align: center;">200 ng</td>
-<td style="text-align: center;"><strong>1–5 ng</strong></td>
-<td style="text-align: center;">100–150 ng</td>
-<td style="text-align: center;"><strong>10 ng</strong></td>
+<td style="text-align: left;"><strong>Amplicon input（Barcoding 前）</strong></td>
+<td style="text-align: left;">10 ng（≥ 12 樣本）或 20 ng（&lt; 12 樣本）</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: center;">~80 min</td>
-<td style="text-align: center;">~140 min</td>
-<td style="text-align: center;">~55 min</td>
-<td style="text-align: center;">~90 min</td>
-<td style="text-align: center;"><strong>~10 min</strong></td>
-<td style="text-align: center;">~75 min + PCR</td>
+<td style="text-align: left;">PCR ~40 min + Barcoding 15 min + Cleanup 40 min + Adapter 5 min</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>最多樣本數</strong></td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">24</td>
-<td style="text-align: center;">24</td>
-<td style="text-align: center;">24</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">24</td>
+<td style="text-align: left;"><strong>Barcoding</strong></td>
+<td style="text-align: left;">最多 24 個樣本（AB01–24）</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>PCR</strong></td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅（16S/ITS）</td>
+<td style="text-align: left;">✅（LongAmp Hot Start，25 cycles）</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>讀長</strong></td>
-<td style="text-align: center;"><strong>最長</strong></td>
-<td style="text-align: center;"><strong>最長</strong></td>
-<td style="text-align: center;">中等</td>
-<td style="text-align: center;">&lt; 5 kb</td>
-<td style="text-align: center;">中等</td>
-<td style="text-align: center;">Amplicon 長度</td>
+<td style="text-align: left;"><strong>Flow cell</strong></td>
+<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>甲基化保留</strong></td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">✅</td>
-<td style="text-align: center;">❌</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Fragment 要求</strong></td>
-<td style="text-align: center;">HMW 優先</td>
-<td style="text-align: center;">HMW 優先</td>
-<td style="text-align: center;">Partial 可</td>
-<td style="text-align: center;">≥ 4 kb 必要</td>
-<td style="text-align: center;">HMW 優先</td>
-<td style="text-align: center;"><strong>無要求</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>抑制物耐受</strong></td>
-<td style="text-align: center;">低</td>
-<td style="text-align: center;">低</td>
-<td style="text-align: center;">高</td>
-<td style="text-align: center;">中</td>
-<td style="text-align: center;">高</td>
-<td style="text-align: center;">中（PCR 耐受）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>純度要求（A260/A230）</strong></td>
-<td style="text-align: center;">≥ 2.0</td>
-<td style="text-align: center;">≥ 2.0</td>
-<td style="text-align: center;">≥ 1.5</td>
-<td style="text-align: center;">≥ 1.5</td>
-<td style="text-align: center;">≥ 1.8</td>
-<td style="text-align: center;">≥ 1.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: center;">高品質 gDNA</td>
-<td style="text-align: center;">高品質 gDNA</td>
-<td style="text-align: center;">環境、糞便</td>
-<td style="text-align: center;">eDNA、低量</td>
-<td style="text-align: center;">單樣本快速</td>
-<td style="text-align: center;"><strong>微生物群落</strong></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong>下游分析</strong></td>
-<td style="text-align: center;">自定義</td>
-<td style="text-align: center;">自定義</td>
-<td style="text-align: center;">自定義</td>
-<td style="text-align: center;">自定義</td>
-<td style="text-align: center;">自定義</td>
-<td style="text-align: center;">EPI2ME wf-16s</td>
+<td style="text-align: left;">EPI2ME <strong>wf-16s</strong> workflow</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>Early Access</strong></td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">❌</td>
-<td style="text-align: center;">⚠️</td>
-<td style="text-align: center;">⚠️</td>
-<td style="text-align: center;">⚠️</td>
+<td style="text-align: left;">⚠️ 是</td>
 </tr>
 </tbody>
 </table>
+<hr>
+</section>
+<section id="step-a-試劑準備" class="level2">
+<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">試劑</th>
+<th style="text-align: left;">縮寫</th>
+<th style="text-align: left;">用量</th>
+<th style="text-align: left;">備注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">16S Primers</td>
+<td style="text-align: left;"><strong>16S</strong></td>
+<td style="text-align: left;">5 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，pipette mix，置冰上</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ITS Primers</td>
+<td style="text-align: left;"><strong>ITS</strong></td>
+<td style="text-align: left;">5 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，pipette mix，置冰上</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LongAmp Hot Start Taq 2X MM</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">25 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，pipette mix</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amplicon Barcodes（AB01–24）</td>
+<td style="text-align: left;"><strong>AB</strong></td>
+<td style="text-align: left;">1 µL / 樣本</td>
+<td style="text-align: left;">RT 解凍，pipette mix；plate format 單次使用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDTA</td>
+<td style="text-align: left;"><strong>EDTA</strong></td>
+<td style="text-align: left;">1 µL / 樣本（Step C）</td>
+<td style="text-align: left;">RT 解凍，vortex</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Thermolabile Proteinase K</td>
+<td style="text-align: left;"><strong>PK</strong></td>
+<td style="text-align: left;">1 µL / 樣本（Step C）</td>
+<td style="text-align: left;">RT 解凍，pipette mix</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AMPure XP Beads</td>
+<td style="text-align: left;"><strong>AXP</strong></td>
+<td style="text-align: left;">依步驟</td>
+<td style="text-align: left;">使用前充分混勻</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short Fragment Buffer</td>
+<td style="text-align: left;"><strong>SFB</strong></td>
+<td style="text-align: left;">依步驟</td>
+<td style="text-align: left;">RT 解凍，vortex</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elution Buffer</td>
+<td style="text-align: left;"><strong>EB</strong></td>
+<td style="text-align: left;">依步驟</td>
+<td style="text-align: left;">RT 解凍，vortex</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rapid Adapter</td>
+<td style="text-align: left;"><strong>RA</strong></td>
+<td style="text-align: left;">依 Step E</td>
+<td style="text-align: left;">RT 保存，pipette mix</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adapter Buffer</td>
+<td style="text-align: left;"><strong>ADB</strong></td>
+<td style="text-align: left;">依 Step E</td>
+<td style="text-align: left;">RT 保存</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PCR 程式（提前設定）：</strong></p>
+<pre><code>95°C 1 min × 1
+[95°C 20 sec → 55°C 30 sec → 65°C 2 min] × 25 cycles
+65°C 5 min × 1
+4°C hold</code></pre>
+<p><strong>Barcoding 熱循環程式（提前設定）：</strong></p>
+<pre><code>65°C 10 min → 80°C 2 min → 4°C hold</code></pre>
+<hr>
+</section>
+<section id="step-b-pcr-擴增-16s-或-its40-min-pcr" class="level2">
+<h2 class="anchored" data-anchor-id="step-b-pcr-擴增-16s-或-its40-min-pcr">Step B — PCR 擴增 16S 或 ITS（~40 min + PCR）</h2>
+<div id="mab-B">
+
+</div>
+<hr>
+</section>
+<section id="step-c-amplicon-barcoding15-min" class="level2">
+<h2 class="anchored" data-anchor-id="step-c-amplicon-barcoding15-min">Step C — Amplicon Barcoding（~15 min）</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+註釋
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Amplicon input 依樣本數不同：</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">樣本數</th>
+<th style="text-align: left;">Amplicon DNA 取用量</th>
+<th style="text-align: left;">調整至</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">≥ 12 個樣本</td>
+<td style="text-align: left;"><strong>10 ng</strong></td>
+<td style="text-align: left;">8 µL（加 NFW）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">≤ 11 個樣本</td>
+<td style="text-align: left;"><strong>20 ng</strong></td>
+<td style="text-align: left;">8 µL（加 NFW）</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="mab-C">
+
+</div>
+<hr>
+</section>
+<section id="step-d-惰化-合池-ampure-清洗40-min" class="level2">
+<h2 class="anchored" data-anchor-id="step-d-惰化-合池-ampure-清洗40-min">Step D — 惰化 + 合池 + AMPure 清洗（~40 min）</h2>
+<div id="mab-D">
+
+</div>
+<hr>
+</section>
+<section id="step-e-rapid-adapter-連接5-min" class="level2">
+<h2 class="anchored" data-anchor-id="step-e-rapid-adapter-連接5-min">Step E — Rapid Adapter 連接（~5 min）</h2>
+<div id="mab-E">
+
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+提示
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>✅ <strong>Library 完成！</strong> 強烈建議<strong>立即上機</strong>。<br>
+4°C 短期保存（重複上機用）；-80°C 長期單次保存。<br>
+上機：從 SpotON port 取 <strong>75 µL Loading Mix</strong> 滴入。</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="loading-mix-配製" class="level2">
+<h2 class="anchored" data-anchor-id="loading-mix-配製">Loading Mix 配製</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">試劑</th>
+<th style="text-align: left;">體積</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sequencing Buffer（SB）</td>
+<td style="text-align: left;">37.5 µL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Library Beads（LIB）充分混勻</td>
+<td style="text-align: left;">25.5 µL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nuclease-free water</td>
+<td style="text-align: left;">3 µL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Library</td>
+<td style="text-align: left;">12 µL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: left;"><strong>75 µL</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<script>
+const mabB = [
+  { id:'mabb1', text:'取 <strong>10 ng gDNA</strong> 每樣本，加 NFW 至 <strong>20 µL</strong>，置 0.2 mL PCR tube', note:'flick 混勻，勿 vortex；短暫離心', warn:'' },
+  { id:'mabb2', text:'依樣本類型加入對應 Primer：<br>16S 樣本：16S Primers <strong>5 µL</strong> + LongAmp 2X MM <strong>25 µL</strong> = 總 <strong>50 µL</strong><br>ITS 樣本：ITS Primers <strong>5 µL</strong> + LongAmp 2X MM <strong>25 µL</strong> = 總 <strong>50 µL</strong>', note:'16S 與 ITS 樣本分開操作，使用不同管', warn:'同一 run 只用同類型 amplicon' },
+  { id:'mabb3', text:'Pipette mix，短暫離心', note:'', warn:'' },
+  { id:'mabb4', text:'PCR 程式：95°C 1 min → [95°C 20 sec → 55°C 30 sec → 65°C 2 min] × <strong>25 cycles</strong> → 65°C 5 min', note:'', time:'⏱ ~40 min', warn:'' },
+  { id:'mabb5', text:'取出，短暫離心，pipette mix（各換新 tip）', note:'⚠️ Qubit 量測確認 PCR 產物濃度', warn:'' },
+];
+const mabC = [
+  { id:'mabc1', text:'每樣本依上方表格取對應量 Amplicon DNA，加 NFW 至 <strong>8 µL</strong>，置 0.2 mL PCR tube', note:'≥ 12 樣本取 10 ng；≤ 11 樣本取 20 ng', warn:'' },
+  { id:'mabc2', text:'選取唯一 Amplicon Barcode（AB01–24），每樣本用不同 barcode', note:'Plate format 每孔單次使用，勿重複使用已開封孔位', warn:'' },
+  { id:'mabc3', text:'每管依序加入：Amplicon DNA <strong>8 µL</strong> + EDTA <strong>1 µL</strong> + AB <strong>1 µL</strong> = 總 <strong>10 µL</strong>', note:'依序加入，pipette mix 確認混勻', warn:'' },
+  { id:'mabc4', text:'Pipette mix，短暫離心', note:'', warn:'' },
+  { id:'mabc5', text:'熱循環：<strong>65°C 10 min → 80°C 2 min</strong>，結束後置冰上', note:'65°C 讓 barcode 接上；80°C 讓 Thermolabile Proteinase K 後續失活', time:'⏱ 12 min', warn:'' },
+];
+const mabD = [
+  { id:'mabd1', text:'每管加入 <strong>1 µL Thermolabile Proteinase K</strong>，pipette mix', note:'PK 降解殘留蛋白質', warn:'' },
+  { id:'mabd2', text:'<strong>37°C 15 min</strong>，然後 <strong>55°C 10 min</strong> 讓 PK 失活', note:'', time:'⏱ 25 min', warn:'' },
+  { id:'mabd3', text:'合併所有 barcoded sample 至 1.5 mL LoBind tube', note:'24 樣本 → 264 µL（n × 11 µL）', warn:'' },
+  { id:'mabd4', text:'加入 <strong>等體積 AXP</strong>（pooled volume × 1.0），pipette mix', note:'', warn:'' },
+  { id:'mabd5', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'mabd6', text:'磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'mabd7', text:'加入 <strong>500 µL SFB</strong>，flick 重懸，spin，磁架，移除（× 2）', note:'SFB 不可換成 ethanol', warn:'' },
+  { id:'mabd8', text:'短暫離心，磁架，移除殘餘 buffer', note:'', warn:'' },
+  { id:'mabd9', text:'加入 <strong>31 µL EB</strong> 重懸，室溫孵育 <strong>2 min</strong>', note:'', time:'⏱ 2 min', warn:'' },
+  { id:'mabd10', text:'磁架吸附，轉移 <strong>31 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL 確認 library 濃度', warn:'' },
+];
+const mabE = [
+  { id:'mabe1', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
+  { id:'mabe2', text:'取 barcoded DNA <strong>30 µL</strong> + diluted RA <strong>1 µL</strong>，gentle flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'mabe3', text:'室溫孵育 <strong>5 min</strong>（同步進行 flow cell priming）', note:'Library 置冰上直到上機', time:'⏱ 5 min', warn:'Adapter 連接後立即上機' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('mab-B', mabB, 0);
+  renderSteps('mab-C', mabC, mabB.length);
+  renderSteps('mab-D', mabD, mabB.length + mabC.length);
+  renderSteps('mab-E', mabE, mabB.length + mabC.length + mabD.length);
+});
+</script>
+<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
+<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
+<style>
+.sop-step {
+  display: flex; gap: 12px; padding: 10px 14px;
+  border-bottom: 1px solid #f1f5f9; cursor: pointer;
+  border-radius: 6px; transition: background 0.15s;
+  align-items: flex-start;
+}
+.sop-step:hover { background: #f8fafc; }
+.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
+.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
+.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
+.step-time {
+  font-size: 10px; background: #dbeafe; color: #1e40af;
+  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
+  font-family: monospace; white-space: nowrap;
+}
+.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
+.step-warn {
+  font-size: 11px; color: #92400e; background: #fef3c7;
+  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
+}
+</style>
+<script>
+const _checkedSteps = {};
+function renderSteps(containerId, steps, globalOffset) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = steps.map((s, i) => {
+    const num = (globalOffset || 0) + i + 1;
+    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
+    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
+    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
+    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
+      <span class="step-cb" id="cb-${s.id}">⬜</span>
+      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
+    </div>`;
+  }).join('');
+}
+function toggleStep(id) {
+  _checkedSteps[id] = !_checkedSteps[id];
+  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
+  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
+}
+</script>
 
 
 </section>

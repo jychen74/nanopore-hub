@@ -1,0 +1,159 @@
+---
+title: "SQK-MAB114.24 · Microbial Amplicon 16S/ITS"
+---
+
+::: {.callout-warning}
+## ⚠️ Early Access 產品
+目前版本：MAB_9229_v114_revB_26Nov2025。
+:::
+
+::: {.callout-note appearance="simple"}
+**適用：微生物群落分析（16S rRNA 細菌鑑定 / ITS 真菌鑑定）· 預估時間 ~75 min + PCR**  
+方法：PCR 擴增 16S 或 ITS → Amplicon Barcoding → AMPure 清洗 → Rapid Adapter 連接  
+最多 24 個樣本；保留 full-length amplicon；下游分析用 EPI2ME **wf-16s** workflow
+:::
+
+::: {.callout-important}
+## ⚠️ 16S 與 ITS 不可混用於同一 flow cell
+建議同一次 run 只定序同類型 amplicon（16S only 或 ITS only）。  
+ITS primers 可能產生少量 dimer artifacts，EPI2ME wf-16s 會自動過濾。
+:::
+
+## 📋 Kit 特性
+
+| 項目 | 規格 |
+|:---|:---|
+| **DNA 投入量（PCR 前）** | 10 ng gDNA / 樣本 |
+| **Amplicon input（Barcoding 前）** | 10 ng（≥ 12 樣本）或 20 ng（< 12 樣本）|
+| **建庫時間** | PCR ~40 min + Barcoding 15 min + Cleanup 40 min + Adapter 5 min |
+| **Barcoding** | 最多 24 個樣本（AB01–24）|
+| **PCR** | ✅（LongAmp Hot Start，25 cycles）|
+| **Flow cell** | R10.4.1（FLO-MIN114）|
+| **下游分析** | EPI2ME **wf-16s** workflow |
+| **Early Access** | ⚠️ 是 |
+
+---
+
+## Step A — 試劑準備
+
+| 試劑 | 縮寫 | 用量 | 備注 |
+|:---|:---|:---|:---|
+| 16S Primers | **16S** | 5 µL / 樣本 | RT 解凍，pipette mix，置冰上 |
+| ITS Primers | **ITS** | 5 µL / 樣本 | RT 解凍，pipette mix，置冰上 |
+| LongAmp Hot Start Taq 2X MM | — | 25 µL / 樣本 | RT 解凍，pipette mix |
+| Amplicon Barcodes（AB01–24） | **AB** | 1 µL / 樣本 | RT 解凍，pipette mix；plate format 單次使用 |
+| EDTA | **EDTA** | 1 µL / 樣本（Step C）| RT 解凍，vortex |
+| Thermolabile Proteinase K | **PK** | 1 µL / 樣本（Step C）| RT 解凍，pipette mix |
+| AMPure XP Beads | **AXP** | 依步驟 | 使用前充分混勻 |
+| Short Fragment Buffer | **SFB** | 依步驟 | RT 解凍，vortex |
+| Elution Buffer | **EB** | 依步驟 | RT 解凍，vortex |
+| Rapid Adapter | **RA** | 依 Step E | RT 保存，pipette mix |
+| Adapter Buffer | **ADB** | 依 Step E | RT 保存 |
+
+**PCR 程式（提前設定）：**
+```
+95°C 1 min × 1
+[95°C 20 sec → 55°C 30 sec → 65°C 2 min] × 25 cycles
+65°C 5 min × 1
+4°C hold
+```
+
+**Barcoding 熱循環程式（提前設定）：**
+```
+65°C 10 min → 80°C 2 min → 4°C hold
+```
+
+---
+
+## Step B — PCR 擴增 16S 或 ITS（~40 min + PCR）
+
+<div id="mab-B"></div>
+
+---
+
+## Step C — Amplicon Barcoding（~15 min）
+
+::: {.callout-note}
+**Amplicon input 依樣本數不同：**
+
+| 樣本數 | Amplicon DNA 取用量 | 調整至 |
+|:---|:---|:---|
+| ≥ 12 個樣本 | **10 ng** | 8 µL（加 NFW）|
+| ≤ 11 個樣本 | **20 ng** | 8 µL（加 NFW）|
+:::
+
+<div id="mab-C"></div>
+
+---
+
+## Step D — 惰化 + 合池 + AMPure 清洗（~40 min）
+
+<div id="mab-D"></div>
+
+---
+
+## Step E — Rapid Adapter 連接（~5 min）
+
+<div id="mab-E"></div>
+
+::: {.callout-tip}
+✅ **Library 完成！** 強烈建議**立即上機**。  
+4°C 短期保存（重複上機用）；-80°C 長期單次保存。  
+上機：從 SpotON port 取 **75 µL Loading Mix** 滴入。
+:::
+
+---
+
+## Loading Mix 配製
+
+| 試劑 | 體積 |
+|:---|:---|
+| Sequencing Buffer（SB） | 37.5 µL |
+| Library Beads（LIB）充分混勻 | 25.5 µL |
+| Nuclease-free water | 3 µL |
+| Library | 12 µL |
+| **Total** | **75 µL** |
+
+---
+
+<script>
+const mabB = [
+  { id:'mabb1', text:'取 <strong>10 ng gDNA</strong> 每樣本，加 NFW 至 <strong>20 µL</strong>，置 0.2 mL PCR tube', note:'flick 混勻，勿 vortex；短暫離心', warn:'' },
+  { id:'mabb2', text:'依樣本類型加入對應 Primer：<br>16S 樣本：16S Primers <strong>5 µL</strong> + LongAmp 2X MM <strong>25 µL</strong> = 總 <strong>50 µL</strong><br>ITS 樣本：ITS Primers <strong>5 µL</strong> + LongAmp 2X MM <strong>25 µL</strong> = 總 <strong>50 µL</strong>', note:'16S 與 ITS 樣本分開操作，使用不同管', warn:'同一 run 只用同類型 amplicon' },
+  { id:'mabb3', text:'Pipette mix，短暫離心', note:'', warn:'' },
+  { id:'mabb4', text:'PCR 程式：95°C 1 min → [95°C 20 sec → 55°C 30 sec → 65°C 2 min] × <strong>25 cycles</strong> → 65°C 5 min', note:'', time:'⏱ ~40 min', warn:'' },
+  { id:'mabb5', text:'取出，短暫離心，pipette mix（各換新 tip）', note:'⚠️ Qubit 量測確認 PCR 產物濃度', warn:'' },
+];
+const mabC = [
+  { id:'mabc1', text:'每樣本依上方表格取對應量 Amplicon DNA，加 NFW 至 <strong>8 µL</strong>，置 0.2 mL PCR tube', note:'≥ 12 樣本取 10 ng；≤ 11 樣本取 20 ng', warn:'' },
+  { id:'mabc2', text:'選取唯一 Amplicon Barcode（AB01–24），每樣本用不同 barcode', note:'Plate format 每孔單次使用，勿重複使用已開封孔位', warn:'' },
+  { id:'mabc3', text:'每管依序加入：Amplicon DNA <strong>8 µL</strong> + EDTA <strong>1 µL</strong> + AB <strong>1 µL</strong> = 總 <strong>10 µL</strong>', note:'依序加入，pipette mix 確認混勻', warn:'' },
+  { id:'mabc4', text:'Pipette mix，短暫離心', note:'', warn:'' },
+  { id:'mabc5', text:'熱循環：<strong>65°C 10 min → 80°C 2 min</strong>，結束後置冰上', note:'65°C 讓 barcode 接上；80°C 讓 Thermolabile Proteinase K 後續失活', time:'⏱ 12 min', warn:'' },
+];
+const mabD = [
+  { id:'mabd1', text:'每管加入 <strong>1 µL Thermolabile Proteinase K</strong>，pipette mix', note:'PK 降解殘留蛋白質', warn:'' },
+  { id:'mabd2', text:'<strong>37°C 15 min</strong>，然後 <strong>55°C 10 min</strong> 讓 PK 失活', note:'', time:'⏱ 25 min', warn:'' },
+  { id:'mabd3', text:'合併所有 barcoded sample 至 1.5 mL LoBind tube', note:'24 樣本 → 264 µL（n × 11 µL）', warn:'' },
+  { id:'mabd4', text:'加入 <strong>等體積 AXP</strong>（pooled volume × 1.0），pipette mix', note:'', warn:'' },
+  { id:'mabd5', text:'Hula mixer 室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
+  { id:'mabd6', text:'磁架吸附，移除上清液', note:'', warn:'' },
+  { id:'mabd7', text:'加入 <strong>500 µL SFB</strong>，flick 重懸，spin，磁架，移除（× 2）', note:'SFB 不可換成 ethanol', warn:'' },
+  { id:'mabd8', text:'短暫離心，磁架，移除殘餘 buffer', note:'', warn:'' },
+  { id:'mabd9', text:'加入 <strong>31 µL EB</strong> 重懸，室溫孵育 <strong>2 min</strong>', note:'', time:'⏱ 2 min', warn:'' },
+  { id:'mabd10', text:'磁架吸附，轉移 <strong>31 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL 確認 library 濃度', warn:'' },
+];
+const mabE = [
+  { id:'mabe1', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
+  { id:'mabe2', text:'取 barcoded DNA <strong>30 µL</strong> + diluted RA <strong>1 µL</strong>，gentle flick 混勻，短暫離心', note:'', warn:'' },
+  { id:'mabe3', text:'室溫孵育 <strong>5 min</strong>（同步進行 flow cell priming）', note:'Library 置冰上直到上機', time:'⏱ 5 min', warn:'Adapter 連接後立即上機' },
+];
+document.addEventListener('DOMContentLoaded', function() {
+  renderSteps('mab-B', mabB, 0);
+  renderSteps('mab-C', mabC, mabB.length);
+  renderSteps('mab-D', mabD, mabB.length + mabC.length);
+  renderSteps('mab-E', mabE, mabB.length + mabC.length + mabD.length);
+});
+</script>
+
+{{< include _sop_shared.html >}}

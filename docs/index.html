@@ -108,12 +108,20 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">🔬 SQK-NBD114.24（Native Barcoding · ~140 min）</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./sop_lsk114.html">
+ <span class="dropdown-text">🔗 SQK-LSK114（Ligation 單樣本 · ~80 min）</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./sop_rpb114.html">
- <span class="dropdown-text">🧪 SQK-RPB114.24（PCR Barcoding · 1–5 ng）</span></a>
+ <span class="dropdown-text">🧪 SQK-RPB114.24（PCR Barcoding · 低量）</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./sop_rad114.html">
  <span class="dropdown-text">⚡ SQK-RAD114（Rapid 單樣本 · ~10 min）</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sop_mab114.html">
+ <span class="dropdown-text">🦠 SQK-MAB114.24（16S/ITS Amplicon）</span></a>
   </li>  
     </ul>
   </li>
@@ -121,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://script.google.com/macros/s/AKfycbyfA3Ihe9B6FdhQEMPoWXxtFoTz8_nBzqSdL2lJ-AzhV8VyZAKWINtFCU4u6ZpSmtCP/exec"> 
-<span class="menu-text">↗ 回Nanopore QC系統</span></a>
+<span class="menu-text">↗ Nanopore QC 系統</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -173,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>本站收錄依據官方文件摘要的 Nanopore 定序的操作標準與建庫 SOP。<br>
+<p>本站收錄國家生物模式中心 Nanopore 定序的操作標準與建庫 SOP。<br>
 <strong>實驗記錄請至主系統操作</strong>，本站為純說明文件。</p>
 </div>
 </div>
@@ -204,21 +212,33 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><a href="./sop_nbd114.html">🔬 SQK-NBD114.24</a></td>
-<td style="text-align: left;">高品質 gDNA、最長讀長</td>
+<td style="text-align: left;">多樣本、高品質 gDNA、最長讀長</td>
 <td style="text-align: center;">1,000 ng / 樣本</td>
 <td style="text-align: center;">~140 min</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><a href="./sop_lsk114.html">🔗 SQK-LSK114</a></td>
+<td style="text-align: left;">單樣本、最大化輸出量、甲基化</td>
+<td style="text-align: center;">1,000 ng</td>
+<td style="text-align: center;">~80 min</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><a href="./sop_rpb114.html">🧪 SQK-RPB114.24</a></td>
 <td style="text-align: left;"><strong>超低量（1–5 ng）</strong>、eDNA</td>
 <td style="text-align: center;"><strong>1–5 ng / 樣本</strong></td>
 <td style="text-align: center;">~90 min</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><a href="./sop_rad114.html">⚡ SQK-RAD114</a></td>
-<td style="text-align: left;">單樣本、最快速</td>
+<td style="text-align: left;">單樣本、最快速定序</td>
 <td style="text-align: center;">100–150 ng</td>
 <td style="text-align: center;"><strong>~10 min</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="./sop_mab114.html">🦠 SQK-MAB114.24</a></td>
+<td style="text-align: left;"><strong>16S 細菌 / ITS 真菌</strong> 群落鑑定</td>
+<td style="text-align: center;">10 ng / 樣本</td>
+<td style="text-align: center;">~75 min + PCR</td>
 </tr>
 </tbody>
 </table>
@@ -226,80 +246,117 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="kit-選擇決策流程" class="level2">
 <h2 class="anchored" data-anchor-id="kit-選擇決策流程">🔬 Kit 選擇決策流程</h2>
-<pre><code>需要多樣本 multiplex？
-├── 是
-│   └── DNA 量是否充足（≥ 200 ng / 樣本）？
-│       ├── 是 → 高品質 gDNA（A260/A280 ≥ 1.8，HMW fragment）？
-│       │         ├── 是 → 🔬 SQK-NBD114.24（最長讀長）
-│       │         └── 否 → 🌱 SQK-RBK114.24（耐受抑制物）
-│       └── 否 → DNA 是否 ≥ 4 kb，且有 1–5 ng？
-│                 ├── 是 → 🧪 SQK-RPB114.24（PCR 增幅）
-│                 └── 否 → 重新提取或濃縮
-└── 否（單樣本）
-    └── ⚡ SQK-RAD114（~10 min，最快）</code></pre>
+<pre><code>目標是 16S/ITS 微生物群落鑑定？
+├── 是 → 🦠 SQK-MAB114.24（最多 24 樣本，EPI2ME wf-16s）
+└── 否（基因組 DNA 定序）
+    ├── 需要多樣本 multiplex？
+    │   ├── 是 → DNA 量 ≥ 200 ng / 樣本？
+    │   │         ├── 是 → HMW + 高純度？
+    │   │         │         ├── 是 → 🔬 SQK-NBD114.24（最長讀長）
+    │   │         │         └── 否 → 🌱 SQK-RBK114.24（耐受抑制物）
+    │   │         └── 否 → DNA ≥ 4 kb 且 1–5 ng 可用？
+    │   │                   ├── 是 → 🧪 SQK-RPB114.24（PCR 增幅）
+    │   │                   └── 否 → 重新提取
+    │   └── 否（單樣本）
+    │       ├── 需要最長讀長 / 甲基化 → 🔗 SQK-LSK114（~80 min）
+    │       └── 需要最快速 → ⚡ SQK-RAD114（~10 min）</code></pre>
 <hr>
 </section>
 <section id="kit-比較一覽" class="level2">
 <h2 class="anchored" data-anchor-id="kit-比較一覽">📊 Kit 比較一覽</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: center;">🧪 RBK114.24</th>
-<th style="text-align: center;">🧪 NBD114.24</th>
-<th style="text-align: center;">🧪 RPB114.24</th>
-<th style="text-align: center;">🧪 RAD114</th>
+<th style="text-align: center;">🌱 RBK</th>
+<th style="text-align: center;">🔬 NBD</th>
+<th style="text-align: center;">🔗 LSK</th>
+<th style="text-align: center;">🧪 RPB</th>
+<th style="text-align: center;">⚡ RAD</th>
+<th style="text-align: center;">🦠 MAB</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>DNA 投入量</strong></td>
 <td style="text-align: center;">200 ng</td>
-<td style="text-align: center;">400 ~ 1000 ng</td>
+<td style="text-align: center;">1,000 ng</td>
+<td style="text-align: center;">1,000 ng</td>
 <td style="text-align: center;"><strong>1–5 ng</strong></td>
 <td style="text-align: center;">100–150 ng</td>
+<td style="text-align: center;">10 ng</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>建庫時間</strong></td>
 <td style="text-align: center;">~55 min</td>
 <td style="text-align: center;">~140 min</td>
+<td style="text-align: center;">~80 min</td>
 <td style="text-align: center;">~90 min</td>
 <td style="text-align: center;"><strong>~10 min</strong></td>
+<td style="text-align: center;">~75 min+PCR</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>最多樣本數</strong></td>
+<td style="text-align: left;"><strong>最多樣本</strong></td>
 <td style="text-align: center;">24</td>
 <td style="text-align: center;">24</td>
+<td style="text-align: center;">1</td>
 <td style="text-align: center;">24</td>
-<td style="text-align: center;">1（無 barcode）</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">24</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>PCR</strong></td>
 <td style="text-align: center;">❌</td>
 <td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>讀長</strong></td>
 <td style="text-align: center;">中等</td>
 <td style="text-align: center;"><strong>最長</strong></td>
+<td style="text-align: center;"><strong>最長</strong></td>
 <td style="text-align: center;">&lt; 5 kb</td>
 <td style="text-align: center;">中等</td>
+<td style="text-align: center;">Amplicon</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>對抑制物耐受</strong></td>
-<td style="text-align: center;">高</td>
-<td style="text-align: center;">低</td>
-<td style="text-align: center;">中</td>
-<td style="text-align: center;">高</td>
+<td style="text-align: left;"><strong>甲基化</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><strong>適用</strong></td>
+<td style="text-align: center;">gDNA</td>
+<td style="text-align: center;">gDNA</td>
+<td style="text-align: center;">gDNA</td>
+<td style="text-align: center;">eDNA</td>
+<td style="text-align: center;">gDNA</td>
+<td style="text-align: center;"><strong>16S/ITS</strong></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><strong>Early Access</strong></td>
 <td style="text-align: center;">❌</td>
 <td style="text-align: center;">❌</td>
-<td style="text-align: center;">⚠️ 是</td>
-<td style="text-align: center;">⚠️ 是</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">⚠️</td>
+<td style="text-align: center;">⚠️</td>
 </tr>
 </tbody>
 </table>

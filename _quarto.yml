@@ -3,10 +3,7 @@ project:
   output-dir: docs
 
 website:
-  #title: "Nanopore Hub"
-  #description: "QC Standards and Protocals"
-  
-  navbar:
+   navbar:
     left:
       - href: index.qmd
         text: "🏠 首頁"
@@ -18,15 +15,18 @@ website:
             text: "🌱 SQK-RBK114.24（Rapid Barcoding · ~55 min）"
           - href: sop_nbd114.qmd
             text: "🔬 SQK-NBD114.24（Native Barcoding · ~140 min）"
+          - href: sop_lsk114.qmd
+            text: "🔗 SQK-LSK114（Ligation 單樣本 · ~80 min）"
           - href: sop_rpb114.qmd
-            text: "🧪 SQK-RPB114.24（PCR Barcoding · 1–5 ng）"
+            text: "🧪 SQK-RPB114.24（PCR Barcoding · 低量）"
           - href: sop_rad114.qmd
             text: "⚡ SQK-RAD114（Rapid 單樣本 · ~10 min）"
-        
+          - href: sop_mab114.qmd
+            text: "🦠 SQK-MAB114.24（16S/ITS Amplicon）"
     right:
-      - text: "↗ 回Nanopore QC系統"
+      - text: "↗ Nanopore QC 系統"
         href: "https://script.google.com/macros/s/AKfycbyfA3Ihe9B6FdhQEMPoWXxtFoTz8_nBzqSdL2lJ-AzhV8VyZAKWINtFCU4u6ZpSmtCP/exec"
-  
+
 format:
   html:
     theme: spacelab
@@ -35,4 +35,4 @@ format:
     toc-depth: 3
     number-sections: false
     code-copy: true
-    lang: zh-TW  
+    lang: zh-TW
