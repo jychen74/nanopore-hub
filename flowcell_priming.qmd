@@ -8,7 +8,12 @@ format:
 ---
 
 ::: {.callout-note title="定位"}
+<<<<<<< Updated upstream
 本頁整理 **MinION / GridION Flow Cell** 在上樣前的 priming 與 loading 操作。建議作為所有 SQK-RBK、SQK-NBD、SQK-LSK、SQK-RPB、SQK-RAD、SQK-MAB 建庫 SOP 的共同前置頁面。
+=======
+**MinION / GridION Flow Cell** 在上樣前的 priming 與 loading 操作。  
+建議作為所有 SQK-RBK、SQK-NBD、SQK-LSK、SQK-RPB、SQK-RAD、SQK-MAB 建庫 SOP 的共同前置頁面。
+>>>>>>> Stashed changes
 :::
 
 ## 適用範圍

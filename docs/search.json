@@ -385,6 +385,202 @@
     "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Kit 14 priming and loading sections: SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24."
   },
   {
+    "objectID": "flowcell_wash_preserve.html",
+    "href": "flowcell_wash_preserve.html",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "",
+    "text": "註釋定位\n\n\n\nrun 結束後、暫時不接續上樣 的情境：停止或暫停 sequencing run → 使用 Flow Cell Wash Kit 清洗 → 以 Storage Buffer 保存於 2–8°C。若 wash 後要立即跑第二個 library，請參考「Flow Cell 操作：Wash 後接續上樣」。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#適用情境",
+    "href": "flowcell_wash_preserve.html#適用情境",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "適用情境",
+    "text": "適用情境\n\n\n\n\n\n\n\n情境\n建議\n\n\n\n\n當天不再跑第二個 library\nWash 後加入 Storage Buffer 保存\n\n\nFlow cell 仍有可用 pores\n優先考慮 wash / preserve，保留後續再使用機會\n\n\nRun 結束但無法立即清洗\n越快越好；若無法當天清洗，維持 flow cell 在 device 上，隔天儘速處理\n\n\nSOP 化紀錄需求\n每次 wash / preserve 均需記錄 flow cell ID、時間、操作者、pore 數與異常"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#試劑與設備",
+    "href": "flowcell_wash_preserve.html#試劑與設備",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "試劑與設備",
+    "text": "試劑與設備\n\n\n\n\n\n\n\n類別\n項目\n\n\n\n\nKit\nFlow Cell Wash Kit（EXP-WSH004 或 EXP-WSH004-XL）\n\n\nReagents\nWash Mix（WMX）、Wash Diluent（DIL）、Storage Buffer（S）\n\n\nConsumables\n1.5 mL Eppendorf DNA LoBind tube\n\n\nEquipment\nMinION / GridION device、P1000、P200、P20、ice bucket、vortex、microfuge\n\n\n\n\n\n\n\n\n\n註釋Note\n\n\n\nWash Mix（WMX）含 DNase I；Wash Diluent（DIL）含 exonuclease buffer，兩者混合後發揮 DNA 消化作用。Storage Buffer（S）用於 wash 完成後的保存，或 reload 前的 flow cell check。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#wash-mix-配製",
+    "href": "flowcell_wash_preserve.html#wash-mix-配製",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "Wash Mix 配製",
+    "text": "Wash Mix 配製\n\n\n\n\n\n\n警告Warning\n\n\n\nWash Mix 建議每次新鮮配製，不要預先配製後存放超過 1 天。WMX 不可 vortex，保持在冰上直到使用。\n\n\nWMX 解凍方式：從 -20°C 取出後，置冰上解凍；不可室溫解凍。\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nWash Mix（WMX）\n2 µL\n\n\nWash Diluent（DIL）\n398 µL\n\n\nTotal\n400 µL\n\n\n\n配製步驟：\n\nWMX 置冰上，不 vortex。\nDIL 室溫解凍，vortex 混勻後 brief spin-down，再置冰上。\n於 fresh 1.5 mL DNA LoBind tube 中混合 WMX + DIL。\nPipette 混勻（不 vortex），置冰上備用。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#wash-preserve-sop",
+    "href": "flowcell_wash_preserve.html#wash-preserve-sop",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "Wash / Preserve SOP",
+    "text": "Wash / Preserve SOP\n\n1. Stop / pause sequencing run\n\n在 MinKNOW 中 stop 或 pause sequencing experiment。\n確認 flow cell 不在 sequencing 狀態（manipulating flow cell 時若仍在 sequencing，可能造成 pore loss）。\nFlow cell 全程保持插在 sequencing device 上，以維持固定與溫控。\n\n\n\n2. 移除 waste buffer\n\n\n\n\n\n\n重要Important\n\n\n\n移除 waste buffer 前，priming port 與 SpotON sample port 必須為關閉狀態。若兩個 port 在抽 waste 時開著，空氣可能被抽過 sensor array，造成顯著 pore loss。\n\n\n\n確認 priming port cover 與 SpotON sample port cover 皆為關閉狀態。\nP1000 設定 1,000 µL。\n將 tip 插入 waste port 1。\n緩慢抽出 waste channel 中的 buffer；若需要可多次重複，直到移除乾淨。\n\n\n\n3. 開啟 priming port 並去除氣泡\n\n順時針滑開 priming port cover。\nP1000 先設定為 200 µL，tip 插入 priming port。\n緩慢轉動 wheel，使設定值增加至約 220–230 µL，直到看見少量液體進入 tip（實際吸回量約 20–30 µL）。\n目視確認 priming port 到 sensor array 仍有連續 buffer 覆蓋。\n\n\n\n\n\n\n\n註釋Note\n\n\n\nFlow cell 跑過 library 後，priming port 出現 buffer 的速度可能較慢，屬正常現象；耐心等待液體進入 tip，不要過度抽吸。\n\n\n\n\n4. 第一次加入 Wash Mix\n\nP1000 吸取 200 µL prepared Wash Mix，確認 tip 內無氣泡。\n由 priming port 緩慢注入；注入時間至少 5 秒，保持連續速度。\nTip 末端保留少量液體，不要完全打空。\n靜置 5 min。\n\n\n\n5. 第二次加入 Wash Mix\n\n5 min incubation 後，再次吸取 200 µL prepared Wash Mix，由 priming port 緩慢注入。\n關閉 priming port。\n等待 1 hr。\n\n\n\n\n\n\n\n重要Important\n\n\n\n1 hr incubation 讓 DNase I 充分消化殘留 DNA library。等待期間不要操作 flow cell。\n\n\n\n\n6. 移除 waste buffer（1 hr 後）\n1 hr incubation 完成後：\n\n開啟 priming port。\nP1000 設定 1,000 µL，tip 插入 waste port 1。\n緩慢抽出所有 waste buffer；重複直到移除乾淨。\n\n此時 flow cell 清洗完成，可依需要選擇保存或直接 reload。\n\n\n7. 加入 Storage Buffer 保存\n\n\n\n\n\n\n重要Important\n\n\n\nWash 完成後，不可讓 flow cell 在 Wash Mix 狀態下長時間靜置；這可能造成不可逆 pore loss。若不立即 reload，必須接續加入 Storage Buffer。\n\n\n\n室溫解凍一管 Storage Buffer（S）。\nP1000 先設定 200 µL，tip 插入 priming port，緩慢吸回 20–30 µL 去除氣泡。\n取 500 µL Storage Buffer，由 priming port 緩慢注入；注入時間至少 5 秒，保持連續速度。\n關閉 priming port。\nP1000 設定 1,000 µL，由 waste port 1 移除所有 waste buffer。\n確認 priming port 與 SpotON sample port cover 皆為關閉狀態。\n將 flow cell 放回原包裝或合適容器，保存於 2–8°C。\n\n\n\n\n\n\n\n註釋Note\n\n\n\n保存後取出再使用時，先讓 flow cell 室溫回溫約 5 分鐘，再執行 flow cell check 評估可用 pore 數，確認後再進行 priming 與 loading。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#preserve-後紀錄表",
+    "href": "flowcell_wash_preserve.html#preserve-後紀錄表",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "Preserve 後紀錄表",
+    "text": "Preserve 後紀錄表\n\n\n\n欄位\n紀錄\n\n\n\n\nDate / Operator\n\n\n\nFlow cell ID\n\n\n\nPrevious run ID\n\n\n\nRun stop time\n\n\n\nWaste removed before wash\nYes / No\n\n\nWash Mix 配製時間\n\n\n\nWMX lot\n\n\n\nFirst 200 µL wash time\n\n\n\nSecond 200 µL wash time\n\n\n\n1 hr incubation end time\n\n\n\nWaste removed after wash\nYes / No\n\n\nStorage Buffer added（500 µL）\nYes / No\n\n\nStorage temperature\n2–8°C\n\n\nPost-wash / next-use pores\n\n\n\n備註"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#是否適合保存的判斷",
+    "href": "flowcell_wash_preserve.html#是否適合保存的判斷",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "是否適合保存的判斷",
+    "text": "是否適合保存的判斷\n\n\n\n\n\n\n\n條件\n建議判斷\n\n\n\n\n剩餘 pores 仍多\n保存，後續可用於低風險、探索性或短 run\n\n\n曾發生明顯 air bubble\n保存價值降低；下次使用前特別注意 flow cell check\n\n\n目標為重要樣本或 publication-grade run\n優先使用新 flow cell；reuse flow cell 用於 method development 或補充資料\n\n\nFlow cell 已多次 wash\n預期效能下降；以實際 pore scan / output 決定用途\n\n\n\n\n\n\n\n\n\n註釋Note\n\n\n\nEXP-WSH004 的一般可重複使用次數為 3–6 次，實際次數取決於樣本種類、前次 run 品質與操作條件。詳細說明請參考 ONT Flow Cell Wash Kit Know-How document。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#本頁資料來源",
+    "href": "flowcell_wash_preserve.html#本頁資料來源",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "本頁資料來源",
+    "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL) checklist.\nOxford Nanopore Technologies. Kit-specific flow cell reuse and returns sections: SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24."
+  },
+  {
+    "objectID": "flowcell_priming.html",
+    "href": "flowcell_priming.html",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "",
+    "text": "註釋定位\n\n\n\nMinION / GridION Flow Cell 在上樣前的 priming 與 loading 操作。\n建議作為所有 SQK-RBK、SQK-NBD、SQK-LSK、SQK-RPB、SQK-RAD、SQK-MAB 建庫 SOP 的共同前置頁面。"
+  },
+  {
+    "objectID": "flowcell_priming.html#適用範圍",
+    "href": "flowcell_priming.html#適用範圍",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "適用範圍",
+    "text": "適用範圍\n\n\n\n\n\n\n\n項目\n內容\n\n\n\n\n適用平台\nMinION / GridION；以 FLO-MIN114、Kit 14 chemistry 為主\n\n\n目的\n將 flow cell 由 storage buffer 狀態轉換為適合上樣的 primed 狀態\n\n\n核心風險\n引入 air bubble、抽出過多 buffer、LIB beads 未混勻、SpotON 上樣太快\n\n\n建議紀錄\nFlow cell ID、初始 active pores、priming 時間、使用 kit、操作者、異常事件"
+  },
+  {
+    "objectID": "flowcell_priming.html#原理簡述",
+    "href": "flowcell_priming.html#原理簡述",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "原理簡述",
+    "text": "原理簡述\nFlow cell 內的 sequencing array 位於 buffer 下方。MinION flow cell 有 priming port 與 SpotON sample port；priming port 用於 flush / priming，SpotON sample port 用於滴加 library。Priming 的目的不是「清洗」，而是將 storage buffer 置換為 sequencing-ready 的 priming mix，並確保空氣不進入 array。"
+  },
+  {
+    "objectID": "flowcell_priming.html#操作前檢查",
+    "href": "flowcell_priming.html#操作前檢查",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "操作前檢查",
+    "text": "操作前檢查\n\n\n\n\n\n\n\n檢查項目\n判定 / 操作\n\n\n\n\nFlow cell 回溫\n從 2–8°C 取出後，室溫放置約 20 min\n\n\nFlow cell check\n新 flow cell 或久未使用者，在 MinKNOW 執行 flow cell check 確認可用 pore 數\n\n\n試劑回溫\nFCF、FCT、SB、LIB（或 LIS）室溫解凍，vortex 混勻，brief spin-down\n\n\nBSA\nR10.4.1 / Kit 14 flow cell 建議加入 BSA，終濃度 0.2 mg/mL\n\n\nLight shield\n確認備妥，library loading 後立即裝上\n\n\nPipette\nP1000、P20 / P10，確認吸頭無氣泡"
+  },
+  {
+    "objectID": "flowcell_priming.html#priming-mix-配製",
+    "href": "flowcell_priming.html#priming-mix-配製",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "Priming mix 配製",
+    "text": "Priming mix 配製\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nFlow Cell Flush（FCF）\n1,170 µL\n\n\nBovine Serum Albumin（BSA）50 mg/mL\n5 µL\n\n\nFlow Cell Tether（FCT）\n30 µL\n\n\nTotal\n1,205 µL\n\n\n\n配製後 pipette mix 均勻，置冰上備用。\n\n\n\n\n\n\n警告Warning\n\n\n\nBSA 使用 ONT protocol 指定的 bovine serum albumin（Invitrogen UltraPure BSA，AM2616）；不可替換為 recombinant human albumin 或其他 albumin 類型。"
+  },
+  {
+    "objectID": "flowcell_priming.html#minion-gridion-priming-sop",
+    "href": "flowcell_priming.html#minion-gridion-priming-sop",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "MinION / GridION Priming SOP",
+    "text": "MinION / GridION Priming SOP\n\n1. 插入 flow cell\n\n打開 MinION / GridION device lid。\n將 flow cell 滑入 clip 下方。\n確認 priming port cover 與 SpotON sample port cover 皆為關閉狀態。\n需要時在 MinKNOW 執行 flow cell check。\n\n\n\n2. 開啟 priming port 並去除氣泡\n\n順時針滑開 priming port cover。\n觀察 priming port 下方是否有小氣泡。\nP1000 先設定為 200 µL，將 tip 插入 priming port。\n緩慢轉動 pipette wheel，使設定值增加至約 220–230 µL，直到看見少量 buffer 進入 tip 為止（實際吸回量約 20–30 µL）。\n目視確認 priming port 到 sensor array 之間仍有連續液體覆蓋。\n\n\n\n\n\n\n\n重要Important\n\n\n\n抽回 buffer 時不要超過 20–30 µL。Sensor array 必須全程被 buffer 覆蓋；空氣進入 array 可能造成不可逆 pore loss。\n\n\n\n\n3. 第一次 priming flush\n\n以 P1000 吸取 800 µL priming mix，確認 tip 內無氣泡。\n由 priming port 緩慢注入；注入時間至少 10 秒，保持連續速度。\nTip 末端保留少量液體，不要完全打空。\n等待 5 min。\n\n\n\n4. 準備 library loading mix\n在等待 5 min 的期間準備 loading mix：\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nSequencing Buffer（SB）\n37.5 µL\n\n\nLibrary Beads（LIB）或 Library Solution（LIS）\n25.5 µL\n\n\nDNA library\n12 µL\n\n\nNuclease-free water（視 library 濃度補足）\n適量\n\n\nTotal\n75 µL\n\n\n\n\n\n\n\n\n\n提示Tip\n\n\n\n一般 sequencing 使用 LIB；若 library 黏稠或 beads loading 困難，可改用 LIS。LIB beads 沉降速度極快，務必在上樣前立即 pipette mix。\n\n\n\n\n\n\n\n\n註釋Note\n\n\n\n若 library 濃度高、取用體積不足 12 µL，以 nuclease-free water 補足至 75 µL 總體積。目標上機量為 10–20 fmol。\n\n\n\n\n5. 第二次 priming flush\n\n確認 priming port 已打開。\n輕輕打開 SpotON sample port cover。\n由 priming port 加入 200 µL priming mix（注意：不是從 SpotON port 加入）；注入時間至少 5 秒。\n觀察 SpotON port 液面短暫上升後回落，確認通道通暢。\n避免導入氣泡。\n\n\n\n6. Library loading\n\n上樣前將 75 µL loading mix 輕柔 pipette mix（LIB 使用前必須立即混勻）。\n以 dropwise 方式將 library 加入 SpotON sample port；每一滴完全進入 port 後，再加下一滴。\n蓋回 SpotON sample port cover，確認 bung 進入 SpotON port。\n關閉 priming port。\n立即裝上 light shield，蓋回 device lid。\n在 MinKNOW 設定並啟動 sequencing run。\n\n\n\n\n\n\n\n警告Warning\n\n\n\nLibrary loading 完成後應立即裝上 light shield，以維持最佳 sequencing 輸出。Light shield 未固定於 flow cell 上，裝卸時需小心。"
+  },
+  {
+    "objectID": "flowcell_priming.html#操作紀錄表",
+    "href": "flowcell_priming.html#操作紀錄表",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "操作紀錄表",
+    "text": "操作紀錄表\n\n\n\n欄位\n紀錄\n\n\n\n\nDate / Operator\n\n\n\nFlow cell ID\n\n\n\nKit / Library type\n\n\n\nInitial active pores（flow cell check 結果）\n\n\n\nPriming mix 配製時間\n\n\n\nBSA added\nYes / No\n\n\nFirst flush time\n\n\n\nSecond flush time\n\n\n\nLibrary loading volume\n75 µL / other\n\n\nLoading issue\nnone / bubble / slow uptake / leakage\n\n\nMinKNOW run ID\n\n\n\n備註"
+  },
+  {
+    "objectID": "flowcell_priming.html#常見問題與判讀",
+    "href": "flowcell_priming.html#常見問題與判讀",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "常見問題與判讀",
+    "text": "常見問題與判讀\n\n\n\n\n\n\n\n\n現象\n可能原因\n建議處理\n\n\n\n\nSpotON port 液體不易吸入\n壓力不平衡、tip 接觸不良、上樣過快\n暫停數秒，確認 priming port 為開啟狀態，避免強推\n\n\n上樣後 pore 快速下降\nAir bubble、library 含抑制物、loading 量過多\n記錄事件；下次加強去氣泡、確認 sample QC 與 loading 量\n\n\nLIB beads 沉降\n上樣前未立即混勻\nLoading 前重新 pipette mix\n\n\nRun 初期低 pore occupancy（flow cell check 正常）\nLibrary loading 量不足，或 adapter ligation / rapid adapter attachment 效率差\n檢查 library Qubit 濃度、fragment size、kit-specific SOP"
+  },
+  {
+    "objectID": "flowcell_priming.html#本頁資料來源",
+    "href": "flowcell_priming.html#本頁資料來源",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "本頁資料來源",
+    "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Ligation sequencing amplicons - Native Barcoding Kit 24 V14 (SQK-NBD114.24) (NBA_9168_v114_revT_02Oct2025).\nOxford Nanopore Technologies. Rapid sequencing DNA V14 - barcoding (SQK-RBK114.24) (RBK_9176_v114_revS_27Oct2025)."
+  },
+  {
+    "objectID": "flowcell_wash_reload.html",
+    "href": "flowcell_wash_reload.html",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "",
+    "text": "註釋定位\n\n\n\nwash 後立即跑第二個 sequencing library 的情境。前置條件是已依「Flow Cell 操作：Wash 與 Preserve」完成 wash 步驟（兩次 200 µL Wash Mix，1 hr incubation，移除 waste buffer），且不加入 Storage Buffer，直接進行本頁的 reload 流程。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#適用情境",
+    "href": "flowcell_wash_reload.html#適用情境",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "適用情境",
+    "text": "適用情境\n\n\n\n\n\n\n\n情境\n建議\n\n\n\n\n同日需要跑第二批樣本\nWash 後直接 reload\n\n\n前一個 run 已達目的，但 flow cell 仍有可用 pore\n可考慮 reload，提高 flow cell 使用效率\n\n\n樣本之間需防交叉污染\n謹慎評估；高風險樣本（低 abundance target）建議使用新 flow cell\n\n\nSOP 化紀錄需求\n明確紀錄前一個 run、wash、第二個 run 的連續關係"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#操作總覽",
+    "href": "flowcell_wash_reload.html#操作總覽",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "操作總覽",
+    "text": "操作總覽\n\n\n\n\n\n\n\n\n階段\n核心操作\n時間\n\n\n\n\n前置確認\n確認 wash 完成、waste 已移除、第二個 library 已備妥\n—\n\n\n第一段 priming\n配製 priming mix、去氣泡、注入 800 µL\n約 10 min\n\n\nLoading mix 準備\n等待期間準備第二個 library 的 loading mix\n—\n\n\nWaste 移除\n關 priming port、等 5 min、移除 waste\n約 5 min\n\n\n第二段 priming + loading\n加 200 µL priming mix，滴加 library\n約 5 min\n\n\n啟動新 run\nMinKNOW 建立新 experiment\n依設定"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#開始前狀態確認",
+    "href": "flowcell_wash_reload.html#開始前狀態確認",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "開始前狀態確認",
+    "text": "開始前狀態確認\n在 reload 前，確認以下各項均已完成：\n\n已依 wash SOP 完成兩次 200 µL Wash Mix loading\n第二次 Wash Mix 後已關閉 priming port 並完成 1 hr incubation\n1 hr 結束後已移除 waste port 1 的 waste buffer\n未將 flow cell 以 Wash Mix 長時間靜置\n第二個 library 已完成 kit-specific 建庫，在 ice 或 4°C 暫存\n\n\n\n\n\n\n\n重要Important\n\n\n\nWash 後接續上樣時，因 buffer 條件改變，不適合在 loading 前執行 flow cell check。可在新 run 啟動後，以第一次 pore scan 的結果評估可用 nanopore 數。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#reload-所需試劑",
+    "href": "flowcell_wash_reload.html#reload-所需試劑",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "Reload 所需試劑",
+    "text": "Reload 所需試劑\n\n\n\n\n\n\n\nReagent\n用途\n\n\n\n\nFlow Cell Flush（FCF）\nPriming mix 主體\n\n\nFlow Cell Tether（FCT）\nPriming mix tether component\n\n\nBovine Serum Albumin（BSA）50 mg/mL\nPriming mix；終濃度 0.2 mg/mL（Kit 14 / R10.4.1）\n\n\nSequencing Buffer（SB）\nLoading mix\n\n\nLibrary Beads（LIB）或 Library Solution（LIS）\nLoading mix\n\n\nDNA library\n第二個 sequencing library\n\n\n\n試劑處理：FCF、FCT、SB、LIB（或 LIS）室溫解凍，vortex 後 spin-down，置冰上備用。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#第一段-priming",
+    "href": "flowcell_wash_reload.html#第一段-priming",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "第一段 Priming",
+    "text": "第一段 Priming\n\n1. 配製 priming mix\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nFlow Cell Flush（FCF）\n1,170 µL\n\n\nBovine Serum Albumin（BSA）50 mg/mL\n5 µL\n\n\nFlow Cell Tether（FCT）\n30 µL\n\n\nTotal\n1,205 µL\n\n\n\nPipette mix 均勻，置冰上備用。\n\n\n2. 開啟 priming port 並去除氣泡\n\n順時針滑開 priming port cover。\nP1000 先設定 200 µL，tip 插入 priming port。\n緩慢轉動 wheel，使設定值增加至約 220–230 µL，直到看見少量液體進入 tip（實際吸回量約 20–30 µL）。\n目視確認 sensor array 一直有 buffer 覆蓋。\n\n\n\n\n\n\n\n註釋Note\n\n\n\nWash 後的 flow cell，priming port 出現 buffer 的速度可能較慢，且吸出的液體可能帶有淡色（Wash Mix 殘留），屬正常現象。耐心等待液體進入 tip，不要過度抽吸。\n\n\n\n\n3. 注入 800 µL priming mix\n\nP1000 吸取 800 µL priming mix，確認 tip 內無氣泡。\n由 priming port 緩慢注入；注入時間至少 10 秒，保持連續速度。\nTip 末端保留少量液體，不要完全打空。\n關閉 priming port，等待 5 min。\n\n\n\n\n\n\n\n重要Important\n\n\n\n注入 800 µL 後，必須關閉 priming port 並等待 5 分鐘，讓 priming mix 充分置換 wash buffer。此等待步驟不可省略。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#準備第二個-library-loading-mix",
+    "href": "flowcell_wash_reload.html#準備第二個-library-loading-mix",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "準備第二個 Library Loading Mix",
+    "text": "準備第二個 Library Loading Mix\n在等待 5 min 期間準備：\n\n\n\n\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nSequencing Buffer（SB）\n37.5 µL\n\n\nLibrary Beads（LIB，使用前立即混勻）或 Library Solution（LIS）\n25.5 µL\n\n\nDNA library\n12 µL\n\n\nNuclease-free water（視 library 濃度補足）\n適量\n\n\nTotal\n75 µL\n\n\n\n\n\n\n\n\n\n提示Tip\n\n\n\n第二個 library 的重要性評估：若第二個樣本為關鍵研究樣本或需建立正式效能資料，建議改用新 flow cell，降低 reuse 的不確定性。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#第二段-priming-與-library-loading",
+    "href": "flowcell_wash_reload.html#第二段-priming-與-library-loading",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "第二段 Priming 與 Library Loading",
+    "text": "第二段 Priming 與 Library Loading\n\n5 min 等待結束後，由 waste port 1 移除所有 waste buffer（P1000 設定 1,000 µL，緩慢抽出）。\n開啟 priming port。\n輕輕打開 SpotON sample port cover。\n由 priming port 加入 200 µL priming mix，注入時間至少 5 秒（注意：不是從 SpotON port 加入）。\n上樣前將 75 µL loading mix 輕柔 pipette mix（LIB 使用前立即混勻）。\n以 dropwise 方式由 SpotON sample port 加入 75 µL loading mix；每一滴完全進入 port 後，再加下一滴。\n蓋回 SpotON sample port cover，確認 bung 進入 SpotON port。\n關閉 priming port。\n裝回 light shield，關閉 device lid。\n在 MinKNOW 建立新的 sequencing run。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#reload-紀錄表",
+    "href": "flowcell_wash_reload.html#reload-紀錄表",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "Reload 紀錄表",
+    "text": "Reload 紀錄表\n\n\n\n欄位\n紀錄\n\n\n\n\nDate / Operator\n\n\n\nFlow cell ID\n\n\n\nPrevious run ID\n\n\n\nPrevious sample / barcode set\n\n\n\nWash start time\n\n\n\nWash end time（1 hr incubation 結束）\n\n\n\nWaste removed after wash\nYes / No\n\n\nSecond library ID\n\n\n\nSecond kit / barcode set\n\n\n\nReload priming time（800 µL flush 時間）\n\n\n\nLibrary loading time\n\n\n\nLibrary loading volume\n75 µL / other\n\n\nFirst pore scan after reload（新 run 啟動後）\n\n\n\nCross-contamination concern\nLow / Medium / High\n\n\n備註"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#何時不建議-reload",
+    "href": "flowcell_wash_reload.html#何時不建議-reload",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "何時不建議 Reload",
+    "text": "何時不建議 Reload\n\n\n\n\n\n\n\n狀況\n理由\n\n\n\n\n第二個樣本為關鍵診斷或核心研究樣本\nReuse flow cell 有較多不確定性，效能難以保證\n\n\n前一 run 有高 abundance target，第二 run 需檢出低 abundance target\nCarryover 風險不可忽視\n\n\n前一 run 發生明顯 air bubble 或 pore 急遽下降\nFlow cell 狀態不穩定，wash 後效能難以預期\n\n\n需建立正式方法性能資料\n方法驗證階段優先使用新 flow cell，降低 confounder"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#本頁資料來源",
+    "href": "flowcell_wash_reload.html#本頁資料來源",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "本頁資料來源",
+    "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Kit 14 priming and loading sections: SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24."
+  },
+  {
     "objectID": "protocol_sop.html",
     "href": "protocol_sop.html",
     "title": "Library Prep SOP",

@@ -8,7 +8,11 @@ format:
 ---
 
 ::: {.callout-note title="定位"}
+<<<<<<< Updated upstream
 本頁用於 **wash 後立即跑第二個 sequencing library** 的情境。前置條件是已依「Flow Cell 操作：Wash 與 Preserve」完成 wash 步驟（兩次 200 µL Wash Mix，1 hr incubation，移除 waste buffer），**且不加入 Storage Buffer**，直接進行本頁的 reload 流程。
+=======
+**wash 後立即跑第二個 sequencing library** 的情境。前置條件是已依「Flow Cell 操作：Wash 與 Preserve」完成 wash 步驟（兩次 200 µL Wash Mix，1 hr incubation，移除 waste buffer），**且不加入 Storage Buffer**，直接進行本頁的 reload 流程。
+>>>>>>> Stashed changes
 :::
 
 ::: {.callout-warning title="Warning"}

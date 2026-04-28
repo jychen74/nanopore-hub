@@ -22,9 +22,14 @@ website:
           - href: sop_rad114.qmd
             text: "SQK-RAD114（Rapid 單樣本 · ~10 min）"
           - href: sop_mab114.qmd
+<<<<<<< Updated upstream
             text: "SQK-MAB114.24（16S/ITS Amplicon）"
   
       - text: "💧 Flow cell 相關"
+=======
+            text: "🦠 SQK-MAB114.24（16S/ITS Amplicon）"
+      - text: "💧 Flow cell 操作"
+>>>>>>> Stashed changes
         menu:
           - href: flowcell_priming.qmd
             text: "Priming / Loading"
@@ -33,7 +38,10 @@ website:
           - href: flowcell_wash_reload.qmd
             text: "Wash / Another run"
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     right:
       - text: "↗ Nanopore QC 系統"
         href: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
