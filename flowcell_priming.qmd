@@ -1,0 +1,152 @@
+---
+title: "Flow Cell 操作：Priming 與 Loading"
+description: "MinION/GridION flow cell priming、去氣泡、上樣與常見失誤檢查。"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+::: {.callout-note title="定位"}
+本頁整理 **MinION / GridION Flow Cell** 在上樣前的 priming 與 loading 操作。建議作為所有 SQK-RBK、SQK-NBD、SQK-LSK、SQK-RPB、SQK-RAD、SQK-MAB 建庫 SOP 的共同前置頁面。
+:::
+
+## 適用範圍
+
+| 項目 | 內容 |
+|---|---|
+| 適用平台 | MinION / GridION；以 FLO-MIN114、Kit 14 chemistry 為主 |
+| 目的 | 將 flow cell 由 storage buffer 狀態轉換為適合上樣的 primed 狀態 |
+| 核心風險 | 引入 air bubble、抽出過多 buffer、LIB beads 未混勻、SpotON 上樣太快 |
+| 建議紀錄 | Flow cell ID、初始 active pores、priming 時間、使用 kit、操作者、異常事件 |
+
+## 原理簡述
+
+Flow cell 內的 sequencing array 位於 buffer 下方。MinION flow cell 有 **priming port** 與 **SpotON sample port**；priming port 用於 flush / priming，SpotON sample port 用於滴加 library。Priming 的目的不是「清洗」，而是將 storage buffer 置換為 sequencing-ready 的 priming mix，並確保空氣不進入 array。
+
+## 操作前檢查
+
+| 檢查項目 | 判定 / 操作 |
+|---|---|
+| Flow cell 回溫 | 從 2–8°C 取出後，室溫放置約 20 min |
+| Flow cell check | 新 flow cell 或久未使用者，在 MinKNOW 執行 flow cell check 確認可用 pore 數 |
+| 試劑回溫 | FCF、FCT、SB、LIB（或 LIS）室溫解凍，vortex 混勻，brief spin-down |
+| BSA | R10.4.1 / Kit 14 flow cell 建議加入 BSA，終濃度 0.2 mg/mL |
+| Light shield | 確認備妥，library loading 後立即裝上 |
+| Pipette | P1000、P20 / P10，確認吸頭無氣泡 |
+
+## Priming mix 配製
+
+| Reagent | 每張 flow cell 用量 |
+|---|---:|
+| Flow Cell Flush（FCF） | 1,170 µL |
+| Bovine Serum Albumin（BSA）50 mg/mL | 5 µL |
+| Flow Cell Tether（FCT） | 30 µL |
+| **Total** | **1,205 µL** |
+
+配製後 pipette mix 均勻，置冰上備用。
+
+::: {.callout-warning title="Warning"}
+BSA 使用 ONT protocol 指定的 bovine serum albumin（Invitrogen UltraPure BSA，AM2616）；不可替換為 recombinant human albumin 或其他 albumin 類型。
+:::
+
+## MinION / GridION Priming SOP
+
+### 1. 插入 flow cell
+
+1. 打開 MinION / GridION device lid。
+2. 將 flow cell 滑入 clip 下方。
+3. 確認 priming port cover 與 SpotON sample port cover 皆為關閉狀態。
+4. 需要時在 MinKNOW 執行 flow cell check。
+
+### 2. 開啟 priming port 並去除氣泡
+
+1. 順時針滑開 priming port cover。
+2. 觀察 priming port 下方是否有小氣泡。
+3. P1000 **先設定為 200 µL**，將 tip 插入 priming port。
+4. 緩慢轉動 pipette wheel，使設定值增加至約 220–230 µL，直到看見少量 buffer 進入 tip 為止（實際吸回量約 20–30 µL）。
+5. 目視確認 priming port 到 sensor array 之間仍有連續液體覆蓋。
+
+::: {.callout-important title="Important"}
+抽回 buffer 時不要超過 20–30 µL。Sensor array 必須全程被 buffer 覆蓋；空氣進入 array 可能造成不可逆 pore loss。
+:::
+
+### 3. 第一次 priming flush
+
+1. 以 P1000 吸取 **800 µL priming mix**，確認 tip 內無氣泡。
+2. 由 priming port 緩慢注入；注入時間至少 10 秒，保持連續速度。
+3. Tip 末端保留少量液體，不要完全打空。
+4. 等待 **5 min**。
+
+### 4. 準備 library loading mix
+
+在等待 5 min 的期間準備 loading mix：
+
+| Reagent | 每張 flow cell 用量 |
+|---|---:|
+| Sequencing Buffer（SB） | 37.5 µL |
+| Library Beads（LIB）或 Library Solution（LIS） | 25.5 µL |
+| DNA library | 12 µL |
+| Nuclease-free water（視 library 濃度補足） | 適量 |
+| **Total** | **75 µL** |
+
+::: {.callout-tip title="Tip"}
+一般 sequencing 使用 **LIB**；若 library 黏稠或 beads loading 困難，可改用 **LIS**。LIB beads 沉降速度極快，務必在上樣前立即 pipette mix。
+:::
+
+::: {.callout-note title="Note"}
+若 library 濃度高、取用體積不足 12 µL，以 nuclease-free water 補足至 75 µL 總體積。目標上機量為 10–20 fmol。
+:::
+
+### 5. 第二次 priming flush
+
+1. 確認 priming port 已打開。
+2. 輕輕打開 SpotON sample port cover。
+3. 由 **priming port** 加入 **200 µL priming mix**（注意：不是從 SpotON port 加入）；注入時間至少 5 秒。
+4. 觀察 SpotON port 液面短暫上升後回落，確認通道通暢。
+5. 避免導入氣泡。
+
+### 6. Library loading
+
+1. 上樣前將 75 µL loading mix 輕柔 pipette mix（LIB 使用前必須立即混勻）。
+2. 以 **dropwise** 方式將 library 加入 SpotON sample port；每一滴完全進入 port 後，再加下一滴。
+3. 蓋回 SpotON sample port cover，確認 bung 進入 SpotON port。
+4. 關閉 priming port。
+5. 立即裝上 light shield，蓋回 device lid。
+6. 在 MinKNOW 設定並啟動 sequencing run。
+
+::: {.callout-warning title="Warning"}
+Library loading 完成後應立即裝上 light shield，以維持最佳 sequencing 輸出。Light shield 未固定於 flow cell 上，裝卸時需小心。
+:::
+
+## 操作紀錄表
+
+| 欄位 | 紀錄 |
+|---|---|
+| Date / Operator |  |
+| Flow cell ID |  |
+| Kit / Library type |  |
+| Initial active pores（flow cell check 結果） |  |
+| Priming mix 配製時間 |  |
+| BSA added | Yes / No |
+| First flush time |  |
+| Second flush time |  |
+| Library loading volume | 75 µL / other |
+| Loading issue | none / bubble / slow uptake / leakage |
+| MinKNOW run ID |  |
+| 備註 |  |
+
+## 常見問題與判讀
+
+| 現象 | 可能原因 | 建議處理 |
+|---|---|---|
+| SpotON port 液體不易吸入 | 壓力不平衡、tip 接觸不良、上樣過快 | 暫停數秒，確認 priming port 為開啟狀態，避免強推 |
+| 上樣後 pore 快速下降 | Air bubble、library 含抑制物、loading 量過多 | 記錄事件；下次加強去氣泡、確認 sample QC 與 loading 量 |
+| LIB beads 沉降 | 上樣前未立即混勻 | Loading 前重新 pipette mix |
+| Run 初期低 pore occupancy（flow cell check 正常） | Library loading 量不足，或 adapter ligation / rapid adapter attachment 效率差 | 檢查 library Qubit 濃度、fragment size、kit-specific SOP |
+
+## 本頁資料來源
+
+- Oxford Nanopore Technologies. *Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol* (WFC_9120_v1_revS_25Jul2025).
+- Oxford Nanopore Technologies. *Ligation sequencing amplicons - Native Barcoding Kit 24 V14 (SQK-NBD114.24)* (NBA_9168_v114_revT_02Oct2025).
+- Oxford Nanopore Technologies. *Rapid sequencing DNA V14 - barcoding (SQK-RBK114.24)* (RBK_9176_v114_revS_27Oct2025).
