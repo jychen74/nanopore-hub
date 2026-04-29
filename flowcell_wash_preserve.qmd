@@ -8,11 +8,7 @@ format:
 ---
 
 ::: {.callout-note title="定位"}
-<<<<<<< Updated upstream
-本頁用於 **run 結束後、暫時不接續上樣** 的情境：停止或暫停 sequencing run → 使用 Flow Cell Wash Kit 清洗 → 以 Storage Buffer 保存於 2–8°C。若 wash 後要立即跑第二個 library，請參考「Flow Cell 操作：Wash 後接續上樣」。
-=======
 **run 結束後、暫時不接續上樣** 的情境：停止或暫停 sequencing run → 使用 Flow Cell Wash Kit 清洗 → 以 Storage Buffer 保存於 2–8°C。若 wash 後要立即跑第二個 library，請參考「Flow Cell 操作：Wash 後接續上樣」。
->>>>>>> Stashed changes
 :::
 
 ## 適用情境
