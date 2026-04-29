@@ -34,7 +34,7 @@ website:
 
     right:
       - text: "↗ Nanopore QC 系統"
-        href: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
+        href: "https://script.google.com/macros/s/AKfycbyfA3Ihe9B6FdhQEMPoWXxtFoTz8_nBzqSdL2lJ-AzhV8VyZAKWINtFCU4u6ZpSmtCP/exec"
 
 format:
   html:
