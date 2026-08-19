@@ -1,0 +1,45 @@
+---
+title: "DNA / eDNA 建庫 protocol"
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+::: {.callout-note appearance="simple"}
+本頁集中整理 DNA / eDNA / amplicon 相關建庫 protocol。  
+建庫前請先確認 [DNA / eDNA 核酸 QC 標準](qc_standards.qmd)，kit 與 flow cell 價格可用 [ONT 產品選擇器](ont_product_selector.qmd) 查詢。
+:::
+
+## 多樣本 DNA / eDNA
+
+| Protocol | 適用情境 | DNA input | 建庫時間 |
+|:---|:---|:---:|:---:|
+| [SQK-RBK114.24](sop_rbk114.qmd) | 多樣本、環境 DNA、低品質樣本 | 200 ng / sample | ~55 min |
+| [SQK-NBD114.24](sop_nbd114.qmd) | 多樣本、高品質 gDNA、最長讀長、保留 native DNA methylation | 1,000 ng / sample | ~140 min |
+| [SQK-RPB114.24](sop_rpb114.qmd) | 超低量 DNA、eDNA、水體過濾膜、PCR-based multiplex | 1-5 ng / sample | ~90 min |
+
+## 單樣本 DNA
+
+| Protocol | 適用情境 | DNA input | 建庫時間 |
+|:---|:---|:---:|:---:|
+| [SQK-LSK114](sop_lsk114.qmd) | 單樣本、高品質 gDNA、最大化輸出量、甲基化分析 | 1,000 ng | ~80 min |
+| [SQK-RAD114](sop_rad114.qmd) | 單樣本、最快速定序、探索性 run | 100-150 ng | ~10 min |
+
+## Amplicon
+
+| Protocol | 適用情境 | Input | 建庫時間 |
+|:---|:---|:---:|:---:|
+| [SQK-MAB114.24](sop_mab114.qmd) | 16S rRNA 細菌 / ITS 真菌群落鑑定 | 10 ng DNA / sample | ~75 min + PCR |
+
+## 選擇提示
+
+| 樣本 / 目的 | 優先考慮 |
+|:---|:---|
+| 高品質 gDNA、多樣本、想保留最長讀長 | SQK-NBD114.24 |
+| 環境 / 糞便 / 抑制物風險較高、多樣本 | SQK-RBK114.24 |
+| DNA 極低量但片段仍 >= 4 kb | SQK-RPB114.24 |
+| 單樣本、最大輸出與甲基化分析 | SQK-LSK114 |
+| 單樣本、快速 exploratory sequencing | SQK-RAD114 |
+| 16S / ITS microbial community profiling | SQK-MAB114.24 |

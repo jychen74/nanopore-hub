@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" xml:lang="zh-TW"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>RNA / cDNA 核酸 QC 標準</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2d6a3453bf0d4e39c7840c4809e3aaaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "沒有結果",
+    "search-matching-documents-text": "符合的文件",
+    "search-copy-link-title": "複製搜尋連結",
+    "search-hide-matches-text": "隱藏其他符合的結果",
+    "search-more-match-text": "更多符合結果",
+    "search-more-matches-text": "更多符合結果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "送出",
+    "search-label": "搜尋"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="搜尋"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="切換導航列" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">首頁</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ont_product_selector.html"> 
+<span class="menu-text">ONT 產品選擇器</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dna--edna" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">DNA / eDNA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-dna--edna">    
+        <li>
+    <a class="dropdown-item" href="./dna_edna_sequencing.html">
+ <span class="dropdown-text">Kit 選擇</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./qc_standards.html">
+ <span class="dropdown-text">核酸 QC 標準</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./dna_edna_protocols.html">
+ <span class="dropdown-text">建庫 protocol</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-rna--cdna" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">RNA / cDNA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-rna--cdna">    
+        <li>
+    <a class="dropdown-item" href="./rna_cdna_sequencing.html">
+ <span class="dropdown-text">Kit 選擇</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./rna_cdna_qc_standards.html">
+ <span class="dropdown-text">核酸 QC 標準</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-flow-cell-操作" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Flow cell 操作</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-flow-cell-操作">    
+        <li>
+    <a class="dropdown-item" href="./flowcell_priming.html">
+ <span class="dropdown-text">Priming / Loading</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcell_wash_preserve.html">
+ <span class="dropdown-text">Wash / Preserve</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./flowcell_wash_reload.html">
+ <span class="dropdown-text">Wash / Another run</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"> 
+<span class="menu-text">↗ Nanopore QC 系統</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">本頁目錄</h2>
+   
+  <ul>
+  <li><a href="#本頁定位" id="toc-本頁定位" class="nav-link active" data-scroll-target="#本頁定位">本頁定位</a></li>
+  <li><a href="#建議-qc-workflow" id="toc-建議-qc-workflow" class="nav-link" data-scroll-target="#建議-qc-workflow">建議 QC workflow</a></li>
+  <li><a href="#qc-分層" id="toc-qc-分層" class="nav-link" data-scroll-target="#qc-分層">QC 分層</a></li>
+  <li><a href="#最低-input-標準" id="toc-最低-input-標準" class="nav-link" data-scroll-target="#最低-input-標準">最低 input 標準</a></li>
+  <li><a href="#kit-eligibility-判定" id="toc-kit-eligibility-判定" class="nav-link" data-scroll-target="#kit-eligibility-判定">Kit eligibility 判定</a></li>
+  <li><a href="#rna-input-qc-判定" id="toc-rna-input-qc-判定" class="nav-link" data-scroll-target="#rna-input-qc-判定">RNA input QC 判定</a></li>
+  <li><a href="#建議結論等級" id="toc-建議結論等級" class="nav-link" data-scroll-target="#建議結論等級">建議結論等級</a></li>
+  <li><a href="#cdna-pcr-流程中-qc" id="toc-cdna-pcr-流程中-qc" class="nav-link" data-scroll-target="#cdna-pcr-流程中-qc">cDNA-PCR 流程中 QC</a>
+  <ul class="collapse">
+  <li><a href="#cdna-pcr-post-pcr-判讀" id="toc-cdna-pcr-post-pcr-判讀" class="nav-link" data-scroll-target="#cdna-pcr-post-pcr-判讀">cDNA-PCR post-PCR 判讀</a></li>
+  </ul></li>
+  <li><a href="#direct-rna-qc-重點" id="toc-direct-rna-qc-重點" class="nav-link" data-scroll-target="#direct-rna-qc-重點">Direct RNA QC 重點</a></li>
+  <li><a href="#kit-選擇判讀" id="toc-kit-選擇判讀" class="nav-link" data-scroll-target="#kit-選擇判讀">Kit 選擇判讀</a></li>
+  <li><a href="#病原檢測情境" id="toc-病原檢測情境" class="nav-link" data-scroll-target="#病原檢測情境">病原檢測情境</a></li>
+  <li><a href="#報告用判定文字" id="toc-報告用判定文字" class="nav-link" data-scroll-target="#報告用判定文字">報告用判定文字</a></li>
+  <li><a href="#建庫前紀錄欄位" id="toc-建庫前紀錄欄位" class="nav-link" data-scroll-target="#建庫前紀錄欄位">建庫前紀錄欄位</a></li>
+  <li><a href="#protocol-依據" id="toc-protocol-依據" class="nav-link" data-scroll-target="#protocol-依據">Protocol 依據</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">RNA / cDNA 核酸 QC 標準</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>本頁定義 RNA / cDNA sequencing 建庫前 QC 判定標準，適用於 SQK-PCB114.24、SQK-PCS114、SQK-DRB004.24 與 SQK-RNA004。<br>
+若樣本是 gDNA、metagenomics 或 16S/ITS amplicon，請使用 <a href="./qc_standards.html">DNA / eDNA 核酸 QC 標準</a>。</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+重要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RNA / cDNA kits 的第一層 QC 對象是 <strong>RNA input</strong>。<br>
+cDNA-PCR kits 會在 kit workflow 中完成 reverse transcription、strand-switching 與 PCR amplification；PCR 後的 amplified cDNA QC 是流程中 QC，不取代 RNA input QC。</p>
+</div>
+</div>
+<section id="本頁定位" class="level2">
+<h2 class="anchored" data-anchor-id="本頁定位">本頁定位</h2>
+<p>本頁是 RNA / cDNA sequencing 的建庫前判定標準，重點不是把所有 QC 數值做成絕對門檻，而是建立一致的 go / caution / no-go 判斷：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">判定層次</th>
+<th style="text-align: left;">目的</th>
+<th style="text-align: left;">結論應回答的問題</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Kit eligibility</strong></td>
+<td style="text-align: left;">確認 input type、input amount、反應體積是否符合 protocol</td>
+<td style="text-align: left;">這個樣本能不能進指定 kit？</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Sample risk</strong></td>
+<td style="text-align: left;">評估 RNA degradation、污染物、gDNA contamination 對結果的影響</td>
+<td style="text-align: left;">即使可建庫，結果解讀是否有限制？</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Workflow fit</strong></td>
+<td style="text-align: left;">區分 cDNA-PCR 與 direct RNA 的適用情境</td>
+<td style="text-align: left;">這個 kit 是否符合這次實驗目的？</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Record completeness</strong></td>
+<td style="text-align: left;">保留可追溯紀錄</td>
+<td style="text-align: left;">日後 run 表現不佳時，是否能回查原因？</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+註釋
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>最低 input 量只代表「可進入 kit workflow」的基本條件，不代表一定能得到足夠 sequencing yield、完整 transcript representation 或可比較的 gene expression 結果。</p>
+</div>
+</div>
+</section>
+<section id="建議-qc-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="建議-qc-workflow">建議 QC workflow</h2>
+<ol type="1">
+<li>使用 <strong>Qubit RNA HS Assay</strong> 作為 RNA input mass 的主依據。</li>
+<li>使用 <strong>NanoDrop A260/A280 與 A260/A230</strong> 判斷蛋白、phenol、guanidine、ethanol、鹽類或其他 UV-absorbing contaminants 風險。</li>
+<li>使用 <strong>Bioanalyzer / TapeStation / Fragment Analyzer</strong> 或等效方法檢查 RNA integrity 與 size profile；若只有膠圖，需以文字描述 degradation / smear 狀態。</li>
+<li>確認 RNA type：total RNA、Poly(A)+ enriched RNA、ribodepleted RNA、poly(A)-tailed RNA 或 poly(A)-tailed IVT transcript。</li>
+<li>依本頁 kit-specific input table 判斷可用 kit，並記錄實際可投入體積。</li>
+<li>若目標是 transcript quantification、host response 或 pathogen transcript profiling，需記錄 DNase treatment、rRNA depletion / Poly(A)+ selection 與 batch 條件。</li>
+<li>若使用 <code>SQK-PCB114.24</code> 或 <code>SQK-PCS114</code>，PCR 後再做 amplified cDNA QC，確認是否可進入 adapter attachment。</li>
+</ol>
+</section>
+<section id="qc-分層" class="level2">
+<h2 class="anchored" data-anchor-id="qc-分層">QC 分層</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">層級</th>
+<th style="text-align: left;">QC 對象</th>
+<th style="text-align: left;">目的</th>
+<th style="text-align: center;">是否作為建庫前 go/no-go</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Level 1</strong></td>
+<td style="text-align: left;">RNA input</td>
+<td style="text-align: left;">判斷樣本是否符合各 kit 的最低 input、純度與完整性要求</td>
+<td style="text-align: center;">是</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Level 2</strong></td>
+<td style="text-align: left;">PCR 後 amplified cDNA</td>
+<td style="text-align: left;">確認 cDNA-PCR 是否產生足夠、合適長度的 amplified cDNA</td>
+<td style="text-align: center;">否，屬流程中 checkpoint</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Level 3</strong></td>
+<td style="text-align: left;">Final library / 上機後資料</td>
+<td style="text-align: left;">確認 loading、pore occupancy、yield、read length、mapping 或 assignment</td>
+<td style="text-align: center;">否，屬 run QC</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="最低-input-標準" class="level2">
+<h2 class="anchored" data-anchor-id="最低-input-標準">最低 input 標準</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kit</th>
+<th style="text-align: left;">類型</th>
+<th style="text-align: left;">可接受 RNA input</th>
+<th style="text-align: left;">最低 / 目標 input</th>
+<th style="text-align: left;">建議定量方式</th>
+<th style="text-align: left;">Flow cell</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>SQK-PCB114.24</strong></td>
+<td style="text-align: left;">cDNA-PCR barcoding</td>
+<td style="text-align: left;">Poly(A)+ enriched RNA、ribodepleted RNA 或 total RNA</td>
+<td style="text-align: left;"><strong>10 ng enriched RNA</strong> 或 <strong>500 ng total RNA / sample</strong></td>
+<td style="text-align: left;">Qubit RNA HS</td>
+<td style="text-align: left;">FLO-MIN114</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SQK-PCS114</strong></td>
+<td style="text-align: left;">cDNA-PCR single sample</td>
+<td style="text-align: left;">Poly(A)+ enriched RNA、ribodepleted RNA 或 total RNA</td>
+<td style="text-align: left;"><strong>10 ng enriched RNA</strong> 或 <strong>500 ng total RNA</strong></td>
+<td style="text-align: left;">Qubit RNA HS</td>
+<td style="text-align: left;">FLO-MIN114</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SQK-DRB004.24</strong></td>
+<td style="text-align: left;">Direct RNA barcoding</td>
+<td style="text-align: left;">poly(A)+ enriched RNA 或 poly(A)-tailed IVT transcript RNA</td>
+<td style="text-align: left;"><strong>約 450 fmol RNA / sample</strong>，需能配在 <strong>5 µL</strong></td>
+<td style="text-align: left;">Qubit RNA HS + size / molar estimate</td>
+<td style="text-align: left;">FLO-MIN004RA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SQK-RNA004</strong></td>
+<td style="text-align: left;">Direct RNA single sample</td>
+<td style="text-align: left;">poly(A)-tailed RNA 或 total RNA</td>
+<td style="text-align: left;"><strong>300 ng poly(A)-tailed RNA</strong> 或 <strong>1 µg total RNA</strong>，配在 <strong>8 µL</strong></td>
+<td style="text-align: left;">Qubit RNA HS</td>
+<td style="text-align: left;">FLO-MIN004RA</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+警告
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>SQK-DRB004.24</code> 以 <strong>fmol</strong> 定義 input，不是單純 ng。若沒有可靠的 RNA size distribution 或 transcript length estimate，不建議只用 ng 判斷是否達標。</p>
+</div>
+</div>
+</section>
+<section id="kit-eligibility-判定" class="level2">
+<h2 class="anchored" data-anchor-id="kit-eligibility-判定">Kit eligibility 判定</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">問題</th>
+<th style="text-align: left;">可接受</th>
+<th style="text-align: left;">不建議直接進建庫</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">RNA type 是否符合 kit？</td>
+<td style="text-align: left;">cDNA-PCR：enriched RNA 或 total RNA；direct RNA：poly(A)+ / poly(A)-tailed RNA 或符合 protocol 的 total RNA</td>
+<td style="text-align: left;">input type 與 kit 不符，例如未確認 poly(A) 狀態卻要做 direct RNA barcoding</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">是否達最低 input？</td>
+<td style="text-align: left;">達 kit input amount，且可配成 protocol 指定體積</td>
+<td style="text-align: left;">只達 NanoDrop 濃度但 Qubit 不足；或總量足夠但體積過大</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">是否符合實驗目的？</td>
+<td style="text-align: left;">cDNA-PCR 用於 transcript / isoform / fusion screening；direct RNA 用於 native RNA / modification / poly(A) 相關目的</td>
+<td style="text-align: left;">想看 RNA modification 卻選 cDNA-PCR；想做低量多樣本 screening 卻選 direct RNA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">flow cell 是否正確？</td>
+<td style="text-align: left;">cDNA-PCR 使用 DNA flow cell；direct RNA 使用 RNA flow cell</td>
+<td style="text-align: left;">direct RNA kit 搭錯 DNA flow cell，或 cDNA-PCR 誤訂 RNA flow cell</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rna-input-qc-判定" class="level2">
+<h2 class="anchored" data-anchor-id="rna-input-qc-判定">RNA input QC 判定</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">指標</th>
+<th style="text-align: left;">PASS</th>
+<th style="text-align: left;">WARNING</th>
+<th style="text-align: left;">FAIL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Qubit RNA HS</strong></td>
+<td style="text-align: left;">達所選 kit 的 input requirement，且可配成 protocol 要求體積</td>
+<td style="text-align: left;">勉強達標；需濃縮、減少 dead volume 或改用較合適 kit</td>
+<td style="text-align: left;">低於 kit input，或無法配成 protocol 要求體積</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>A260/A280</strong></td>
+<td style="text-align: left;">1.9-2.2</td>
+<td style="text-align: left;">1.7-1.89 或 2.21-2.4</td>
+<td style="text-align: left;">&lt; 1.7 或 &gt; 2.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>A260/A230</strong></td>
+<td style="text-align: left;">&gt;= 2.0</td>
+<td style="text-align: left;">1.5-1.99</td>
+<td style="text-align: left;">&lt; 1.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Integrity / profile</strong></td>
+<td style="text-align: left;">清楚 RNA profile，無嚴重 degradation；目標 transcript 長度仍可被代表</td>
+<td style="text-align: left;">部分 degradation；可考慮 cDNA-PCR screening，但需註明限制</td>
+<td style="text-align: left;">嚴重 degradation；不建議 direct RNA 或 full-length transcript 目的</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>DNA contamination</strong></td>
+<td style="text-align: left;">無明顯 gDNA signal，或已完成 DNase treatment</td>
+<td style="text-align: left;">有疑慮，但研究目的為粗略 presence/absence screening</td>
+<td style="text-align: left;">明顯 gDNA contamination，且會影響 transcript-level 解讀</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Handling record</strong></td>
+<td style="text-align: left;">RNase-free 操作、低溫保存、避免反覆 freeze-thaw</td>
+<td style="text-align: left;">保存條件或 thaw 次數不完整</td>
+<td style="text-align: left;">明確 RNase contamination 或長時間室溫暴露</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+註釋
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>NanoDrop 可用於污染風險判讀，但不建議作為 input mass 的主依據。<br>
+RNA input 定量以 Qubit RNA HS 為主；NanoDrop concentration 容易受 DNA、free nucleotides、phenol、guanidine 或其他 UV-absorbing contaminants 影響。</p>
+</div>
+</div>
+</section>
+<section id="建議結論等級" class="level2">
+<h2 class="anchored" data-anchor-id="建議結論等級">建議結論等級</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">結論</th>
+<th style="text-align: left;">使用情境</th>
+<th style="text-align: left;">建議動作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>GO</strong></td>
+<td style="text-align: left;">達 kit input、純度與 integrity 可接受，且 RNA type / flow cell / 實驗目的一致</td>
+<td style="text-align: left;">可進入建庫；保留 QC 紀錄</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GO with caution</strong></td>
+<td style="text-align: left;">input 達標但有部分 degradation、A260/A230 偏低、保存紀錄不完整或疑似低 abundance target</td>
+<td style="text-align: left;">可進建庫，但 report / run note 要註明限制；不宜作強 quantitative conclusion</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Re-clean / DNase / Concentrate</strong></td>
+<td style="text-align: left;">污染物、gDNA contamination 或濃度不足是主要問題，且樣本仍可補救</td>
+<td style="text-align: left;">先處理樣本，再重新測 Qubit / NanoDrop / integrity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>No-go</strong></td>
+<td style="text-align: left;">Qubit input 不足、RNA 嚴重 degraded、input type 不符或無法配成 protocol 體積</td>
+<td style="text-align: left;">不建議進建庫；重抽或改變樣本策略</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cdna-pcr-流程中-qc" class="level2">
+<h2 class="anchored" data-anchor-id="cdna-pcr-流程中-qc">cDNA-PCR 流程中 QC</h2>
+<p><code>SQK-PCB114.24</code> 與 <code>SQK-PCS114</code> 的 workflow 會把 RNA 經過 reverse transcription、strand-switching 與 PCR amplification，產生 amplified double-stranded cDNA，再進入 Rapid Adapter attachment。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">時點</th>
+<th style="text-align: left;">QC 對象</th>
+<th style="text-align: left;">建議檢查</th>
+<th style="text-align: left;">判讀</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">建庫前</td>
+<td style="text-align: left;">RNA input</td>
+<td style="text-align: left;">Qubit RNA HS、NanoDrop purity、Bioanalyzer / TapeStation / Fragment Analyzer profile</td>
+<td style="text-align: left;">決定是否可以進入 cDNA-PCR workflow</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PCR 後 cleanup 後</td>
+<td style="text-align: left;">amplified cDNA</td>
+<td style="text-align: left;"><strong>Qubit dsDNA HS</strong> 檢查 quantity；<strong>Bioanalyzer / TapeStation</strong> 檢查 size、quality、primer dimer / smear</td>
+<td style="text-align: left;">判斷是否可取 <strong>50 fmol amplified cDNA</strong> 進入 adapter attachment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adapter attachment 後</td>
+<td style="text-align: left;">final cDNA library</td>
+<td style="text-align: left;">Qubit 可作 loading 參考</td>
+<td style="text-align: left;">不能保證 transcript representation 或 sequencing output</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+重要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>cDNA-PCR 的 post-PCR QC 不能只看 Qubit。<br>
+ONT protocol 的後續投入量是 <strong>50 fmol amplified cDNA</strong>；fmol 需要搭配 fragment size / size distribution 才能從 ng 換算。因此 Qubit dsDNA HS 是必要參考，但若要嚴謹判斷，應搭配 Bioanalyzer / TapeStation 或等效方法。</p>
+</div>
+</div>
+<section id="cdna-pcr-post-pcr-判讀" class="level3">
+<h3 class="anchored" data-anchor-id="cdna-pcr-post-pcr-判讀">cDNA-PCR post-PCR 判讀</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">結果</th>
+<th style="text-align: left;">判讀</th>
+<th style="text-align: left;">建議</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Qubit dsDNA HS 足量，size profile 合理，無明顯 primer dimer</td>
+<td style="text-align: left;">cDNA-PCR 成功，可進 adapter attachment</td>
+<td style="text-align: left;">依 protocol 取 50 fmol amplified cDNA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Qubit 足量但 fragment 偏短或 smear 明顯</td>
+<td style="text-align: left;">可能有 RNA degradation、over-cycling 或非特異產物</td>
+<td style="text-align: left;">可作 exploratory run；不建議作 full-length transcript 完整性結論</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Qubit 低量但 profile 有目標範圍產物</td>
+<td style="text-align: left;">可能可嘗試上機，但 loading input 受限</td>
+<td style="text-align: left;">註明低 input；必要時增加 PCR cycles 或重做 RT-PCR</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">主要是 primer dimer / very short fragments</td>
+<td style="text-align: left;">建庫風險高，會影響 pore loading 與有效 reads</td>
+<td style="text-align: left;">不建議直接上機；回頭檢查 RNA input、PCR cycle 與 cleanup</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="direct-rna-qc-重點" class="level2">
+<h2 class="anchored" data-anchor-id="direct-rna-qc-重點">Direct RNA QC 重點</h2>
+<p>Direct RNA 不經 PCR amplification，input RNA 的狀態會更直接反映到 read length、yield 與可分析 reads。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">建議</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">RNA integrity</td>
+<td style="text-align: left;">比 cDNA-PCR 更嚴格；fragmented RNA 會直接縮短 read length</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Input molecule type</td>
+<td style="text-align: left;">確認是 poly(A)+ enriched RNA、poly(A)-tailed RNA、poly(A)-tailed IVT transcript 或 total RNA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Molar input</td>
+<td style="text-align: left;"><code>SQK-DRB004.24</code> 需以約 450 fmol / sample 判斷，不只看 ng</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Flow cell</td>
+<td style="text-align: left;">Direct RNA 使用 RNA flow cell（FLO-MIN004RA / FLO-PRO004RA），不可與 cDNA-PCR 的 DNA flow cell 混用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Control</td>
+<td style="text-align: left;">新流程或新操作者建議先做 RNA control 或低風險樣本</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kit-選擇判讀" class="level2">
+<h2 class="anchored" data-anchor-id="kit-選擇判讀">Kit 選擇判讀</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">QC 結果</th>
+<th style="text-align: left;">建議</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">RNA 達 10 ng enriched 或 500 ng total，目標是 transcript / isoform / fusion，多樣本</td>
+<td style="text-align: left;"><strong>SQK-PCB114.24</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNA 達 10 ng enriched 或 500 ng total，單樣本 pilot</td>
+<td style="text-align: left;"><strong>SQK-PCS114</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RNA 量足、完整性佳，且需要 native RNA / RNA modification / poly(A)</td>
+<td style="text-align: left;"><strong>SQK-DRB004.24</strong> 或 <strong>SQK-RNA004</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNA 部分 degradation，但仍需 exploratory transcript screening</td>
+<td style="text-align: left;">優先考慮 cDNA-PCR；結果需註明不適合作 full-length completeness 結論</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A260/A230 &lt; 1.5 或疑似 phenol / guanidine / ethanol 殘留</td>
+<td style="text-align: left;">建議 cleanup 或重抽；不要直接進 direct RNA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Qubit RNA input 不足</td>
+<td style="text-align: left;">濃縮、重抽、增加 starting material，或改變 enrichment strategy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gDNA contamination 明顯</td>
+<td style="text-align: left;">若目標是 transcript quantification / host response，先 DNase treatment 並記錄</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="病原檢測情境" class="level2">
+<h2 class="anchored" data-anchor-id="病原檢測情境">病原檢測情境</h2>
+<p>病原檢測常見問題不是只有「RNA 夠不夠」，而是 host RNA、rRNA、pathogen abundance 與採樣保存會一起決定有效 reads。QC 結論應避免把建庫成功直接等同於病原偵測成功。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">目的</th>
+<th style="text-align: left;">QC 與方法注意</th>
+<th style="text-align: left;">較合適的方向</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">RNA virus presence / absence</td>
+<td style="text-align: left;">先決定是 metatranscriptomics、targeted RT-PCR amplicon，或 full-length cDNA sequencing；不要直接把 transcript workflow 當唯一選項</td>
+<td style="text-align: left;">若 target 已知，targeted RT-PCR amplicon 通常更敏感；若要 discovery，再考慮 cDNA-PCR / metatranscriptomics</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Host transcript response</td>
+<td style="text-align: left;">DNase treatment、rRNA depletion / Poly(A)+ selection、batch consistency 會影響解讀</td>
+<td style="text-align: left;">優先確保 RNA integrity、batch consistency 與 metadata 完整</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pathogen transcript profiling</td>
+<td style="text-align: left;">pathogen RNA abundance 通常低；host/rRNA depletion 與 sequencing depth 是主要限制</td>
+<td style="text-align: left;">需先規劃 enrichment / depletion，不宜只用 total RNA input 達標判斷</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Native RNA modification</td>
+<td style="text-align: left;">direct RNA 才保留 native RNA 訊號；但 input、RNA flow cell、分析 workflow 需求較高</td>
+<td style="text-align: left;">優先 <code>SQK-DRB004.24</code> 或 <code>SQK-RNA004</code>，並提高 RNA integrity 標準</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="報告用判定文字" class="level2">
+<h2 class="anchored" data-anchor-id="報告用判定文字">報告用判定文字</h2>
+<p>可在實驗紀錄或報告中使用下列格式：</p>
+<blockquote class="blockquote">
+<p>RNA input was quantified by Qubit RNA HS Assay and assessed for purity by NanoDrop. RNA integrity was evaluated by [method]. The sample [met / did not meet] the minimum input requirement for [kit]. Based on input amount, purity, integrity, and intended application, the recommended QC decision is [GO / GO with caution / Re-clean / No-go].</p>
+</blockquote>
+<p>若是 cDNA-PCR kit，PCR 後再補一段：</p>
+<blockquote class="blockquote">
+<p>Amplified cDNA was quantified by Qubit dsDNA HS Assay and assessed by [Bioanalyzer / TapeStation / equivalent method]. The post-PCR cDNA [was / was not] suitable for taking 50 fmol into adapter attachment.</p>
+</blockquote>
+</section>
+<section id="建庫前紀錄欄位" class="level2">
+<h2 class="anchored" data-anchor-id="建庫前紀錄欄位">建庫前紀錄欄位</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">欄位</th>
+<th style="text-align: left;">建議紀錄</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sample ID</td>
+<td style="text-align: left;">與實驗紀錄系統一致</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNA source</td>
+<td style="text-align: left;">tissue、swab、culture、environmental sample、IVT transcript 等</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Extraction method</td>
+<td style="text-align: left;">kit / protocol / DNase treatment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNA type</td>
+<td style="text-align: left;">total RNA、Poly(A)+、ribodepleted、poly(A)-tailed RNA、poly(A)-tailed IVT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Qubit RNA HS</td>
+<td style="text-align: left;">concentration、total amount、assay date</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NanoDrop</td>
+<td style="text-align: left;">A260/A280、A260/A230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Integrity method</td>
+<td style="text-align: left;">Bioanalyzer / TapeStation / Fragment Analyzer、RIN/RQN/DV200 或 profile description</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Storage</td>
+<td style="text-align: left;">extraction date、freeze-thaw 次數、保存溫度</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Selected kit</td>
+<td style="text-align: left;">PCB114.24、PCS114、DRB004.24 或 RNA004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Flow cell type</td>
+<td style="text-align: left;">FLO-MIN114 或 FLO-MIN004RA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Post-PCR cDNA QC</td>
+<td style="text-align: left;">若使用 PCB/PCS，記錄 Qubit dsDNA HS、size profile、是否可取 50 fmol</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="protocol-依據" class="level2">
+<h2 class="anchored" data-anchor-id="protocol-依據">Protocol 依據</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kit</th>
+<th style="text-align: left;">Protocol version</th>
+<th style="text-align: left;">本頁採用的 QC 重點</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SQK-PCB114.24</td>
+<td style="text-align: left;">PCB_9201_v114_revH_31Mar2026</td>
+<td style="text-align: left;">10 ng enriched RNA 或 500 ng total RNA / sample；PCR 後 amplified cDNA 以 Qubit + Bioanalyzer/equivalent 檢查，取 50 fmol 進 adapter attachment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SQK-PCS114</td>
+<td style="text-align: left;">PCS_9200_v114_revF_31Mar2026</td>
+<td style="text-align: left;">10 ng enriched RNA 或 500 ng total RNA；PCR 後 amplified cDNA 以 Qubit + Bioanalyzer/equivalent 檢查，取 50 fmol 進 adapter attachment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SQK-DRB004.24</td>
+<td style="text-align: left;">DRB_9230_v4_revA_26May2026</td>
+<td style="text-align: left;">約 450 fmol RNA / sample，需能配在 5 µL；direct RNA barcoding 使用 RNA flow cell</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SQK-RNA004</td>
+<td style="text-align: left;">DRS_9195_v4_revL_29June2026</td>
+<td style="text-align: left;">300 ng poly(A)-tailed RNA 或 1 µg total RNA，配在 8 µL；direct RNA 使用 RNA flow cell</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已複製");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已複製");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

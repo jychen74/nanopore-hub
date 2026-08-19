@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SQK-RAD114 · Rapid Sequencing（單樣本）</title>
+<title>ONT 產品選擇器</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">首頁</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ont_product_selector.html"> 
+    <a class="nav-link active" href="./ont_product_selector.html" aria-current="page"> 
 <span class="menu-text">ONT 產品選擇器</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -172,10 +172,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
-  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
-  <li><a href="#step-b-library-preparation10-min" id="toc-step-b-library-preparation10-min" class="nav-link" data-scroll-target="#step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</a></li>
-  <li><a href="#loading-mix-配製" id="toc-loading-mix-配製" class="nav-link" data-scroll-target="#loading-mix-配製">Loading Mix 配製</a></li>
+  <li><a href="#互動篩選" id="toc-互動篩選" class="nav-link active" data-scroll-target="#互動篩選">互動篩選</a></li>
+  <li><a href="#判讀提示" id="toc-判讀提示" class="nav-link" data-scroll-target="#判讀提示">判讀提示</a></li>
   </ul>
 </nav>
     </div>
@@ -184,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SQK-RAD114 · Rapid Sequencing（單樣本）</h1>
+<h1 class="title">ONT 產品選擇器</h1>
 </div>
 
 
@@ -201,223 +199,425 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>⚠️ Early Access 產品
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>目前版本：RSE_9177_v114_revQ_12Dec2025。<br>
-建議首次使用先以 <strong>Lambda DNA 控制組</strong>熟悉流程。</p>
-</div>
-</div>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>適用：單樣本快速定序、gDNA QC 確認、初步探索實驗 · 預估時間 ~10 min</strong><br>
-方法：Tagmentation + Rapid Adapter 直接連接；無 PCR、無 Barcoding<br>
-Adapter ligation 後建議<strong>立即上機</strong></p>
+<p>本頁以 ONT 原廠 <a href="https://store.nanoporetech.com/priceList.html">price list</a> 匯出的 CSV 為價格來源，搭配本 repo 維護的產品註解表，依核酸類型、設備類型與用途篩選建議的 sequencing kit 與 flow cell。<br>
+價格僅供規劃參考，正式採購仍以原廠或代理商 quote 為準。</p>
 </div>
 </div>
 </div>
-<section id="kit-特性" class="level2">
-<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">項目</th>
-<th style="text-align: left;">規格</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;"><strong>100–150 ng</strong> gDNA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: left;"><strong>~10 min</strong>（最快）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Barcoding</strong></td>
-<td style="text-align: left;">❌ 無（單樣本）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>PCR</strong></td>
-<td style="text-align: left;">❌ 無</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Flow cell</strong></td>
-<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: left;">單樣本快速定序、gDNA QC、探索性實驗</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>注意事項</strong></td>
-<td style="text-align: left;">無法 multiplex；Adapter 後立即上機效果最佳</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="step-a-試劑準備" class="level2">
-<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
-<p>所有試劑<strong>室溫保存，無需解凍</strong>：</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">縮寫</th>
-<th style="text-align: left;">備注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Fragmentation Mix</td>
-<td style="text-align: left;"><strong>FRA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rapid Adapter</td>
-<td style="text-align: left;"><strong>RA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adapter Buffer</td>
-<td style="text-align: left;"><strong>ADB</strong></td>
-<td style="text-align: left;">室溫，pipette mix 或 vortex</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Thermal cycler 程式：</strong></p>
-<pre><code>30°C 30 sec → 80°C 2 min（hold 4°C）</code></pre>
-<p><strong>建議：</strong> 開始 library prep 前先完成 flow cell priming（可節省等待時間）。</p>
-<hr>
-</section>
-<section id="step-b-library-preparation10-min" class="level2">
-<h2 class="anchored" data-anchor-id="step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</h2>
-<div id="rad-B">
+<section id="互動篩選" class="level2">
+<h2 class="anchored" data-anchor-id="互動篩選">互動篩選</h2>
+<div class="selector-panel">
+<p><label> 核酸類型 <select id="filter-nucleic"> <option value="">全部</option> </select> </label> <label> 設備類型 <select id="filter-device"> <option value="">全部</option> </select> </label> <label> 用途 <select id="filter-application"> <option value="">全部</option> </select> </label> <label> Multiplex <select id="filter-multiplex"> <option value="">全部</option> <option value="multiplex">multiplex</option> <option value="single">single sample</option> </select> </label> <label> 顯示範圍 <select id="filter-priority"> <option value="core">核心常用項目</option> <option value="">全部註解項目</option> </select> </label></p>
+</div>
+<div id="selector-summary" class="selector-summary">
 
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="recommendation-cards" class="recommendation-grid">
+
 </div>
-<div class="callout-title-container flex-fill">
-提示
+<div class="table-wrap">
+<table id="selector-table" class="product-table">
+<thead>
+<tr>
+<th>
+Role
+</th>
+<th>
+SKU
+</th>
+<th>
+Product
+</th>
+<th>
+Nucleic acid
+</th>
+<th>
+Library / flow cell
+</th>
+<th>
+Samples
+</th>
+<th>
+Device
+</th>
+<th>
+Flow cell
+</th>
+<th>
+Application
+</th>
+<th>
+List price
+</th>
+<th>
+Notes
+</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>✅ <strong>Library 完成！</strong> Adapter ligation 後強烈建議<strong>立即上機</strong>。<br>
-Loading 準備：見下方 Loading Mix 配製。</p>
-</div>
-</div>
-<hr>
 </section>
-<section id="loading-mix-配製" class="level2">
-<h2 class="anchored" data-anchor-id="loading-mix-配製">Loading Mix 配製</h2>
-<p>在 1.5 mL LoBind tube 中混合：</p>
+<section id="判讀提示" class="level2">
+<h2 class="anchored" data-anchor-id="判讀提示">判讀提示</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">體積</th>
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">直觀選擇</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Sequencing Buffer（SB）</td>
-<td style="text-align: left;">37.5 µL</td>
+<td style="text-align: left;">MinION/GridION 上做一般 DNA / metagenomics</td>
+<td style="text-align: left;">DNA kit + <code>FLO-MIN114</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Library Beads（LIB）先充分混勻</td>
-<td style="text-align: left;">25.5 µL</td>
+<td style="text-align: left;">MinION/GridION 上做 cDNA-PCR transcript sequencing</td>
+<td style="text-align: left;"><code>SQK-PCB114.24</code> 或 <code>SQK-PCS114</code> + <code>FLO-MIN114</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nuclease-free water</td>
-<td style="text-align: left;">3 µL</td>
+<td style="text-align: left;">MinION/GridION 上做 direct RNA</td>
+<td style="text-align: left;"><code>SQK-DRB004.24</code> 或 <code>SQK-RNA004</code> + <code>FLO-MIN004RA</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Library（adapted DNA）</td>
-<td style="text-align: left;">12 µL</td>
+<td style="text-align: left;">PromethION 上做 DNA</td>
+<td style="text-align: left;">DNA kit + <code>FLO-PRO114M</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: left;"><strong>75 µL</strong></td>
+<td style="text-align: left;">PromethION 上做 direct RNA</td>
+<td style="text-align: left;">direct RNA kit + <code>FLO-PRO004RA</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNA / cDNA 新流程測試</td>
+<td style="text-align: left;">先用本頁確認 kit 與 flow cell；control / auxiliary reagent 另依 SOP 或採購清單確認</td>
 </tr>
 </tbody>
 </table>
-<p>從 SpotON port 緩慢滴入 flow cell，讓液體自然流入，避免氣泡。</p>
-<hr>
-<script>
-const radB = [
-  { id:'radb1', text:'取 <strong>100–150 ng gDNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；flick 混勻，勿 vortex；短暫離心', warn:'' },
-  { id:'radb2', text:'加入 <strong>FRA 1 µL</strong>（總 11 µL），flick 混勻，短暫離心', note:'', warn:'' },
-  { id:'radb3', text:'Thermal cycler：<strong>30°C 30 sec → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 3 min', warn:'' },
-  { id:'radb4', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
-  { id:'radb5', text:'加入 <strong>diluted RA 1 µL</strong> 至 tagmented DNA（共 12 µL），gentle flick 混勻', note:'', warn:'' },
-  { id:'radb6', text:'室溫孵育 <strong>5 min</strong>（此時完成 flow cell priming）', note:'', time:'⏱ 5 min', warn:'Adapter ligation 後立即上機，勿放置過久' },
-  { id:'radb7', text:'配製 Loading Mix（見上方表格），取 <strong>75 µL</strong> 注入 flow cell SpotON port', note:'緩慢滴入，讓液體自然流入；避免氣泡；loading 後啟動 MinKNOW 開始 sequencing', warn:'' },
-];
-document.addEventListener('DOMContentLoaded', function() {
-  renderSteps('rad-B', radB, 0);
-});
-</script>
-<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
-<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
+<details class="maintenance-details">
+<summary>
+資料來源與維護
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">檔案</th>
+<th style="text-align: left;">用途</th>
+<th style="text-align: left;">何時更新</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>data/ont_pricelist.csv</code></td>
+<td style="text-align: left;">原廠 price list raw export，保留完整產品清單與價格</td>
+<td style="text-align: left;">原廠價格或產品清單更新時，直接用新版 CSV 覆蓋</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>data/ont_product_annotations.csv</code></td>
+<td style="text-align: left;">本站自訂註解：只讓需要決策的 kit 與 flow cell 進入選擇器</td>
+<td style="text-align: left;">新增 kit、修改判斷規則或補 SOP 連結時更新</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>data/ont_selector_data.js</code></td>
+<td style="text-align: left;">由前兩個 CSV 產生的網頁資料檔，只包含 sequencing kit 與 flow cell</td>
+<td style="text-align: left;">更新 CSV 後用 script 重新產生</td>
+</tr>
+</tbody>
+</table>
+</details>
 <style>
-.sop-step {
-  display: flex; gap: 12px; padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9; cursor: pointer;
-  border-radius: 6px; transition: background 0.15s;
-  align-items: flex-start;
+.selector-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  background: #f8fafc;
 }
-.sop-step:hover { background: #f8fafc; }
-.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
-.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
-.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
-.step-time {
-  font-size: 10px; background: #dbeafe; color: #1e40af;
-  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
-  font-family: monospace; white-space: nowrap;
+.selector-panel label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 600;
 }
-.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
-.step-warn {
-  font-size: 11px; color: #92400e; background: #fef3c7;
-  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
+.selector-panel select {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #b8c2cc;
+  border-radius: 4px;
+  background: white;
+}
+.selector-summary {
+  margin: 0.75rem 0;
+  font-weight: 600;
+}
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.recommendation-card {
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  padding: 0.9rem;
+  background: #ffffff;
+}
+.recommendation-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.recommendation-card ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+.recommendation-card li {
+  margin: 0.35rem 0;
+}
+.recommendation-card .sku {
+  font-weight: 700;
+}
+.recommendation-card .price {
+  white-space: nowrap;
+  color: #334e68;
+}
+.empty-result {
+  border-left: 4px solid #d97706;
+  padding: 0.75rem 1rem;
+  background: #fff7ed;
+  color: #7c2d12;
+  margin: 1rem 0;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.product-table {
+  min-width: 1180px;
+  font-size: 0.88rem;
+}
+.product-table th {
+  white-space: nowrap;
+}
+.product-table td {
+  vertical-align: top;
+}
+.role-pill {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: #e6f0ff;
+  color: #163b73;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.price-cell {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.maintenance-details {
+  margin-top: 2rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  color: #52616f;
+}
+.maintenance-details summary {
+  cursor: pointer;
+  font-weight: 600;
 }
 </style>
+
+<script src="data/ont_selector_data.js"></script>
 <script>
-const _checkedSteps = {};
-function renderSteps(containerId, steps, globalOffset) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = steps.map((s, i) => {
-    const num = (globalOffset || 0) + i + 1;
-    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
-    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
-    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
-    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
-      <span class="step-cb" id="cb-${s.id}">⬜</span>
-      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
-    </div>`;
-  }).join('');
+function splitValues(value) {
+  return (value || "")
+    .split(";")
+    .map(item => item.trim())
+    .filter(Boolean);
 }
-function toggleStep(id) {
-  _checkedSteps[id] = !_checkedSteps[id];
-  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
-  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
+
+function uniqueSorted(values) {
+  return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
 }
+
+function addOptions(select, values) {
+  values.forEach(value => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    select.appendChild(option);
+  });
+}
+
+function cell(text, className = "") {
+  const td = document.createElement("td");
+  td.textContent = text || "";
+  if (className) td.className = className;
+  return td;
+}
+
+function linkCell(record) {
+  const td = document.createElement("td");
+  if (record.page) {
+    const link = document.createElement("a");
+    link.href = record.page.replace(".qmd", ".html");
+    link.textContent = record.ProductName || record.sku;
+    td.appendChild(link);
+  } else {
+    td.textContent = record.ProductName || "";
+  }
+  return td;
+}
+
+function matchesMultiValue(fieldValue, selected) {
+  if (!selected) return true;
+  const values = splitValues(fieldValue);
+  return values.includes(selected);
+}
+
+function matchesMultiplex(fieldValue, selected) {
+  if (!selected) return true;
+  return fieldValue === selected || fieldValue === "na";
+}
+
+function roleLabel(role) {
+  const labels = {
+    sequencing_kit: "Sequencing kit",
+    flow_cell: "Flow cell"
+  };
+  return labels[role] || role;
+}
+
+function renderRecommendationCards(records, container) {
+  container.replaceChildren();
+  if (records.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "empty-result";
+    empty.textContent = "目前沒有完全符合的組合。請先放寬用途或 multiplex 條件，或檢查 annotation 是否需要新增此情境。";
+    container.appendChild(empty);
+    return;
+  }
+
+  const groups = [
+    ["sequencing_kit", "建議 kit"],
+    ["flow_cell", "搭配 flow cell"]
+  ];
+
+  groups.forEach(([role, title]) => {
+    const items = records.filter(row => row.role === role);
+    if (items.length === 0) return;
+
+    const card = document.createElement("section");
+    card.className = "recommendation-card";
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+    const list = document.createElement("ul");
+
+    items.forEach(row => {
+      const item = document.createElement("li");
+      const sku = document.createElement("span");
+      sku.className = "sku";
+      sku.textContent = row.sku;
+      const price = document.createElement("span");
+      price.className = "price";
+      price.textContent = row.ListPrice ? ` (${row.ListPrice})` : "";
+      item.append(sku, document.createTextNode(` - ${row.ProductName || row.library_type}`), price);
+      list.appendChild(item);
+    });
+
+    card.append(heading, list);
+    container.appendChild(card);
+  });
+}
+
+function loadSelector() {
+  const records = (window.ONT_SELECTOR_DATA && window.ONT_SELECTOR_DATA.records) || [];
+  const nucleicSelect = document.getElementById("filter-nucleic");
+  const deviceSelect = document.getElementById("filter-device");
+  const applicationSelect = document.getElementById("filter-application");
+  const multiplexSelect = document.getElementById("filter-multiplex");
+  const prioritySelect = document.getElementById("filter-priority");
+  const tbody = document.querySelector("#selector-table tbody");
+  const summary = document.getElementById("selector-summary");
+  const cards = document.getElementById("recommendation-cards");
+
+  if (records.length === 0) {
+    summary.textContent = "資料載入失敗：data/ont_selector_data.js 沒有可用資料。";
+    return;
+  }
+
+  addOptions(nucleicSelect, uniqueSorted(records.flatMap(row => splitValues(row.nucleic_acid))));
+  addOptions(deviceSelect, uniqueSorted(records.flatMap(row => splitValues(row.device_class))));
+  addOptions(
+    applicationSelect,
+    uniqueSorted(
+      records
+        .filter(row => row.role === "sequencing_kit")
+        .flatMap(row => splitValues(row.application))
+    )
+  );
+
+  function render() {
+    const filtered = records.filter(row => {
+      const applicationMatches = row.role === "flow_cell"
+        ? true
+        : matchesMultiValue(row.application, applicationSelect.value);
+      return matchesMultiValue(row.nucleic_acid, nucleicSelect.value)
+        && matchesMultiValue(row.device_class, deviceSelect.value)
+        && applicationMatches
+        && matchesMultiplex(row.multiplex, multiplexSelect.value)
+        && (!prioritySelect.value || row.priority === prioritySelect.value);
+    });
+
+    tbody.replaceChildren();
+    renderRecommendationCards(filtered, cards);
+    filtered.forEach(row => {
+      const tr = document.createElement("tr");
+      const roleTd = document.createElement("td");
+      const roleSpan = document.createElement("span");
+      roleSpan.className = "role-pill";
+      roleSpan.textContent = roleLabel(row.role);
+      roleTd.appendChild(roleSpan);
+      tr.append(
+        roleTd,
+        cell(row.sku),
+        linkCell(row),
+        cell(row.nucleic_acid),
+        cell(row.library_type),
+        cell(row.sample_count),
+        cell(row.device_class),
+        cell(row.flow_cell_sku),
+        cell(row.application),
+        cell(row.ListPrice, "price-cell"),
+        cell(row.notes)
+      );
+      tbody.appendChild(tr);
+    });
+    summary.textContent = `目前顯示 ${filtered.length} / ${records.length} 個已註解產品。`;
+  }
+
+  [nucleicSelect, deviceSelect, applicationSelect, multiplexSelect, prioritySelect]
+    .forEach(select => select.addEventListener("change", render));
+  render();
+}
+
+loadSelector();
 </script>
 
 

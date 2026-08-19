@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SQK-RAD114 · Rapid Sequencing（單樣本）</title>
+<title>DNA / eDNA 建庫 protocol</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,10 +172,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
-  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
-  <li><a href="#step-b-library-preparation10-min" id="toc-step-b-library-preparation10-min" class="nav-link" data-scroll-target="#step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</a></li>
-  <li><a href="#loading-mix-配製" id="toc-loading-mix-配製" class="nav-link" data-scroll-target="#loading-mix-配製">Loading Mix 配製</a></li>
+  <li><a href="#多樣本-dna-edna" id="toc-多樣本-dna-edna" class="nav-link active" data-scroll-target="#多樣本-dna-edna">多樣本 DNA / eDNA</a></li>
+  <li><a href="#單樣本-dna" id="toc-單樣本-dna" class="nav-link" data-scroll-target="#單樣本-dna">單樣本 DNA</a></li>
+  <li><a href="#amplicon" id="toc-amplicon" class="nav-link" data-scroll-target="#amplicon">Amplicon</a></li>
+  <li><a href="#選擇提示" id="toc-選擇提示" class="nav-link" data-scroll-target="#選擇提示">選擇提示</a></li>
   </ul>
 </nav>
     </div>
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SQK-RAD114 · Rapid Sequencing（單樣本）</h1>
+<h1 class="title">DNA / eDNA 建庫 protocol</h1>
 </div>
 
 
@@ -201,224 +201,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>⚠️ Early Access 產品
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>目前版本：RSE_9177_v114_revQ_12Dec2025。<br>
-建議首次使用先以 <strong>Lambda DNA 控制組</strong>熟悉流程。</p>
-</div>
-</div>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>適用：單樣本快速定序、gDNA QC 確認、初步探索實驗 · 預估時間 ~10 min</strong><br>
-方法：Tagmentation + Rapid Adapter 直接連接；無 PCR、無 Barcoding<br>
-Adapter ligation 後建議<strong>立即上機</strong></p>
+<p>本頁集中整理 DNA / eDNA / amplicon 相關建庫 protocol。<br>
+建庫前請先確認 <a href="./qc_standards.html">DNA / eDNA 核酸 QC 標準</a>，kit 與 flow cell 價格可用 <a href="./ont_product_selector.html">ONT 產品選擇器</a> 查詢。</p>
 </div>
 </div>
 </div>
-<section id="kit-特性" class="level2">
-<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
+<section id="多樣本-dna-edna" class="level2">
+<h2 class="anchored" data-anchor-id="多樣本-dna-edna">多樣本 DNA / eDNA</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: left;">項目</th>
-<th style="text-align: left;">規格</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">適用情境</th>
+<th style="text-align: center;">DNA input</th>
+<th style="text-align: center;">建庫時間</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;"><strong>100–150 ng</strong> gDNA</td>
+<td style="text-align: left;"><a href="./sop_rbk114.html">SQK-RBK114.24</a></td>
+<td style="text-align: left;">多樣本、環境 DNA、低品質樣本</td>
+<td style="text-align: center;">200 ng / sample</td>
+<td style="text-align: center;">~55 min</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: left;"><strong>~10 min</strong>（最快）</td>
+<td style="text-align: left;"><a href="./sop_nbd114.html">SQK-NBD114.24</a></td>
+<td style="text-align: left;">多樣本、高品質 gDNA、最長讀長、保留 native DNA methylation</td>
+<td style="text-align: center;">1,000 ng / sample</td>
+<td style="text-align: center;">~140 min</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Barcoding</strong></td>
-<td style="text-align: left;">❌ 無（單樣本）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>PCR</strong></td>
-<td style="text-align: left;">❌ 無</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Flow cell</strong></td>
-<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: left;">單樣本快速定序、gDNA QC、探索性實驗</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>注意事項</strong></td>
-<td style="text-align: left;">無法 multiplex；Adapter 後立即上機效果最佳</td>
+<td style="text-align: left;"><a href="./sop_rpb114.html">SQK-RPB114.24</a></td>
+<td style="text-align: left;">超低量 DNA、eDNA、水體過濾膜、PCR-based multiplex</td>
+<td style="text-align: center;">1-5 ng / sample</td>
+<td style="text-align: center;">~90 min</td>
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
-<section id="step-a-試劑準備" class="level2">
-<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
-<p>所有試劑<strong>室溫保存，無需解凍</strong>：</p>
+<section id="單樣本-dna" class="level2">
+<h2 class="anchored" data-anchor-id="單樣本-dna">單樣本 DNA</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">縮寫</th>
-<th style="text-align: left;">備注</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">適用情境</th>
+<th style="text-align: center;">DNA input</th>
+<th style="text-align: center;">建庫時間</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Fragmentation Mix</td>
-<td style="text-align: left;"><strong>FRA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
+<td style="text-align: left;"><a href="./sop_lsk114.html">SQK-LSK114</a></td>
+<td style="text-align: left;">單樣本、高品質 gDNA、最大化輸出量、甲基化分析</td>
+<td style="text-align: center;">1,000 ng</td>
+<td style="text-align: center;">~80 min</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Rapid Adapter</td>
-<td style="text-align: left;"><strong>RA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adapter Buffer</td>
-<td style="text-align: left;"><strong>ADB</strong></td>
-<td style="text-align: left;">室溫，pipette mix 或 vortex</td>
+<td style="text-align: left;"><a href="./sop_rad114.html">SQK-RAD114</a></td>
+<td style="text-align: left;">單樣本、最快速定序、探索性 run</td>
+<td style="text-align: center;">100-150 ng</td>
+<td style="text-align: center;">~10 min</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Thermal cycler 程式：</strong></p>
-<pre><code>30°C 30 sec → 80°C 2 min（hold 4°C）</code></pre>
-<p><strong>建議：</strong> 開始 library prep 前先完成 flow cell priming（可節省等待時間）。</p>
-<hr>
 </section>
-<section id="step-b-library-preparation10-min" class="level2">
-<h2 class="anchored" data-anchor-id="step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</h2>
-<div id="rad-B">
-
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-提示
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>✅ <strong>Library 完成！</strong> Adapter ligation 後強烈建議<strong>立即上機</strong>。<br>
-Loading 準備：見下方 Loading Mix 配製。</p>
-</div>
-</div>
-<hr>
-</section>
-<section id="loading-mix-配製" class="level2">
-<h2 class="anchored" data-anchor-id="loading-mix-配製">Loading Mix 配製</h2>
-<p>在 1.5 mL LoBind tube 中混合：</p>
+<section id="amplicon" class="level2">
+<h2 class="anchored" data-anchor-id="amplicon">Amplicon</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">體積</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">適用情境</th>
+<th style="text-align: center;">Input</th>
+<th style="text-align: center;">建庫時間</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Sequencing Buffer（SB）</td>
-<td style="text-align: left;">37.5 µL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Library Beads（LIB）先充分混勻</td>
-<td style="text-align: left;">25.5 µL</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Nuclease-free water</td>
-<td style="text-align: left;">3 µL</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Library（adapted DNA）</td>
-<td style="text-align: left;">12 µL</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: left;"><strong>75 µL</strong></td>
+<td style="text-align: left;"><a href="./sop_mab114.html">SQK-MAB114.24</a></td>
+<td style="text-align: left;">16S rRNA 細菌 / ITS 真菌群落鑑定</td>
+<td style="text-align: center;">10 ng DNA / sample</td>
+<td style="text-align: center;">~75 min + PCR</td>
 </tr>
 </tbody>
 </table>
-<p>從 SpotON port 緩慢滴入 flow cell，讓液體自然流入，避免氣泡。</p>
-<hr>
-<script>
-const radB = [
-  { id:'radb1', text:'取 <strong>100–150 ng gDNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；flick 混勻，勿 vortex；短暫離心', warn:'' },
-  { id:'radb2', text:'加入 <strong>FRA 1 µL</strong>（總 11 µL），flick 混勻，短暫離心', note:'', warn:'' },
-  { id:'radb3', text:'Thermal cycler：<strong>30°C 30 sec → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 3 min', warn:'' },
-  { id:'radb4', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
-  { id:'radb5', text:'加入 <strong>diluted RA 1 µL</strong> 至 tagmented DNA（共 12 µL），gentle flick 混勻', note:'', warn:'' },
-  { id:'radb6', text:'室溫孵育 <strong>5 min</strong>（此時完成 flow cell priming）', note:'', time:'⏱ 5 min', warn:'Adapter ligation 後立即上機，勿放置過久' },
-  { id:'radb7', text:'配製 Loading Mix（見上方表格），取 <strong>75 µL</strong> 注入 flow cell SpotON port', note:'緩慢滴入，讓液體自然流入；避免氣泡；loading 後啟動 MinKNOW 開始 sequencing', warn:'' },
-];
-document.addEventListener('DOMContentLoaded', function() {
-  renderSteps('rad-B', radB, 0);
-});
-</script>
-<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
-<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
-<style>
-.sop-step {
-  display: flex; gap: 12px; padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9; cursor: pointer;
-  border-radius: 6px; transition: background 0.15s;
-  align-items: flex-start;
-}
-.sop-step:hover { background: #f8fafc; }
-.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
-.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
-.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
-.step-time {
-  font-size: 10px; background: #dbeafe; color: #1e40af;
-  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
-  font-family: monospace; white-space: nowrap;
-}
-.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
-.step-warn {
-  font-size: 11px; color: #92400e; background: #fef3c7;
-  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
-}
-</style>
-<script>
-const _checkedSteps = {};
-function renderSteps(containerId, steps, globalOffset) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = steps.map((s, i) => {
-    const num = (globalOffset || 0) + i + 1;
-    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
-    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
-    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
-    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
-      <span class="step-cb" id="cb-${s.id}">⬜</span>
-      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
-    </div>`;
-  }).join('');
-}
-function toggleStep(id) {
-  _checkedSteps[id] = !_checkedSteps[id];
-  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
-  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
-}
-</script>
+</section>
+<section id="選擇提示" class="level2">
+<h2 class="anchored" data-anchor-id="選擇提示">選擇提示</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">樣本 / 目的</th>
+<th style="text-align: left;">優先考慮</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">高品質 gDNA、多樣本、想保留最長讀長</td>
+<td style="text-align: left;">SQK-NBD114.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">環境 / 糞便 / 抑制物風險較高、多樣本</td>
+<td style="text-align: left;">SQK-RBK114.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DNA 極低量但片段仍 &gt;= 4 kb</td>
+<td style="text-align: left;">SQK-RPB114.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">單樣本、最大輸出與甲基化分析</td>
+<td style="text-align: left;">SQK-LSK114</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">單樣本、快速 exploratory sequencing</td>
+<td style="text-align: left;">SQK-RAD114</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16S / ITS microbial community profiling</td>
+<td style="text-align: left;">SQK-MAB114.24</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

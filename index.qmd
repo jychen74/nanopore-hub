@@ -16,16 +16,27 @@ format:
 | 文件 | 適用情境 | DNA 投入量 | 建庫時間 |
 |:---|:---|:---:|:---:|
 | [核酸 QC 判定標準](qc_standards.qmd) | 所有樣本建庫前 | — | — |
+| [ONT 產品選擇器](ont_product_selector.qmd) | 依核酸類型、設備、用途查 kit / flow cell / 定價 | — | — |
 | [SQK-RBK114.24](sop_rbk114.qmd) | 多樣本、環境 DNA、低品質樣本 | 200 ng / 樣本 | ~55 min |
 | [SQK-NBD114.24](sop_nbd114.qmd) | 多樣本、高品質 gDNA、最長讀長 | 1,000 ng / 樣本 | ~140 min |
 | [SQK-LSK114](sop_lsk114.qmd) | 單樣本、最大化輸出量、甲基化分析 | 1,000 ng | ~80 min |
 | [SQK-RPB114.24](sop_rpb114.qmd) | 超低量（1–5 ng）、eDNA、水體過濾膜 | **1–5 ng / 樣本** | ~90 min |
 | [SQK-RAD114](sop_rad114.qmd) | 單樣本、最快速定序 | 100–150 ng | **~10 min** |
 | [SQK-MAB114.24](sop_mab114.qmd) | 16S 細菌 / ITS 真菌群落鑑定 | 10 ng / 樣本 | ~75 min + PCR |
+| [RNA / cDNA 定序](rna_cdna_sequencing.qmd) | transcript / native RNA / cDNA-PCR kit 選擇 | RNA input | 依 kit |
 
 ---
 
 ## Kit 選擇決策流程
+
+::: {.callout-note appearance="minimal"}
+**樣本目標是 RNA / cDNA transcript sequencing？**
+
+- **是** → 前往 [RNA / cDNA 定序](rna_cdna_sequencing.qmd)
+  - 多樣本 transcript / isoform / fusion：SQK-PCB114.24
+  - native RNA / RNA modification / 避免 RT-PCR bias：SQK-DRB004.24
+- **否** → 繼續以下 DNA / amplicon 判斷
+:::
 
 ::: {.callout-note appearance="minimal"}
 **目標是 16S/ITS 微生物群落鑑定？**

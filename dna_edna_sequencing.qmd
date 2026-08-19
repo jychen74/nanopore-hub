@@ -1,0 +1,74 @@
+---
+title: "DNA / eDNA Kit 選擇"
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+::: {.callout-note appearance="simple"}
+本頁用於 DNA / eDNA / amplicon 樣本的 ONT kit 選擇。  
+建庫前請先確認 [DNA / eDNA 核酸 QC 標準](qc_standards.qmd)，實際操作步驟請見 [DNA / eDNA 建庫 protocol](dna_edna_protocols.qmd)。
+:::
+
+::: {.callout-important}
+Kit 與 flow cell 的原廠定價請使用 [ONT 產品選擇器](ont_product_selector.qmd) 查詢；本頁只保留選擇邏輯。
+:::
+
+## Kit 選擇流程
+
+::: {.callout-note appearance="minimal"}
+**目標是 16S/ITS 微生物群落鑑定？**
+
+- **是** → **SQK-MAB114.24**（16S rRNA / ITS amplicon，最多 24 samples）
+- **否** → 繼續判斷 DNA / eDNA 建庫方式
+:::
+
+::: {.callout-note appearance="minimal"}
+**需要多樣本 multiplex（barcoding）？**
+
+**是** → DNA 量是否充足（>= 200 ng / sample）？
+
+- 是 → 高品質 gDNA（HMW fragment，A260/A230 >= 2.0）？
+  - **是 → SQK-NBD114.24**（native barcoding，最長讀長，PCR-free）
+  - **否 → SQK-RBK114.24**（rapid barcoding，適合環境 / 糞便 / 低品質 DNA）
+- 否（DNA 量不足）→ DNA fragment 是否 >= 4 kb，且可取到 1-5 ng？
+  - **是 → SQK-RPB114.24**（Rapid PCR Barcoding，低量 eDNA）
+  - **否** → 重新提取、濃縮或改變樣本策略
+
+**否**（單樣本）→
+
+- 需要最大輸出量、最長讀長或保留 methylation → **SQK-LSK114**
+- 需要最快速 exploratory sequencing → **SQK-RAD114**
+:::
+
+## Kit 比較
+
+| 項目 | RBK114.24 | NBD114.24 | LSK114 | RPB114.24 | RAD114 | MAB114.24 |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **建庫方式** | Rapid Barcoding | Native Barcoding | Ligation | Rapid PCR Barcoding | Rapid | Amplicon Barcoding |
+| **DNA input** | 200 ng / sample | 1,000 ng / sample | 1,000 ng | 1-5 ng / sample | 100-150 ng | 10 ng / sample |
+| **建庫時間** | ~55 min | ~140 min | ~80 min | ~90 min | ~10 min | ~75 min + PCR |
+| **最多樣本數** | 24 | 24 | 1 | 24 | 1 | 24 |
+| **PCR** | 否 | 否 | 否 | 是 | 否 | 是 |
+| **讀長期待** | 中等 | 最長 | 最長 | < 5 kb | 中等 | Amplicon 長度 |
+| **甲基化保留** | 是 | 是 | 是 | 否 | 是 | 否 |
+| **Fragment 要求** | Partial 可 | HMW 優先 | HMW 優先 | >= 4 kb 必要 | HMW 優先 | 無要求 |
+| **抑制物耐受** | 高 | 低 | 低 | 中 | 高 | 中 |
+| **Flow cell** | FLO-MIN114 | FLO-MIN114 | FLO-MIN114 | FLO-MIN114 | FLO-MIN114 | FLO-MIN114 |
+
+## 依樣本類型快速判斷
+
+| 樣本 / 目的 | 優先 kit | 備註 |
+|:---|:---|:---|
+| 高品質 gDNA，多樣本 | **SQK-NBD114.24** | PCR-free，讀長較佳，對 input quality 較敏感 |
+| 環境、糞便、抑制物風險較高 | **SQK-RBK114.24** | 快速、操作較簡單，適合常規 metagenomics |
+| 水體過濾膜、低量 eDNA | **SQK-RPB114.24** | PCR-based；input DNA 仍需 >= 4 kb |
+| 單樣本、高品質 gDNA、最大輸出 | **SQK-LSK114** | 適合 assembly、SV、methylation |
+| 單樣本、最快速測試 | **SQK-RAD114** | 適合 exploratory run，不適合 multiplex |
+| 16S / ITS 群落鑑定 | **SQK-MAB114.24** | 下游可搭配 EPI2ME wf-16s |
+
+## Protocol 入口
+
+完整操作步驟集中於 [DNA / eDNA 建庫 protocol](dna_edna_protocols.qmd)。

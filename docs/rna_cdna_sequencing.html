@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SQK-RAD114 · Rapid Sequencing（單樣本）</title>
+<title>RNA / cDNA 定序</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,10 +172,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
-  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
-  <li><a href="#step-b-library-preparation10-min" id="toc-step-b-library-preparation10-min" class="nav-link" data-scroll-target="#step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</a></li>
-  <li><a href="#loading-mix-配製" id="toc-loading-mix-配製" class="nav-link" data-scroll-target="#loading-mix-配製">Loading Mix 配製</a></li>
+  <li><a href="#使用時機" id="toc-使用時機" class="nav-link active" data-scroll-target="#使用時機">使用時機</a></li>
+  <li><a href="#kit-選擇流程" id="toc-kit-選擇流程" class="nav-link" data-scroll-target="#kit-選擇流程">Kit 選擇流程</a></li>
+  <li><a href="#rna-cdna-kit-比較" id="toc-rna-cdna-kit-比較" class="nav-link" data-scroll-target="#rna-cdna-kit-比較">RNA / cDNA kit 比較</a></li>
+  <li><a href="#qc-重點" id="toc-qc-重點" class="nav-link" data-scroll-target="#qc-重點">QC 重點</a></li>
+  <li><a href="#protocol-版本" id="toc-protocol-版本" class="nav-link" data-scroll-target="#protocol-版本">Protocol 版本</a></li>
+  <li><a href="#目前建議" id="toc-目前建議" class="nav-link" data-scroll-target="#目前建議">目前建議</a></li>
   </ul>
 </nav>
     </div>
@@ -184,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SQK-RAD114 · Rapid Sequencing（單樣本）</h1>
+<h1 class="title">RNA / cDNA 定序</h1>
 </div>
 
 
@@ -201,113 +203,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>⚠️ Early Access 產品
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>目前版本：RSE_9177_v114_revQ_12Dec2025。<br>
-建議首次使用先以 <strong>Lambda DNA 控制組</strong>熟悉流程。</p>
-</div>
-</div>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>適用：單樣本快速定序、gDNA QC 確認、初步探索實驗 · 預估時間 ~10 min</strong><br>
-方法：Tagmentation + Rapid Adapter 直接連接；無 PCR、無 Barcoding<br>
-Adapter ligation 後建議<strong>立即上機</strong></p>
+<p>本頁整理 ONT RNA / cDNA sequencing kits 的選擇邏輯。<br>
+目前定位為 <strong>kit selection 與 QC decision page</strong>，不是 bench-side step-by-step SOP。</p>
 </div>
 </div>
 </div>
-<section id="kit-特性" class="level2">
-<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+重要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>建庫前請先確認 <a href="./rna_cdna_qc_standards.html">RNA / cDNA 核酸 QC 標準</a>，不要直接套用 DNA / gDNA 的 QC cutoff。 Kit、flow cell 與原廠定價請使用 <a href="./ont_product_selector.html">ONT 產品選擇器</a> 查詢。</p>
+</div>
+</div>
+<section id="使用時機" class="level2">
+<h2 class="anchored" data-anchor-id="使用時機">使用時機</h2>
+<p>RNA / cDNA 定序不應直接併入 gDNA metagenomics kit 表格，因為 input QC、flow cell、library chemistry 與分析目標都不同。</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">項目</th>
-<th style="text-align: left;">規格</th>
+<th style="text-align: left;">目標</th>
+<th style="text-align: left;">優先考慮</th>
+<th style="text-align: left;">主要理由</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;"><strong>100–150 ng</strong> gDNA</td>
+<td style="text-align: left;">多樣本 transcript sequencing、splice variants、fusion transcripts</td>
+<td style="text-align: left;"><strong>SQK-PCB114.24</strong></td>
+<td style="text-align: left;">cDNA-PCR barcoding，最多 24 samples，使用 R10.4.1 flow cell</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: left;"><strong>~10 min</strong>（最快）</td>
+<td style="text-align: left;">單樣本 cDNA transcript sequencing</td>
+<td style="text-align: left;"><strong>SQK-PCS114</strong></td>
+<td style="text-align: left;">SQK-PCB114.24 的 single-sample counterpart</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Barcoding</strong></td>
-<td style="text-align: left;">❌ 無（單樣本）</td>
+<td style="text-align: left;">native RNA、RNA modification、避免 RT/PCR amplification bias</td>
+<td style="text-align: left;"><strong>SQK-DRB004.24</strong></td>
+<td style="text-align: left;">Direct RNA barcoding，保留 native RNA 訊號，但流程較長且需 RNA flow cell</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>PCR</strong></td>
-<td style="text-align: left;">❌ 無</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Flow cell</strong></td>
-<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: left;">單樣本快速定序、gDNA QC、探索性實驗</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>注意事項</strong></td>
-<td style="text-align: left;">無法 multiplex；Adapter 後立即上機效果最佳</td>
+<td style="text-align: left;">單樣本 native RNA</td>
+<td style="text-align: left;"><strong>SQK-RNA004</strong></td>
+<td style="text-align: left;">SQK-DRB004.24 的 single-sample counterpart</td>
 </tr>
 </tbody>
 </table>
-<hr>
-</section>
-<section id="step-a-試劑準備" class="level2">
-<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
-<p>所有試劑<strong>室溫保存，無需解凍</strong>：</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">縮寫</th>
-<th style="text-align: left;">備注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Fragmentation Mix</td>
-<td style="text-align: left;"><strong>FRA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rapid Adapter</td>
-<td style="text-align: left;"><strong>RA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adapter Buffer</td>
-<td style="text-align: left;"><strong>ADB</strong></td>
-<td style="text-align: left;">室溫，pipette mix 或 vortex</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Thermal cycler 程式：</strong></p>
-<pre><code>30°C 30 sec → 80°C 2 min（hold 4°C）</code></pre>
-<p><strong>建議：</strong> 開始 library prep 前先完成 flow cell priming（可節省等待時間）。</p>
-<hr>
-</section>
-<section id="step-b-library-preparation10-min" class="level2">
-<h2 class="anchored" data-anchor-id="step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</h2>
-<div id="rad-B">
-
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -318,107 +276,246 @@ Adapter ligation 後建議<strong>立即上機</strong></p>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>✅ <strong>Library 完成！</strong> Adapter ligation 後強烈建議<strong>立即上機</strong>。<br>
-Loading 準備：見下方 Loading Mix 配製。</p>
+<p>若目標是一般病原檢測或多樣本 RNA/cDNA screening，建議先以 <strong>SQK-PCB114.24</strong> 作為主流程。<br>
+若目標包含 RNA modification、native RNA molecule 特性、或明確需要避免 RT/PCR bias，再考慮 <strong>SQK-DRB004.24</strong>。</p>
 </div>
 </div>
-<hr>
 </section>
-<section id="loading-mix-配製" class="level2">
-<h2 class="anchored" data-anchor-id="loading-mix-配製">Loading Mix 配製</h2>
-<p>在 1.5 mL LoBind tube 中混合：</p>
+<section id="kit-選擇流程" class="level2">
+<h2 class="anchored" data-anchor-id="kit-選擇流程">Kit 選擇流程</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>是否需要 native RNA 訊號？</strong></p>
+<ul>
+<li><strong>是</strong>，例如 RNA modification、poly(A) length、避免 RT/PCR bias
+<ul>
+<li>需要 multiplex：<strong>SQK-DRB004.24</strong></li>
+<li>單一樣本：<strong>SQK-RNA004</strong></li>
+</ul></li>
+<li><strong>否</strong>，主要是 transcript identification / quantification / isoform / fusion transcript
+<ul>
+<li>需要 multiplex：<strong>SQK-PCB114.24</strong></li>
+<li>單一樣本：<strong>SQK-PCS114</strong></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+警告
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Direct RNA workflow 不等於「比較簡單」。<br>
+SQK-DRB004.24 需 RNA flow cell，library preparation 約 360 min，且對 RNA integrity、poly(A)+ enrichment 或 poly(A)-tailed input 的要求較高。</p>
+</div>
+</div>
+</section>
+<section id="rna-cdna-kit-比較" class="level2">
+<h2 class="anchored" data-anchor-id="rna-cdna-kit-比較">RNA / cDNA kit 比較</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">體積</th>
+<th style="text-align: left;">項目</th>
+<th style="text-align: center;">SQK-PCB114.24</th>
+<th style="text-align: center;">SQK-PCS114</th>
+<th style="text-align: center;">SQK-DRB004.24</th>
+<th style="text-align: center;">SQK-RNA004</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Sequencing Buffer（SB）</td>
-<td style="text-align: left;">37.5 µL</td>
+<td style="text-align: left;"><strong>類型</strong></td>
+<td style="text-align: center;">cDNA-PCR barcoding</td>
+<td style="text-align: center;">cDNA-PCR single sample</td>
+<td style="text-align: center;">Direct RNA barcoding</td>
+<td style="text-align: center;">Direct RNA single sample</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Library Beads（LIB）先充分混勻</td>
-<td style="text-align: left;">25.5 µL</td>
+<td style="text-align: left;"><strong>主要 input</strong></td>
+<td style="text-align: center;">10 ng enriched RNA 或 500 ng total RNA / sample</td>
+<td style="text-align: center;">10 ng enriched RNA 或 500 ng total RNA</td>
+<td style="text-align: center;">450 fmol poly(A)+ enriched RNA 或 poly(A)-tailed IVT RNA / sample</td>
+<td style="text-align: center;">300 ng poly(A)-tailed RNA 或 1 µg total RNA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nuclease-free water</td>
-<td style="text-align: left;">3 µL</td>
+<td style="text-align: left;"><strong>最多樣本數</strong></td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Library（adapted DNA）</td>
-<td style="text-align: left;">12 µL</td>
+<td style="text-align: left;"><strong>PCR amplification</strong></td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">否</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: left;"><strong>75 µL</strong></td>
+<td style="text-align: left;"><strong>Native RNA 訊號</strong></td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Flow cell</strong></td>
+<td style="text-align: center;">R10.4.1 DNA flow cell（FLO-MIN114）</td>
+<td style="text-align: center;">R10.4.1 DNA flow cell（FLO-MIN114）</td>
+<td style="text-align: center;">RNA flow cell（FLO-MIN004RA）</td>
+<td style="text-align: center;">RNA flow cell（FLO-MIN004RA）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Library prep 時間</strong></td>
+<td style="text-align: center;">約 360 min</td>
+<td style="text-align: center;">約 360 min</td>
+<td style="text-align: center;">約 360 min</td>
+<td style="text-align: center;">約 140 min</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>適合用途</strong></td>
+<td style="text-align: center;">多樣本 transcript / isoform / fusion</td>
+<td style="text-align: center;">單樣本 transcript / isoform / fusion</td>
+<td style="text-align: center;">多樣本 native RNA</td>
+<td style="text-align: center;">單樣本 native RNA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>限制</strong></td>
+<td style="text-align: center;">RT/PCR bias；不保留 native RNA modification</td>
+<td style="text-align: center;">無 multiplex</td>
+<td style="text-align: center;">成本與流程複雜度高；RNA flow cell</td>
+<td style="text-align: center;">無 multiplex；RNA flow cell</td>
 </tr>
 </tbody>
 </table>
-<p>從 SpotON port 緩慢滴入 flow cell，讓液體自然流入，避免氣泡。</p>
-<hr>
-<script>
-const radB = [
-  { id:'radb1', text:'取 <strong>100–150 ng gDNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；flick 混勻，勿 vortex；短暫離心', warn:'' },
-  { id:'radb2', text:'加入 <strong>FRA 1 µL</strong>（總 11 µL），flick 混勻，短暫離心', note:'', warn:'' },
-  { id:'radb3', text:'Thermal cycler：<strong>30°C 30 sec → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 3 min', warn:'' },
-  { id:'radb4', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
-  { id:'radb5', text:'加入 <strong>diluted RA 1 µL</strong> 至 tagmented DNA（共 12 µL），gentle flick 混勻', note:'', warn:'' },
-  { id:'radb6', text:'室溫孵育 <strong>5 min</strong>（此時完成 flow cell priming）', note:'', time:'⏱ 5 min', warn:'Adapter ligation 後立即上機，勿放置過久' },
-  { id:'radb7', text:'配製 Loading Mix（見上方表格），取 <strong>75 µL</strong> 注入 flow cell SpotON port', note:'緩慢滴入，讓液體自然流入；避免氣泡；loading 後啟動 MinKNOW 開始 sequencing', warn:'' },
-];
-document.addEventListener('DOMContentLoaded', function() {
-  renderSteps('rad-B', radB, 0);
-});
-</script>
-<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
-<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
-<style>
-.sop-step {
-  display: flex; gap: 12px; padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9; cursor: pointer;
-  border-radius: 6px; transition: background 0.15s;
-  align-items: flex-start;
-}
-.sop-step:hover { background: #f8fafc; }
-.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
-.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
-.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
-.step-time {
-  font-size: 10px; background: #dbeafe; color: #1e40af;
-  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
-  font-family: monospace; white-space: nowrap;
-}
-.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
-.step-warn {
-  font-size: 11px; color: #92400e; background: #fef3c7;
-  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
-}
-</style>
-<script>
-const _checkedSteps = {};
-function renderSteps(containerId, steps, globalOffset) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = steps.map((s, i) => {
-    const num = (globalOffset || 0) + i + 1;
-    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
-    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
-    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
-    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
-      <span class="step-cb" id="cb-${s.id}">⬜</span>
-      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
-    </div>`;
-  }).join('');
-}
-function toggleStep(id) {
-  _checkedSteps[id] = !_checkedSteps[id];
-  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
-  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
-}
-</script>
+</section>
+<section id="qc-重點" class="level2">
+<h2 class="anchored" data-anchor-id="qc-重點">QC 重點</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">QC 項目</th>
+<th style="text-align: left;">cDNA-PCR kits</th>
+<th style="text-align: left;">Direct RNA kits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>定量</strong></td>
+<td style="text-align: left;">Qubit RNA HS 作 input；PCR 後用 Qubit dsDNA HS 確認 cDNA/library</td>
+<td style="text-align: left;">Qubit RNA HS 為主</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>完整性</strong></td>
+<td style="text-align: left;">建議 Bioanalyzer / TapeStation / Fragment Analyzer 確認 RNA integrity</td>
+<td style="text-align: left;">更關鍵；fragmented RNA 會直接影響 native RNA read length 與 output</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>純度</strong></td>
+<td style="text-align: left;">A260/A280、A260/A230 作污染風險參考</td>
+<td style="text-align: left;">同左，但鹽類、酚類、ethanol 殘留對 RNA workflow 風險更高</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>input type</strong></td>
+<td style="text-align: left;">enriched RNA（Poly(A)+ 或 ribodepleted）或 total RNA</td>
+<td style="text-align: left;">poly(A)-tailed RNA、poly(A)+ enriched RNA 或 total RNA，依 kit 而定</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>control</strong></td>
+<td style="text-align: left;">建議 RNA Control Expansion（EXP-RCS001）作新流程測試</td>
+<td style="text-align: left;">建議先做 RNA control run 熟悉 direct RNA workflow</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="protocol-版本" class="level2">
+<h2 class="anchored" data-anchor-id="protocol-版本">Protocol 版本</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kit</th>
+<th style="text-align: left;">Protocol version</th>
+<th style="text-align: left;">官方文件</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SQK-PCB114.24</td>
+<td style="text-align: left;">PCB_9201_v114_revH_31Mar2026</td>
+<td style="text-align: left;"><a href="https://nanoporetech.com/document/pcr-cdna-sequencing-v14-barcoding-sqk-pcb114-24">cDNA-PCR Sequencing V14 - Barcoding</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SQK-PCS114</td>
+<td style="text-align: left;">PCS_9200_v114_revF_31Mar2026</td>
+<td style="text-align: left;"><a href="https://nanoporetech.com/document/pcr-cdna-sequencing-v14-sqk-pcs114">cDNA-PCR Sequencing V14</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SQK-DRB004.24</td>
+<td style="text-align: left;">DRB_9230_v4_revA_26May2026</td>
+<td style="text-align: left;"><a href="https://nanoporetech.com/document/direct-rna-barcoding-sqk-drb004-24">Direct RNA sequencing - barcoding</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SQK-RNA004</td>
+<td style="text-align: left;">DRS_9195_v4_revL_29June2026</td>
+<td style="text-align: left;"><a href="https://nanoporetech.com/document/direct-rna-sequencing-sqk-rna004">Direct RNA sequencing</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="目前建議" class="level2">
+<h2 class="anchored" data-anchor-id="目前建議">目前建議</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">情境</th>
+<th style="text-align: left;">建議</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">一般多樣本 RNA/cDNA workflow</td>
+<td style="text-align: left;">先建立 <strong>SQK-PCB114.24</strong> SOP</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">需要 native RNA 或 modification</td>
+<td style="text-align: left;">另建 <strong>SQK-DRB004.24</strong> SOP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">單樣本測試或 pilot</td>
+<td style="text-align: left;">可列 <code>SQK-PCS114</code> / <code>SQK-RNA004</code>，但不作為主要多樣本流程</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">病原檢測導向</td>
+<td style="text-align: left;">先確認是 RNA virus detection、host transcript response、還是 full-length transcript profiling；目的不同會影響 extraction、enrichment 與 EPI2ME workflow</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

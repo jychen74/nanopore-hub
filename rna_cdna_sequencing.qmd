@@ -1,0 +1,94 @@
+---
+title: "RNA / cDNA 定序"
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+::: {.callout-note appearance="simple"}
+本頁整理 ONT RNA / cDNA sequencing kits 的選擇邏輯。  
+目前定位為 **kit selection 與 QC decision page**，不是 bench-side step-by-step SOP。
+:::
+
+::: {.callout-important}
+建庫前請先確認 [RNA / cDNA 核酸 QC 標準](rna_cdna_qc_standards.qmd)，不要直接套用 DNA / gDNA 的 QC cutoff。
+Kit、flow cell 與原廠定價請使用 [ONT 產品選擇器](ont_product_selector.qmd) 查詢。
+:::
+
+## 使用時機
+
+RNA / cDNA 定序不應直接併入 gDNA metagenomics kit 表格，因為 input QC、flow cell、library chemistry 與分析目標都不同。
+
+| 目標 | 優先考慮 | 主要理由 |
+|:---|:---|:---|
+| 多樣本 transcript sequencing、splice variants、fusion transcripts | **SQK-PCB114.24** | cDNA-PCR barcoding，最多 24 samples，使用 R10.4.1 flow cell |
+| 單樣本 cDNA transcript sequencing | **SQK-PCS114** | SQK-PCB114.24 的 single-sample counterpart |
+| native RNA、RNA modification、避免 RT/PCR amplification bias | **SQK-DRB004.24** | Direct RNA barcoding，保留 native RNA 訊號，但流程較長且需 RNA flow cell |
+| 單樣本 native RNA | **SQK-RNA004** | SQK-DRB004.24 的 single-sample counterpart |
+
+::: {.callout-tip}
+若目標是一般病原檢測或多樣本 RNA/cDNA screening，建議先以 **SQK-PCB114.24** 作為主流程。  
+若目標包含 RNA modification、native RNA molecule 特性、或明確需要避免 RT/PCR bias，再考慮 **SQK-DRB004.24**。
+:::
+
+## Kit 選擇流程
+
+::: {.callout-note appearance="minimal"}
+**是否需要 native RNA 訊號？**
+
+- **是**，例如 RNA modification、poly(A) length、避免 RT/PCR bias  
+  - 需要 multiplex：**SQK-DRB004.24**
+  - 單一樣本：**SQK-RNA004**
+- **否**，主要是 transcript identification / quantification / isoform / fusion transcript  
+  - 需要 multiplex：**SQK-PCB114.24**
+  - 單一樣本：**SQK-PCS114**
+:::
+
+::: {.callout-warning}
+Direct RNA workflow 不等於「比較簡單」。  
+SQK-DRB004.24 需 RNA flow cell，library preparation 約 360 min，且對 RNA integrity、poly(A)+ enrichment 或 poly(A)-tailed input 的要求較高。
+:::
+
+## RNA / cDNA kit 比較
+
+| 項目 | SQK-PCB114.24 | SQK-PCS114 | SQK-DRB004.24 | SQK-RNA004 |
+|:---|:---:|:---:|:---:|:---:|
+| **類型** | cDNA-PCR barcoding | cDNA-PCR single sample | Direct RNA barcoding | Direct RNA single sample |
+| **主要 input** | 10 ng enriched RNA 或 500 ng total RNA / sample | 10 ng enriched RNA 或 500 ng total RNA | 450 fmol poly(A)+ enriched RNA 或 poly(A)-tailed IVT RNA / sample | 300 ng poly(A)-tailed RNA 或 1 µg total RNA |
+| **最多樣本數** | 24 | 1 | 24 | 1 |
+| **PCR amplification** | 是 | 是 | 否 | 否 |
+| **Native RNA 訊號** | 否 | 否 | 是 | 是 |
+| **Flow cell** | R10.4.1 DNA flow cell（FLO-MIN114）| R10.4.1 DNA flow cell（FLO-MIN114）| RNA flow cell（FLO-MIN004RA）| RNA flow cell（FLO-MIN004RA）|
+| **Library prep 時間** | 約 360 min | 約 360 min | 約 360 min | 約 140 min |
+| **適合用途** | 多樣本 transcript / isoform / fusion | 單樣本 transcript / isoform / fusion | 多樣本 native RNA | 單樣本 native RNA |
+| **限制** | RT/PCR bias；不保留 native RNA modification | 無 multiplex | 成本與流程複雜度高；RNA flow cell | 無 multiplex；RNA flow cell |
+
+## QC 重點
+
+| QC 項目 | cDNA-PCR kits | Direct RNA kits |
+|:---|:---|:---|
+| **定量** | Qubit RNA HS 作 input；PCR 後用 Qubit dsDNA HS 確認 cDNA/library | Qubit RNA HS 為主 |
+| **完整性** | 建議 Bioanalyzer / TapeStation / Fragment Analyzer 確認 RNA integrity | 更關鍵；fragmented RNA 會直接影響 native RNA read length 與 output |
+| **純度** | A260/A280、A260/A230 作污染風險參考 | 同左，但鹽類、酚類、ethanol 殘留對 RNA workflow 風險更高 |
+| **input type** | enriched RNA（Poly(A)+ 或 ribodepleted）或 total RNA | poly(A)-tailed RNA、poly(A)+ enriched RNA 或 total RNA，依 kit 而定 |
+| **control** | 建議 RNA Control Expansion（EXP-RCS001）作新流程測試 | 建議先做 RNA control run 熟悉 direct RNA workflow |
+
+## Protocol 版本
+
+| Kit | Protocol version | 官方文件 |
+|:---|:---|:---|
+| SQK-PCB114.24 | PCB_9201_v114_revH_31Mar2026 | [cDNA-PCR Sequencing V14 - Barcoding](https://nanoporetech.com/document/pcr-cdna-sequencing-v14-barcoding-sqk-pcb114-24) |
+| SQK-PCS114 | PCS_9200_v114_revF_31Mar2026 | [cDNA-PCR Sequencing V14](https://nanoporetech.com/document/pcr-cdna-sequencing-v14-sqk-pcs114) |
+| SQK-DRB004.24 | DRB_9230_v4_revA_26May2026 | [Direct RNA sequencing - barcoding](https://nanoporetech.com/document/direct-rna-barcoding-sqk-drb004-24) |
+| SQK-RNA004 | DRS_9195_v4_revL_29June2026 | [Direct RNA sequencing](https://nanoporetech.com/document/direct-rna-sequencing-sqk-rna004) |
+
+## 目前建議
+
+| 情境 | 建議 |
+|:---|:---|
+| 一般多樣本 RNA/cDNA workflow | 先建立 **SQK-PCB114.24** SOP |
+| 需要 native RNA 或 modification | 另建 **SQK-DRB004.24** SOP |
+| 單樣本測試或 pilot | 可列 `SQK-PCS114` / `SQK-RNA004`，但不作為主要多樣本流程 |
+| 病原檢測導向 | 先確認是 RNA virus detection、host transcript response、還是 full-length transcript profiling；目的不同會影響 extraction、enrichment 與 EPI2ME workflow |

@@ -133,6 +133,55 @@
     "text": "Loading Mix 配製\n\n\n\n試劑\n體積\n\n\n\n\nSequencing Buffer（SB）\n37.5 µL\n\n\nLibrary Beads（LIB）充分混勻\n25.5 µL\n\n\nNuclease-free water\n3 µL\n\n\nLibrary\n12 µL\n\n\nTotal\n75 µL"
   },
   {
+    "objectID": "rna_cdna_sequencing.html",
+    "href": "rna_cdna_sequencing.html",
+    "title": "RNA / cDNA 定序",
+    "section": "",
+    "text": "本頁整理 ONT RNA / cDNA sequencing kits 的選擇邏輯。\n目前定位為 kit selection 與 QC decision page，不是 bench-side step-by-step SOP。"
+  },
+  {
+    "objectID": "rna_cdna_sequencing.html#使用時機",
+    "href": "rna_cdna_sequencing.html#使用時機",
+    "title": "RNA / cDNA 定序",
+    "section": "使用時機",
+    "text": "使用時機\nRNA / cDNA 定序不應直接併入 gDNA metagenomics kit 表格，因為 input QC、flow cell、library chemistry 與分析目標都不同。\n\n\n\n\n\n\n\n\n目標\n優先考慮\n主要理由\n\n\n\n\n多樣本 transcript sequencing、splice variants、fusion transcripts\nSQK-PCB114.24\ncDNA-PCR barcoding，最多 24 samples，使用 R10.4.1 flow cell\n\n\n單樣本 cDNA transcript sequencing\nSQK-PCS114\nSQK-PCB114.24 的 single-sample counterpart\n\n\nnative RNA、RNA modification、避免 RT/PCR amplification bias\nSQK-DRB004.24\nDirect RNA barcoding，保留 native RNA 訊號，但流程較長且需 RNA flow cell\n\n\n單樣本 native RNA\nSQK-RNA004\nSQK-DRB004.24 的 single-sample counterpart\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n若目標是一般病原檢測或多樣本 RNA/cDNA screening，建議先以 SQK-PCB114.24 作為主流程。\n若目標包含 RNA modification、native RNA molecule 特性、或明確需要避免 RT/PCR bias，再考慮 SQK-DRB004.24。"
+  },
+  {
+    "objectID": "rna_cdna_sequencing.html#kit-選擇流程",
+    "href": "rna_cdna_sequencing.html#kit-選擇流程",
+    "title": "RNA / cDNA 定序",
+    "section": "Kit 選擇流程",
+    "text": "Kit 選擇流程\n\n\n\n\n\n\n是否需要 native RNA 訊號？\n\n是，例如 RNA modification、poly(A) length、避免 RT/PCR bias\n\n需要 multiplex：SQK-DRB004.24\n單一樣本：SQK-RNA004\n\n否，主要是 transcript identification / quantification / isoform / fusion transcript\n\n需要 multiplex：SQK-PCB114.24\n單一樣本：SQK-PCS114\n\n\n\n\n\n\n\n\n\n\n\n警告\n\n\n\nDirect RNA workflow 不等於「比較簡單」。\nSQK-DRB004.24 需 RNA flow cell，library preparation 約 360 min，且對 RNA integrity、poly(A)+ enrichment 或 poly(A)-tailed input 的要求較高。"
+  },
+  {
+    "objectID": "rna_cdna_sequencing.html#rna-cdna-kit-比較",
+    "href": "rna_cdna_sequencing.html#rna-cdna-kit-比較",
+    "title": "RNA / cDNA 定序",
+    "section": "RNA / cDNA kit 比較",
+    "text": "RNA / cDNA kit 比較\n\n\n\n\n\n\n\n\n\n\n項目\nSQK-PCB114.24\nSQK-PCS114\nSQK-DRB004.24\nSQK-RNA004\n\n\n\n\n類型\ncDNA-PCR barcoding\ncDNA-PCR single sample\nDirect RNA barcoding\nDirect RNA single sample\n\n\n主要 input\n10 ng enriched RNA 或 500 ng total RNA / sample\n10 ng enriched RNA 或 500 ng total RNA\n450 fmol poly(A)+ enriched RNA 或 poly(A)-tailed IVT RNA / sample\n300 ng poly(A)-tailed RNA 或 1 µg total RNA\n\n\n最多樣本數\n24\n1\n24\n1\n\n\nPCR amplification\n是\n是\n否\n否\n\n\nNative RNA 訊號\n否\n否\n是\n是\n\n\nFlow cell\nR10.4.1 DNA flow cell（FLO-MIN114）\nR10.4.1 DNA flow cell（FLO-MIN114）\nRNA flow cell（FLO-MIN004RA）\nRNA flow cell（FLO-MIN004RA）\n\n\nLibrary prep 時間\n約 360 min\n約 360 min\n約 360 min\n約 140 min\n\n\n適合用途\n多樣本 transcript / isoform / fusion\n單樣本 transcript / isoform / fusion\n多樣本 native RNA\n單樣本 native RNA\n\n\n限制\nRT/PCR bias；不保留 native RNA modification\n無 multiplex\n成本與流程複雜度高；RNA flow cell\n無 multiplex；RNA flow cell"
+  },
+  {
+    "objectID": "rna_cdna_sequencing.html#qc-重點",
+    "href": "rna_cdna_sequencing.html#qc-重點",
+    "title": "RNA / cDNA 定序",
+    "section": "QC 重點",
+    "text": "QC 重點\n\n\n\n\n\n\n\n\nQC 項目\ncDNA-PCR kits\nDirect RNA kits\n\n\n\n\n定量\nQubit RNA HS 作 input；PCR 後用 Qubit dsDNA HS 確認 cDNA/library\nQubit RNA HS 為主\n\n\n完整性\n建議 Bioanalyzer / TapeStation / Fragment Analyzer 確認 RNA integrity\n更關鍵；fragmented RNA 會直接影響 native RNA read length 與 output\n\n\n純度\nA260/A280、A260/A230 作污染風險參考\n同左，但鹽類、酚類、ethanol 殘留對 RNA workflow 風險更高\n\n\ninput type\nenriched RNA（Poly(A)+ 或 ribodepleted）或 total RNA\npoly(A)-tailed RNA、poly(A)+ enriched RNA 或 total RNA，依 kit 而定\n\n\ncontrol\n建議 RNA Control Expansion（EXP-RCS001）作新流程測試\n建議先做 RNA control run 熟悉 direct RNA workflow"
+  },
+  {
+    "objectID": "rna_cdna_sequencing.html#protocol-版本",
+    "href": "rna_cdna_sequencing.html#protocol-版本",
+    "title": "RNA / cDNA 定序",
+    "section": "Protocol 版本",
+    "text": "Protocol 版本\n\n\n\nKit\nProtocol version\n官方文件\n\n\n\n\nSQK-PCB114.24\nPCB_9201_v114_revH_31Mar2026\ncDNA-PCR Sequencing V14 - Barcoding\n\n\nSQK-PCS114\nPCS_9200_v114_revF_31Mar2026\ncDNA-PCR Sequencing V14\n\n\nSQK-DRB004.24\nDRB_9230_v4_revA_26May2026\nDirect RNA sequencing - barcoding\n\n\nSQK-RNA004\nDRS_9195_v4_revL_29June2026\nDirect RNA sequencing"
+  },
+  {
+    "objectID": "rna_cdna_sequencing.html#目前建議",
+    "href": "rna_cdna_sequencing.html#目前建議",
+    "title": "RNA / cDNA 定序",
+    "section": "目前建議",
+    "text": "目前建議\n\n\n\n\n\n\n\n情境\n建議\n\n\n\n\n一般多樣本 RNA/cDNA workflow\n先建立 SQK-PCB114.24 SOP\n\n\n需要 native RNA 或 modification\n另建 SQK-DRB004.24 SOP\n\n\n單樣本測試或 pilot\n可列 SQK-PCS114 / SQK-RNA004，但不作為主要多樣本流程\n\n\n病原檢測導向\n先確認是 RNA virus detection、host transcript response、還是 full-length transcript profiling；目的不同會影響 extraction、enrichment 與 EPI2ME workflow"
+  },
+  {
     "objectID": "qc_standards.html",
     "href": "qc_standards.html",
     "title": "核酸 QC 判定標準",
@@ -140,11 +189,11 @@
     "text": "依據 ONT SQK-RBK114.24 / SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24 / SQK-RAD114 / SQK-MAB114.24 官方 protocol"
   },
   {
-    "objectID": "qc_standards.html#兩種樣本模式對照",
-    "href": "qc_standards.html#兩種樣本模式對照",
+    "objectID": "qc_standards.html#三種樣本模式",
+    "href": "qc_standards.html#三種樣本模式",
     "title": "核酸 QC 判定標準",
-    "section": "🔬 兩種樣本模式對照",
-    "text": "🔬 兩種樣本模式對照\n\n🧬 模式 A — gDNA（高品質基因組）🌱 模式 B — 環境 / 糞便（Metagenomics）\n\n\n適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本\n\n\n\n\n\n\n\n\n\n指標\nPASS ✅\nWARNING ⚠️\nFAIL ❌\n\n\n\n\nA260/A280\n1.80–2.05\n1.70–1.79（輕微蛋白污染）\n&lt; 1.70 或 &gt; 2.10\n\n\nA260/A230\n≥ 2.00\n1.50–1.99（鹽/有機溶劑殘留）\n&lt; 1.50\n\n\nQubit 濃度\n≥ 20 ng/µL\n5–19 ng/µL\n&lt; 5 ng/µL\n\n\nFragment\nHMW（&gt; 10 kb）\nPartial（5–10 kb）\nDegraded（&lt; 5 kb）\n\n\n\n最低投入量（依 kit 選擇）：\n\nSQK-LSK114：1,000 ng（200 fmol，依片段換算）\nSQK-NBD114.24：1,000 ng / 樣本（200 fmol，最多 24 樣本）\nSQK-RBK114.24：200 ng / 樣本（最多 24 樣本）\nSQK-RAD114：100–150 ng（單樣本）\n\nKit 推薦： 🥇 LSK114（單樣本，最大輸出） ／ 🥇 NBD114.24（多樣本，最長讀長） ／ 🥈 RBK114.24（快速）\n\n\n\n適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本\n\n\n\n指標\nPASS ✅\nWARNING ⚠️\nFAIL ❌\n\n\n\n\nA260/A280\n1.60–2.20\n1.40–1.59（加 BSA 可緩解）\n&lt; 1.40\n\n\nA260/A230\n≥ 1.70\n1.20–1.69（腐植酸殘留）\n&lt; 1.20\n\n\nQubit 濃度\n≥ 20 ng/µL\n3–19 ng/µL\n&lt; 3 ng/µL\n\n\nFragment\nHMW 或 Partial\nDegraded（讀長縮短）\n嚴重降解\n\n\n\n最低投入量：\n\nSQK-RBK114.24：200 ng / 樣本（最多 24 樣本）\nSQK-RPB114.24：1–5 ng / 樣本（需 ≥ 4 kb，PCR 增幅）\n\nKit 推薦： 🥇 RBK114.24（常規量） ／ 🥇 RPB114.24（超低量 eDNA）\n\n\n\n\n\n\n提示抑制物殘留的處理\n\n\n\nA260/A230 &lt; 1.7 時，建議在 tagmentation reaction 中加入 BSA（終濃度 0.01–0.2 mg/mL） 可部分緩解腐植酸抑制效果。"
+    "section": "三種樣本模式",
+    "text": "三種樣本模式\n\ngDNA（高品質基因組）環境 / 糞便（Metagenomics）16S/ITS Amplicon（MAB114.24）\n\n\n適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本\n\n\n\n\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.80–2.05\n1.70–1.79（輕微蛋白污染）\n&lt; 1.70 或 &gt; 2.10\n\n\nA260/A230\n≥ 2.00\n1.50–1.99（鹽類/有機溶劑殘留）\n&lt; 1.50\n\n\nQubit 濃度\n≥ 20 ng/µL\n5–19 ng/µL\n&lt; 5 ng/µL\n\n\nFragment\nHMW（&gt; 10 kb）\nPartial（5–10 kb）\nDegraded（&lt; 5 kb）\n\n\n\n最低投入量（依 kit）：\n\nSQK-LSK114：1,000 ng（200 fmol，依片段大小換算）\nSQK-NBD114.24：1,000 ng / 樣本（最多 24 樣本）\nSQK-RBK114.24：200 ng / 樣本（最多 24 樣本）\nSQK-RAD114：100–150 ng（單樣本）\n\n建議優先順序： LSK114（單樣本，最大輸出）/ NBD114.24（多樣本，最長讀長）/ RBK114.24（快速備選）\n\n\n\n適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.60–2.20\n1.40–1.59\n&lt; 1.40\n\n\nA260/A230\n≥ 1.70\n1.20–1.69（腐植酸殘留）\n&lt; 1.20\n\n\nQubit 濃度\n≥ 20 ng/µL\n3–19 ng/µL\n&lt; 3 ng/µL\n\n\nFragment\nHMW 或 Partial\nDegraded（讀長縮短）\n嚴重降解\n\n\n\n最低投入量：\n\nSQK-RBK114.24：200 ng / 樣本\nSQK-RPB114.24：1–5 ng / 樣本（需 ≥ 4 kb，PCR 增幅）\n\n建議優先順序： RBK114.24（常規量）/ RPB114.24（超低量 eDNA）\n\n\n\n\n\n\n提示\n\n\n\nA260/A230 &lt; 1.7 時，建議在 tagmentation reaction 中加入 BSA（終濃度 0.01–0.2 mg/mL） 可部分緩解腐植酸抑制效果。\n\n\n\n\n\n適用：微生物群落分析，input DNA 僅作為 PCR template，QC 要求較寬鬆。\n\n\n\n\n\n\n\n\n指標\n建議值\n注意事項\n\n\n\n\nA260/A280\n≥ 1.8\n&lt; 1.8 可能影響 PCR 效率，但耐受度高於 ligation\n\n\nA260/A230\n≥ 1.5\n&lt; 1.5 建議重純化；腐植酸會抑制 LongAmp 聚合酶\n\n\nQubit 濃度\n可定量即可\n只需確認能取到 10 ng\n\n\nDNA 投入量\n10 ng / 樣本\n&lt; 12 樣本時 Barcoding 前取 20 ng amplicon\n\n\nFragment 長度\n無要求\nPCR 擴增目標片段，基因組完整性不影響結果\n\n\n\n判斷邏輯：\n\nA260/A230 ≥ 1.5 → 直接進 PCR\nA260/A230 &lt; 1.5 → AMPure XP 重純化後再嘗試；若 PCR 產量仍低，可增加 cycles（+3–5）"
   },
   {
     "objectID": "qc_standards.html#fragment-status-判定凝膠電泳",
@@ -154,25 +203,305 @@
     "text": "Fragment Status 判定（凝膠電泳）\n\n\n\n等級\n判定標準\nLSK114 / NBD114.24 fmol 換算\n\n\n\n\nHMW\n條帶在 &gt; 10 kb，無明顯瀰散\n200 fmol ≈ 2,600 ng（以 20 kb 計）\n\n\nPartial\n主條帶在 5–10 kb\n200 fmol ≈ 650–1,300 ng\n\n\nDegraded\n條帶彌散，主要在 &lt; 5 kb\n200 fmol ≈ 260 ng（以 2 kb 計）\n\n\n\nfmol 換算公式（LSK114 / NBD114.24）：\n\\[\\text{ng} = 200 \\times \\text{片段大小 (bp)} \\times 650 \\div 10^6\\]\n不確定片段大小時，直接用 1,000 ng（保守估計）。"
   },
   {
-    "objectID": "qc_standards.html#常見問題與處理",
-    "href": "qc_standards.html#常見問題與處理",
-    "title": "核酸 QC 判定標準",
-    "section": "🚫 常見問題與處理",
-    "text": "🚫 常見問題與處理\n\n\n\n\n\n\n\n\n問題\n可能原因\n處理方式\n\n\n\n\nA260/A280 &lt; 1.70\n蛋白質 / 酚類殘留\nAMPure XP 重純化；PowerClean Pro\n\n\nA260/A280 &gt; 2.10\nRNA 殘留\nRNase A 處理後重純化\n\n\nA260/A230 &lt; 1.50\n腐植酸 / EDTA / 鹽類\nPowerClean Pro 或 AMPure XP × 2\n\n\nA260/A230 1.50–1.70\n輕微抑制物\n加 BSA（RBK/RPB）；評估重純化（LSK/NBD）\n\n\nQubit &lt; 1 ng/µL\n提取失敗或樣本量太少\n核酸重抽；換更靈敏 kit\n\n\n條帶拖尾彌散\nDNA 降解\n評估 RBK；若 &lt; 4 kb 不適合 RPB\n\n\nRPB 產量低\nPCR 效率差\n增加 cycle 數（+2–4 cycles）；確認 DNA ≥ 4 kb"
-  },
-  {
-    "objectID": "qc_standards.html#模式-c-16sits-ampliconsqk-mab114.24-專用",
-    "href": "qc_standards.html#模式-c-16sits-ampliconsqk-mab114.24-專用",
-    "title": "核酸 QC 判定標準",
-    "section": "🦠 模式 C — 16S/ITS Amplicon（SQK-MAB114.24 專用）",
-    "text": "🦠 模式 C — 16S/ITS Amplicon（SQK-MAB114.24 專用）\n\n\n\n\n\n\nMAB114.24 的 input 是用來做 PCR 擴增（非直接建庫），QC 標準較寬鬆，但 PCR 效率仍受抑制物影響。\n\n\n\n\n\n\n\n\n\n\n\n指標\n建議值 ✅\n注意 ⚠️\n\n\n\n\nA260/A280\n≥ 1.8\n&lt; 1.8 可能影響 PCR 效率；但 PCR 耐受度高於 ligation\n\n\nA260/A230\n≥ 2.0\n&lt; 1.5 建議重純化；腐植酸會抑制 LongAmp 聚合酶\n\n\nQubit 濃度\n可定量即可\n只需確認能取到 10 ng\n\n\nDNA 投入量\n10 ng / 樣本\nPCR 前 input；&lt; 12 樣本建議 20 ng amplicon 進 barcoding\n\n\nFragment 長度\n不要求 HMW\nPCR 會把目標片段擴增出來；基因組完整性不影響結果\n\n\n\n與其他 kit 的關鍵差異：\n\nMAB114.24 不需要 HMW DNA，降解樣本也可以（目標是 16S/ITS 短片段）\n抑制物（腐植酸、EDTA）主要影響 PCR 效率，而非 adapter ligation\n若 PCR 產量偏低，先檢查抑制物再考慮增加 PCR cycle 數\n\nQC 後的判斷邏輯：\nDNA 可定量（Qubit）且 A260/A230 ≥ 1.5？\n├── 是 → 直接進 PCR（MAB114.24 Step B）\n└── 否 → 建議 AMPure XP 重純化後再嘗試\n         若重純化後仍低，可嘗試增加 PCR cycles（+3–5 cycles）"
-  },
-  {
     "objectID": "qc_standards.html#六種-kit-完整比較含-mab114.24",
     "href": "qc_standards.html#六種-kit-完整比較含-mab114.24",
     "title": "核酸 QC 判定標準",
     "section": "⚗️ 六種 Kit 完整比較（含 MAB114.24）",
     "text": "⚗️ 六種 Kit 完整比較（含 MAB114.24）\n\n\n\n項目\nRBK114.24\nNBD114.24\nLSK114\nRPB114.24\nRAD114\nMAB114.24\n\n\n\n\n建庫方式\nTagmentation\nLigation + NB\nLigation\nTagmentation + PCR\nTagmentation\nPCR + Amplicon BC\n\n\nDNA 投入量\n200 ng\n1,000 ng\n1,000 ng\n1–5 ng\n100–150 ng\n10 ng\n\n\n建庫時間\n~55 min\n~140 min\n~80 min\n~90 min\n~10 min\n~75 min + PCR\n\n\n最多樣本數\n24\n24\n1\n24\n1\n24\n\n\nPCR\n否\n否\n否\n是\n否\n是\n\n\n讀長\n中等\n最長\n最長\n&lt; 5 kb\n中等\nAmplicon 長度\n\n\n甲基化保留\n是\n是\n是\n否\n是\n否\n\n\nFragment 要求\nPartial 可\nHMW 優先\nHMW 優先\n≥ 4 kb 必要\nHMW 優先\n無要求\n\n\n抑制物耐受\n高\n低\n低\n中\n高\n中\n\n\n純度 A260/A230\n≥ 1.5\n≥ 2.0\n≥ 2.0\n≥ 1.5\n≥ 1.8\n≥ 1.5\n\n\n適合樣本\n環境、糞便\n高品質 gDNA\n高品質 gDNA\neDNA、低量\n單樣本快速\n微生物群落\n\n\nEPI2ME workflow\nwf-metagenomics / wf-bacterial-genomes\nwf-metagenomics / wf-bacterial-genomes\nwf-bacterial-genomes\nwf-metagenomics\nwf-bacterial-genomes\nwf-16s（指定）\n\n\nProtocol 版本\nrevS 27 Oct 2025\nrevW 03 Oct 2025\nrevAC 24 Sep 2025\nrevH 06 Nov 2025 ⚠️\nrevQ 12 Dec 2025 ⚠️\nrevB 26 Nov 2025 ⚠️"
+  },
+  {
+    "objectID": "ont_product_selector.html",
+    "href": "ont_product_selector.html",
+    "title": "ONT 產品選擇器",
+    "section": "",
+    "text": "本頁以 ONT 原廠 price list 匯出的 CSV 為價格來源，搭配本 repo 維護的產品註解表，依核酸類型、設備類型與用途篩選建議的 sequencing kit 與 flow cell。\n價格僅供規劃參考，正式採購仍以原廠或代理商 quote 為準。"
+  },
+  {
+    "objectID": "ont_product_selector.html#資料來源",
+    "href": "ont_product_selector.html#資料來源",
+    "title": "ONT 產品選擇器",
+    "section": "資料來源",
+    "text": "資料來源\n\n\n\n\n\n\n\n\n檔案\n用途\n何時更新\n\n\n\n\ndata/ont_pricelist.csv\n原廠 price list raw export，保留完整產品清單與價格\n原廠價格或產品清單更新時，直接用新版 CSV 覆蓋\n\n\ndata/ont_product_annotations.csv\n本站自訂註解：只讓需要決策的 kit 與 flow cell 進入選擇器\n新增 kit、修改判斷規則或補 SOP 連結時更新\n\n\ndata/ont_selector_data.js\n由前兩個 CSV 產生的網頁資料檔，只包含 sequencing kit 與 flow cell\n更新 CSV 後用 script 重新產生"
+  },
+  {
+    "objectID": "ont_product_selector.html#互動篩選",
+    "href": "ont_product_selector.html#互動篩選",
+    "title": "ONT 產品選擇器",
+    "section": "互動篩選",
+    "text": "互動篩選\n\n 核酸類型  全部    設備類型  全部    用途  全部    Multiplex  全部 multiplex single sample    顯示範圍  核心常用項目 全部註解項目  \n\n\n\n\n\n\n\n\n\n\n\n\nRole\n\n\nSKU\n\n\nProduct\n\n\nNucleic acid\n\n\nLibrary / flow cell\n\n\nSamples\n\n\nDevice\n\n\nFlow cell\n\n\nApplication\n\n\nList price\n\n\nNotes"
+  },
+  {
+    "objectID": "ont_product_selector.html#判讀提示",
+    "href": "ont_product_selector.html#判讀提示",
+    "title": "ONT 產品選擇器",
+    "section": "判讀提示",
+    "text": "判讀提示\n\n\n\n\n\n\n\n情境\n直觀選擇\n\n\n\n\nMinION/GridION 上做一般 DNA / metagenomics\nDNA kit + FLO-MIN114\n\n\nMinION/GridION 上做 cDNA-PCR transcript sequencing\nSQK-PCB114.24 或 SQK-PCS114 + FLO-MIN114\n\n\nMinION/GridION 上做 direct RNA\nSQK-DRB004.24 或 SQK-RNA004 + FLO-MIN004RA\n\n\nPromethION 上做 DNA\nDNA kit + FLO-PRO114M\n\n\nPromethION 上做 direct RNA\ndirect RNA kit + FLO-PRO004RA\n\n\nRNA / cDNA 新流程測試\n先用本頁確認 kit 與 flow cell；control / auxiliary reagent 另依 SOP 或採購清單確認\n\n\n\n\n\n資料來源與維護\n\n\n\n\n\n\n\n\n\n檔案\n用途\n何時更新\n\n\n\n\ndata/ont_pricelist.csv\n原廠 price list raw export，保留完整產品清單與價格\n原廠價格或產品清單更新時，直接用新版 CSV 覆蓋\n\n\ndata/ont_product_annotations.csv\n本站自訂註解：只讓需要決策的 kit 與 flow cell 進入選擇器\n新增 kit、修改判斷規則或補 SOP 連結時更新\n\n\ndata/ont_selector_data.js\n由前兩個 CSV 產生的網頁資料檔，只包含 sequencing kit 與 flow cell\n更新 CSV 後用 script 重新產生"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html",
+    "href": "flowcell_wash_reload.html",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "",
+    "text": "註釋定位\n\n\n\nwash 後立即跑第二個 sequencing library 的情境。前置條件是已依「Flow Cell 操作：Wash 與 Preserve」完成 wash 步驟（兩次 200 µL Wash Mix，1 hr incubation，移除 waste buffer），且不加入 Storage Buffer，直接進行本頁的 reload 流程。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#適用情境",
+    "href": "flowcell_wash_reload.html#適用情境",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "適用情境",
+    "text": "適用情境\n\n\n\n\n\n\n\n情境\n建議\n\n\n\n\n同日需要跑第二批樣本\nWash 後直接 reload\n\n\n前一個 run 已達目的，但 flow cell 仍有可用 pore\n可考慮 reload，提高 flow cell 使用效率\n\n\n樣本之間需防交叉污染\n謹慎評估；高風險樣本（低 abundance target）建議使用新 flow cell\n\n\nSOP 化紀錄需求\n明確紀錄前一個 run、wash、第二個 run 的連續關係"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#操作總覽",
+    "href": "flowcell_wash_reload.html#操作總覽",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "操作總覽",
+    "text": "操作總覽\n\n\n\n\n\n\n\n\n階段\n核心操作\n時間\n\n\n\n\n前置確認\n確認 wash 完成、waste 已移除、第二個 library 已備妥\n—\n\n\n第一段 priming\n配製 priming mix、去氣泡、注入 800 µL\n約 10 min\n\n\nLoading mix 準備\n等待期間準備第二個 library 的 loading mix\n—\n\n\nWaste 移除\n關 priming port、等 5 min、移除 waste\n約 5 min\n\n\n第二段 priming + loading\n加 200 µL priming mix，滴加 library\n約 5 min\n\n\n啟動新 run\nMinKNOW 建立新 experiment\n依設定"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#開始前狀態確認",
+    "href": "flowcell_wash_reload.html#開始前狀態確認",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "開始前狀態確認",
+    "text": "開始前狀態確認\n在 reload 前，確認以下各項均已完成：\n\n已依 wash SOP 完成兩次 200 µL Wash Mix loading\n第二次 Wash Mix 後已關閉 priming port 並完成 1 hr incubation\n1 hr 結束後已移除 waste port 1 的 waste buffer\n未將 flow cell 以 Wash Mix 長時間靜置\n第二個 library 已完成 kit-specific 建庫，在 ice 或 4°C 暫存\n\n\n\n\n\n\n\n重要Important\n\n\n\nWash 後接續上樣時，因 buffer 條件改變，不適合在 loading 前執行 flow cell check。可在新 run 啟動後，以第一次 pore scan 的結果評估可用 nanopore 數。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#reload-所需試劑",
+    "href": "flowcell_wash_reload.html#reload-所需試劑",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "Reload 所需試劑",
+    "text": "Reload 所需試劑\n\n\n\n\n\n\n\nReagent\n用途\n\n\n\n\nFlow Cell Flush（FCF）\nPriming mix 主體\n\n\nFlow Cell Tether（FCT）\nPriming mix tether component\n\n\nBovine Serum Albumin（BSA）50 mg/mL\nPriming mix；終濃度 0.2 mg/mL（Kit 14 / R10.4.1）\n\n\nSequencing Buffer（SB）\nLoading mix\n\n\nLibrary Beads（LIB）或 Library Solution（LIS）\nLoading mix\n\n\nDNA library\n第二個 sequencing library\n\n\n\n試劑處理：FCF、FCT、SB、LIB（或 LIS）室溫解凍，vortex 後 spin-down，置冰上備用。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#第一段-priming",
+    "href": "flowcell_wash_reload.html#第一段-priming",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "第一段 Priming",
+    "text": "第一段 Priming\n\n1. 配製 priming mix\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nFlow Cell Flush（FCF）\n1,170 µL\n\n\nBovine Serum Albumin（BSA）50 mg/mL\n5 µL\n\n\nFlow Cell Tether（FCT）\n30 µL\n\n\nTotal\n1,205 µL\n\n\n\nPipette mix 均勻，置冰上備用。\n\n\n2. 開啟 priming port 並去除氣泡\n\n順時針滑開 priming port cover。\nP1000 先設定 200 µL，tip 插入 priming port。\n緩慢轉動 wheel，使設定值增加至約 220–230 µL，直到看見少量液體進入 tip（實際吸回量約 20–30 µL）。\n目視確認 sensor array 一直有 buffer 覆蓋。\n\n\n\n\n\n\n\n註釋Note\n\n\n\nWash 後的 flow cell，priming port 出現 buffer 的速度可能較慢，且吸出的液體可能帶有淡色（Wash Mix 殘留），屬正常現象。耐心等待液體進入 tip，不要過度抽吸。\n\n\n\n\n3. 注入 800 µL priming mix\n\nP1000 吸取 800 µL priming mix，確認 tip 內無氣泡。\n由 priming port 緩慢注入；注入時間至少 10 秒，保持連續速度。\nTip 末端保留少量液體，不要完全打空。\n關閉 priming port，等待 5 min。\n\n\n\n\n\n\n\n重要Important\n\n\n\n注入 800 µL 後，必須關閉 priming port 並等待 5 分鐘，讓 priming mix 充分置換 wash buffer。此等待步驟不可省略。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#準備第二個-library-loading-mix",
+    "href": "flowcell_wash_reload.html#準備第二個-library-loading-mix",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "準備第二個 Library Loading Mix",
+    "text": "準備第二個 Library Loading Mix\n在等待 5 min 期間準備：\n\n\n\n\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nSequencing Buffer（SB）\n37.5 µL\n\n\nLibrary Beads（LIB，使用前立即混勻）或 Library Solution（LIS）\n25.5 µL\n\n\nDNA library\n12 µL\n\n\nNuclease-free water（視 library 濃度補足）\n適量\n\n\nTotal\n75 µL\n\n\n\n\n\n\n\n\n\n提示Tip\n\n\n\n第二個 library 的重要性評估：若第二個樣本為關鍵研究樣本或需建立正式效能資料，建議改用新 flow cell，降低 reuse 的不確定性。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#第二段-priming-與-library-loading",
+    "href": "flowcell_wash_reload.html#第二段-priming-與-library-loading",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "第二段 Priming 與 Library Loading",
+    "text": "第二段 Priming 與 Library Loading\n\n5 min 等待結束後，由 waste port 1 移除所有 waste buffer（P1000 設定 1,000 µL，緩慢抽出）。\n開啟 priming port。\n輕輕打開 SpotON sample port cover。\n由 priming port 加入 200 µL priming mix，注入時間至少 5 秒（注意：不是從 SpotON port 加入）。\n上樣前將 75 µL loading mix 輕柔 pipette mix（LIB 使用前立即混勻）。\n以 dropwise 方式由 SpotON sample port 加入 75 µL loading mix；每一滴完全進入 port 後，再加下一滴。\n蓋回 SpotON sample port cover，確認 bung 進入 SpotON port。\n關閉 priming port。\n裝回 light shield，關閉 device lid。\n在 MinKNOW 建立新的 sequencing run。"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#reload-紀錄表",
+    "href": "flowcell_wash_reload.html#reload-紀錄表",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "Reload 紀錄表",
+    "text": "Reload 紀錄表\n\n\n\n欄位\n紀錄\n\n\n\n\nDate / Operator\n\n\n\nFlow cell ID\n\n\n\nPrevious run ID\n\n\n\nPrevious sample / barcode set\n\n\n\nWash start time\n\n\n\nWash end time（1 hr incubation 結束）\n\n\n\nWaste removed after wash\nYes / No\n\n\nSecond library ID\n\n\n\nSecond kit / barcode set\n\n\n\nReload priming time（800 µL flush 時間）\n\n\n\nLibrary loading time\n\n\n\nLibrary loading volume\n75 µL / other\n\n\nFirst pore scan after reload（新 run 啟動後）\n\n\n\nCross-contamination concern\nLow / Medium / High\n\n\n備註"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#何時不建議-reload",
+    "href": "flowcell_wash_reload.html#何時不建議-reload",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "何時不建議 Reload",
+    "text": "何時不建議 Reload\n\n\n\n\n\n\n\n狀況\n理由\n\n\n\n\n第二個樣本為關鍵診斷或核心研究樣本\nReuse flow cell 有較多不確定性，效能難以保證\n\n\n前一 run 有高 abundance target，第二 run 需檢出低 abundance target\nCarryover 風險不可忽視\n\n\n前一 run 發生明顯 air bubble 或 pore 急遽下降\nFlow cell 狀態不穩定，wash 後效能難以預期\n\n\n需建立正式方法性能資料\n方法驗證階段優先使用新 flow cell，降低 confounder"
+  },
+  {
+    "objectID": "flowcell_wash_reload.html#本頁資料來源",
+    "href": "flowcell_wash_reload.html#本頁資料來源",
+    "title": "Flow Cell 操作：Wash 後接續上樣",
+    "section": "本頁資料來源",
+    "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Kit 14 priming and loading sections: SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24."
+  },
+  {
+    "objectID": "flowcell_priming.html",
+    "href": "flowcell_priming.html",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "",
+    "text": "註釋定位\n\n\n\nMinION / GridION Flow Cell 在上樣前的 priming 與 loading 操作。\n建議作為所有 SQK-RBK、SQK-NBD、SQK-LSK、SQK-RPB、SQK-RAD、SQK-MAB 建庫 SOP 的共同前置頁面。"
+  },
+  {
+    "objectID": "flowcell_priming.html#適用範圍",
+    "href": "flowcell_priming.html#適用範圍",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "適用範圍",
+    "text": "適用範圍\n\n\n\n\n\n\n\n項目\n內容\n\n\n\n\n適用平台\nMinION / GridION；以 FLO-MIN114、Kit 14 chemistry 為主\n\n\n目的\n將 flow cell 由 storage buffer 狀態轉換為適合上樣的 primed 狀態\n\n\n核心風險\n引入 air bubble、抽出過多 buffer、LIB beads 未混勻、SpotON 上樣太快\n\n\n建議紀錄\nFlow cell ID、初始 active pores、priming 時間、使用 kit、操作者、異常事件"
+  },
+  {
+    "objectID": "flowcell_priming.html#原理簡述",
+    "href": "flowcell_priming.html#原理簡述",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "原理簡述",
+    "text": "原理簡述\nFlow cell 內的 sequencing array 位於 buffer 下方。MinION flow cell 有 priming port 與 SpotON sample port；priming port 用於 flush / priming，SpotON sample port 用於滴加 library。Priming 的目的不是「清洗」，而是將 storage buffer 置換為 sequencing-ready 的 priming mix，並確保空氣不進入 array。"
+  },
+  {
+    "objectID": "flowcell_priming.html#操作前檢查",
+    "href": "flowcell_priming.html#操作前檢查",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "操作前檢查",
+    "text": "操作前檢查\n\n\n\n\n\n\n\n檢查項目\n判定 / 操作\n\n\n\n\nFlow cell 回溫\n從 2–8°C 取出後，室溫放置約 20 min\n\n\nFlow cell check\n新 flow cell 或久未使用者，在 MinKNOW 執行 flow cell check 確認可用 pore 數\n\n\n試劑回溫\nFCF、FCT、SB、LIB（或 LIS）室溫解凍，vortex 混勻，brief spin-down\n\n\nBSA\nR10.4.1 / Kit 14 flow cell 建議加入 BSA，終濃度 0.2 mg/mL\n\n\nLight shield\n確認備妥，library loading 後立即裝上\n\n\nPipette\nP1000、P20 / P10，確認吸頭無氣泡"
+  },
+  {
+    "objectID": "flowcell_priming.html#priming-mix-配製",
+    "href": "flowcell_priming.html#priming-mix-配製",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "Priming mix 配製",
+    "text": "Priming mix 配製\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nFlow Cell Flush（FCF）\n1,170 µL\n\n\nBovine Serum Albumin（BSA）50 mg/mL\n5 µL\n\n\nFlow Cell Tether（FCT）\n30 µL\n\n\nTotal\n1,205 µL\n\n\n\n配製後 pipette mix 均勻，置冰上備用。\n\n\n\n\n\n\n警告Warning\n\n\n\nBSA 使用 ONT protocol 指定的 bovine serum albumin（Invitrogen UltraPure BSA，AM2616）；不可替換為 recombinant human albumin 或其他 albumin 類型。"
+  },
+  {
+    "objectID": "flowcell_priming.html#minion-gridion-priming-sop",
+    "href": "flowcell_priming.html#minion-gridion-priming-sop",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "MinION / GridION Priming SOP",
+    "text": "MinION / GridION Priming SOP\n\n1. 插入 flow cell\n\n打開 MinION / GridION device lid。\n將 flow cell 滑入 clip 下方。\n確認 priming port cover 與 SpotON sample port cover 皆為關閉狀態。\n需要時在 MinKNOW 執行 flow cell check。\n\n\n\n2. 開啟 priming port 並去除氣泡\n\n順時針滑開 priming port cover。\n觀察 priming port 下方是否有小氣泡。\nP1000 先設定為 200 µL，將 tip 插入 priming port。\n緩慢轉動 pipette wheel，使設定值增加至約 220–230 µL，直到看見少量 buffer 進入 tip 為止（實際吸回量約 20–30 µL）。\n目視確認 priming port 到 sensor array 之間仍有連續液體覆蓋。\n\n\n\n\n\n\n\n重要Important\n\n\n\n抽回 buffer 時不要超過 20–30 µL。Sensor array 必須全程被 buffer 覆蓋；空氣進入 array 可能造成不可逆 pore loss。\n\n\n\n\n3. 第一次 priming flush\n\n以 P1000 吸取 800 µL priming mix，確認 tip 內無氣泡。\n由 priming port 緩慢注入；注入時間至少 10 秒，保持連續速度。\nTip 末端保留少量液體，不要完全打空。\n等待 5 min。\n\n\n\n4. 準備 library loading mix\n在等待 5 min 的期間準備 loading mix：\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nSequencing Buffer（SB）\n37.5 µL\n\n\nLibrary Beads（LIB）或 Library Solution（LIS）\n25.5 µL\n\n\nDNA library\n12 µL\n\n\nNuclease-free water（視 library 濃度補足）\n適量\n\n\nTotal\n75 µL\n\n\n\n\n\n\n\n\n\n提示Tip\n\n\n\n一般 sequencing 使用 LIB；若 library 黏稠或 beads loading 困難，可改用 LIS。LIB beads 沉降速度極快，務必在上樣前立即 pipette mix。\n\n\n\n\n\n\n\n\n註釋Note\n\n\n\n若 library 濃度高、取用體積不足 12 µL，以 nuclease-free water 補足至 75 µL 總體積。目標上機量為 10–20 fmol。\n\n\n\n\n5. 第二次 priming flush\n\n確認 priming port 已打開。\n輕輕打開 SpotON sample port cover。\n由 priming port 加入 200 µL priming mix（注意：不是從 SpotON port 加入）；注入時間至少 5 秒。\n觀察 SpotON port 液面短暫上升後回落，確認通道通暢。\n避免導入氣泡。\n\n\n\n6. Library loading\n\n上樣前將 75 µL loading mix 輕柔 pipette mix（LIB 使用前必須立即混勻）。\n以 dropwise 方式將 library 加入 SpotON sample port；每一滴完全進入 port 後，再加下一滴。\n蓋回 SpotON sample port cover，確認 bung 進入 SpotON port。\n關閉 priming port。\n立即裝上 light shield，蓋回 device lid。\n在 MinKNOW 設定並啟動 sequencing run。\n\n\n\n\n\n\n\n警告Warning\n\n\n\nLibrary loading 完成後應立即裝上 light shield，以維持最佳 sequencing 輸出。Light shield 未固定於 flow cell 上，裝卸時需小心。"
+  },
+  {
+    "objectID": "flowcell_priming.html#操作紀錄表",
+    "href": "flowcell_priming.html#操作紀錄表",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "操作紀錄表",
+    "text": "操作紀錄表\n\n\n\n欄位\n紀錄\n\n\n\n\nDate / Operator\n\n\n\nFlow cell ID\n\n\n\nKit / Library type\n\n\n\nInitial active pores（flow cell check 結果）\n\n\n\nPriming mix 配製時間\n\n\n\nBSA added\nYes / No\n\n\nFirst flush time\n\n\n\nSecond flush time\n\n\n\nLibrary loading volume\n75 µL / other\n\n\nLoading issue\nnone / bubble / slow uptake / leakage\n\n\nMinKNOW run ID\n\n\n\n備註"
+  },
+  {
+    "objectID": "flowcell_priming.html#常見問題與判讀",
+    "href": "flowcell_priming.html#常見問題與判讀",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "常見問題與判讀",
+    "text": "常見問題與判讀\n\n\n\n\n\n\n\n\n現象\n可能原因\n建議處理\n\n\n\n\nSpotON port 液體不易吸入\n壓力不平衡、tip 接觸不良、上樣過快\n暫停數秒，確認 priming port 為開啟狀態，避免強推\n\n\n上樣後 pore 快速下降\nAir bubble、library 含抑制物、loading 量過多\n記錄事件；下次加強去氣泡、確認 sample QC 與 loading 量\n\n\nLIB beads 沉降\n上樣前未立即混勻\nLoading 前重新 pipette mix\n\n\nRun 初期低 pore occupancy（flow cell check 正常）\nLibrary loading 量不足，或 adapter ligation / rapid adapter attachment 效率差\n檢查 library Qubit 濃度、fragment size、kit-specific SOP"
+  },
+  {
+    "objectID": "flowcell_priming.html#本頁資料來源",
+    "href": "flowcell_priming.html#本頁資料來源",
+    "title": "Flow Cell 操作：Priming 與 Loading",
+    "section": "本頁資料來源",
+    "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Ligation sequencing amplicons - Native Barcoding Kit 24 V14 (SQK-NBD114.24) (NBA_9168_v114_revT_02Oct2025).\nOxford Nanopore Technologies. Rapid sequencing DNA V14 - barcoding (SQK-RBK114.24) (RBK_9176_v114_revS_27Oct2025)."
+  },
+  {
+    "objectID": "dna_edna_protocols.html",
+    "href": "dna_edna_protocols.html",
+    "title": "DNA / eDNA 建庫 protocol",
+    "section": "",
+    "text": "本頁集中整理 DNA / eDNA / amplicon 相關建庫 protocol。\n建庫前請先確認 DNA / eDNA 核酸 QC 標準，kit 與 flow cell 價格可用 ONT 產品選擇器 查詢。"
+  },
+  {
+    "objectID": "dna_edna_protocols.html#多樣本-dna-edna",
+    "href": "dna_edna_protocols.html#多樣本-dna-edna",
+    "title": "DNA / eDNA 建庫 protocol",
+    "section": "多樣本 DNA / eDNA",
+    "text": "多樣本 DNA / eDNA\n\n\n\nProtocol\n適用情境\nDNA input\n建庫時間\n\n\n\n\nSQK-RBK114.24\n多樣本、環境 DNA、低品質樣本\n200 ng / sample\n~55 min\n\n\nSQK-NBD114.24\n多樣本、高品質 gDNA、最長讀長、保留 native DNA methylation\n1,000 ng / sample\n~140 min\n\n\nSQK-RPB114.24\n超低量 DNA、eDNA、水體過濾膜、PCR-based multiplex\n1-5 ng / sample\n~90 min"
+  },
+  {
+    "objectID": "dna_edna_protocols.html#單樣本-dna",
+    "href": "dna_edna_protocols.html#單樣本-dna",
+    "title": "DNA / eDNA 建庫 protocol",
+    "section": "單樣本 DNA",
+    "text": "單樣本 DNA\n\n\n\nProtocol\n適用情境\nDNA input\n建庫時間\n\n\n\n\nSQK-LSK114\n單樣本、高品質 gDNA、最大化輸出量、甲基化分析\n1,000 ng\n~80 min\n\n\nSQK-RAD114\n單樣本、最快速定序、探索性 run\n100-150 ng\n~10 min"
+  },
+  {
+    "objectID": "dna_edna_protocols.html#amplicon",
+    "href": "dna_edna_protocols.html#amplicon",
+    "title": "DNA / eDNA 建庫 protocol",
+    "section": "Amplicon",
+    "text": "Amplicon\n\n\n\nProtocol\n適用情境\nInput\n建庫時間\n\n\n\n\nSQK-MAB114.24\n16S rRNA 細菌 / ITS 真菌群落鑑定\n10 ng DNA / sample\n~75 min + PCR"
+  },
+  {
+    "objectID": "dna_edna_protocols.html#選擇提示",
+    "href": "dna_edna_protocols.html#選擇提示",
+    "title": "DNA / eDNA 建庫 protocol",
+    "section": "選擇提示",
+    "text": "選擇提示\n\n\n\n樣本 / 目的\n優先考慮\n\n\n\n\n高品質 gDNA、多樣本、想保留最長讀長\nSQK-NBD114.24\n\n\n環境 / 糞便 / 抑制物風險較高、多樣本\nSQK-RBK114.24\n\n\nDNA 極低量但片段仍 &gt;= 4 kb\nSQK-RPB114.24\n\n\n單樣本、最大輸出與甲基化分析\nSQK-LSK114\n\n\n單樣本、快速 exploratory sequencing\nSQK-RAD114\n\n\n16S / ITS microbial community profiling\nSQK-MAB114.24"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html",
+    "href": "dna_edna_sequencing.html",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "",
+    "text": "本頁用於 DNA / eDNA / amplicon 樣本的 ONT kit 選擇。\n建庫前請先確認 DNA / eDNA 核酸 QC 標準，實際操作步驟請見 DNA / eDNA 建庫 protocol。"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#kit-選擇流程",
+    "href": "dna_edna_sequencing.html#kit-選擇流程",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "Kit 選擇流程",
+    "text": "Kit 選擇流程\n\n\n\n\n\n\n目標是 16S/ITS 微生物群落鑑定？\n\n是 → SQK-MAB114.24（16S rRNA / ITS amplicon，最多 24 samples）\n否 → 繼續判斷 DNA / eDNA 建庫方式\n\n\n\n\n\n\n\n\n\n\n需要多樣本 multiplex（barcoding）？\n是 → DNA 量是否充足（&gt;= 200 ng / sample）？\n\n是 → 高品質 gDNA（HMW fragment，A260/A230 &gt;= 2.0）？\n\n是 → SQK-NBD114.24（native barcoding，最長讀長，PCR-free）\n否 → SQK-RBK114.24（rapid barcoding，適合環境 / 糞便 / 低品質 DNA）\n\n否（DNA 量不足）→ DNA fragment 是否 &gt;= 4 kb，且可取到 1-5 ng？\n\n是 → SQK-RPB114.24（Rapid PCR Barcoding，低量 eDNA）\n否 → 重新提取、濃縮或改變樣本策略\n\n\n否（單樣本）→\n\n需要最大輸出量、最長讀長或保留 methylation → SQK-LSK114\n需要最快速 exploratory sequencing → SQK-RAD114"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#kit-比較",
+    "href": "dna_edna_sequencing.html#kit-比較",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "Kit 比較",
+    "text": "Kit 比較\n\n\n\n\n\n\n\n\n\n\n\n\n項目\nRBK114.24\nNBD114.24\nLSK114\nRPB114.24\nRAD114\nMAB114.24\n\n\n\n\n建庫方式\nRapid Barcoding\nNative Barcoding\nLigation\nRapid PCR Barcoding\nRapid\nAmplicon Barcoding\n\n\nDNA input\n200 ng / sample\n1,000 ng / sample\n1,000 ng\n1-5 ng / sample\n100-150 ng\n10 ng / sample\n\n\n建庫時間\n~55 min\n~140 min\n~80 min\n~90 min\n~10 min\n~75 min + PCR\n\n\n最多樣本數\n24\n24\n1\n24\n1\n24\n\n\nPCR\n否\n否\n否\n是\n否\n是\n\n\n讀長期待\n中等\n最長\n最長\n&lt; 5 kb\n中等\nAmplicon 長度\n\n\n甲基化保留\n是\n是\n是\n否\n是\n否\n\n\nFragment 要求\nPartial 可\nHMW 優先\nHMW 優先\n&gt;= 4 kb 必要\nHMW 優先\n無要求\n\n\n抑制物耐受\n高\n低\n低\n中\n高\n中\n\n\nFlow cell\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#依樣本類型快速判斷",
+    "href": "dna_edna_sequencing.html#依樣本類型快速判斷",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "依樣本類型快速判斷",
+    "text": "依樣本類型快速判斷\n\n\n\n\n\n\n\n\n樣本 / 目的\n優先 kit\n備註\n\n\n\n\n高品質 gDNA，多樣本\nSQK-NBD114.24\nPCR-free，讀長較佳，對 input quality 較敏感\n\n\n環境、糞便、抑制物風險較高\nSQK-RBK114.24\n快速、操作較簡單，適合常規 metagenomics\n\n\n水體過濾膜、低量 eDNA\nSQK-RPB114.24\nPCR-based；input DNA 仍需 &gt;= 4 kb\n\n\n單樣本、高品質 gDNA、最大輸出\nSQK-LSK114\n適合 assembly、SV、methylation\n\n\n單樣本、最快速測試\nSQK-RAD114\n適合 exploratory run，不適合 multiplex\n\n\n16S / ITS 群落鑑定\nSQK-MAB114.24\n下游可搭配 EPI2ME wf-16s"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#protocol-入口",
+    "href": "dna_edna_sequencing.html#protocol-入口",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "Protocol 入口",
+    "text": "Protocol 入口\n完整操作步驟集中於 DNA / eDNA 建庫 protocol。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html",
+    "href": "flowcell_wash_preserve.html",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "",
+    "text": "註釋定位\n\n\n\nrun 結束後、暫時不接續上樣 的情境：停止或暫停 sequencing run → 使用 Flow Cell Wash Kit 清洗 → 以 Storage Buffer 保存於 2–8°C。若 wash 後要立即跑第二個 library，請參考「Flow Cell 操作：Wash 後接續上樣」。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#適用情境",
+    "href": "flowcell_wash_preserve.html#適用情境",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "適用情境",
+    "text": "適用情境\n\n\n\n\n\n\n\n情境\n建議\n\n\n\n\n當天不再跑第二個 library\nWash 後加入 Storage Buffer 保存\n\n\nFlow cell 仍有可用 pores\n優先考慮 wash / preserve，保留後續再使用機會\n\n\nRun 結束但無法立即清洗\n越快越好；若無法當天清洗，維持 flow cell 在 device 上，隔天儘速處理\n\n\nSOP 化紀錄需求\n每次 wash / preserve 均需記錄 flow cell ID、時間、操作者、pore 數與異常"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#試劑與設備",
+    "href": "flowcell_wash_preserve.html#試劑與設備",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "試劑與設備",
+    "text": "試劑與設備\n\n\n\n\n\n\n\n類別\n項目\n\n\n\n\nKit\nFlow Cell Wash Kit（EXP-WSH004 或 EXP-WSH004-XL）\n\n\nReagents\nWash Mix（WMX）、Wash Diluent（DIL）、Storage Buffer（S）\n\n\nConsumables\n1.5 mL Eppendorf DNA LoBind tube\n\n\nEquipment\nMinION / GridION device、P1000、P200、P20、ice bucket、vortex、microfuge\n\n\n\n\n\n\n\n\n\n註釋Note\n\n\n\nWash Mix（WMX）含 DNase I；Wash Diluent（DIL）含 exonuclease buffer，兩者混合後發揮 DNA 消化作用。\nStorage Buffer（S）用於 wash 完成後的保存，或 reload 前的 flow cell check。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#wash-mix-配製",
+    "href": "flowcell_wash_preserve.html#wash-mix-配製",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "Wash Mix 配製",
+    "text": "Wash Mix 配製\n\n\n\n\n\n\n警告Warning\n\n\n\nWash Mix 建議每次新鮮配製，不要預先配製後存放超過 1 天。WMX 不可 vortex，保持在冰上直到使用。\n\n\nWMX 解凍方式：從 -20°C 取出後，置冰上解凍；不可室溫解凍。\n\n\n\nReagent\n每張 flow cell 用量\n\n\n\n\nWash Mix（WMX）\n2 µL\n\n\nWash Diluent（DIL）\n398 µL\n\n\nTotal\n400 µL\n\n\n\n配製步驟：\n\nWMX 置冰上，不 vortex。\nDIL 室溫解凍，vortex 混勻後 brief spin-down，再置冰上。\n於 fresh 1.5 mL DNA LoBind tube 中混合 WMX + DIL。\nPipette 混勻（不 vortex），置冰上備用。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#wash-preserve-sop",
+    "href": "flowcell_wash_preserve.html#wash-preserve-sop",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "Wash / Preserve SOP",
+    "text": "Wash / Preserve SOP\n\n1. Stop / pause sequencing run\n\n在 MinKNOW 中 stop 或 pause sequencing experiment。\n確認 flow cell 不在 sequencing 狀態（manipulating flow cell 時若仍在 sequencing，可能造成 pore loss）。\nFlow cell 全程保持插在 sequencing device 上，以維持固定與溫控。\n\n\n\n2. 移除 waste buffer\n\n\n\n\n\n\n重要Important\n\n\n\n移除 waste buffer 前，priming port 與 SpotON sample port 必須為關閉狀態。\n若兩個 port 在抽 waste 時開著，空氣可能被抽過 sensor array，造成顯著 pore loss。\n\n\n\n確認 priming port cover 與 SpotON sample port cover 皆為關閉狀態。\nP1000 設定 1,000 µL。\n將 tip 插入 waste port 1。\n緩慢抽出 waste channel 中的 buffer；若需要可多次重複，直到移除乾淨。\n\n\n\n3. 開啟 priming port 並去除氣泡\n\n順時針滑開 priming port cover。\nP1000 先設定為 200 µL，tip 插入 priming port。\n緩慢轉動 wheel，使設定值增加至約 220–230 µL，直到看見少量液體進入 tip（實際吸回量約 20–30 µL）。\n目視確認 priming port 到 sensor array 仍有連續 buffer 覆蓋。\n\n\n\n\n\n\n\n註釋Note\n\n\n\nFlow cell 跑過 library 後，priming port 出現 buffer 的速度可能較慢，屬正常現象；耐心等待液體進入 tip，不要過度抽吸。\n\n\n\n\n4. 第一次加入 Wash Mix\n\nP1000 吸取 200 µL prepared Wash Mix，確認 tip 內無氣泡。\n由 priming port 緩慢注入；注入時間至少 5 秒，保持連續速度。\nTip 末端保留少量液體，不要完全打空。\n靜置 5 min。\n\n\n\n5. 第二次加入 Wash Mix\n\n5 min incubation 後，再次吸取 200 µL prepared Wash Mix，由 priming port 緩慢注入。\n關閉 priming port。\n等待 1 hr。\n\n\n\n\n\n\n\n重要Important\n\n\n\n1 hr incubation 讓 DNase I 充分消化殘留 DNA library。等待期間不要操作 flow cell。\n\n\n\n\n6. 移除 waste buffer（1 hr 後）\n1 hr incubation 完成後：\n\n開啟 priming port。\nP1000 設定 1,000 µL，tip 插入 waste port 1。\n緩慢抽出所有 waste buffer；重複直到移除乾淨。\n\n此時 flow cell 清洗完成，可依需要選擇保存或直接 reload。\n\n\n7. 加入 Storage Buffer 保存\n\n\n\n\n\n\n重要Important\n\n\n\nWash 完成後，不可讓 flow cell 在 Wash Mix 狀態下長時間靜置；這可能造成不可逆 pore loss。\n若不立即 reload，必須接續加入 Storage Buffer。\n\n\n\n室溫解凍一管 Storage Buffer（S）。\nP1000 先設定 200 µL，tip 插入 priming port，緩慢吸回 20–30 µL 去除氣泡。\n取 500 µL Storage Buffer，由 priming port 緩慢注入；注入時間至少 5 秒，保持連續速度。\n關閉 priming port。\nP1000 設定 1,000 µL，由 waste port 1 移除所有 waste buffer。\n確認 priming port 與 SpotON sample port cover 皆為關閉狀態。\n將 flow cell 放回原包裝或合適容器，保存於 2–8°C。\n\n\n\n\n\n\n\n註釋Note\n\n\n\n保存後取出再使用時，先讓 flow cell 室溫回溫約 5 分鐘，再執行 flow cell check 評估可用 pore 數，確認後再進行 priming 與 loading。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#preserve-後紀錄表",
+    "href": "flowcell_wash_preserve.html#preserve-後紀錄表",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "Preserve 後紀錄表",
+    "text": "Preserve 後紀錄表\n\n\n\n欄位\n紀錄\n\n\n\n\nDate / Operator\n\n\n\nFlow cell ID\n\n\n\nPrevious run ID\n\n\n\nRun stop time\n\n\n\nWaste removed before wash\nYes / No\n\n\nWash Mix 配製時間\n\n\n\nWMX lot\n\n\n\nFirst 200 µL wash time\n\n\n\nSecond 200 µL wash time\n\n\n\n1 hr incubation end time\n\n\n\nWaste removed after wash\nYes / No\n\n\nStorage Buffer added（500 µL）\nYes / No\n\n\nStorage temperature\n2–8°C\n\n\nPost-wash / next-use pores\n\n\n\n備註"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#是否適合保存的判斷",
+    "href": "flowcell_wash_preserve.html#是否適合保存的判斷",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "是否適合保存的判斷",
+    "text": "是否適合保存的判斷\n\n\n\n\n\n\n\n條件\n建議判斷\n\n\n\n\n剩餘 pores 仍多\n保存，後續可用於低風險、探索性或短 run\n\n\n曾發生明顯 air bubble\n保存價值降低；下次使用前特別注意 flow cell check\n\n\n目標為重要樣本或 publication-grade run\n優先使用新 flow cell；reuse flow cell 用於 method development 或補充資料\n\n\nFlow cell 已多次 wash\n預期效能下降；以實際 pore scan / output 決定用途\n\n\n\n\n\n\n\n\n\n註釋Note\n\n\n\nEXP-WSH004 的一般可重複使用次數為 3–6 次，實際次數取決於樣本種類、前次 run 品質與操作條件。詳細說明請參考 ONT Flow Cell Wash Kit Know-How document。"
+  },
+  {
+    "objectID": "flowcell_wash_preserve.html#本頁資料來源",
+    "href": "flowcell_wash_preserve.html#本頁資料來源",
+    "title": "Flow Cell 操作：Wash 與 Preserve",
+    "section": "本頁資料來源",
+    "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL) checklist.\nOxford Nanopore Technologies. Kit-specific flow cell reuse and returns sections: SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24."
   },
   {
     "objectID": "index.html",
@@ -186,14 +515,14 @@
     "href": "index.html#可用文件",
     "title": "Nanopore Sequencing Hub",
     "section": "📋 可用文件",
-    "text": "📋 可用文件\n\n\n\n文件\n適用情境\nDNA 投入量\n建庫時間\n\n\n\n\n核酸 QC 判定標準\n所有樣本建庫前\n—\n—\n\n\nSQK-RBK114.24\n多樣本、環境 DNA、低品質樣本\n200 ng / 樣本\n~55 min\n\n\nSQK-NBD114.24\n多樣本、高品質 gDNA、最長讀長\n1,000 ng / 樣本\n~140 min\n\n\nSQK-LSK114\n單樣本、最大化輸出量、甲基化分析\n1,000 ng\n~80 min\n\n\nSQK-RPB114.24\n超低量（1–5 ng）、eDNA、水體過濾膜\n1–5 ng / 樣本\n~90 min\n\n\nSQK-RAD114\n單樣本、最快速定序\n100–150 ng\n~10 min\n\n\nSQK-MAB114.24\n16S 細菌 / ITS 真菌群落鑑定\n10 ng / 樣本\n~75 min + PCR"
+    "text": "📋 可用文件\n\n\n\n文件\n適用情境\nDNA 投入量\n建庫時間\n\n\n\n\n核酸 QC 判定標準\n所有樣本建庫前\n—\n—\n\n\nONT 產品選擇器\n依核酸類型、設備、用途查 kit / flow cell / 定價\n—\n—\n\n\nSQK-RBK114.24\n多樣本、環境 DNA、低品質樣本\n200 ng / 樣本\n~55 min\n\n\nSQK-NBD114.24\n多樣本、高品質 gDNA、最長讀長\n1,000 ng / 樣本\n~140 min\n\n\nSQK-LSK114\n單樣本、最大化輸出量、甲基化分析\n1,000 ng\n~80 min\n\n\nSQK-RPB114.24\n超低量（1–5 ng）、eDNA、水體過濾膜\n1–5 ng / 樣本\n~90 min\n\n\nSQK-RAD114\n單樣本、最快速定序\n100–150 ng\n~10 min\n\n\nSQK-MAB114.24\n16S 細菌 / ITS 真菌群落鑑定\n10 ng / 樣本\n~75 min + PCR\n\n\nRNA / cDNA 定序\ntranscript / native RNA / cDNA-PCR kit 選擇\nRNA input\n依 kit"
   },
   {
     "objectID": "index.html#kit-選擇決策流程",
     "href": "index.html#kit-選擇決策流程",
     "title": "Nanopore Sequencing Hub",
     "section": "Kit 選擇決策流程",
-    "text": "Kit 選擇決策流程\n\n\n\n\n\n\n目標是 16S/ITS 微生物群落鑑定？\n\n是 → SQK-MAB114.24（最多 24 樣本，搭配 EPI2ME wf-16s）\n否（基因組 DNA 定序）→ 繼續以下判斷\n\n\n\n\n\n\n\n\n\n\n需要多樣本 multiplex（barcoding）？\n是 → DNA 量是否充足（≥ 200 ng / 樣本）？\n\n是 → 高品質 gDNA（HMW fragment，A260/A230 ≥ 2.0）？\n\n是 → SQK-NBD114.24（最長讀長，native DNA）\n否 → SQK-RBK114.24（耐受抑制物，環境/糞便樣本）\n\n否（DNA 量不足）→ DNA ≥ 4 kb 且可取到 1–5 ng？\n\n是 → SQK-RPB114.24（PCR 增幅，eDNA 適用）\n否 → 重新提取或濃縮\n\n\n否（單樣本）→\n\n需要最長讀長 / 保留甲基化 → SQK-LSK114（~80 min）\n需要最快速 → SQK-RAD114（~10 min）"
+    "text": "Kit 選擇決策流程\n\n\n\n\n\n\n樣本目標是 RNA / cDNA transcript sequencing？\n\n是 → 前往 RNA / cDNA 定序\n\n多樣本 transcript / isoform / fusion：SQK-PCB114.24\nnative RNA / RNA modification / 避免 RT-PCR bias：SQK-DRB004.24\n\n否 → 繼續以下 DNA / amplicon 判斷\n\n\n\n\n\n\n\n\n\n\n目標是 16S/ITS 微生物群落鑑定？\n\n是 → SQK-MAB114.24（最多 24 樣本，搭配 EPI2ME wf-16s）\n否（基因組 DNA 定序）→ 繼續以下判斷\n\n\n\n\n\n\n\n\n\n\n需要多樣本 multiplex（barcoding）？\n是 → DNA 量是否充足（≥ 200 ng / 樣本）？\n\n是 → 高品質 gDNA（HMW fragment，A260/A230 ≥ 2.0）？\n\n是 → SQK-NBD114.24（最長讀長，native DNA）\n否 → SQK-RBK114.24（耐受抑制物，環境/糞便樣本）\n\n否（DNA 量不足）→ DNA ≥ 4 kb 且可取到 1–5 ng？\n\n是 → SQK-RPB114.24（PCR 增幅，eDNA 適用）\n否 → 重新提取或濃縮\n\n\n否（單樣本）→\n\n需要最長讀長 / 保留甲基化 → SQK-LSK114（~80 min）\n需要最快速 → SQK-RAD114（~10 min）"
   },
   {
     "objectID": "index.html#kit-比較一覽",
@@ -208,6 +537,69 @@
     "title": "Library Prep SOP",
     "section": "",
     "text": "依據 ONT 官方 protocol 逐步操作指引。點擊下方步驟即可打勾標記進度。\n\n🌱 SQK-RBK114.24🧬 SQK-NBD114.24\n\n\n預估操作時間：~55 min\n\n🧊 Step A — 試劑準備 (~5 min)\n設定好 thermal cycler 後，同步解凍以下試劑\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nRapid Barcodes (RB01-24)\nRB\n1.5 µL / 樣本\n不冷凍保存，解凍後混勻置冰上\n\n\nRapid Adapter\nRA\n依後續步驟\n不冷凍保存，混勻置冰上\n\n\nAMPure XP Beads\nAXP\n依樣本數\n解凍後 vortex 充分混勻\n\n\nElution Buffer\nEB\n15 µL / 24 barcodes\n解凍混勻\n\n\nAdapter Buffer\nADB\n3.5 µL\n解凍後 vortex 混勻\n\n\nRapid Adapter (Step D)\nRA\n1.5 µL\n先配 diluted RA\n\n\nAdapter Buffer (Step D)\nADB\n3.5 µL\n\n\n\nTotal diluted RA\n\n5 µL\n\n\n\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。上機前取 12 µL loading。\n\n\n\n\n預估操作時間：~140 min (⚠️ 注意：勿 vortex Ligase！)\n\n🧊 Step A — 試劑準備 (~10 min)\n\n\n\n\n\n\n\n\n\n試劑\n縮寫\n用量\n備注\n\n\n\n\nAMPure XP Beads\nAXP\n依步驟\nThaw + vortex 充分混勻\n\n\nDNA Control Sample (diluted)\nDCS\n1 µL / 樣本\n105 µL EB 稀釋 1 管；多餘 -20°C 保存\n\n\nNative Barcodes (NB01-24)\nNB\n2.5 µL / 樣本\nRT 解凍，各自 pipette mix，置冰上\n\n\nNEB Blunt/TA Ligase MM\nLMM\n10 µL / 樣本\nRT 解凍，pipette mix 10 次，置冰上\n\n\nEDTA (blue cap)\nEDTA\n4 µL / 樣本\nRT 解凍，vortex，置冰上\n\n\nShort Fragment Buffer\nSFB\n700 µL × 2 wash\nRT 解凍，vortex\n\n\nNEBNext Quick Ligation Buffer\nQLB\n10 µL（步驟 D）\nRT 解凍，vortex（可能有白色沉澱，混至澄清）\n\n\nQuick T4 DNA Ligase\nQLig\n5 µL（步驟 D）\nRT 解凍，pipette mix，⚠️ 勿 vortex\n\n\nNative Adapter\nNA\n5 µL（步驟 D）\nspin down，pipette mix，置冰上\n\n\nLong/Short Fragment Buffer\nLFB/SFB\n125 µL × 2（步驟 D）\n依讀長需求選擇 LFB 或 SFB\n\n\nElution Buffer\nEB\n15 µL（步驟 D）\nRT 解凍，vortex\n\n\n\n\n📐 投入量換算（200 fmol）：ng = 200 × 片段大小(bp) × 650 ÷ 10⁶ • 快速模式（環境/糞便）→ 直接用 1,000 ng • HMW gDNA (~20 kb) → 200 fmol ≈ 2,600 ng • Partial (~5 kb) → 200 fmol ≈ 650 ng • Degraded (~2 kb) → 200 fmol ≈ 260 ng\n\n\n\n📝 步驟檢核表\n\n\n\n\n✅ Library 完成！置冰上保存。可短暫停在此步（4°C 隔夜或 -80°C 長期）。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html",
+    "href": "rna_cdna_qc_standards.html",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "",
+    "text": "本頁定義 RNA / cDNA sequencing 建庫前 QC 判定標準，適用於 SQK-PCB114.24、SQK-PCS114、SQK-DRB004.24 與 SQK-RNA004。\n若樣本是 gDNA、metagenomics 或 16S/ITS amplicon，請使用 DNA / eDNA 核酸 QC 標準。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#判定原則",
+    "href": "rna_cdna_qc_standards.html#判定原則",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "判定原則",
+    "text": "判定原則\nRNA/cDNA workflow 的 QC 不能只看濃度。對 direct RNA 而言，RNA integrity 直接影響 read length 與 output；對 cDNA-PCR 而言，RNA degradation、DNA contamination 與 enrichment strategy 會影響 transcript representation 與後續解讀。\n\n\n\n\n\n\n\n判定問題\n影響\n\n\n\n\nRNA 量是否達 kit input？\n決定是否能進入建庫，或是否需要濃縮 / 重抽\n\n\nRNA 是否完整？\n影響 full-length transcript、isoform、poly(A) 與 direct RNA read length\n\n\n污染物是否殘留？\n鹽類、phenol、ethanol、guanidine 會降低 RT、ligation 或 pore performance\n\n\n是否有 genomic DNA contamination？\n影響 transcript quantification 與 host/pathogen RNA 解讀\n\n\nRNA type 是否符合目標？\ntotal RNA、Poly(A)+、ribodepleted、poly(A)-tailed IVT 的適用 kit 不同"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#建議-qc-workflow",
+    "href": "rna_cdna_qc_standards.html#建議-qc-workflow",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "建議 QC workflow",
+    "text": "建議 QC workflow\n\n使用 Qubit RNA HS Assay 作為 RNA input mass 的主依據。\n使用 NanoDrop A260/A280 與 A260/A230 判斷蛋白、phenol、guanidine、ethanol、鹽類或其他 UV-absorbing contaminants 風險。\n使用 Bioanalyzer / TapeStation / Fragment Analyzer 或等效方法檢查 RNA integrity 與 size profile；若只有膠圖，需以文字描述 degradation / smear 狀態。\n確認 RNA type：total RNA、Poly(A)+ enriched RNA、ribodepleted RNA、poly(A)-tailed RNA 或 poly(A)-tailed IVT transcript。\n依本頁 kit-specific input table 判斷可用 kit，並記錄實際可投入體積。\n若目標是 transcript quantification、host response 或 pathogen transcript profiling，需記錄 DNase treatment、rRNA depletion / Poly(A)+ selection 與 batch 條件。\n若使用 SQK-PCB114.24 或 SQK-PCS114，PCR 後再做 amplified cDNA QC，確認是否可進入 adapter attachment。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#rna-input-qc-判定表",
+    "href": "rna_cdna_qc_standards.html#rna-input-qc-判定表",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "RNA input QC 判定表",
+    "text": "RNA input QC 判定表\n\n\n\n\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nQubit RNA HS\n達目標 kit input，且濃度足以配成 protocol 要求體積\n勉強達 input；需濃縮或減少 dead volume\n低於 kit input，或無法配成 protocol 要求體積\n\n\nA260/A280\n1.9-2.2\n1.7-1.89 或 2.21-2.4\n&lt; 1.7 或 &gt; 2.4\n\n\nA260/A230\n&gt;= 2.0\n1.5-1.99\n&lt; 1.5\n\n\nIntegrity profile\n明確 high molecular weight RNA 或清楚 rRNA peaks；無嚴重 smear\n部分 degradation；仍可考慮 cDNA-PCR screening\n嚴重 degradation；不建議 direct RNA 或 full-length transcript 目的\n\n\nDNA contamination\n無明顯 gDNA signal，或 DNase treatment 已完成\n有疑慮但不影響 presence/absence screening\n明顯 gDNA contamination，且會影響 transcript-level 解讀\n\n\nHandling record\nRNase-free 操作、低溫保存、避免反覆 freeze-thaw\n保存條件或 thaw 次數不完整\n明確 RNase contamination 或長時間室溫暴露"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#kit-specific-input",
+    "href": "rna_cdna_qc_standards.html#kit-specific-input",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "Kit-specific input",
+    "text": "Kit-specific input\n\n\n\n\n\n\n\n\n\nKit\n適用 input\n最低 / 目標 input\nQC 重點\n\n\n\n\nSQK-PCB114.24\nenriched RNA（Poly(A)+ 或 ribodepleted）或 total RNA\n10 ng enriched RNA 或 500 ng total RNA / sample\n適合多樣本 cDNA-PCR；需注意 RT/PCR bias 與 DNA contamination\n\n\nSQK-PCS114\nenriched RNA（Poly(A)+ 或 ribodepleted）或 total RNA\n10 ng enriched RNA 或 500 ng total RNA\n單樣本 cDNA-PCR；QC 邏輯同 PCB114.24\n\n\nSQK-DRB004.24\npoly(A)+ enriched RNA 或 poly(A)-tailed IVT transcript RNA\n450 fmol / sample\nDirect RNA barcoding；RNA integrity 與 input molecule type 要更嚴格\n\n\nSQK-RNA004\npoly(A)-tailed RNA 或 total RNA\n300 ng poly(A)-tailed RNA 或 1 µg total RNA\n單樣本 direct RNA；需 RNA flow cell\n\n\n\n\n\n\n\n\n\n重要\n\n\n\nDirect RNA kits 使用 RNA flow cell（FLO-MIN004RA / FLO-PRO004RA）。\ncDNA-PCR kits 使用 R10.4.1 DNA flow cell（FLO-MIN114）。Flow cell 類型不同，採購與庫存檢查需分開。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#kit-選擇判讀",
+    "href": "rna_cdna_qc_standards.html#kit-選擇判讀",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "Kit 選擇判讀",
+    "text": "Kit 選擇判讀\n\n\n\n\n\n\n\nQC 結果\n建議\n\n\n\n\nRNA 達 10 ng enriched 或 500 ng total，目標是 transcript / isoform / fusion，多樣本\nSQK-PCB114.24\n\n\nRNA 達 10 ng enriched 或 500 ng total，單樣本 pilot\nSQK-PCS114\n\n\nRNA 量足、完整性佳，且需要 native RNA / RNA modification / poly(A)\nSQK-DRB004.24 或 SQK-RNA004\n\n\nRNA 部分 degradation，但仍需 exploratory transcript screening\n優先考慮 cDNA-PCR；結果需註明不適合作 full-length completeness 結論\n\n\nA260/A230 &lt; 1.5 或疑似 phenol / guanidine / ethanol 殘留\n建議 cleanup 或重抽；不要直接進 direct RNA\n\n\nQubit RNA input 不足\n濃縮、重抽、增加 starting material，或改變 enrichment strategy\n\n\ngDNA contamination 明顯\n若目標是 transcript quantification / host response，先 DNase treatment 並記錄"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#病原檢測情境",
+    "href": "rna_cdna_qc_standards.html#病原檢測情境",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "病原檢測情境",
+    "text": "病原檢測情境\n病原檢測常見問題不是只有「RNA 夠不夠」，而是 host RNA、rRNA、pathogen abundance 與採樣保存會一起決定有效 reads。QC 結論應避免把建庫成功直接等同於病原偵測成功。\n\n\n\n\n\n\n\n\n目的\nQC 與方法注意\n較合適的方向\n\n\n\n\nRNA virus presence / absence\n先決定是 metatranscriptomics、targeted RT-PCR amplicon，或 full-length cDNA sequencing；不要直接把 transcript workflow 當唯一選項\n若 target 已知，targeted RT-PCR amplicon 通常更敏感；若要 discovery，再考慮 cDNA-PCR / metatranscriptomics\n\n\nHost transcript response\nDNase treatment、rRNA depletion / Poly(A)+ selection、batch consistency 會影響解讀\n優先確保 RNA integrity、batch consistency 與 metadata 完整\n\n\nPathogen transcript profiling\npathogen RNA abundance 通常低；host/rRNA depletion 與 sequencing depth 是主要限制\n需先規劃 enrichment / depletion，不宜只用 total RNA input 達標判斷\n\n\nNative RNA modification\ndirect RNA 才保留 native RNA 訊號；但 input、RNA flow cell、分析 workflow 需求較高\n優先 SQK-DRB004.24 或 SQK-RNA004，並提高 RNA integrity 標準"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#建庫前紀錄欄位",
+    "href": "rna_cdna_qc_standards.html#建庫前紀錄欄位",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "建庫前紀錄欄位",
+    "text": "建庫前紀錄欄位\n\n\n\n\n\n\n\n欄位\n建議紀錄\n\n\n\n\nSample ID\n與實驗紀錄系統一致\n\n\nRNA source\ntissue、swab、culture、environmental sample、IVT transcript 等\n\n\nExtraction method\nkit / protocol / DNase treatment\n\n\nRNA type\ntotal RNA、Poly(A)+、ribodepleted、poly(A)-tailed RNA、poly(A)-tailed IVT\n\n\nQubit RNA HS\nconcentration、total amount、assay date\n\n\nNanoDrop\nA260/A280、A260/A230\n\n\nIntegrity method\nBioanalyzer / TapeStation / Fragment Analyzer、RIN/RQN/DV200 或 profile description\n\n\nStorage\nextraction date、freeze-thaw 次數、保存溫度\n\n\nSelected kit\nPCB114.24、PCS114、DRB004.24 或 RNA004\n\n\nFlow cell type\nFLO-MIN114 或 FLO-MIN004RA\n\n\nPost-PCR cDNA QC\n若使用 PCB/PCS，記錄 Qubit dsDNA HS、size profile、是否可取 50 fmol"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#protocol-依據",
+    "href": "rna_cdna_qc_standards.html#protocol-依據",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "Protocol 依據",
+    "text": "Protocol 依據\n\n\n\n\n\n\n\n\nKit\nProtocol version\n本頁採用的 QC 重點\n\n\n\n\nSQK-PCB114.24\nPCB_9201_v114_revH_31Mar2026\n10 ng enriched RNA 或 500 ng total RNA / sample；PCR 後 amplified cDNA 以 Qubit + Bioanalyzer/equivalent 檢查，取 50 fmol 進 adapter attachment\n\n\nSQK-PCS114\nPCS_9200_v114_revF_31Mar2026\n10 ng enriched RNA 或 500 ng total RNA；PCR 後 amplified cDNA 以 Qubit + Bioanalyzer/equivalent 檢查，取 50 fmol 進 adapter attachment\n\n\nSQK-DRB004.24\nDRB_9230_v4_revA_26May2026\n約 450 fmol RNA / sample，需能配在 5 µL；direct RNA barcoding 使用 RNA flow cell\n\n\nSQK-RNA004\nDRS_9195_v4_revL_29June2026\n300 ng poly(A)-tailed RNA 或 1 µg total RNA，配在 8 µL；direct RNA 使用 RNA flow cell"
   },
   {
     "objectID": "sop_lsk114.html",
@@ -350,10 +742,66 @@
     "text": "Step D — Adapter Ligation\n先在新 1.5 mL LoBind tube 配製 diluted RA：RA 1.5 µL + ADB 3.5 µL = 5 µL\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n✅ Library 完成！ 置冰上保存。上機取 12 µL loading。可 4°C 隔夜保存。"
   },
   {
-    "objectID": "qc_standards.html#三種樣本模式",
-    "href": "qc_standards.html#三種樣本模式",
-    "title": "核酸 QC 判定標準",
-    "section": "三種樣本模式",
-    "text": "三種樣本模式\n\ngDNA（高品質基因組）環境 / 糞便（Metagenomics）16S/ITS Amplicon（MAB114.24）\n\n\n適用：組織、細胞株、純培養菌株等高品質 gDNA 樣本\n\n\n\n\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.80–2.05\n1.70–1.79（輕微蛋白污染）\n&lt; 1.70 或 &gt; 2.10\n\n\nA260/A230\n≥ 2.00\n1.50–1.99（鹽類/有機溶劑殘留）\n&lt; 1.50\n\n\nQubit 濃度\n≥ 20 ng/µL\n5–19 ng/µL\n&lt; 5 ng/µL\n\n\nFragment\nHMW（&gt; 10 kb）\nPartial（5–10 kb）\nDegraded（&lt; 5 kb）\n\n\n\n最低投入量（依 kit）：\n\nSQK-LSK114：1,000 ng（200 fmol，依片段大小換算）\nSQK-NBD114.24：1,000 ng / 樣本（最多 24 樣本）\nSQK-RBK114.24：200 ng / 樣本（最多 24 樣本）\nSQK-RAD114：100–150 ng（單樣本）\n\n建議優先順序： LSK114（單樣本，最大輸出）/ NBD114.24（多樣本，最長讀長）/ RBK114.24（快速備選）\n\n\n\n適用：水體過濾膜、糞便、土壤、籠具拭子等環境樣本\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nA260/A280\n1.60–2.20\n1.40–1.59\n&lt; 1.40\n\n\nA260/A230\n≥ 1.70\n1.20–1.69（腐植酸殘留）\n&lt; 1.20\n\n\nQubit 濃度\n≥ 20 ng/µL\n3–19 ng/µL\n&lt; 3 ng/µL\n\n\nFragment\nHMW 或 Partial\nDegraded（讀長縮短）\n嚴重降解\n\n\n\n最低投入量：\n\nSQK-RBK114.24：200 ng / 樣本\nSQK-RPB114.24：1–5 ng / 樣本（需 ≥ 4 kb，PCR 增幅）\n\n建議優先順序： RBK114.24（常規量）/ RPB114.24（超低量 eDNA）\n\n\n\n\n\n\n提示\n\n\n\nA260/A230 &lt; 1.7 時，建議在 tagmentation reaction 中加入 BSA（終濃度 0.01–0.2 mg/mL） 可部分緩解腐植酸抑制效果。\n\n\n\n\n\n適用：微生物群落分析，input DNA 僅作為 PCR template，QC 要求較寬鬆。\n\n\n\n\n\n\n\n\n指標\n建議值\n注意事項\n\n\n\n\nA260/A280\n≥ 1.8\n&lt; 1.8 可能影響 PCR 效率，但耐受度高於 ligation\n\n\nA260/A230\n≥ 1.5\n&lt; 1.5 建議重純化；腐植酸會抑制 LongAmp 聚合酶\n\n\nQubit 濃度\n可定量即可\n只需確認能取到 10 ng\n\n\nDNA 投入量\n10 ng / 樣本\n&lt; 12 樣本時 Barcoding 前取 20 ng amplicon\n\n\nFragment 長度\n無要求\nPCR 擴增目標片段，基因組完整性不影響結果\n\n\n\n判斷邏輯：\n\nA260/A230 ≥ 1.5 → 直接進 PCR\nA260/A230 &lt; 1.5 → AMPure XP 重純化後再嘗試；若 PCR 產量仍低，可增加 cycles（+3–5）"
+    "objectID": "rna_cdna_qc_standards.html#qc-分層",
+    "href": "rna_cdna_qc_standards.html#qc-分層",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "QC 分層",
+    "text": "QC 分層\n\n\n\n\n\n\n\n\n\n層級\nQC 對象\n目的\n是否作為建庫前 go/no-go\n\n\n\n\nLevel 1\nRNA input\n判斷樣本是否符合各 kit 的最低 input、純度與完整性要求\n是\n\n\nLevel 2\nPCR 後 amplified cDNA\n確認 cDNA-PCR 是否產生足夠、合適長度的 amplified cDNA\n否，屬流程中 checkpoint\n\n\nLevel 3\nFinal library / 上機後資料\n確認 loading、pore occupancy、yield、read length、mapping 或 assignment\n否，屬 run QC"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#最低-input-標準",
+    "href": "rna_cdna_qc_standards.html#最低-input-標準",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "最低 input 標準",
+    "text": "最低 input 標準\n\n\n\n\n\n\n\n\n\n\n\nKit\n類型\n可接受 RNA input\n最低 / 目標 input\n建議定量方式\nFlow cell\n\n\n\n\nSQK-PCB114.24\ncDNA-PCR barcoding\nPoly(A)+ enriched RNA、ribodepleted RNA 或 total RNA\n10 ng enriched RNA 或 500 ng total RNA / sample\nQubit RNA HS\nFLO-MIN114\n\n\nSQK-PCS114\ncDNA-PCR single sample\nPoly(A)+ enriched RNA、ribodepleted RNA 或 total RNA\n10 ng enriched RNA 或 500 ng total RNA\nQubit RNA HS\nFLO-MIN114\n\n\nSQK-DRB004.24\nDirect RNA barcoding\npoly(A)+ enriched RNA 或 poly(A)-tailed IVT transcript RNA\n約 450 fmol RNA / sample，需能配在 5 µL\nQubit RNA HS + size / molar estimate\nFLO-MIN004RA\n\n\nSQK-RNA004\nDirect RNA single sample\npoly(A)-tailed RNA 或 total RNA\n300 ng poly(A)-tailed RNA 或 1 µg total RNA，配在 8 µL\nQubit RNA HS\nFLO-MIN004RA\n\n\n\n\n\n\n\n\n\n警告\n\n\n\nSQK-DRB004.24 以 fmol 定義 input，不是單純 ng。若沒有可靠的 RNA size distribution 或 transcript length estimate，不建議只用 ng 判斷是否達標。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#rna-input-qc-判定",
+    "href": "rna_cdna_qc_standards.html#rna-input-qc-判定",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "RNA input QC 判定",
+    "text": "RNA input QC 判定\n\n\n\n\n\n\n\n\n\n指標\nPASS\nWARNING\nFAIL\n\n\n\n\nQubit RNA HS\n達所選 kit 的 input requirement，且可配成 protocol 要求體積\n勉強達標；需濃縮、減少 dead volume 或改用較合適 kit\n低於 kit input，或無法配成 protocol 要求體積\n\n\nA260/A280\n1.9-2.2\n1.7-1.89 或 2.21-2.4\n&lt; 1.7 或 &gt; 2.4\n\n\nA260/A230\n&gt;= 2.0\n1.5-1.99\n&lt; 1.5\n\n\nIntegrity / profile\n清楚 RNA profile，無嚴重 degradation；目標 transcript 長度仍可被代表\n部分 degradation；可考慮 cDNA-PCR screening，但需註明限制\n嚴重 degradation；不建議 direct RNA 或 full-length transcript 目的\n\n\nDNA contamination\n無明顯 gDNA signal，或已完成 DNase treatment\n有疑慮，但研究目的為粗略 presence/absence screening\n明顯 gDNA contamination，且會影響 transcript-level 解讀\n\n\nHandling record\nRNase-free 操作、低溫保存、避免反覆 freeze-thaw\n保存條件或 thaw 次數不完整\n明確 RNase contamination 或長時間室溫暴露\n\n\n\n\n\n\n\n\n\n註釋\n\n\n\nNanoDrop 可用於污染風險判讀，但不建議作為 input mass 的主依據。\nRNA input 定量以 Qubit RNA HS 為主；NanoDrop concentration 容易受 DNA、free nucleotides、phenol、guanidine 或其他 UV-absorbing contaminants 影響。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#cdna-pcr-流程中-qc",
+    "href": "rna_cdna_qc_standards.html#cdna-pcr-流程中-qc",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "cDNA-PCR 流程中 QC",
+    "text": "cDNA-PCR 流程中 QC\nSQK-PCB114.24 與 SQK-PCS114 的 workflow 會把 RNA 經過 reverse transcription、strand-switching 與 PCR amplification，產生 amplified double-stranded cDNA，再進入 Rapid Adapter attachment。\n\n\n\n\n\n\n\n\n\n時點\nQC 對象\n建議檢查\n判讀\n\n\n\n\n建庫前\nRNA input\nQubit RNA HS、NanoDrop purity、Bioanalyzer / TapeStation / Fragment Analyzer profile\n決定是否可以進入 cDNA-PCR workflow\n\n\nPCR 後 cleanup 後\namplified cDNA\nQubit dsDNA HS 檢查 quantity；Bioanalyzer / TapeStation 檢查 size、quality、primer dimer / smear\n判斷是否可取 50 fmol amplified cDNA 進入 adapter attachment\n\n\nAdapter attachment 後\nfinal cDNA library\nQubit 可作 loading 參考\n不能保證 transcript representation 或 sequencing output\n\n\n\n\n\n\n\n\n\n重要\n\n\n\ncDNA-PCR 的 post-PCR QC 不能只看 Qubit。\nONT protocol 的後續投入量是 50 fmol amplified cDNA；fmol 需要搭配 fragment size / size distribution 才能從 ng 換算。因此 Qubit dsDNA HS 是必要參考，但若要嚴謹判斷，應搭配 Bioanalyzer / TapeStation 或等效方法。\n\n\n\ncDNA-PCR post-PCR 判讀\n\n\n\n\n\n\n\n\n結果\n判讀\n建議\n\n\n\n\nQubit dsDNA HS 足量，size profile 合理，無明顯 primer dimer\ncDNA-PCR 成功，可進 adapter attachment\n依 protocol 取 50 fmol amplified cDNA\n\n\nQubit 足量但 fragment 偏短或 smear 明顯\n可能有 RNA degradation、over-cycling 或非特異產物\n可作 exploratory run；不建議作 full-length transcript 完整性結論\n\n\nQubit 低量但 profile 有目標範圍產物\n可能可嘗試上機，但 loading input 受限\n註明低 input；必要時增加 PCR cycles 或重做 RT-PCR\n\n\n主要是 primer dimer / very short fragments\n建庫風險高，會影響 pore loading 與有效 reads\n不建議直接上機；回頭檢查 RNA input、PCR cycle 與 cleanup"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#direct-rna-qc-重點",
+    "href": "rna_cdna_qc_standards.html#direct-rna-qc-重點",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "Direct RNA QC 重點",
+    "text": "Direct RNA QC 重點\nDirect RNA 不經 PCR amplification，input RNA 的狀態會更直接反映到 read length、yield 與可分析 reads。\n\n\n\n\n\n\n\n項目\n建議\n\n\n\n\nRNA integrity\n比 cDNA-PCR 更嚴格；fragmented RNA 會直接縮短 read length\n\n\nInput molecule type\n確認是 poly(A)+ enriched RNA、poly(A)-tailed RNA、poly(A)-tailed IVT transcript 或 total RNA\n\n\nMolar input\nSQK-DRB004.24 需以約 450 fmol / sample 判斷，不只看 ng\n\n\nFlow cell\nDirect RNA 使用 RNA flow cell（FLO-MIN004RA / FLO-PRO004RA），不可與 cDNA-PCR 的 DNA flow cell 混用\n\n\nControl\n新流程或新操作者建議先做 RNA control 或低風險樣本"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#本頁定位",
+    "href": "rna_cdna_qc_standards.html#本頁定位",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "本頁定位",
+    "text": "本頁定位\n本頁是 RNA / cDNA sequencing 的建庫前判定標準，重點不是把所有 QC 數值做成絕對門檻，而是建立一致的 go / caution / no-go 判斷：\n\n\n\n\n\n\n\n\n判定層次\n目的\n結論應回答的問題\n\n\n\n\nKit eligibility\n確認 input type、input amount、反應體積是否符合 protocol\n這個樣本能不能進指定 kit？\n\n\nSample risk\n評估 RNA degradation、污染物、gDNA contamination 對結果的影響\n即使可建庫，結果解讀是否有限制？\n\n\nWorkflow fit\n區分 cDNA-PCR 與 direct RNA 的適用情境\n這個 kit 是否符合這次實驗目的？\n\n\nRecord completeness\n保留可追溯紀錄\n日後 run 表現不佳時，是否能回查原因？\n\n\n\n\n\n\n\n\n\n註釋\n\n\n\n最低 input 量只代表「可進入 kit workflow」的基本條件，不代表一定能得到足夠 sequencing yield、完整 transcript representation 或可比較的 gene expression 結果。"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#kit-eligibility-判定",
+    "href": "rna_cdna_qc_standards.html#kit-eligibility-判定",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "Kit eligibility 判定",
+    "text": "Kit eligibility 判定\n\n\n\n\n\n\n\n\n問題\n可接受\n不建議直接進建庫\n\n\n\n\nRNA type 是否符合 kit？\ncDNA-PCR：enriched RNA 或 total RNA；direct RNA：poly(A)+ / poly(A)-tailed RNA 或符合 protocol 的 total RNA\ninput type 與 kit 不符，例如未確認 poly(A) 狀態卻要做 direct RNA barcoding\n\n\n是否達最低 input？\n達 kit input amount，且可配成 protocol 指定體積\n只達 NanoDrop 濃度但 Qubit 不足；或總量足夠但體積過大\n\n\n是否符合實驗目的？\ncDNA-PCR 用於 transcript / isoform / fusion screening；direct RNA 用於 native RNA / modification / poly(A) 相關目的\n想看 RNA modification 卻選 cDNA-PCR；想做低量多樣本 screening 卻選 direct RNA\n\n\nflow cell 是否正確？\ncDNA-PCR 使用 DNA flow cell；direct RNA 使用 RNA flow cell\ndirect RNA kit 搭錯 DNA flow cell，或 cDNA-PCR 誤訂 RNA flow cell"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#建議結論等級",
+    "href": "rna_cdna_qc_standards.html#建議結論等級",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "建議結論等級",
+    "text": "建議結論等級\n\n\n\n\n\n\n\n\n結論\n使用情境\n建議動作\n\n\n\n\nGO\n達 kit input、純度與 integrity 可接受，且 RNA type / flow cell / 實驗目的一致\n可進入建庫；保留 QC 紀錄\n\n\nGO with caution\ninput 達標但有部分 degradation、A260/A230 偏低、保存紀錄不完整或疑似低 abundance target\n可進建庫，但 report / run note 要註明限制；不宜作強 quantitative conclusion\n\n\nRe-clean / DNase / Concentrate\n污染物、gDNA contamination 或濃度不足是主要問題，且樣本仍可補救\n先處理樣本，再重新測 Qubit / NanoDrop / integrity\n\n\nNo-go\nQubit input 不足、RNA 嚴重 degraded、input type 不符或無法配成 protocol 體積\n不建議進建庫；重抽或改變樣本策略"
+  },
+  {
+    "objectID": "rna_cdna_qc_standards.html#報告用判定文字",
+    "href": "rna_cdna_qc_standards.html#報告用判定文字",
+    "title": "RNA / cDNA 核酸 QC 標準",
+    "section": "報告用判定文字",
+    "text": "報告用判定文字\n可在實驗紀錄或報告中使用下列格式：\n\nRNA input was quantified by Qubit RNA HS Assay and assessed for purity by NanoDrop. RNA integrity was evaluated by [method]. The sample [met / did not meet] the minimum input requirement for [kit]. Based on input amount, purity, integrity, and intended application, the recommended QC decision is [GO / GO with caution / Re-clean / No-go].\n\n若是 cDNA-PCR kit，PCR 後再補一段：\n\nAmplified cDNA was quantified by Qubit dsDNA HS Assay and assessed by [Bioanalyzer / TapeStation / equivalent method]. The post-PCR cDNA [was / was not] suitable for taking 50 fmol into adapter attachment."
   }
 ]

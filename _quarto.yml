@@ -1,28 +1,39 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - data/*.csv
+    - data/*.js
 
 website:
   navbar:
     left:
       - href: index.qmd
         text: "首頁"
-      - href: qc_standards.qmd
-        text: "核酸 QC 標準"
-      - text: "建庫 SOP"
+      - href: ont_product_selector.qmd
+        text: "ONT 產品選擇器"
+      - text: "DNA / eDNA"
         menu:
-          - href: sop_rbk114.qmd
-            text: "SQK-RBK114.24（Rapid Barcoding · ~55 min）"
-          - href: sop_nbd114.qmd
-            text: "SQK-NBD114.24（Native Barcoding · ~140 min）"
-          - href: sop_lsk114.qmd
-            text: "SQK-LSK114（Ligation 單樣本 · ~80 min）"
-          - href: sop_rpb114.qmd
-            text: "SQK-RPB114.24（PCR Barcoding · 低量）"
-          - href: sop_rad114.qmd
-            text: "SQK-RAD114（Rapid 單樣本 · ~10 min）"
-          - href: sop_mab114.qmd
-            text: "SQK-MAB114.24（16S/ITS Amplicon）"
+          - href: dna_edna_sequencing.qmd
+            text: "Kit 選擇"
+          - href: qc_standards.qmd
+            text: "核酸 QC 標準"
+          - href: dna_edna_protocols.qmd
+            text: "建庫 protocol"
+      - text: "RNA / cDNA"
+        menu:
+          - href: rna_cdna_sequencing.qmd
+            text: "Kit 選擇"
+          - href: rna_cdna_qc_standards.qmd
+            text: "核酸 QC 標準"
+      - text: "Flow cell 操作"
+        menu:
+          - href: flowcell_priming.qmd
+            text: "Priming / Loading"
+          - href: flowcell_wash_preserve.qmd
+            text: "Wash / Preserve"
+          - href: flowcell_wash_reload.qmd
+            text: "Wash / Another run"
     right:
       - text: "↗ Nanopore QC 系統"
         href: "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"

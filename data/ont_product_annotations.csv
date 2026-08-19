@@ -1,0 +1,29 @@
+sku,role,nucleic_acid,library_type,multiplex,sample_count,device_class,flow_cell_sku,flow_cell_type,application,priority,notes,page
+SQK-LSK114,sequencing_kit,DNA,Ligation,single,1,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,High-quality gDNA;assembly;SV;methylation,core,Single-sample ligation kit; highest output DNA option,sop_lsk114.qmd
+SQK-LSK114-XL,sequencing_kit,DNA,Ligation,single,1,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,High-quality gDNA;assembly;SV;methylation,optional,XL format for higher scale,
+SQK-NBD114.24,sequencing_kit,DNA,Native Barcoding,multiplex,24,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,High-quality gDNA;multiplex DNA;methylation,core,Native barcoding; PCR-free; requires high-quality input,sop_nbd114.qmd
+SQK-NBD114.96,sequencing_kit,DNA,Native Barcoding,multiplex,96,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,High-throughput multiplex DNA,optional,96-barcode version,
+SQK-ULK114,sequencing_kit,DNA,Ultra-long,single,1,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Ultra-long DNA;assembly,optional,Requires ultra-high molecular weight DNA,
+SQK-RBK114.24,sequencing_kit,DNA,Rapid Barcoding,multiplex,24,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Metagenomics;environmental DNA;rapid multiplex,core,Fast DNA barcoding; tolerant of variable sample quality,sop_rbk114.qmd
+SQK-RBK114.96,sequencing_kit,DNA,Rapid Barcoding,multiplex,96,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,High-throughput rapid multiplex DNA,optional,96-barcode version,
+SQK-RAD114,sequencing_kit,DNA,Rapid,single,1,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Fast single-sample DNA;exploratory run,core,Fastest DNA library prep; no barcode,sop_rad114.qmd
+SQK-RPB114.24,sequencing_kit,DNA,Rapid PCR Barcoding,multiplex,24,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Low-input DNA;eDNA;PCR-based multiplex,core,For 1-5 ng gDNA; PCR amplified,sop_rpb114.qmd
+SQK-MAB114.24,sequencing_kit,DNA,Amplicon Barcoding,multiplex,24,MinION/GridION,FLO-MIN114,DNA,16S;ITS;microbiome,core,Full-length 16S/ITS microbial amplicon workflow,sop_mab114.qmd
+SQK-16S114.24,sequencing_kit,DNA,16S Barcoding,multiplex,24,MinION/GridION,FLO-MIN114,DNA,16S bacterial identification,optional,16S-focused product; separate from MAB114.24,
+SQK-MLK114.96-XL,sequencing_kit,DNA,Multiplex Ligation,multiplex,2-3,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Low-plex WGS;PCR-free DNA,optional,High-output low-plex WGS,
+SQK-PCB114.24,sequencing_kit,RNA/cDNA,cDNA-PCR Barcoding,multiplex,24,MinION/GridION,FLO-MIN114,DNA,Transcript sequencing;isoform;fusion transcript;gene expression;DNA/cDNA sequencing,core,cDNA-PCR barcoding; practical first-line RNA/cDNA multiplex option,rna_cdna_sequencing.qmd
+SQK-PCS114,sequencing_kit,RNA/cDNA,cDNA-PCR,single,1,MinION/GridION,FLO-MIN114,DNA,Transcript sequencing;isoform;fusion transcript;gene expression;DNA/cDNA sequencing,optional,Single-sample cDNA-PCR counterpart,rna_cdna_sequencing.qmd
+SQK-DRB004.24,sequencing_kit,RNA,Direct RNA Barcoding,multiplex,24,MinION/GridION;PromethION,FLO-MIN004RA;FLO-PRO004RA,RNA,Native RNA;RNA modification;poly(A);direct RNA,core,Native RNA barcoding; requires RNA flow cell,rna_cdna_sequencing.qmd
+SQK-RNA004,sequencing_kit,RNA,Direct RNA,single,1,MinION/GridION;PromethION,FLO-MIN004RA;FLO-PRO004RA,RNA,Native RNA;RNA modification;poly(A);direct RNA,optional,Single-sample direct RNA kit,rna_cdna_sequencing.qmd
+SQK-RNA004-XL,sequencing_kit,RNA,Direct RNA XL,single,1,MinION/GridION;PromethION,FLO-MIN004RA;FLO-PRO004RA,RNA,Native RNA;RNA modification;poly(A);direct RNA,optional,XL direct RNA format,
+FLO-MIN114,flow_cell,DNA;RNA/cDNA,R10.4.1 flow cell,na,na,MinION/GridION,FLO-MIN114,DNA,DNA/cDNA sequencing,core,Standard MinION/GridION DNA flow cell for Kit 14 chemistry,flowcell_priming.qmd
+FLO-MIN004RA,flow_cell,RNA,RNA flow cell,na,na,MinION/GridION,FLO-MIN004RA,RNA,Direct RNA sequencing,core,Required for direct RNA kits,
+FLO-PRO114M,flow_cell,DNA;RNA/cDNA,PromethION R10.4.1 flow cell pack,na,na,PromethION,FLO-PRO114M,DNA,DNA/cDNA sequencing,optional,PromethION DNA flow cell pack,
+FLO-PRO004RA,flow_cell,RNA,PromethION RNA flow cell pack,na,na,PromethION,FLO-PRO004RA,RNA,Direct RNA sequencing,optional,PromethION RNA flow cell pack,
+EXP-FLP004,expansion,Any,Priming,na,na,MinION/GridION,FLO-MIN114;FLO-MIN004RA,DNA;RNA,Flow cell priming,core,Additional V14 flow cell priming reagents,flowcell_priming.qmd
+EXP-WSH004,expansion,Any,Wash,na,na,MinION/GridION;PromethION,FLO-MIN114;FLO-MIN004RA;FLO-PRO114M;FLO-PRO004RA,DNA;RNA,Flow cell wash;reuse,core,Wash and reuse flow cells,flowcell_wash_preserve.qmd
+EXP-RCS001,expansion,RNA/cDNA,RNA Control,na,na,MinION/GridION;PromethION,FLO-MIN114;FLO-MIN004RA,RNA;DNA,RNA/cDNA control,core,RNA control sample for RNA and cDNA kits,rna_cdna_qc_standards.qmd
+EXP-DRA004,expansion,RNA,Direct RNA Auxiliary,na,na,MinION/GridION;PromethION,FLO-MIN004RA;FLO-PRO004RA,RNA,Direct RNA support,optional,Direct RNA auxiliary reagents,
+EXP-CTL001,expansion,DNA,DNA Control,na,na,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,DNA control,optional,Lambda DNA control for DNA sequencing kits,
+EXP-NBA114,expansion,DNA,Native Barcoding Auxiliary,na,na,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Native barcoding support,optional,Additional reagents for NBD114/MLK114,
+EXP-RAA114,expansion,DNA,Rapid Adapter Auxiliary,na,na,MinION/GridION;PromethION,FLO-MIN114;FLO-PRO114M,DNA,Rapid sequencing support,optional,Additional rapid adapter and adapter buffer,

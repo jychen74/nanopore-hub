@@ -10,6 +10,10 @@ format:
 依據 ONT SQK-RBK114.24 / SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24 / SQK-RAD114 / SQK-MAB114.24 官方 protocol
 :::
 
+::: {.callout-important}
+本頁為 DNA / gDNA / amplicon 導向 QC。RNA 或 cDNA-PCR 建庫請改看 [RNA / cDNA 核酸 QC 標準](rna_cdna_qc_standards.qmd)。
+:::
+
 ::: {.callout-warning}
 ## NanoDrop 與 Qubit 的差異
 

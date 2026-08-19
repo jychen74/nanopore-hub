@@ -1,0 +1,192 @@
+---
+title: "RNA / cDNA 核酸 QC 標準"
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+::: {.callout-note appearance="simple"}
+本頁定義 RNA / cDNA sequencing 建庫前 QC 判定標準，適用於 SQK-PCB114.24、SQK-PCS114、SQK-DRB004.24 與 SQK-RNA004。  
+若樣本是 gDNA、metagenomics 或 16S/ITS amplicon，請使用 [DNA / eDNA 核酸 QC 標準](qc_standards.qmd)。
+:::
+
+::: {.callout-important}
+RNA / cDNA kits 的第一層 QC 對象是 **RNA input**。  
+cDNA-PCR kits 會在 kit workflow 中完成 reverse transcription、strand-switching 與 PCR amplification；PCR 後的 amplified cDNA QC 是流程中 QC，不取代 RNA input QC。
+:::
+
+## 本頁定位
+
+本頁是 RNA / cDNA sequencing 的建庫前判定標準，重點不是把所有 QC 數值做成絕對門檻，而是建立一致的 go / caution / no-go 判斷：
+
+| 判定層次 | 目的 | 結論應回答的問題 |
+|:---|:---|:---|
+| **Kit eligibility** | 確認 input type、input amount、反應體積是否符合 protocol | 這個樣本能不能進指定 kit？ |
+| **Sample risk** | 評估 RNA degradation、污染物、gDNA contamination 對結果的影響 | 即使可建庫，結果解讀是否有限制？ |
+| **Workflow fit** | 區分 cDNA-PCR 與 direct RNA 的適用情境 | 這個 kit 是否符合這次實驗目的？ |
+| **Record completeness** | 保留可追溯紀錄 | 日後 run 表現不佳時，是否能回查原因？ |
+
+::: {.callout-note}
+最低 input 量只代表「可進入 kit workflow」的基本條件，不代表一定能得到足夠 sequencing yield、完整 transcript representation 或可比較的 gene expression 結果。
+:::
+
+## 建議 QC workflow
+
+1. 使用 **Qubit RNA HS Assay** 作為 RNA input mass 的主依據。
+2. 使用 **NanoDrop A260/A280 與 A260/A230** 判斷蛋白、phenol、guanidine、ethanol、鹽類或其他 UV-absorbing contaminants 風險。
+3. 使用 **Bioanalyzer / TapeStation / Fragment Analyzer** 或等效方法檢查 RNA integrity 與 size profile；若只有膠圖，需以文字描述 degradation / smear 狀態。
+4. 確認 RNA type：total RNA、Poly(A)+ enriched RNA、ribodepleted RNA、poly(A)-tailed RNA 或 poly(A)-tailed IVT transcript。
+5. 依本頁 kit-specific input table 判斷可用 kit，並記錄實際可投入體積。
+6. 若目標是 transcript quantification、host response 或 pathogen transcript profiling，需記錄 DNase treatment、rRNA depletion / Poly(A)+ selection 與 batch 條件。
+7. 若使用 `SQK-PCB114.24` 或 `SQK-PCS114`，PCR 後再做 amplified cDNA QC，確認是否可進入 adapter attachment。
+
+## QC 分層
+
+| 層級 | QC 對象 | 目的 | 是否作為建庫前 go/no-go |
+|:---|:---|:---|:---:|
+| **Level 1** | RNA input | 判斷樣本是否符合各 kit 的最低 input、純度與完整性要求 | 是 |
+| **Level 2** | PCR 後 amplified cDNA | 確認 cDNA-PCR 是否產生足夠、合適長度的 amplified cDNA | 否，屬流程中 checkpoint |
+| **Level 3** | Final library / 上機後資料 | 確認 loading、pore occupancy、yield、read length、mapping 或 assignment | 否，屬 run QC |
+
+## 最低 input 標準
+
+| Kit | 類型 | 可接受 RNA input | 最低 / 目標 input | 建議定量方式 | Flow cell |
+|:---|:---|:---|:---|:---|:---|
+| **SQK-PCB114.24** | cDNA-PCR barcoding | Poly(A)+ enriched RNA、ribodepleted RNA 或 total RNA | **10 ng enriched RNA** 或 **500 ng total RNA / sample** | Qubit RNA HS | FLO-MIN114 |
+| **SQK-PCS114** | cDNA-PCR single sample | Poly(A)+ enriched RNA、ribodepleted RNA 或 total RNA | **10 ng enriched RNA** 或 **500 ng total RNA** | Qubit RNA HS | FLO-MIN114 |
+| **SQK-DRB004.24** | Direct RNA barcoding | poly(A)+ enriched RNA 或 poly(A)-tailed IVT transcript RNA | **約 450 fmol RNA / sample**，需能配在 **5 µL** | Qubit RNA HS + size / molar estimate | FLO-MIN004RA |
+| **SQK-RNA004** | Direct RNA single sample | poly(A)-tailed RNA 或 total RNA | **300 ng poly(A)-tailed RNA** 或 **1 µg total RNA**，配在 **8 µL** | Qubit RNA HS | FLO-MIN004RA |
+
+::: {.callout-warning}
+`SQK-DRB004.24` 以 **fmol** 定義 input，不是單純 ng。若沒有可靠的 RNA size distribution 或 transcript length estimate，不建議只用 ng 判斷是否達標。
+:::
+
+## Kit eligibility 判定
+
+| 問題 | 可接受 | 不建議直接進建庫 |
+|:---|:---|:---|
+| RNA type 是否符合 kit？ | cDNA-PCR：enriched RNA 或 total RNA；direct RNA：poly(A)+ / poly(A)-tailed RNA 或符合 protocol 的 total RNA | input type 與 kit 不符，例如未確認 poly(A) 狀態卻要做 direct RNA barcoding |
+| 是否達最低 input？ | 達 kit input amount，且可配成 protocol 指定體積 | 只達 NanoDrop 濃度但 Qubit 不足；或總量足夠但體積過大 |
+| 是否符合實驗目的？ | cDNA-PCR 用於 transcript / isoform / fusion screening；direct RNA 用於 native RNA / modification / poly(A) 相關目的 | 想看 RNA modification 卻選 cDNA-PCR；想做低量多樣本 screening 卻選 direct RNA |
+| flow cell 是否正確？ | cDNA-PCR 使用 DNA flow cell；direct RNA 使用 RNA flow cell | direct RNA kit 搭錯 DNA flow cell，或 cDNA-PCR 誤訂 RNA flow cell |
+
+## RNA input QC 判定
+
+| 指標 | PASS | WARNING | FAIL |
+|:---|:---|:---|:---|
+| **Qubit RNA HS** | 達所選 kit 的 input requirement，且可配成 protocol 要求體積 | 勉強達標；需濃縮、減少 dead volume 或改用較合適 kit | 低於 kit input，或無法配成 protocol 要求體積 |
+| **A260/A280** | 1.9-2.2 | 1.7-1.89 或 2.21-2.4 | < 1.7 或 > 2.4 |
+| **A260/A230** | >= 2.0 | 1.5-1.99 | < 1.5 |
+| **Integrity / profile** | 清楚 RNA profile，無嚴重 degradation；目標 transcript 長度仍可被代表 | 部分 degradation；可考慮 cDNA-PCR screening，但需註明限制 | 嚴重 degradation；不建議 direct RNA 或 full-length transcript 目的 |
+| **DNA contamination** | 無明顯 gDNA signal，或已完成 DNase treatment | 有疑慮，但研究目的為粗略 presence/absence screening | 明顯 gDNA contamination，且會影響 transcript-level 解讀 |
+| **Handling record** | RNase-free 操作、低溫保存、避免反覆 freeze-thaw | 保存條件或 thaw 次數不完整 | 明確 RNase contamination 或長時間室溫暴露 |
+
+::: {.callout-note}
+NanoDrop 可用於污染風險判讀，但不建議作為 input mass 的主依據。  
+RNA input 定量以 Qubit RNA HS 為主；NanoDrop concentration 容易受 DNA、free nucleotides、phenol、guanidine 或其他 UV-absorbing contaminants 影響。
+:::
+
+## 建議結論等級
+
+| 結論 | 使用情境 | 建議動作 |
+|:---|:---|:---|
+| **GO** | 達 kit input、純度與 integrity 可接受，且 RNA type / flow cell / 實驗目的一致 | 可進入建庫；保留 QC 紀錄 |
+| **GO with caution** | input 達標但有部分 degradation、A260/A230 偏低、保存紀錄不完整或疑似低 abundance target | 可進建庫，但 report / run note 要註明限制；不宜作強 quantitative conclusion |
+| **Re-clean / DNase / Concentrate** | 污染物、gDNA contamination 或濃度不足是主要問題，且樣本仍可補救 | 先處理樣本，再重新測 Qubit / NanoDrop / integrity |
+| **No-go** | Qubit input 不足、RNA 嚴重 degraded、input type 不符或無法配成 protocol 體積 | 不建議進建庫；重抽或改變樣本策略 |
+
+## cDNA-PCR 流程中 QC
+
+`SQK-PCB114.24` 與 `SQK-PCS114` 的 workflow 會把 RNA 經過 reverse transcription、strand-switching 與 PCR amplification，產生 amplified double-stranded cDNA，再進入 Rapid Adapter attachment。
+
+| 時點 | QC 對象 | 建議檢查 | 判讀 |
+|:---|:---|:---|:---|
+| 建庫前 | RNA input | Qubit RNA HS、NanoDrop purity、Bioanalyzer / TapeStation / Fragment Analyzer profile | 決定是否可以進入 cDNA-PCR workflow |
+| PCR 後 cleanup 後 | amplified cDNA | **Qubit dsDNA HS** 檢查 quantity；**Bioanalyzer / TapeStation** 檢查 size、quality、primer dimer / smear | 判斷是否可取 **50 fmol amplified cDNA** 進入 adapter attachment |
+| Adapter attachment 後 | final cDNA library | Qubit 可作 loading 參考 | 不能保證 transcript representation 或 sequencing output |
+
+::: {.callout-important}
+cDNA-PCR 的 post-PCR QC 不能只看 Qubit。  
+ONT protocol 的後續投入量是 **50 fmol amplified cDNA**；fmol 需要搭配 fragment size / size distribution 才能從 ng 換算。因此 Qubit dsDNA HS 是必要參考，但若要嚴謹判斷，應搭配 Bioanalyzer / TapeStation 或等效方法。
+:::
+
+### cDNA-PCR post-PCR 判讀
+
+| 結果 | 判讀 | 建議 |
+|:---|:---|:---|
+| Qubit dsDNA HS 足量，size profile 合理，無明顯 primer dimer | cDNA-PCR 成功，可進 adapter attachment | 依 protocol 取 50 fmol amplified cDNA |
+| Qubit 足量但 fragment 偏短或 smear 明顯 | 可能有 RNA degradation、over-cycling 或非特異產物 | 可作 exploratory run；不建議作 full-length transcript 完整性結論 |
+| Qubit 低量但 profile 有目標範圍產物 | 可能可嘗試上機，但 loading input 受限 | 註明低 input；必要時增加 PCR cycles 或重做 RT-PCR |
+| 主要是 primer dimer / very short fragments | 建庫風險高，會影響 pore loading 與有效 reads | 不建議直接上機；回頭檢查 RNA input、PCR cycle 與 cleanup |
+
+## Direct RNA QC 重點
+
+Direct RNA 不經 PCR amplification，input RNA 的狀態會更直接反映到 read length、yield 與可分析 reads。
+
+| 項目 | 建議 |
+|:---|:---|
+| RNA integrity | 比 cDNA-PCR 更嚴格；fragmented RNA 會直接縮短 read length |
+| Input molecule type | 確認是 poly(A)+ enriched RNA、poly(A)-tailed RNA、poly(A)-tailed IVT transcript 或 total RNA |
+| Molar input | `SQK-DRB004.24` 需以約 450 fmol / sample 判斷，不只看 ng |
+| Flow cell | Direct RNA 使用 RNA flow cell（FLO-MIN004RA / FLO-PRO004RA），不可與 cDNA-PCR 的 DNA flow cell 混用 |
+| Control | 新流程或新操作者建議先做 RNA control 或低風險樣本 |
+
+## Kit 選擇判讀
+
+| QC 結果 | 建議 |
+|:---|:---|
+| RNA 達 10 ng enriched 或 500 ng total，目標是 transcript / isoform / fusion，多樣本 | **SQK-PCB114.24** |
+| RNA 達 10 ng enriched 或 500 ng total，單樣本 pilot | **SQK-PCS114** |
+| RNA 量足、完整性佳，且需要 native RNA / RNA modification / poly(A) | **SQK-DRB004.24** 或 **SQK-RNA004** |
+| RNA 部分 degradation，但仍需 exploratory transcript screening | 優先考慮 cDNA-PCR；結果需註明不適合作 full-length completeness 結論 |
+| A260/A230 < 1.5 或疑似 phenol / guanidine / ethanol 殘留 | 建議 cleanup 或重抽；不要直接進 direct RNA |
+| Qubit RNA input 不足 | 濃縮、重抽、增加 starting material，或改變 enrichment strategy |
+| gDNA contamination 明顯 | 若目標是 transcript quantification / host response，先 DNase treatment 並記錄 |
+
+## 病原檢測情境
+
+病原檢測常見問題不是只有「RNA 夠不夠」，而是 host RNA、rRNA、pathogen abundance 與採樣保存會一起決定有效 reads。QC 結論應避免把建庫成功直接等同於病原偵測成功。
+
+| 目的 | QC 與方法注意 | 較合適的方向 |
+|:---|:---|:---|
+| RNA virus presence / absence | 先決定是 metatranscriptomics、targeted RT-PCR amplicon，或 full-length cDNA sequencing；不要直接把 transcript workflow 當唯一選項 | 若 target 已知，targeted RT-PCR amplicon 通常更敏感；若要 discovery，再考慮 cDNA-PCR / metatranscriptomics |
+| Host transcript response | DNase treatment、rRNA depletion / Poly(A)+ selection、batch consistency 會影響解讀 | 優先確保 RNA integrity、batch consistency 與 metadata 完整 |
+| Pathogen transcript profiling | pathogen RNA abundance 通常低；host/rRNA depletion 與 sequencing depth 是主要限制 | 需先規劃 enrichment / depletion，不宜只用 total RNA input 達標判斷 |
+| Native RNA modification | direct RNA 才保留 native RNA 訊號；但 input、RNA flow cell、分析 workflow 需求較高 | 優先 `SQK-DRB004.24` 或 `SQK-RNA004`，並提高 RNA integrity 標準 |
+
+## 報告用判定文字
+
+可在實驗紀錄或報告中使用下列格式：
+
+> RNA input was quantified by Qubit RNA HS Assay and assessed for purity by NanoDrop. RNA integrity was evaluated by [method]. The sample [met / did not meet] the minimum input requirement for [kit]. Based on input amount, purity, integrity, and intended application, the recommended QC decision is [GO / GO with caution / Re-clean / No-go].
+
+若是 cDNA-PCR kit，PCR 後再補一段：
+
+> Amplified cDNA was quantified by Qubit dsDNA HS Assay and assessed by [Bioanalyzer / TapeStation / equivalent method]. The post-PCR cDNA [was / was not] suitable for taking 50 fmol into adapter attachment.
+
+## 建庫前紀錄欄位
+
+| 欄位 | 建議紀錄 |
+|:---|:---|
+| Sample ID | 與實驗紀錄系統一致 |
+| RNA source | tissue、swab、culture、environmental sample、IVT transcript 等 |
+| Extraction method | kit / protocol / DNase treatment |
+| RNA type | total RNA、Poly(A)+、ribodepleted、poly(A)-tailed RNA、poly(A)-tailed IVT |
+| Qubit RNA HS | concentration、total amount、assay date |
+| NanoDrop | A260/A280、A260/A230 |
+| Integrity method | Bioanalyzer / TapeStation / Fragment Analyzer、RIN/RQN/DV200 或 profile description |
+| Storage | extraction date、freeze-thaw 次數、保存溫度 |
+| Selected kit | PCB114.24、PCS114、DRB004.24 或 RNA004 |
+| Flow cell type | FLO-MIN114 或 FLO-MIN004RA |
+| Post-PCR cDNA QC | 若使用 PCB/PCS，記錄 Qubit dsDNA HS、size profile、是否可取 50 fmol |
+
+## Protocol 依據
+
+| Kit | Protocol version | 本頁採用的 QC 重點 |
+|:---|:---|:---|
+| SQK-PCB114.24 | PCB_9201_v114_revH_31Mar2026 | 10 ng enriched RNA 或 500 ng total RNA / sample；PCR 後 amplified cDNA 以 Qubit + Bioanalyzer/equivalent 檢查，取 50 fmol 進 adapter attachment |
+| SQK-PCS114 | PCS_9200_v114_revF_31Mar2026 | 10 ng enriched RNA 或 500 ng total RNA；PCR 後 amplified cDNA 以 Qubit + Bioanalyzer/equivalent 檢查，取 50 fmol 進 adapter attachment |
+| SQK-DRB004.24 | DRB_9230_v4_revA_26May2026 | 約 450 fmol RNA / sample，需能配在 5 µL；direct RNA barcoding 使用 RNA flow cell |
+| SQK-RNA004 | DRS_9195_v4_revL_29June2026 | 300 ng poly(A)-tailed RNA 或 1 µg total RNA，配在 8 µL；direct RNA 使用 RNA flow cell |

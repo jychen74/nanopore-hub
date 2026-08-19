@@ -1,0 +1,134 @@
+﻿Product name,SKU,Description,List price
+MinION,,,
+,,,
+MinION Mk1D Pack,M1DPack,"The MinION Mk1D is a cutting-edge, palm-sized sequencer enabling real-time sequencing in diverse environments. Designed to connect with modern laptops via its USB-C port, it is compatible with MinION and Flongle Flow Cells.","US$5,150.00 "
+MinION Mk1D,M1DCapEx,"The MinION Mk1D is a cutting-edge, palm-sized sequencer enabling real-time sequencing in diverse environments. Designed to connect with modern laptops via its USB-C port, it is compatible with MinION and Flongle Flow Cells.
+
+This product includes 12 months of Standard Support – Essential support for routine research use, to avoid unplanned costs if a repair is needed.","US$3,150.00 "
+GridION,,,
+,,,
+GridION,GrdCapex,"Compact benchtop system designed to run and analyse up to five MinION Flow Cells.
+
+This product includes 12 months of Standard Support – Essential support for routine research use, to avoid unplanned costs if a repair is needed.",Price on request
+Enhanced GridION,GrdCapEx.EN,"Compact benchtop system designed to run and analyse up to five MinION Flow Cells.
+
+This product comes with 12 months of Enhanced Support – For customers in time critical, quality managed, or regulated environments.",Price on request
+PromethION 24,,,
+,,,
+Enhanced PromethION 24 - Combined,PRM24CapEx.CMB.EN,"High-throughput, modular benchtop system. All the benefits of nanopore sequencing, massively paralleled. 
+
+This product comes with 12 months of Enhanced Support – For customers in time critical, quality managed, or regulated environments.",Price on request
+PromethION 24 - Combined,PRM24CapEx.CMB,"High-throughput, modular benchtop system. All the benefits of nanopore sequencing, massively paralleled. 
+
+This product includes 12 months of Standard Support – Essential support for routine research use, to avoid unplanned costs if a repair is needed.",Price on request
+PromethION 24,PRM24CapEx,"High-throughput, modular benchtop system. All the benefits of nanopore sequencing, massively paralleled. 
+
+This product includes 12 months of Standard Support – Essential support for routine research use, to avoid unplanned costs if a repair is needed.",Price on request
+Enhanced PromethION 24,PRM24CapEx.EN,"High-throughput, modular benchtop system. All the benefits of nanopore sequencing, massively paralleled. 
+
+This product comes with 12 months of Enhanced Support – For customers in time critical, quality managed, or regulated environments.",Price on request
+P2i,,,
+,,,
+PromethION 2 Integrated,P2ICapEx,"The P2 Integrated (P2i) is a self-contained benchtop device that can run up to two PromethION flow cells at a time and contains a fully-integrated compute. 
+
+This product includes 12 months of Standard Support – Essential support for routine research use, to avoid unplanned costs if a repair is needed.",Price on request
+Enhanced PromethION 2 Integrated,P2ICapEx.EN,"The P2 Integrated (P2i) is a self-contained benchtop device that can run up to two PromethION flow cells at a time and contains a fully-integrated compute. 
+
+This product comes with 12 months of Enhanced Support – For customers in time critical, quality managed, or regulated environments.",Price on request
+Application Workflows,,,
+,,,
+Hereditary Cancer Panel: 18 samples,HCP18,Everything you need to sequence 18 samples using the hereditary cancer panel method.,Price on request
+Hereditary Cancer Panel: 72 samples,HCP72,Everything you need to sequence 72 samples using the hereditary cancer panel method.,Price on request
+Sequencing Kits,,,
+,,,
+Ligation Sequencing Kit V14,SQK-LSK114,A versatile sequencing kit optimised for modal raw read accuracy of Q20+ (99%+) with long read singleplex samples.,US$720.00 
+Ligation Sequencing Kit XL V14,SQK-LSK114-XL,A versatile sequencing kit optimised for modal raw read accuracy of Q20+ (99%+) with long read singleplex samples.,"US$4,790.00 "
+Native Barcoding Kit 24 V14,SQK-NBD114.24,A versatile method of preparing barcoded sequencing libraries optimised for modal raw read accuracy of Q20+ (99%+) and long read multiplexed samples.,US$840.00 
+Native Barcoding Kit 96 V14,SQK-NBD114.96,A versatile method of preparing barcoded sequencing libraries optimised for modal raw read accuracy of Q20+ (99%+) and long read multiplexed samples.,US$950.00 
+Ultra-Long DNA Sequencing Kit V14,SQK-ULK114,An overnight method to prepare ultra-high molecular weight DNA for sequencing ultra-long reads (N50 >50 kb).,"US$1,160.00 "
+Rapid Barcoding Kit 24 V14,SQK-RBK114.24,"Simple and rapid library preparation, with barcoding for up to 24 gDNA samples.",US$840.00 
+Rapid Barcoding Kit 96 V14,SQK-RBK114.96,"Simple and rapid library preparation, with barcoding for up to 96 gDNA samples.","US$1,160.00 "
+Rapid Sequencing Kit V14,SQK-RAD114,A simple and rapid library preparation method for genomic DNA optimised for speed with improved modal raw read accuracy.,US$720.00 
+Microbial Amplicon Barcoding Kit 24 V14,SQK-MAB114.24,"A sequencing kit for amplification and full-length sequencing of 16S rRNA for bacterial profiling and ITS for fungal profiling with barcoding for up to 24 samples.
+
+This is an Early Access product.
+",US$840.00 
+Rapid PCR Barcoding Kit 24 V14,SQK-RPB114.24,Rapid and simple method of preparing up to 24 barcoded samples for sequencing from 1-5 ng of gDNA using PCR.,US$840.00 
+16S Barcoding Kit 24 V14,SQK-16S114.24,A sequencing kit that allows genus-level bacterial identification with barcoding for up to 24 samples.,"US$1,160.00 "
+Multiplex Ligation Sequencing Kit XL V14,SQK-MLK114.96-XL,"A sequencing kit optimised for high output and PCR-free low-plex sequencing of 2-3 samples for Whole Genome Sequencing (WGS).
+
+This kit uses our latest Kit 14 chemistry.
+
+Product lead time: 1 week","US$4,540.00 "
+Direct RNA Sequencing Kit,SQK-RNA004,A sequencing kit optimised for sequencing native RNA with improved output and accuracy.,US$720.00 
+Direct RNA Sequencing Kit XL,SQK-RNA004-XL,A sequencing kit optimised for sequencing native RNA with improved output and accuracy. Multiple samples can be processed simultaneously.,"US$4,790.00 "
+Direct RNA Barcoding Kit 24,SQK-DRB004.24,"This kit facilitates barcoded library preparation, enabling multiplex sequencing of native RNA samples.","US$1,160.00 "
+cDNA-PCR Sequencing Kit V14,SQK-PCS114,A sequencing kit optimised for identification and quantification of full-length transcripts with highest output.,US$720.00 
+cDNA-PCR Barcoding Kit V14,SQK-PCB114.24,"A sequencing kit optimised for identification and quantification of full-length transcripts with highest output, including barcodes for up to 24 samples.",US$950.00 
+Expansion Packs,,,
+,,,
+Flow Cell Wash Kit,EXP-WSH004,The Wash Kit provides the reagents required to wash and reuse MinION™ and PromethION™ Flow Cells.,US$120.00 
+Flow Cell Wash Kit XL,EXP-WSH004-XL,The Flow Cell Wash Kit XL provides the reagents required to wash and reuse MinION™ and PromethION™ Flow Cells on a higher scale.,US$500.00 
+Control Expansion Kit,EXP-CTL001,This kit contains Lambda DNA to use as a control for all DNA sequencing kits.,US$79.00 
+RNA Control Expansion,EXP-RCS001,RNA Control Sample to support control runs for RNA and cDNA kits.,US$79.00 
+Flow Cell Priming Kit,EXP-FLP004,Additional flow cell priming reagents for our V14 kits.,US$57.00 
+Flow Cell Priming Kit XL,EXP-FLP004-XL,Additional flow cell priming reagents for our V14 kits.,US$275.00 
+Sequencing Auxiliary Vials V14,EXP-AUX003,"The Sequencing Auxiliary Vials contain Sequencing Buffer (SB), Elution Buffer (EB), Library Solution (LIS) and Library Beads (LIB) with V14 flow cell priming reagents: Flow Cell Flush (FCF) and Flow Cell Tether (FCT).",US$120.00 
+Sequencing Auxiliary Vials V14 XL,EXP-AUX003-XL,"The Sequencing Auxiliary Vials XL contain Sequencing Buffer (SB), Elution Buffer (EB), Library Solution (LIS) and Library Beads (LIB) with V14 flow cell priming reagents: Flow Cell Flush (FCF) and Flow Cell Tether (FCT).",US$480.00 
+Native Barcoding Auxiliary Kit V14,EXP-NBA114,"Additional library preparation reagents for the Native Barcoding Kit 24 and 96 V14 (SQK-NBD114.24 and SQK-NBD114.96), and the Multiplex Ligation Sequencing Kit XL V14 (SQK-MLK114.96-XL).",US$350.00 
+Rapid Adapter Auxiliary V14,EXP-RAA114,Additional Rapid Adapter and Adapter Buffer to enable customers to maximise the use of our rapid sequencing chemistry kits.,US$350.00 
+EEB Expansion,EXP-EEB001,Additional Extraction EB (EEB) for the Ultra-Long DNA Sequencing Kit V14 (SQK-ULK114).,US$37.00 
+Ultra-Long Auxiliary Vials,EXP-ULA001,Additional library preparation reagents for the Ultra-Long DNA Sequencing Kit V14 (SQK-ULK114).,US$120.00 
+Direct RNA Auxiliary Vials,EXP-DRA004,"The Direct RNA Auxiliary Vials expansion contains RNA Elution Buffer (REB), Sequencing Buffer (SB), Library Solution (LIS); and RNA flow cell priming reagents: Flow Cell Flush (FCF) and RNA Flush Tether (RFT).",US$350.00 
+LFB Expansion,EXP-LFB001,Additional Long Fragment Buffer (LFB),US$37.00 
+SFB Expansion,EXP-SFB001,Additional Short Fragment Buffer (SFB).,US$37.00 
+Short Fragment Eliminator Kit,EXP-SFE001,A kit designed for size selection of high molecular weight DNA samples to progressively deplete short fragments of <25 kb.,US$120.00 
+PCR Expansion,EXP-PCA001,"PCR Primers (PRM) and PCR Adapters (PCA)
+",US$500.00 
+PCR Barcoding Expansion 1-96,EXP-PBC096,"The PCR Barcoding Expansion 1-96 (EXP-PBC096) is designed to allow the pooling and running together of multiple sequencing libraries.
+","US$2,140.00 "
+PCR Barcoding Expansion 1-12,EXP-PBC001,"The PCR Barcoding Expansion 1-12 (EXP-PBC001) allows the pooling and running together of multiple sequencing libraries.
+",US$370.00 
+Flow Cells,,,
+,,,
+MinION/GridION Flow Cell (DNA),FLO-MIN114,"These flow cells are designed for MinION and GridION devices. They feature our R10 nanopore which pairs with Kit 14 chemistry to deliver rich genomic and epigenomic data at our highest accuracy.
+
+
+",US$840.00 
+MinION/GridION Flow Cell (RNA),FLO-MIN004RA,The RNA flow cell pairs with our Direct RNA Sequencing Kits (SQK-RNA004 and SQK-RNA004-XL) for sequencing native RNA with improved accuracy and output.,US$840.00 
+PromethION Flow Cells Packs (DNA),FLO-PRO114M,These flow cells are designed for PromethION devices. They feature our R10 nanopore which pairs with Kit 14 chemistry to deliver rich genomic and epigenomic data at our highest accuracy.,"US$4,160.00 "
+PromethION Flow Cells Packs (RNA),FLO-PRO004RA,The RNA flow cell pairs with our Direct RNA Sequencing Kits (SQK-RNA004 and SQK-RNA004-XL) for sequencing native RNA with improved accuracy and output.,"US$4,160.00 "
+Training,,,
+,,,
+PromethION Advanced Training,SUPP008,A comprehensive two and half-day training providing practical experience with advanced nanopore sequencing workflows and analysis.,"US$23,630.00 "
+GridION Advanced Training,SUPP001,"A 2.5 day training course, conducted on-site, for up to 4 participants. Work with one of our expert instructors to gain a comprehensive overview of our technology, and hands-on experience on running sequencing experiments on your GridION Flow Cells (x6) and two sequencing kits (x2) are included in this training.","US$17,750.00 "
+MinION Rapid Starter Training,SUPP1D,A comprehensive two-day training providing practical experience with an introduction to nanopore sequencing workflows and analysis.,"US$7,250.00 "
+Service Provider Workflow Training - Wet Lab,WFLOW-TRAINED-WL,"This is a 2 day, wet lab training course, conducted on-site, for up to four participants. Choose an application from the available training menu to upskill your lab team and expand your Oxford Nanopore service. Your team will work with one of our expert instructors to gain a comprehensive overview of the application, and hands-on experience of running the wet-lab workflow on your Oxford Nanopore device. Consumables are purchased separately.","US$5,360.00 "
+Service Provider Workflow Training - Data Analysis (Onsite),WFLOW-TRAINED-DO,"This is a 1 day, data analysis training course, conducted on-site, for up to four participants. Choose an application from the available training menu to upskill your data analysis team and expand your Oxford Nanopore bioinformatics service. Your team will work with one of our expert instructors to gain a comprehensive overview of the application, and hands-on experience of running the data analysis workflows in a training environment optimised for your needs.","US$3,470.00 "
+Service Provider Workflow Training - Data Analysis (Remote),WFLOW-TRAINED-DR,"This is a 1 day, online data analysis training course, conducted remotely, for up to four participants. Choose an application from the available training menu to upskill your data analysis team and expand your Oxford Nanopore bioinformatics service. Your team will work with one of our expert instructors to gain a comprehensive overview of the application, and hands-on experience of running the data analysis workflows in a training environment optimised for your needs.","US$1,890.00 "
+Services - Support,,,
+,,,
+P2i Enhanced Support (3 year),ENHANCED36M-P2I,,"US$50,550.00 "
+P24 Enhanced Support (3 year),ENHANCED36M-P24,,"US$149,600.00 "
+GridION Enhanced Support (3 year),ENHANCED36M-G,,"US$35,600.00 "
+P2i Enhanced Support (2 year),ENHANCED24M-P2I,,"US$34,600.00 "
+P24 Enhanced Support (2 year),ENHANCED24M-P24,,"US$102,350.00 "
+GridION Enhanced Support (2 year),ENHANCED24M-G,,"US$24,350.00 "
+P48 Enhanced Support,ENHANCED12M-P48,,"US$78,750.00 "
+P2i Enhanced Support,ENHANCED12M-P2I,,"US$17,750.00 "
+P24 Enhanced Support,ENHANCED12M-P24,,"US$52,500.00 "
+GridION Enhanced Support (1 year),ENHANCED12M-G,,"US$12,500.00 "
+P2 Solo Standard Support (3 year),STANDARD36M-P2S,36-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$5,900.00 "
+P2 Solo Standard Support (2 year),STANDARD24M-P2S,24-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$4,000.00 "
+MinION Mk1D Standard Support,STANDARD12M-MK1D,12-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,US$520.00 
+GridION Standard Support,STANDARD12M-G,12-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$7,250.00 "
+GridION Standard Support (2 year),STANDARD24M-G,24-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$13,900.00 "
+GridION Standard Support (3 year),STANDARD36M-G,36-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$20,500.00 "
+P2 Solo Standard Support,STANDARD12M-P2S,12-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$2,100.00 "
+P2i Standard Support,STANDARD12M-P2I,12-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$11,500.00 "
+P2i Standard Support (2 year),STANDARD24M-P2I,24-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$21,900.00 "
+P2i Standard Support (3 year),STANDARD36M-P2I,36-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$32,500.00 "
+P24 Standard Support,STANDARD12M-P24,12-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$42,000.00 "
+P24 Standard Support (2 year),STANDARD24M-P24,24-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$81,900.00 "
+P24 Standard Support (3 year),STANDARD36M-P24,36-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$119,700.00 "
+P48 Standard Support,STANDARD12M-P48,12-month support plan designed to ensure your instrument is performing optimally by providing repairs and/or replacement services and software updates.,"US$54,900.00 "

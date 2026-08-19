@@ -1,0 +1,378 @@
+---
+title: "ONT 產品選擇器"
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+::: {.callout-note appearance="simple"}
+本頁以 ONT 原廠 [price list](https://store.nanoporetech.com/priceList.html) 匯出的 CSV 為價格來源，搭配本 repo 維護的產品註解表，依核酸類型、設備類型與用途篩選建議的 sequencing kit 與 flow cell。  
+價格僅供規劃參考，正式採購仍以原廠或代理商 quote 為準。
+:::
+
+## 互動篩選
+
+<div class="selector-panel">
+  <label>
+    核酸類型
+    <select id="filter-nucleic">
+      <option value="">全部</option>
+    </select>
+  </label>
+  <label>
+    設備類型
+    <select id="filter-device">
+      <option value="">全部</option>
+    </select>
+  </label>
+  <label>
+    用途
+    <select id="filter-application">
+      <option value="">全部</option>
+    </select>
+  </label>
+  <label>
+    Multiplex
+    <select id="filter-multiplex">
+      <option value="">全部</option>
+      <option value="multiplex">multiplex</option>
+      <option value="single">single sample</option>
+    </select>
+  </label>
+  <label>
+    顯示範圍
+    <select id="filter-priority">
+      <option value="core">核心常用項目</option>
+      <option value="">全部註解項目</option>
+    </select>
+  </label>
+</div>
+
+<div id="selector-summary" class="selector-summary"></div>
+<div id="recommendation-cards" class="recommendation-grid"></div>
+
+<div class="table-wrap">
+  <table id="selector-table" class="product-table">
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>SKU</th>
+        <th>Product</th>
+        <th>Nucleic acid</th>
+        <th>Library / flow cell</th>
+        <th>Samples</th>
+        <th>Device</th>
+        <th>Flow cell</th>
+        <th>Application</th>
+        <th>List price</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+## 判讀提示
+
+| 情境 | 直觀選擇 |
+|:---|:---|
+| MinION/GridION 上做一般 DNA / metagenomics | DNA kit + `FLO-MIN114` |
+| MinION/GridION 上做 cDNA-PCR transcript sequencing | `SQK-PCB114.24` 或 `SQK-PCS114` + `FLO-MIN114` |
+| MinION/GridION 上做 direct RNA | `SQK-DRB004.24` 或 `SQK-RNA004` + `FLO-MIN004RA` |
+| PromethION 上做 DNA | DNA kit + `FLO-PRO114M` |
+| PromethION 上做 direct RNA | direct RNA kit + `FLO-PRO004RA` |
+| RNA / cDNA 新流程測試 | 先用本頁確認 kit 與 flow cell；control / auxiliary reagent 另依 SOP 或採購清單確認 |
+
+<details class="maintenance-details">
+<summary>資料來源與維護</summary>
+
+| 檔案 | 用途 | 何時更新 |
+|:---|:---|:---|
+| `data/ont_pricelist.csv` | 原廠 price list raw export，保留完整產品清單與價格 | 原廠價格或產品清單更新時，直接用新版 CSV 覆蓋 |
+| `data/ont_product_annotations.csv` | 本站自訂註解：只讓需要決策的 kit 與 flow cell 進入選擇器 | 新增 kit、修改判斷規則或補 SOP 連結時更新 |
+| `data/ont_selector_data.js` | 由前兩個 CSV 產生的網頁資料檔，只包含 sequencing kit 與 flow cell | 更新 CSV 後用 script 重新產生 |
+
+</details>
+
+```{=html}
+<style>
+.selector-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  background: #f8fafc;
+}
+.selector-panel label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+.selector-panel select {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #b8c2cc;
+  border-radius: 4px;
+  background: white;
+}
+.selector-summary {
+  margin: 0.75rem 0;
+  font-weight: 600;
+}
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.recommendation-card {
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  padding: 0.9rem;
+  background: #ffffff;
+}
+.recommendation-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.recommendation-card ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+.recommendation-card li {
+  margin: 0.35rem 0;
+}
+.recommendation-card .sku {
+  font-weight: 700;
+}
+.recommendation-card .price {
+  white-space: nowrap;
+  color: #334e68;
+}
+.empty-result {
+  border-left: 4px solid #d97706;
+  padding: 0.75rem 1rem;
+  background: #fff7ed;
+  color: #7c2d12;
+  margin: 1rem 0;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+.product-table {
+  min-width: 1180px;
+  font-size: 0.88rem;
+}
+.product-table th {
+  white-space: nowrap;
+}
+.product-table td {
+  vertical-align: top;
+}
+.role-pill {
+  display: inline-block;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: #e6f0ff;
+  color: #163b73;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.price-cell {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.maintenance-details {
+  margin-top: 2rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  color: #52616f;
+}
+.maintenance-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+</style>
+
+<script src="data/ont_selector_data.js"></script>
+<script>
+function splitValues(value) {
+  return (value || "")
+    .split(";")
+    .map(item => item.trim())
+    .filter(Boolean);
+}
+
+function uniqueSorted(values) {
+  return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+}
+
+function addOptions(select, values) {
+  values.forEach(value => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    select.appendChild(option);
+  });
+}
+
+function cell(text, className = "") {
+  const td = document.createElement("td");
+  td.textContent = text || "";
+  if (className) td.className = className;
+  return td;
+}
+
+function linkCell(record) {
+  const td = document.createElement("td");
+  if (record.page) {
+    const link = document.createElement("a");
+    link.href = record.page.replace(".qmd", ".html");
+    link.textContent = record.ProductName || record.sku;
+    td.appendChild(link);
+  } else {
+    td.textContent = record.ProductName || "";
+  }
+  return td;
+}
+
+function matchesMultiValue(fieldValue, selected) {
+  if (!selected) return true;
+  const values = splitValues(fieldValue);
+  return values.includes(selected);
+}
+
+function matchesMultiplex(fieldValue, selected) {
+  if (!selected) return true;
+  return fieldValue === selected || fieldValue === "na";
+}
+
+function roleLabel(role) {
+  const labels = {
+    sequencing_kit: "Sequencing kit",
+    flow_cell: "Flow cell"
+  };
+  return labels[role] || role;
+}
+
+function renderRecommendationCards(records, container) {
+  container.replaceChildren();
+  if (records.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "empty-result";
+    empty.textContent = "目前沒有完全符合的組合。請先放寬用途或 multiplex 條件，或檢查 annotation 是否需要新增此情境。";
+    container.appendChild(empty);
+    return;
+  }
+
+  const groups = [
+    ["sequencing_kit", "建議 kit"],
+    ["flow_cell", "搭配 flow cell"]
+  ];
+
+  groups.forEach(([role, title]) => {
+    const items = records.filter(row => row.role === role);
+    if (items.length === 0) return;
+
+    const card = document.createElement("section");
+    card.className = "recommendation-card";
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+    const list = document.createElement("ul");
+
+    items.forEach(row => {
+      const item = document.createElement("li");
+      const sku = document.createElement("span");
+      sku.className = "sku";
+      sku.textContent = row.sku;
+      const price = document.createElement("span");
+      price.className = "price";
+      price.textContent = row.ListPrice ? ` (${row.ListPrice})` : "";
+      item.append(sku, document.createTextNode(` - ${row.ProductName || row.library_type}`), price);
+      list.appendChild(item);
+    });
+
+    card.append(heading, list);
+    container.appendChild(card);
+  });
+}
+
+function loadSelector() {
+  const records = (window.ONT_SELECTOR_DATA && window.ONT_SELECTOR_DATA.records) || [];
+  const nucleicSelect = document.getElementById("filter-nucleic");
+  const deviceSelect = document.getElementById("filter-device");
+  const applicationSelect = document.getElementById("filter-application");
+  const multiplexSelect = document.getElementById("filter-multiplex");
+  const prioritySelect = document.getElementById("filter-priority");
+  const tbody = document.querySelector("#selector-table tbody");
+  const summary = document.getElementById("selector-summary");
+  const cards = document.getElementById("recommendation-cards");
+
+  if (records.length === 0) {
+    summary.textContent = "資料載入失敗：data/ont_selector_data.js 沒有可用資料。";
+    return;
+  }
+
+  addOptions(nucleicSelect, uniqueSorted(records.flatMap(row => splitValues(row.nucleic_acid))));
+  addOptions(deviceSelect, uniqueSorted(records.flatMap(row => splitValues(row.device_class))));
+  addOptions(
+    applicationSelect,
+    uniqueSorted(
+      records
+        .filter(row => row.role === "sequencing_kit")
+        .flatMap(row => splitValues(row.application))
+    )
+  );
+
+  function render() {
+    const filtered = records.filter(row => {
+      const applicationMatches = row.role === "flow_cell"
+        ? true
+        : matchesMultiValue(row.application, applicationSelect.value);
+      return matchesMultiValue(row.nucleic_acid, nucleicSelect.value)
+        && matchesMultiValue(row.device_class, deviceSelect.value)
+        && applicationMatches
+        && matchesMultiplex(row.multiplex, multiplexSelect.value)
+        && (!prioritySelect.value || row.priority === prioritySelect.value);
+    });
+
+    tbody.replaceChildren();
+    renderRecommendationCards(filtered, cards);
+    filtered.forEach(row => {
+      const tr = document.createElement("tr");
+      const roleTd = document.createElement("td");
+      const roleSpan = document.createElement("span");
+      roleSpan.className = "role-pill";
+      roleSpan.textContent = roleLabel(row.role);
+      roleTd.appendChild(roleSpan);
+      tr.append(
+        roleTd,
+        cell(row.sku),
+        linkCell(row),
+        cell(row.nucleic_acid),
+        cell(row.library_type),
+        cell(row.sample_count),
+        cell(row.device_class),
+        cell(row.flow_cell_sku),
+        cell(row.application),
+        cell(row.ListPrice, "price-cell"),
+        cell(row.notes)
+      );
+      tbody.appendChild(tr);
+    });
+    summary.textContent = `目前顯示 ${filtered.length} / ${records.length} 個已註解產品。`;
+  }
+
+  [nucleicSelect, deviceSelect, applicationSelect, multiplexSelect, prioritySelect]
+    .forEach(select => select.addEventListener("change", render));
+  render();
+}
+
+loadSelector();
+</script>
+```

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="完成 EXP-WSH004 wash 後，直接在同一張 flow cell 上進行第二個 library run。">
 
-<title>SQK-RAD114 · Rapid Sequencing（單樣本）</title>
+<title>Flow Cell 操作：Wash 後接續上樣</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -172,10 +173,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
-  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
-  <li><a href="#step-b-library-preparation10-min" id="toc-step-b-library-preparation10-min" class="nav-link" data-scroll-target="#step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</a></li>
-  <li><a href="#loading-mix-配製" id="toc-loading-mix-配製" class="nav-link" data-scroll-target="#loading-mix-配製">Loading Mix 配製</a></li>
+  <li><a href="#適用情境" id="toc-適用情境" class="nav-link active" data-scroll-target="#適用情境">適用情境</a></li>
+  <li><a href="#操作總覽" id="toc-操作總覽" class="nav-link" data-scroll-target="#操作總覽">操作總覽</a></li>
+  <li><a href="#開始前狀態確認" id="toc-開始前狀態確認" class="nav-link" data-scroll-target="#開始前狀態確認">開始前狀態確認</a></li>
+  <li><a href="#reload-所需試劑" id="toc-reload-所需試劑" class="nav-link" data-scroll-target="#reload-所需試劑">Reload 所需試劑</a></li>
+  <li><a href="#第一段-priming" id="toc-第一段-priming" class="nav-link" data-scroll-target="#第一段-priming">第一段 Priming</a>
+  <ul class="collapse">
+  <li><a href="#配製-priming-mix" id="toc-配製-priming-mix" class="nav-link" data-scroll-target="#配製-priming-mix">1. 配製 priming mix</a></li>
+  <li><a href="#開啟-priming-port-並去除氣泡" id="toc-開啟-priming-port-並去除氣泡" class="nav-link" data-scroll-target="#開啟-priming-port-並去除氣泡">2. 開啟 priming port 並去除氣泡</a></li>
+  <li><a href="#注入-800-µl-priming-mix" id="toc-注入-800-µl-priming-mix" class="nav-link" data-scroll-target="#注入-800-µl-priming-mix">3. 注入 800 µL priming mix</a></li>
+  </ul></li>
+  <li><a href="#準備第二個-library-loading-mix" id="toc-準備第二個-library-loading-mix" class="nav-link" data-scroll-target="#準備第二個-library-loading-mix">準備第二個 Library Loading Mix</a></li>
+  <li><a href="#第二段-priming-與-library-loading" id="toc-第二段-priming-與-library-loading" class="nav-link" data-scroll-target="#第二段-priming-與-library-loading">第二段 Priming 與 Library Loading</a></li>
+  <li><a href="#reload-紀錄表" id="toc-reload-紀錄表" class="nav-link" data-scroll-target="#reload-紀錄表">Reload 紀錄表</a></li>
+  <li><a href="#何時不建議-reload" id="toc-何時不建議-reload" class="nav-link" data-scroll-target="#何時不建議-reload">何時不建議 Reload</a></li>
+  <li><a href="#本頁資料來源" id="toc-本頁資料來源" class="nav-link" data-scroll-target="#本頁資料來源">本頁資料來源</a></li>
   </ul>
 </nav>
     </div>
@@ -184,9 +196,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SQK-RAD114 · Rapid Sequencing（單樣本）</h1>
+<h1 class="title">Flow Cell 操作：Wash 後接續上樣</h1>
 </div>
 
+<div>
+  <div class="description">
+    完成 EXP-WSH004 wash 後，直接在同一張 flow cell 上進行第二個 library run。
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -201,224 +218,435 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-note callout-titled" title="定位">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>⚠️ Early Access 產品
+<span class="screen-reader-only">註釋</span>定位
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>目前版本：RSE_9177_v114_revQ_12Dec2025。<br>
-建議首次使用先以 <strong>Lambda DNA 控制組</strong>熟悉流程。</p>
+<p><strong>wash 後立即跑第二個 sequencing library</strong> 的情境。前置條件是已依「Flow Cell 操作：Wash 與 Preserve」完成 wash 步驟（兩次 200 µL Wash Mix，1 hr incubation，移除 waste buffer），<strong>且不加入 Storage Buffer</strong>，直接進行本頁的 reload 流程。</p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>適用：單樣本快速定序、gDNA QC 確認、初步探索實驗 · 預估時間 ~10 min</strong><br>
-方法：Tagmentation + Rapid Adapter 直接連接；無 PCR、無 Barcoding<br>
-Adapter ligation 後建議<strong>立即上機</strong></p>
-</div>
-</div>
-</div>
-<section id="kit-特性" class="level2">
-<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">項目</th>
-<th style="text-align: left;">規格</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;"><strong>100–150 ng</strong> gDNA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: left;"><strong>~10 min</strong>（最快）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Barcoding</strong></td>
-<td style="text-align: left;">❌ 無（單樣本）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>PCR</strong></td>
-<td style="text-align: left;">❌ 無</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Flow cell</strong></td>
-<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: left;">單樣本快速定序、gDNA QC、探索性實驗</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>注意事項</strong></td>
-<td style="text-align: left;">無法 multiplex；Adapter 後立即上機效果最佳</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="step-a-試劑準備" class="level2">
-<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
-<p>所有試劑<strong>室溫保存，無需解凍</strong>：</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">縮寫</th>
-<th style="text-align: left;">備注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Fragmentation Mix</td>
-<td style="text-align: left;"><strong>FRA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rapid Adapter</td>
-<td style="text-align: left;"><strong>RA</strong></td>
-<td style="text-align: left;">室溫，pipette mix</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adapter Buffer</td>
-<td style="text-align: left;"><strong>ADB</strong></td>
-<td style="text-align: left;">室溫，pipette mix 或 vortex</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Thermal cycler 程式：</strong></p>
-<pre><code>30°C 30 sec → 80°C 2 min（hold 4°C）</code></pre>
-<p><strong>建議：</strong> 開始 library prep 前先完成 flow cell priming（可節省等待時間）。</p>
-<hr>
-</section>
-<section id="step-b-library-preparation10-min" class="level2">
-<h2 class="anchored" data-anchor-id="step-b-library-preparation10-min">Step B — Library Preparation（~10 min）</h2>
-<div id="rad-B">
-
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled" title="Warning">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-提示
+<span class="screen-reader-only">警告</span>Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>✅ <strong>Library 完成！</strong> Adapter ligation 後強烈建議<strong>立即上機</strong>。<br>
-Loading 準備：見下方 Loading Mix 配製。</p>
+<p>Wash 後不可讓 flow cell 以 Wash Mix 長時間靜置。完成 wash、移除 waste buffer 後，應立即進行 reload 或加入 Storage Buffer 保存，不可拖延。</p>
 </div>
 </div>
-<hr>
-</section>
-<section id="loading-mix-配製" class="level2">
-<h2 class="anchored" data-anchor-id="loading-mix-配製">Loading Mix 配製</h2>
-<p>在 1.5 mL LoBind tube 中混合：</p>
+<section id="適用情境" class="level2">
+<h2 class="anchored" data-anchor-id="適用情境">適用情境</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">體積</th>
+<th>情境</th>
+<th>建議</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Sequencing Buffer（SB）</td>
-<td style="text-align: left;">37.5 µL</td>
+<td>同日需要跑第二批樣本</td>
+<td>Wash 後直接 reload</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Library Beads（LIB）先充分混勻</td>
-<td style="text-align: left;">25.5 µL</td>
+<td>前一個 run 已達目的，但 flow cell 仍有可用 pore</td>
+<td>可考慮 reload，提高 flow cell 使用效率</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Nuclease-free water</td>
-<td style="text-align: left;">3 µL</td>
+<td>樣本之間需防交叉污染</td>
+<td>謹慎評估；高風險樣本（低 abundance target）建議使用新 flow cell</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Library（adapted DNA）</td>
-<td style="text-align: left;">12 µL</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: left;"><strong>75 µL</strong></td>
+<td>SOP 化紀錄需求</td>
+<td>明確紀錄前一個 run、wash、第二個 run 的連續關係</td>
 </tr>
 </tbody>
 </table>
-<p>從 SpotON port 緩慢滴入 flow cell，讓液體自然流入，避免氣泡。</p>
-<hr>
-<script>
-const radB = [
-  { id:'radb1', text:'取 <strong>100–150 ng gDNA</strong>，加 NFW 至 <strong>10 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；flick 混勻，勿 vortex；短暫離心', warn:'' },
-  { id:'radb2', text:'加入 <strong>FRA 1 µL</strong>（總 11 µL），flick 混勻，短暫離心', note:'', warn:'' },
-  { id:'radb3', text:'Thermal cycler：<strong>30°C 30 sec → 80°C 2 min</strong>，結束後立即置冰上', note:'', time:'⏱ 3 min', warn:'' },
-  { id:'radb4', text:'配製 diluted RA：RA <strong>1.5 µL</strong> + ADB <strong>3.5 µL</strong> = 5 µL，pipette mix', note:'', warn:'' },
-  { id:'radb5', text:'加入 <strong>diluted RA 1 µL</strong> 至 tagmented DNA（共 12 µL），gentle flick 混勻', note:'', warn:'' },
-  { id:'radb6', text:'室溫孵育 <strong>5 min</strong>（此時完成 flow cell priming）', note:'', time:'⏱ 5 min', warn:'Adapter ligation 後立即上機，勿放置過久' },
-  { id:'radb7', text:'配製 Loading Mix（見上方表格），取 <strong>75 µL</strong> 注入 flow cell SpotON port', note:'緩慢滴入，讓液體自然流入；避免氣泡；loading 後啟動 MinKNOW 開始 sequencing', warn:'' },
-];
-document.addEventListener('DOMContentLoaded', function() {
-  renderSteps('rad-B', radB, 0);
-});
-</script>
-<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
-<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
-<style>
-.sop-step {
-  display: flex; gap: 12px; padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9; cursor: pointer;
-  border-radius: 6px; transition: background 0.15s;
-  align-items: flex-start;
-}
-.sop-step:hover { background: #f8fafc; }
-.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
-.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
-.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
-.step-time {
-  font-size: 10px; background: #dbeafe; color: #1e40af;
-  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
-  font-family: monospace; white-space: nowrap;
-}
-.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
-.step-warn {
-  font-size: 11px; color: #92400e; background: #fef3c7;
-  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
-}
-</style>
-<script>
-const _checkedSteps = {};
-function renderSteps(containerId, steps, globalOffset) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = steps.map((s, i) => {
-    const num = (globalOffset || 0) + i + 1;
-    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
-    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
-    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
-    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
-      <span class="step-cb" id="cb-${s.id}">⬜</span>
-      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
-    </div>`;
-  }).join('');
-}
-function toggleStep(id) {
-  _checkedSteps[id] = !_checkedSteps[id];
-  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
-  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
-}
-</script>
+</section>
+<section id="操作總覽" class="level2">
+<h2 class="anchored" data-anchor-id="操作總覽">操作總覽</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>階段</th>
+<th>核心操作</th>
+<th style="text-align: right;">時間</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>前置確認</td>
+<td>確認 wash 完成、waste 已移除、第二個 library 已備妥</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="even">
+<td>第一段 priming</td>
+<td>配製 priming mix、去氣泡、注入 800 µL</td>
+<td style="text-align: right;">約 10 min</td>
+</tr>
+<tr class="odd">
+<td>Loading mix 準備</td>
+<td>等待期間準備第二個 library 的 loading mix</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="even">
+<td>Waste 移除</td>
+<td>關 priming port、等 5 min、移除 waste</td>
+<td style="text-align: right;">約 5 min</td>
+</tr>
+<tr class="odd">
+<td>第二段 priming + loading</td>
+<td>加 200 µL priming mix，滴加 library</td>
+<td style="text-align: right;">約 5 min</td>
+</tr>
+<tr class="even">
+<td>啟動新 run</td>
+<td>MinKNOW 建立新 experiment</td>
+<td style="text-align: right;">依設定</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="開始前狀態確認" class="level2">
+<h2 class="anchored" data-anchor-id="開始前狀態確認">開始前狀態確認</h2>
+<p>在 reload 前，確認以下各項均已完成：</p>
+<ul>
+<li>已依 wash SOP 完成兩次 200 µL Wash Mix loading</li>
+<li>第二次 Wash Mix 後已關閉 priming port 並完成 1 hr incubation</li>
+<li>1 hr 結束後已移除 waste port 1 的 waste buffer</li>
+<li>未將 flow cell 以 Wash Mix 長時間靜置</li>
+<li>第二個 library 已完成 kit-specific 建庫，在 ice 或 4°C 暫存</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled" title="Important">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wash 後接續上樣時，因 buffer 條件改變，<strong>不適合在 loading 前執行 flow cell check</strong>。可在新 run 啟動後，以第一次 pore scan 的結果評估可用 nanopore 數。</p>
+</div>
+</div>
+</section>
+<section id="reload-所需試劑" class="level2">
+<h2 class="anchored" data-anchor-id="reload-所需試劑">Reload 所需試劑</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reagent</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Flow Cell Flush（FCF）</td>
+<td>Priming mix 主體</td>
+</tr>
+<tr class="even">
+<td>Flow Cell Tether（FCT）</td>
+<td>Priming mix tether component</td>
+</tr>
+<tr class="odd">
+<td>Bovine Serum Albumin（BSA）50 mg/mL</td>
+<td>Priming mix；終濃度 0.2 mg/mL（Kit 14 / R10.4.1）</td>
+</tr>
+<tr class="even">
+<td>Sequencing Buffer（SB）</td>
+<td>Loading mix</td>
+</tr>
+<tr class="odd">
+<td>Library Beads（LIB）或 Library Solution（LIS）</td>
+<td>Loading mix</td>
+</tr>
+<tr class="even">
+<td>DNA library</td>
+<td>第二個 sequencing library</td>
+</tr>
+</tbody>
+</table>
+<p>試劑處理：FCF、FCT、SB、LIB（或 LIS）室溫解凍，vortex 後 spin-down，置冰上備用。</p>
+</section>
+<section id="第一段-priming" class="level2">
+<h2 class="anchored" data-anchor-id="第一段-priming">第一段 Priming</h2>
+<section id="配製-priming-mix" class="level3">
+<h3 class="anchored" data-anchor-id="配製-priming-mix">1. 配製 priming mix</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Reagent</th>
+<th style="text-align: right;">每張 flow cell 用量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Flow Cell Flush（FCF）</td>
+<td style="text-align: right;">1,170 µL</td>
+</tr>
+<tr class="even">
+<td>Bovine Serum Albumin（BSA）50 mg/mL</td>
+<td style="text-align: right;">5 µL</td>
+</tr>
+<tr class="odd">
+<td>Flow Cell Tether（FCT）</td>
+<td style="text-align: right;">30 µL</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>1,205 µL</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Pipette mix 均勻，置冰上備用。</p>
+</section>
+<section id="開啟-priming-port-並去除氣泡" class="level3">
+<h3 class="anchored" data-anchor-id="開啟-priming-port-並去除氣泡">2. 開啟 priming port 並去除氣泡</h3>
+<ol type="1">
+<li>順時針滑開 priming port cover。</li>
+<li>P1000 <strong>先設定 200 µL</strong>，tip 插入 priming port。</li>
+<li>緩慢轉動 wheel，使設定值增加至約 220–230 µL，直到看見少量液體進入 tip（實際吸回量約 20–30 µL）。</li>
+<li>目視確認 sensor array 一直有 buffer 覆蓋。</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Note">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">註釋</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wash 後的 flow cell，priming port 出現 buffer 的速度可能較慢，且吸出的液體可能帶有淡色（Wash Mix 殘留），屬正常現象。耐心等待液體進入 tip，不要過度抽吸。</p>
+</div>
+</div>
+</section>
+<section id="注入-800-µl-priming-mix" class="level3">
+<h3 class="anchored" data-anchor-id="注入-800-µl-priming-mix">3. 注入 800 µL priming mix</h3>
+<ol type="1">
+<li>P1000 吸取 <strong>800 µL priming mix</strong>，確認 tip 內無氣泡。</li>
+<li>由 priming port 緩慢注入；注入時間至少 10 秒，保持連續速度。</li>
+<li>Tip 末端保留少量液體，不要完全打空。</li>
+<li><strong>關閉 priming port</strong>，等待 <strong>5 min</strong>。</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" title="Important">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>注入 800 µL 後，必須關閉 priming port 並等待 5 分鐘，讓 priming mix 充分置換 wash buffer。此等待步驟不可省略。</p>
+</div>
+</div>
+</section>
+</section>
+<section id="準備第二個-library-loading-mix" class="level2">
+<h2 class="anchored" data-anchor-id="準備第二個-library-loading-mix">準備第二個 Library Loading Mix</h2>
+<p>在等待 5 min 期間準備：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reagent</th>
+<th style="text-align: right;">每張 flow cell 用量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sequencing Buffer（SB）</td>
+<td style="text-align: right;">37.5 µL</td>
+</tr>
+<tr class="even">
+<td>Library Beads（LIB，使用前立即混勻）或 Library Solution（LIS）</td>
+<td style="text-align: right;">25.5 µL</td>
+</tr>
+<tr class="odd">
+<td>DNA library</td>
+<td style="text-align: right;">12 µL</td>
+</tr>
+<tr class="even">
+<td>Nuclease-free water（視 library 濃度補足）</td>
+<td style="text-align: right;">適量</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>75 µL</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Tip">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>第二個 library 的重要性評估：若第二個樣本為關鍵研究樣本或需建立正式效能資料，建議改用新 flow cell，降低 reuse 的不確定性。</p>
+</div>
+</div>
+</section>
+<section id="第二段-priming-與-library-loading" class="level2">
+<h2 class="anchored" data-anchor-id="第二段-priming-與-library-loading">第二段 Priming 與 Library Loading</h2>
+<ol type="1">
+<li>5 min 等待結束後，由 waste port 1 移除所有 waste buffer（P1000 設定 1,000 µL，緩慢抽出）。</li>
+<li>開啟 priming port。</li>
+<li>輕輕打開 SpotON sample port cover。</li>
+<li>由 <strong>priming port</strong> 加入 <strong>200 µL priming mix</strong>，注入時間至少 5 秒（注意：不是從 SpotON port 加入）。</li>
+<li>上樣前將 75 µL loading mix 輕柔 pipette mix（LIB 使用前立即混勻）。</li>
+<li>以 <strong>dropwise</strong> 方式由 SpotON sample port 加入 75 µL loading mix；每一滴完全進入 port 後，再加下一滴。</li>
+<li>蓋回 SpotON sample port cover，確認 bung 進入 SpotON port。</li>
+<li>關閉 priming port。</li>
+<li>裝回 light shield，關閉 device lid。</li>
+<li>在 MinKNOW 建立新的 sequencing run。</li>
+</ol>
+</section>
+<section id="reload-紀錄表" class="level2">
+<h2 class="anchored" data-anchor-id="reload-紀錄表">Reload 紀錄表</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>欄位</th>
+<th>紀錄</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Date / Operator</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Flow cell ID</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Previous run ID</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Previous sample / barcode set</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wash start time</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wash end time（1 hr incubation 結束）</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Waste removed after wash</td>
+<td>Yes / No</td>
+</tr>
+<tr class="even">
+<td>Second library ID</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Second kit / barcode set</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Reload priming time（800 µL flush 時間）</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Library loading time</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Library loading volume</td>
+<td>75 µL / other</td>
+</tr>
+<tr class="odd">
+<td>First pore scan after reload（新 run 啟動後）</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Cross-contamination concern</td>
+<td>Low / Medium / High</td>
+</tr>
+<tr class="odd">
+<td>備註</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="何時不建議-reload" class="level2">
+<h2 class="anchored" data-anchor-id="何時不建議-reload">何時不建議 Reload</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>狀況</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第二個樣本為關鍵診斷或核心研究樣本</td>
+<td>Reuse flow cell 有較多不確定性，效能難以保證</td>
+</tr>
+<tr class="even">
+<td>前一 run 有高 abundance target，第二 run 需檢出低 abundance target</td>
+<td>Carryover 風險不可忽視</td>
+</tr>
+<tr class="odd">
+<td>前一 run 發生明顯 air bubble 或 pore 急遽下降</td>
+<td>Flow cell 狀態不穩定，wash 後效能難以預期</td>
+</tr>
+<tr class="even">
+<td>需建立正式方法性能資料</td>
+<td>方法驗證階段優先使用新 flow cell，降低 confounder</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="本頁資料來源" class="level2">
+<h2 class="anchored" data-anchor-id="本頁資料來源">本頁資料來源</h2>
+<ul>
+<li>Oxford Nanopore Technologies. <em>Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol</em> (WFC_9120_v1_revS_25Jul2025).</li>
+<li>Oxford Nanopore Technologies. <em>Kit 14 priming and loading sections: SQK-NBD114.24 / SQK-LSK114 / SQK-RPB114.24</em>.</li>
+</ul>
 
 
 </section>
