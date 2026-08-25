@@ -188,10 +188,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#建議-ratio-起點" id="toc-建議-ratio-起點" class="nav-link" data-scroll-target="#建議-ratio-起點">建議 ratio 起點</a></li>
   <li><a href="#標準操作流程" id="toc-標準操作流程" class="nav-link" data-scroll-target="#標準操作流程">標準操作流程</a>
   <ul class="collapse">
-  <li><a href="#操作前準備" id="toc-操作前準備" class="nav-link" data-scroll-target="#操作前準備">操作前準備</a></li>
-  <li><a href="#binding" id="toc-binding" class="nav-link" data-scroll-target="#binding">Binding</a></li>
-  <li><a href="#ethanol-wash" id="toc-ethanol-wash" class="nav-link" data-scroll-target="#ethanol-wash">Ethanol wash</a></li>
-  <li><a href="#elution" id="toc-elution" class="nav-link" data-scroll-target="#elution">Elution</a></li>
+  <li><a href="#cleanup-prep" id="toc-cleanup-prep" class="nav-link" data-scroll-target="#cleanup-prep">操作前準備</a></li>
+  <li><a href="#cleanup-binding" id="toc-cleanup-binding" class="nav-link" data-scroll-target="#cleanup-binding">Binding</a></li>
+  <li><a href="#cleanup-ethanol-wash" id="toc-cleanup-ethanol-wash" class="nav-link" data-scroll-target="#cleanup-ethanol-wash">Ethanol wash</a></li>
+  <li><a href="#cleanup-elution" id="toc-cleanup-elution" class="nav-link" data-scroll-target="#cleanup-elution">Elution</a></li>
   </ul></li>
   <li><a href="#volume-計算" id="toc-volume-計算" class="nav-link" data-scroll-target="#volume-計算">Volume 計算</a></li>
   <li><a href="#qc-checkpoint" id="toc-qc-checkpoint" class="nav-link" data-scroll-target="#qc-checkpoint">QC checkpoint</a></li>
@@ -416,8 +416,12 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Sera-Mag Select DNA clean-up workflow</figcaption>
 </figure>
 </div>
-<section id="操作前準備" class="level3">
-<h3 class="anchored" data-anchor-id="操作前準備">操作前準備</h3>
+<div class="print-controls">
+  <button type="button" id="print-cleanup-page">Print / Save as PDF</button>
+  <button type="button" id="reset-cleanup-checklist">清除勾選</button>
+</div>
+<section id="cleanup-prep" class="level3">
+<h3 class="anchored" data-anchor-id="cleanup-prep">操作前準備</h3>
 <ol type="1">
 <li>將 Sera-Mag Select beads 從 2-8°C 取出，回到室溫。</li>
 <li>充分混勻 beads，直到懸浮液均一；瓶底不可有沉降 beads。</li>
@@ -426,8 +430,8 @@ ul.task-list li input[type="checkbox"] {
 <li>若樣本體積低於 50 µL，先以 nuclease-free water 或 low TE 補到方便操作的體積，並記錄 dilution。</li>
 </ol>
 </section>
-<section id="binding" class="level3">
-<h3 class="anchored" data-anchor-id="binding">Binding</h3>
+<section id="cleanup-binding" class="level3">
+<h3 class="anchored" data-anchor-id="cleanup-binding">Binding</h3>
 <ol type="1">
 <li>將 DNA sample 置於 LoBind tube。</li>
 <li>依目標 ratio 加入 Sera-Mag Select beads。
@@ -447,8 +451,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="ethanol-wash" class="level3">
-<h3 class="anchored" data-anchor-id="ethanol-wash">Ethanol wash</h3>
+<section id="cleanup-ethanol-wash" class="level3">
+<h3 class="anchored" data-anchor-id="cleanup-ethanol-wash">Ethanol wash</h3>
 <ol type="1">
 <li>管子留在 magnet 上，加入 85% ethanol。
 <ul>
@@ -480,8 +484,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="elution" class="level3">
-<h3 class="anchored" data-anchor-id="elution">Elution</h3>
+<section id="cleanup-elution" class="level3">
+<h3 class="anchored" data-anchor-id="cleanup-elution">Elution</h3>
 <ol type="1">
 <li>加入 nuclease-free water、low TE 或 kit protocol 指定的 elution buffer。</li>
 <li>輕柔 resuspend beads。
@@ -717,64 +721,168 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="紀錄欄位" class="level2">
 <h2 class="anchored" data-anchor-id="紀錄欄位">紀錄欄位</h2>
-<table class="caption-top table">
+<details class="record-details">
+<summary>
+展開紀錄欄位
+</summary>
+<table class="record-sheet">
 <thead>
-<tr class="header">
-<th style="text-align: left;">欄位</th>
-<th style="text-align: left;">建議紀錄</th>
+<tr>
+<th>
+欄位
+</th>
+<th>
+提示
+</th>
+<th>
+現場紀錄
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Sample ID</td>
-<td style="text-align: left;">與建庫紀錄一致</td>
+<tr>
+<td>
+Sample ID
+</td>
+<td>
+與建庫紀錄一致
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Sample type</td>
-<td style="text-align: left;">gDNA、eDNA、PCR product、amplicon、amplified cDNA</td>
+<tr>
+<td>
+Date / operator
+</td>
+<td>
+操作日期與人員
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Starting volume</td>
-<td style="text-align: left;">clean-up 前樣本體積</td>
+<tr>
+<td>
+Sample type
+</td>
+<td>
+gDNA / eDNA / PCR product / amplicon / amplified cDNA
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Beads lot</td>
-<td style="text-align: left;">Sera-Mag Select lot number</td>
+<tr>
+<td>
+Starting volume
+</td>
+<td>
+clean-up 前樣本體積
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Beads ratio</td>
-<td style="text-align: left;">例如 0.8x、1.0x、2.5x</td>
+<tr>
+<td>
+Beads lot
+</td>
+<td>
+Sera-Mag Select lot number
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Beads volume</td>
-<td style="text-align: left;">實際加入體積</td>
+<tr>
+<td>
+Beads ratio
+</td>
+<td>
+例如 0.8x、1.0x、2.5x
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Ethanol</td>
-<td style="text-align: left;">85% ethanol，新鮮配置日期</td>
+<tr>
+<td>
+Beads volume
+</td>
+<td>
+實際加入體積
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Elution buffer / volume</td>
-<td style="text-align: left;">nuclease-free water、low TE 或 kit buffer</td>
+<tr>
+<td>
+Ethanol
+</td>
+<td>
+85% ethanol，新鮮配置日期
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Qubit before / after</td>
-<td style="text-align: left;">concentration、total amount、recovery %</td>
+<tr>
+<td>
+Elution buffer / volume
+</td>
+<td>
+nuclease-free water、low TE 或 kit buffer
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Purity before / after</td>
-<td style="text-align: left;">A260/A280、A260/A230</td>
+<tr>
+<td>
+Qubit before / after
+</td>
+<td>
+concentration、total amount、recovery %
+</td>
+<td class="write-cell tall-cell">
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Fragment profile</td>
-<td style="text-align: left;">gel / TapeStation / Bioanalyzer 結果摘要</td>
+<tr>
+<td>
+Purity before / after
+</td>
+<td>
+A260/A280、A260/A230
+</td>
+<td class="write-cell">
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Final decision</td>
-<td style="text-align: left;">GO、GO with caution、Repeat clean-up、No-go</td>
+<tr>
+<td>
+Fragment profile
+</td>
+<td>
+gel / TapeStation / Bioanalyzer 結果摘要
+</td>
+<td class="write-cell tall-cell">
+</td>
+</tr>
+<tr>
+<td>
+Final decision
+</td>
+<td>
+GO / GO with caution / Repeat clean-up / No-go
+</td>
+<td class="write-cell">
+</td>
+</tr>
+<tr>
+<td>
+Notes
+</td>
+<td>
+異常、重做、偏離 SOP 或下游建議
+</td>
+<td class="write-cell tall-cell">
+</td>
 </tr>
 </tbody>
 </table>
+</details>
 </section>
 <section id="資料來源" class="level2">
 <h2 class="anchored" data-anchor-id="資料來源">資料來源</h2>
@@ -783,6 +891,214 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.cytivalifesciences.com/en/us/support/documentation/instructions-for-use">Cytiva documentation search</a></li>
 <li><a href="https://www.cytivalifesciences.co.jp/catalog/44160.html">Cytiva Sera-Mag Select product information</a></li>
 </ul>
+<style>
+.print-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+}
+.print-controls button {
+  border: 1px solid #b8c2cc;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #243b53;
+  padding: 0.45rem 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.print-controls button#print-cleanup-page {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+.protocol-checkbox {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.45rem;
+  vertical-align: -0.12rem;
+}
+.protocol-step-done {
+  color: #64748b;
+}
+.record-details {
+  margin: 0.75rem 0 1.5rem;
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+}
+.record-details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.record-details table {
+  margin-top: 0.75rem;
+  background: #ffffff;
+}
+.record-sheet {
+  table-layout: fixed;
+  width: 100%;
+}
+.record-sheet th:nth-child(1),
+.record-sheet td:nth-child(1) {
+  width: 24%;
+}
+.record-sheet th:nth-child(2),
+.record-sheet td:nth-child(2) {
+  width: 36%;
+}
+.record-sheet th:nth-child(3),
+.record-sheet td:nth-child(3) {
+  width: 40%;
+}
+.record-sheet .write-cell {
+  min-height: 2rem;
+  background: #ffffff;
+}
+.record-sheet .tall-cell {
+  height: 3rem;
+}
+@media print {
+  body.cleanup-print-mode .navbar,
+  body.cleanup-print-mode .quarto-sidebar-toggle,
+  body.cleanup-print-mode #quarto-search,
+  body.cleanup-print-mode #TOC,
+  body.cleanup-print-mode .print-controls,
+  body.cleanup-print-mode .callout,
+  body.cleanup-print-mode #title-block-header,
+  body.cleanup-print-mode main > section:not(#標準操作流程):not(#紀錄欄位) {
+    display: none !important;
+  }
+  body.cleanup-print-mode .page-columns,
+  body.cleanup-print-mode .content {
+    display: block !important;
+    max-width: none !important;
+  }
+  body.cleanup-print-mode main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.cleanup-print-mode #標準操作流程,
+  body.cleanup-print-mode #紀錄欄位 {
+    display: block !important;
+    break-inside: avoid;
+  }
+  body.cleanup-print-mode #紀錄欄位 {
+    margin-top: 0.7rem;
+  }
+  body.cleanup-print-mode .record-details {
+    border: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  body.cleanup-print-mode .record-details summary {
+    display: none;
+  }
+  body.cleanup-print-mode .record-details table {
+    width: 100%;
+  }
+  body.cleanup-print-mode .record-sheet th,
+  body.cleanup-print-mode .record-sheet td {
+    border: 1px solid #6b7280 !important;
+    padding: 0.22rem 0.35rem !important;
+    vertical-align: top;
+  }
+  body.cleanup-print-mode .record-sheet .write-cell {
+    height: 1.7rem;
+  }
+  body.cleanup-print-mode .record-sheet .tall-cell {
+    height: 2.6rem;
+  }
+  body.cleanup-print-mode h2,
+  body.cleanup-print-mode h3 {
+    margin-top: 0.45rem;
+    margin-bottom: 0.25rem;
+  }
+  body.cleanup-print-mode ol,
+  body.cleanup-print-mode ul {
+    margin-top: 0.15rem;
+    margin-bottom: 0.25rem;
+  }
+  body.cleanup-print-mode li {
+    margin-bottom: 0.1rem;
+  }
+  body.cleanup-print-mode p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.35rem;
+  }
+  body.cleanup-print-mode a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  let recordDetailsWasOpen = false;
+  let cleanupPrintPrepared = false;
+
+  const checklistSections = [
+    "cleanup-prep",
+    "cleanup-binding",
+    "cleanup-ethanol-wash",
+    "cleanup-elution"
+  ];
+
+  checklistSections.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    section.querySelectorAll(":scope > ol > li").forEach((item, index) => {
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.className = "protocol-checkbox";
+      checkbox.setAttribute("aria-label", `${sectionId} step ${index + 1}`);
+      checkbox.addEventListener("change", () => {
+        item.classList.toggle("protocol-step-done", checkbox.checked);
+      });
+      item.prepend(checkbox);
+    });
+  });
+
+  const printButton = document.getElementById("print-cleanup-page");
+  if (printButton) {
+    printButton.addEventListener("click", () => {
+      prepareCleanupPrint();
+      window.print();
+    });
+  }
+
+  const resetButton = document.getElementById("reset-cleanup-checklist");
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      document.querySelectorAll(".protocol-checkbox").forEach((checkbox) => {
+        checkbox.checked = false;
+        checkbox.closest("li")?.classList.remove("protocol-step-done");
+      });
+    });
+  }
+
+  function prepareCleanupPrint() {
+    if (cleanupPrintPrepared) return;
+    const recordDetails = document.querySelector(".record-details");
+    recordDetailsWasOpen = Boolean(recordDetails?.open);
+    cleanupPrintPrepared = true;
+    document.body.classList.add("cleanup-print-mode");
+    if (recordDetails) recordDetails.open = true;
+  }
+
+  function restoreCleanupPrint() {
+    const recordDetails = document.querySelector(".record-details");
+    if (recordDetails && !recordDetailsWasOpen) recordDetails.open = false;
+    document.body.classList.remove("cleanup-print-mode");
+    cleanupPrintPrepared = false;
+  }
+
+  window.addEventListener("beforeprint", prepareCleanupPrint);
+  window.addEventListener("afterprint", restoreCleanupPrint);
+});
+</script>
 
 
 </section>
