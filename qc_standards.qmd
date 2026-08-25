@@ -14,6 +14,10 @@ format:
 本頁為 DNA / gDNA / amplicon 導向 QC。RNA 或 cDNA-PCR 建庫請改看 [RNA / cDNA 核酸 QC 標準](rna_cdna_qc_standards.qmd)。
 :::
 
+::: {.callout-note appearance="simple"}
+若樣本需在建庫前去除 primer dimer、短片段、鹽類或抑制物，可參考 [DNA sample clean-up](dna_sample_cleanup.qmd)。
+:::
+
 ::: {.callout-warning}
 ## NanoDrop 與 Qubit 的差異
 

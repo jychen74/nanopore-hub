@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="title desc">
+  <title id="title">Sera-Mag Select DNA clean-up workflow</title>
+  <desc id="desc">Six-step workflow: beads ready, add beads, binding, magnet separation, ethanol wash, elution and QC.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; }
+      .panel-wash { fill: #fff7ed; stroke: #fdba74; stroke-width: 2; }
+      .num { fill: #2563eb; }
+      .num-wash { fill: #d97706; }
+      .num-text { font: 700 21px Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: central; }
+      .title { font: 700 21px Arial, sans-serif; fill: #1f2937; text-anchor: middle; }
+      .body { font: 17px Arial, sans-serif; fill: #475569; text-anchor: middle; }
+      .note { font: 14px Arial, sans-serif; fill: #64748b; text-anchor: middle; }
+      .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .header { font: 700 28px Arial, sans-serif; fill: #1f2937; }
+      .subheader { font: 18px Arial, sans-serif; fill: #64748b; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1280" height="360" rx="18"/>
+  <text class="header" x="44" y="54">Sera-Mag Select DNA clean-up workflow</text>
+  <text class="subheader" x="44" y="84">Quick visual guide; use the detailed SOP below for actual operation.</text>
+
+  <g transform="translate(44 122)">
+    <rect class="panel" x="0" y="0" width="160" height="170" rx="10"/>
+    <circle class="num" cx="80" cy="35" r="21"/>
+    <text class="num-text" x="80" y="35">1</text>
+    <text class="title" x="80" y="79">Beads ready</text>
+    <text class="body" x="80" y="112">RT equilibrate</text>
+    <text class="note" x="80" y="141">mix until uniform</text>
+  </g>
+  <path class="arrow" d="M 211 207 H 247"/>
+
+  <g transform="translate(254 122)">
+    <rect class="panel" x="0" y="0" width="160" height="170" rx="10"/>
+    <circle class="num" cx="80" cy="35" r="21"/>
+    <text class="num-text" x="80" y="35">2</text>
+    <text class="title" x="80" y="79">Add beads</text>
+    <text class="body" x="80" y="112">sample x ratio</text>
+    <text class="note" x="80" y="141">record volume</text>
+  </g>
+  <path class="arrow" d="M 421 207 H 457"/>
+
+  <g transform="translate(464 122)">
+    <rect class="panel" x="0" y="0" width="160" height="170" rx="10"/>
+    <circle class="num" cx="80" cy="35" r="21"/>
+    <text class="num-text" x="80" y="35">3</text>
+    <text class="title" x="80" y="79">Binding</text>
+    <text class="body" x="80" y="112">5-10 min</text>
+    <text class="note" x="80" y="141">gentle for HMW</text>
+  </g>
+  <path class="arrow" d="M 631 207 H 667"/>
+
+  <g transform="translate(674 122)">
+    <rect class="panel" x="0" y="0" width="160" height="170" rx="10"/>
+    <circle class="num" cx="80" cy="35" r="21"/>
+    <text class="num-text" x="80" y="35">4</text>
+    <text class="title" x="80" y="79">Magnet</text>
+    <text class="body" x="80" y="112">about 5 min</text>
+    <text class="note" x="80" y="141">wait until clear</text>
+  </g>
+  <path class="arrow" d="M 841 207 H 877"/>
+
+  <g transform="translate(884 122)">
+    <rect class="panel-wash" x="0" y="0" width="160" height="170" rx="10"/>
+    <circle class="num-wash" cx="80" cy="35" r="21"/>
+    <text class="num-text" x="80" y="35">5</text>
+    <text class="title" x="80" y="79">85% EtOH</text>
+    <text class="body" x="80" y="112">wash x2</text>
+    <text class="note" x="80" y="141">avoid carryover</text>
+  </g>
+  <path class="arrow" d="M 1051 207 H 1087"/>
+
+  <g transform="translate(1094 122)">
+    <rect class="panel" x="0" y="0" width="160" height="170" rx="10"/>
+    <circle class="num" cx="80" cy="35" r="21"/>
+    <text class="num-text" x="80" y="35">6</text>
+    <text class="title" x="80" y="79">Elute + QC</text>
+    <text class="body" x="80" y="112">recover DNA</text>
+    <text class="note" x="80" y="141">Qubit dsDNA HS</text>
+  </g>
+</svg>

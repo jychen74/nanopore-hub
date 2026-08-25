@@ -12,6 +12,10 @@ website:
         text: "首頁"
       - href: ont_product_selector.qmd
         text: "ONT 產品選擇器"
+      - text: "樣本處理"
+        menu:
+          - href: dna_sample_cleanup.qmd
+            text: "DNA sample clean-up"
       - text: "DNA / eDNA"
         menu:
           - href: dna_edna_sequencing.qmd

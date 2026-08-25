@@ -17,6 +17,7 @@ format:
 |:---|:---|:---:|:---:|
 | [核酸 QC 判定標準](qc_standards.qmd) | 所有樣本建庫前 | — | — |
 | [ONT 產品選擇器](ont_product_selector.qmd) | 依核酸類型、設備、用途查 kit / flow cell / 定價 | — | — |
+| [DNA sample clean-up](dna_sample_cleanup.qmd) | Sera-Mag Select beads clean-up / size selection | 依樣本 | — |
 | [SQK-RBK114.24](sop_rbk114.qmd) | 多樣本、環境 DNA、低品質樣本 | 200 ng / 樣本 | ~55 min |
 | [SQK-NBD114.24](sop_nbd114.qmd) | 多樣本、高品質 gDNA、最長讀長 | 1,000 ng / 樣本 | ~140 min |
 | [SQK-LSK114](sop_lsk114.qmd) | 單樣本、最大化輸出量、甲基化分析 | 1,000 ng | ~80 min |

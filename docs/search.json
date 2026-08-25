@@ -371,6 +371,41 @@
     "text": "本頁資料來源\n\nOxford Nanopore Technologies. Flow Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL), MinION protocol (WFC_9120_v1_revS_25Jul2025).\nOxford Nanopore Technologies. Ligation sequencing amplicons - Native Barcoding Kit 24 V14 (SQK-NBD114.24) (NBA_9168_v114_revT_02Oct2025).\nOxford Nanopore Technologies. Rapid sequencing DNA V14 - barcoding (SQK-RBK114.24) (RBK_9176_v114_revS_27Oct2025)."
   },
   {
+    "objectID": "dna_edna_sequencing.html",
+    "href": "dna_edna_sequencing.html",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "",
+    "text": "本頁用於 DNA / eDNA / amplicon 樣本的 ONT kit 選擇。\n建庫前請先確認 DNA / eDNA 核酸 QC 標準，實際操作步驟請見 DNA / eDNA 建庫 protocol。"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#kit-選擇流程",
+    "href": "dna_edna_sequencing.html#kit-選擇流程",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "Kit 選擇流程",
+    "text": "Kit 選擇流程\n\n\n\n\n\n\n目標是 16S/ITS 微生物群落鑑定？\n\n是 → SQK-MAB114.24（16S rRNA / ITS amplicon，最多 24 samples）\n否 → 繼續判斷 DNA / eDNA 建庫方式\n\n\n\n\n\n\n\n\n\n\n需要多樣本 multiplex（barcoding）？\n是 → DNA 量是否充足（&gt;= 200 ng / sample）？\n\n是 → 高品質 gDNA（HMW fragment，A260/A230 &gt;= 2.0）？\n\n是 → SQK-NBD114.24（native barcoding，最長讀長，PCR-free）\n否 → SQK-RBK114.24（rapid barcoding，適合環境 / 糞便 / 低品質 DNA）\n\n否（DNA 量不足）→ DNA fragment 是否 &gt;= 4 kb，且可取到 1-5 ng？\n\n是 → SQK-RPB114.24（Rapid PCR Barcoding，低量 eDNA）\n否 → 重新提取、濃縮或改變樣本策略\n\n\n否（單樣本）→\n\n需要最大輸出量、最長讀長或保留 methylation → SQK-LSK114\n需要最快速 exploratory sequencing → SQK-RAD114"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#kit-比較",
+    "href": "dna_edna_sequencing.html#kit-比較",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "Kit 比較",
+    "text": "Kit 比較\n\n\n\n\n\n\n\n\n\n\n\n\n項目\nRBK114.24\nNBD114.24\nLSK114\nRPB114.24\nRAD114\nMAB114.24\n\n\n\n\n建庫方式\nRapid Barcoding\nNative Barcoding\nLigation\nRapid PCR Barcoding\nRapid\nAmplicon Barcoding\n\n\nDNA input\n200 ng / sample\n1,000 ng / sample\n1,000 ng\n1-5 ng / sample\n100-150 ng\n10 ng / sample\n\n\n建庫時間\n~55 min\n~140 min\n~80 min\n~90 min\n~10 min\n~75 min + PCR\n\n\n最多樣本數\n24\n24\n1\n24\n1\n24\n\n\nPCR\n否\n否\n否\n是\n否\n是\n\n\n讀長期待\n中等\n最長\n最長\n&lt; 5 kb\n中等\nAmplicon 長度\n\n\n甲基化保留\n是\n是\n是\n否\n是\n否\n\n\nFragment 要求\nPartial 可\nHMW 優先\nHMW 優先\n&gt;= 4 kb 必要\nHMW 優先\n無要求\n\n\n抑制物耐受\n高\n低\n低\n中\n高\n中\n\n\nFlow cell\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#依樣本類型快速判斷",
+    "href": "dna_edna_sequencing.html#依樣本類型快速判斷",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "依樣本類型快速判斷",
+    "text": "依樣本類型快速判斷\n\n\n\n\n\n\n\n\n樣本 / 目的\n優先 kit\n備註\n\n\n\n\n高品質 gDNA，多樣本\nSQK-NBD114.24\nPCR-free，讀長較佳，對 input quality 較敏感\n\n\n環境、糞便、抑制物風險較高\nSQK-RBK114.24\n快速、操作較簡單，適合常規 metagenomics\n\n\n水體過濾膜、低量 eDNA\nSQK-RPB114.24\nPCR-based；input DNA 仍需 &gt;= 4 kb\n\n\n單樣本、高品質 gDNA、最大輸出\nSQK-LSK114\n適合 assembly、SV、methylation\n\n\n單樣本、最快速測試\nSQK-RAD114\n適合 exploratory run，不適合 multiplex\n\n\n16S / ITS 群落鑑定\nSQK-MAB114.24\n下游可搭配 EPI2ME wf-16s"
+  },
+  {
+    "objectID": "dna_edna_sequencing.html#protocol-入口",
+    "href": "dna_edna_sequencing.html#protocol-入口",
+    "title": "DNA / eDNA Kit 選擇",
+    "section": "Protocol 入口",
+    "text": "Protocol 入口\n完整操作步驟集中於 DNA / eDNA 建庫 protocol。"
+  },
+  {
     "objectID": "dna_edna_protocols.html",
     "href": "dna_edna_protocols.html",
     "title": "DNA / eDNA 建庫 protocol",
@@ -406,39 +441,88 @@
     "text": "選擇提示\n\n\n\n樣本 / 目的\n優先考慮\n\n\n\n\n高品質 gDNA、多樣本、想保留最長讀長\nSQK-NBD114.24\n\n\n環境 / 糞便 / 抑制物風險較高、多樣本\nSQK-RBK114.24\n\n\nDNA 極低量但片段仍 &gt;= 4 kb\nSQK-RPB114.24\n\n\n單樣本、最大輸出與甲基化分析\nSQK-LSK114\n\n\n單樣本、快速 exploratory sequencing\nSQK-RAD114\n\n\n16S / ITS microbial community profiling\nSQK-MAB114.24"
   },
   {
-    "objectID": "dna_edna_sequencing.html",
-    "href": "dna_edna_sequencing.html",
-    "title": "DNA / eDNA Kit 選擇",
+    "objectID": "dna_sample_cleanup.html",
+    "href": "dna_sample_cleanup.html",
+    "title": "DNA sample clean-up",
     "section": "",
-    "text": "本頁用於 DNA / eDNA / amplicon 樣本的 ONT kit 選擇。\n建庫前請先確認 DNA / eDNA 核酸 QC 標準，實際操作步驟請見 DNA / eDNA 建庫 protocol。"
+    "text": "本頁整理以 Sera-Mag Select beads 進行 DNA / cDNA / amplicon clean-up 的操作原則，作為 Nanopore 建庫前與建庫中 clean-up 的參考。\n本頁不是 ONT 官方 protocol；若 kit protocol 已指定 AMPure XP、SPRIselect、SFB、LFB 或其他 beads / buffer，仍以該 kit protocol 為主。"
   },
   {
-    "objectID": "dna_edna_sequencing.html#kit-選擇流程",
-    "href": "dna_edna_sequencing.html#kit-選擇流程",
-    "title": "DNA / eDNA Kit 選擇",
-    "section": "Kit 選擇流程",
-    "text": "Kit 選擇流程\n\n\n\n\n\n\n目標是 16S/ITS 微生物群落鑑定？\n\n是 → SQK-MAB114.24（16S rRNA / ITS amplicon，最多 24 samples）\n否 → 繼續判斷 DNA / eDNA 建庫方式\n\n\n\n\n\n\n\n\n\n\n需要多樣本 multiplex（barcoding）？\n是 → DNA 量是否充足（&gt;= 200 ng / sample）？\n\n是 → 高品質 gDNA（HMW fragment，A260/A230 &gt;= 2.0）？\n\n是 → SQK-NBD114.24（native barcoding，最長讀長，PCR-free）\n否 → SQK-RBK114.24（rapid barcoding，適合環境 / 糞便 / 低品質 DNA）\n\n否（DNA 量不足）→ DNA fragment 是否 &gt;= 4 kb，且可取到 1-5 ng？\n\n是 → SQK-RPB114.24（Rapid PCR Barcoding，低量 eDNA）\n否 → 重新提取、濃縮或改變樣本策略\n\n\n否（單樣本）→\n\n需要最大輸出量、最長讀長或保留 methylation → SQK-LSK114\n需要最快速 exploratory sequencing → SQK-RAD114"
+    "objectID": "dna_sample_cleanup.html#適用情境",
+    "href": "dna_sample_cleanup.html#適用情境",
+    "title": "DNA sample clean-up",
+    "section": "適用情境",
+    "text": "適用情境\n\n\n\n\n\n\n\n\n情境\n是否適合\n重點\n\n\n\n\nPCR product clean-up\n適合\n去除 primer、dNTP、enzyme、buffer salts\n\n\n16S / ITS amplicon clean-up\n適合\n依 amplicon 長度選擇 ratio，避免過度丟失短 amplicon\n\n\ncDNA-PCR amplified cDNA clean-up\n適合\nPCR 後以 Qubit dsDNA HS + size profile 判斷是否可進 adapter attachment\n\n\ngDNA clean-up\n可用，但需保守\nHMW DNA 容易因混勻、吸打、乾燥過度而 shearing 或 recovery 下降\n\n\nlow-input eDNA / pathogen DNA\n謹慎\nclean-up 可能降低 target recovery；除非污染物明顯影響建庫，否則不要過度純化\n\n\nRNA input clean-up\n不預設適用\n需另用 RNA 專用方法或 kit-specific 建議"
   },
   {
-    "objectID": "dna_edna_sequencing.html#kit-比較",
-    "href": "dna_edna_sequencing.html#kit-比較",
-    "title": "DNA / eDNA Kit 選擇",
-    "section": "Kit 比較",
-    "text": "Kit 比較\n\n\n\n\n\n\n\n\n\n\n\n\n項目\nRBK114.24\nNBD114.24\nLSK114\nRPB114.24\nRAD114\nMAB114.24\n\n\n\n\n建庫方式\nRapid Barcoding\nNative Barcoding\nLigation\nRapid PCR Barcoding\nRapid\nAmplicon Barcoding\n\n\nDNA input\n200 ng / sample\n1,000 ng / sample\n1,000 ng\n1-5 ng / sample\n100-150 ng\n10 ng / sample\n\n\n建庫時間\n~55 min\n~140 min\n~80 min\n~90 min\n~10 min\n~75 min + PCR\n\n\n最多樣本數\n24\n24\n1\n24\n1\n24\n\n\nPCR\n否\n否\n否\n是\n否\n是\n\n\n讀長期待\n中等\n最長\n最長\n&lt; 5 kb\n中等\nAmplicon 長度\n\n\n甲基化保留\n是\n是\n是\n否\n是\n否\n\n\nFragment 要求\nPartial 可\nHMW 優先\nHMW 優先\n&gt;= 4 kb 必要\nHMW 優先\n無要求\n\n\n抑制物耐受\n高\n低\n低\n中\n高\n中\n\n\nFlow cell\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114\nFLO-MIN114"
+    "objectID": "dna_sample_cleanup.html#原理與-ratio",
+    "href": "dna_sample_cleanup.html#原理與-ratio",
+    "title": "DNA sample clean-up",
+    "section": "原理與 ratio",
+    "text": "原理與 ratio\nSera-Mag Select 屬於 SPRI-style magnetic bead reagent。DNA 是否會被 beads 捕捉，取決於 PEG / salt 條件與 beads:sample ratio。基本原則是：\n\n\n\n\n\n\n\nRatio 趨勢\n影響\n\n\n\n\n較高 beads:sample ratio\n較短 DNA fragments 也會被回收，適合 PCR product recovery 或一般 clean-up\n\n\n較低 beads:sample ratio\n偏向保留較長 fragments，短片段、primer dimer、adapter dimer 較容易留在 supernatant\n\n\n過窄 size selection\n可改善片段範圍，但會犧牲總 recovery\n\n\n\n\n\n\n\n\n\n警告\n\n\n\nratio 不是固定 universal cutoff。sample buffer、PEG、ethanol、glycerol、salt、DNA input amount、fragment distribution 與 pipetting precision 都會影響 size selection。第一次導入新樣本類型時，建議先用非珍貴樣本或 pooled sample 做小規模測試。"
   },
   {
-    "objectID": "dna_edna_sequencing.html#依樣本類型快速判斷",
-    "href": "dna_edna_sequencing.html#依樣本類型快速判斷",
-    "title": "DNA / eDNA Kit 選擇",
-    "section": "依樣本類型快速判斷",
-    "text": "依樣本類型快速判斷\n\n\n\n\n\n\n\n\n樣本 / 目的\n優先 kit\n備註\n\n\n\n\n高品質 gDNA，多樣本\nSQK-NBD114.24\nPCR-free，讀長較佳，對 input quality 較敏感\n\n\n環境、糞便、抑制物風險較高\nSQK-RBK114.24\n快速、操作較簡單，適合常規 metagenomics\n\n\n水體過濾膜、低量 eDNA\nSQK-RPB114.24\nPCR-based；input DNA 仍需 &gt;= 4 kb\n\n\n單樣本、高品質 gDNA、最大輸出\nSQK-LSK114\n適合 assembly、SV、methylation\n\n\n單樣本、最快速測試\nSQK-RAD114\n適合 exploratory run，不適合 multiplex\n\n\n16S / ITS 群落鑑定\nSQK-MAB114.24\n下游可搭配 EPI2ME wf-16s"
+    "objectID": "dna_sample_cleanup.html#建議-ratio-起點",
+    "href": "dna_sample_cleanup.html#建議-ratio-起點",
+    "title": "DNA sample clean-up",
+    "section": "建議 ratio 起點",
+    "text": "建議 ratio 起點\n以下是內部使用的起始判斷，不取代 kit protocol。\n\n\n\n\n\n\n\n\n\n目的\n建議起始 ratio\n主要保留\n主要去除 / 降低\n\n\n\n\n一般 PCR product / amplicon recovery\n1.0x\n約 500 bp 以上 PCR product 多數可回收\nprimer、短 oligo、部分短片段\n\n\n最大化 DNA recovery\n2.0x-2.5x\n盡量回收 &gt;= 100 bp DNA\nsalts、enzyme、nucleotides；短片段也可能一起保留\n\n\nONT HMW DNA 保守 clean-up\n0.4x-0.6x\n較長 DNA fragments\n短片段比例下降，但 recovery 可能下降\n\n\n去除 primer dimer / adapter dimer\n0.7x-0.9x 起測\n目標片段\n小片段、dimer\n\n\ndual-side size selection\n需先小測\n指定片段範圍\n過短與過長 fragments，但 yield 下降\n\n\n\n\n\n\n\n\n\n註釋\n\n\n\n若目標是 Nanopore long-read output，不建議為了追求乾淨的 profile 而做過窄 size selection。對低量或珍貴樣本，保留足夠 input 通常比追求漂亮膠圖更重要。"
   },
   {
-    "objectID": "dna_edna_sequencing.html#protocol-入口",
-    "href": "dna_edna_sequencing.html#protocol-入口",
-    "title": "DNA / eDNA Kit 選擇",
-    "section": "Protocol 入口",
-    "text": "Protocol 入口\n完整操作步驟集中於 DNA / eDNA 建庫 protocol。"
+    "objectID": "dna_sample_cleanup.html#標準操作流程",
+    "href": "dna_sample_cleanup.html#標準操作流程",
+    "title": "DNA sample clean-up",
+    "section": "標準操作流程",
+    "text": "標準操作流程\n以下以單管操作為例；多樣本請使用 LoBind tube / plate 並保持同一批 beads、同一批 ethanol、同一個 magnet 時間。\n\n\n\nSera-Mag Select DNA clean-up workflow\n\n\n\n操作前準備\n\n將 Sera-Mag Select beads 從 2-8°C 取出，回到室溫。\n充分混勻 beads，直到懸浮液均一；瓶底不可有沉降 beads。\n新鮮配置 85% ethanol。\n確認樣本體積、目標 ratio、預計 beads 體積與最終 elution volume。\n若樣本體積低於 50 µL，先以 nuclease-free water 或 low TE 補到方便操作的體積，並記錄 dilution。\n\n\n\nBinding\n\n將 DNA sample 置於 LoBind tube。\n依目標 ratio 加入 Sera-Mag Select beads。\n\n計算式：beads volume = sample volume x ratio\n\n以 pipette mix 或 gentle flick 充分混勻。\n\nHMW gDNA 避免劇烈 vortex。\n\n室溫孵育 5-10 min。\n放上 magnetic rack 約 5 min，或直到溶液完全澄清。\n小心移除 supernatant。\n\nRecovery mode：保留 beads。\nLeft-side / right-side selection：依設計決定保留 beads 或 supernatant。\n\n\n\n\nEthanol wash\n\n管子留在 magnet 上，加入 85% ethanol。\n\n避免沖散 beads。\n\n靜置約 30 s 後移除 ethanol。\n重複 ethanol wash 一次。\n第二次 wash 後盡量移除殘留 ethanol。\n\n可短暫 spin 後再放回 magnet，去除底部殘液。\n\n室溫乾燥約 3-5 min，直到 beads 表面不再發亮。\n\n不要過度乾燥至裂開。\n\n\n\n\n\n\n\n\n警告\n\n\n\nONT library 對 ethanol carryover 很敏感。若 ethanol 殘留，可能降低 ligation / adapter attachment 效率，也可能影響 pore performance。\n但 beads 過度乾燥會讓 DNA 難以 elute，特別是 HMW DNA。\n\n\n\n\nElution\n\n加入 nuclease-free water、low TE 或 kit protocol 指定的 elution buffer。\n輕柔 resuspend beads。\n\nHMW DNA 避免劇烈 vortex。\n\n室溫孵育 5-10 min。\n放回 magnet 約 5 min，直到 beads 完全吸附。\n將 eluate 轉移到新的 LoBind tube。\n\n避免吸到 beads。"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#volume-計算",
+    "href": "dna_sample_cleanup.html#volume-計算",
+    "title": "DNA sample clean-up",
+    "section": "Volume 計算",
+    "text": "Volume 計算\n\n\n\nSample volume\n0.5x\n0.8x\n1.0x\n1.8x\n2.5x\n\n\n\n\n20 µL\n10 µL\n16 µL\n20 µL\n36 µL\n50 µL\n\n\n50 µL\n25 µL\n40 µL\n50 µL\n90 µL\n125 µL\n\n\n100 µL\n50 µL\n80 µL\n100 µL\n180 µL\n250 µL\n\n\n200 µL\n100 µL\n160 µL\n200 µL\n360 µL\n500 µL"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#qc-checkpoint",
+    "href": "dna_sample_cleanup.html#qc-checkpoint",
+    "title": "DNA sample clean-up",
+    "section": "QC checkpoint",
+    "text": "QC checkpoint\n\n\n\n\n\n\n\n\n時點\n建議檢查\n判讀\n\n\n\n\nClean-up 前\nQubit dsDNA HS、NanoDrop、gel / TapeStation\n決定是否需要 cleanup，以及 ratio 是否要偏 recovery 或 size selection\n\n\nClean-up 後\nQubit dsDNA HS\n計算 recovery 與是否達 kit input\n\n\nClean-up 後\nNanoDrop A260/A280、A260/A230\n確認污染物是否改善；但濃度仍以 Qubit 為主\n\n\nClean-up 後\ngel / TapeStation / Bioanalyzer\n確認 fragment profile、primer dimer / adapter dimer 是否下降\n\n\n上機後\npore occupancy、yield、read length N50、短 read 比例\n回推是否可能有 ethanol、salt、beads 或短片段 carryover"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#判定標準",
+    "href": "dna_sample_cleanup.html#判定標準",
+    "title": "DNA sample clean-up",
+    "section": "判定標準",
+    "text": "判定標準\n\n\n\n\n\n\n\n\n結論\n條件\n建議\n\n\n\n\nGO\nQubit 達 kit input，A260/A230 改善，無明顯 beads / ethanol carryover，fragment profile 符合目的\n可進入建庫或 adapter attachment\n\n\nGO with caution\nrecovery 偏低但仍達 input，或 fragment profile 有部分短片段 / smear\n可做 exploratory run；報告中註明限制\n\n\nRepeat clean-up\n明顯 primer dimer / adapter dimer、A260/A230 仍低、或疑似 ethanol / salt carryover\n重新 cleanup 或調整 ratio，但注意 low-input 樣本損失\n\n\nNo-go\nQubit 不足、beads carryover 明顯、樣本過度 shearing 或無法達 kit input\n不建議進建庫；回到 extraction / PCR / sample strategy"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#常見問題",
+    "href": "dna_sample_cleanup.html#常見問題",
+    "title": "DNA sample clean-up",
+    "section": "常見問題",
+    "text": "常見問題\n\n\n\n\n\n\n\n\n現象\n可能原因\n處理\n\n\n\n\nRecovery 很低\nbeads 未完全回溫 / 混勻、ratio 太低、beads 過度乾燥、eluate 體積太小\nbeads 回溫並充分混勻；提高 ratio；縮短乾燥時間；增加 elution volume\n\n\n仍有 primer dimer\nratio 太高，短片段也被回收\n降低 ratio 或做 size selection 小測\n\n\nHMW DNA 變短\nvortex / pipetting 過度、磁珠混勻太劇烈\n改用 wide-bore tip、gentle inversion、減少吸打次數\n\n\nA260/A230 沒改善\n鹽類、phenol、guanidine 或 PEG carryover 仍存在\n重做 cleanup 或改用 column / precipitation strategy\n\n\n下游 pore 表現差\nethanol、salt、beads carryover 或過多短片段\n延長但不過度乾燥；避免吸到 beads；上機前確認 final library clean\n\n\n多樣本差異大\nbeads 分裝不均、magnet 時間不同、ethanol 新舊不一\n同批 beads 充分混勻後分裝；固定孵育與 magnet 時間"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#nanopore-建庫注意事項",
+    "href": "dna_sample_cleanup.html#nanopore-建庫注意事項",
+    "title": "DNA sample clean-up",
+    "section": "Nanopore 建庫注意事項",
+    "text": "Nanopore 建庫注意事項\n\n\n\n\n\n\n\nKit / 情境\nClean-up 風險\n\n\n\n\nSQK-LSK114 / SQK-NBD114.24\nHMW DNA 應避免劇烈混勻；過窄 size selection 會降低 input\n\n\nSQK-RBK114.24\nRapid chemistry 對 DNA 量與短片段較有彈性，但污染物仍會影響建庫\n\n\nSQK-RPB114.24\ninput 只有 1-5 ng 時，clean-up 造成的 loss 可能比污染物更嚴重\n\n\nSQK-MAB114.24\nPCR product clean-up 可去除 primer / dimer；但 ratio 要配合 amplicon 長度\n\n\nSQK-PCB114.24 / SQK-PCS114\npost-PCR amplified cDNA clean-up 後需用 Qubit dsDNA HS + size profile 判斷 50 fmol input"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#紀錄欄位",
+    "href": "dna_sample_cleanup.html#紀錄欄位",
+    "title": "DNA sample clean-up",
+    "section": "紀錄欄位",
+    "text": "紀錄欄位\n\n\n\n欄位\n建議紀錄\n\n\n\n\nSample ID\n與建庫紀錄一致\n\n\nSample type\ngDNA、eDNA、PCR product、amplicon、amplified cDNA\n\n\nStarting volume\nclean-up 前樣本體積\n\n\nBeads lot\nSera-Mag Select lot number\n\n\nBeads ratio\n例如 0.8x、1.0x、2.5x\n\n\nBeads volume\n實際加入體積\n\n\nEthanol\n85% ethanol，新鮮配置日期\n\n\nElution buffer / volume\nnuclease-free water、low TE 或 kit buffer\n\n\nQubit before / after\nconcentration、total amount、recovery %\n\n\nPurity before / after\nA260/A280、A260/A230\n\n\nFragment profile\ngel / TapeStation / Bioanalyzer 結果摘要\n\n\nFinal decision\nGO、GO with caution、Repeat clean-up、No-go"
+  },
+  {
+    "objectID": "dna_sample_cleanup.html#資料來源",
+    "href": "dna_sample_cleanup.html#資料來源",
+    "title": "DNA sample clean-up",
+    "section": "資料來源",
+    "text": "資料來源\n\nCytiva Sera-Mag Select Size Selection and PCR Cleanup Reagent User Guide 29435668 AB：PCR clean-up、recovery mode、left / right / dual-side size selection、85% ethanol wash 與操作注意事項。\nCytiva documentation search\nCytiva Sera-Mag Select product information"
   },
   {
     "objectID": "flowcell_wash_preserve.html",
@@ -508,7 +592,7 @@
     "href": "index.html#可用文件",
     "title": "Nanopore Sequencing Hub",
     "section": "📋 可用文件",
-    "text": "📋 可用文件\n\n\n\n文件\n適用情境\nDNA 投入量\n建庫時間\n\n\n\n\n核酸 QC 判定標準\n所有樣本建庫前\n—\n—\n\n\nONT 產品選擇器\n依核酸類型、設備、用途查 kit / flow cell / 定價\n—\n—\n\n\nSQK-RBK114.24\n多樣本、環境 DNA、低品質樣本\n200 ng / 樣本\n~55 min\n\n\nSQK-NBD114.24\n多樣本、高品質 gDNA、最長讀長\n1,000 ng / 樣本\n~140 min\n\n\nSQK-LSK114\n單樣本、最大化輸出量、甲基化分析\n1,000 ng\n~80 min\n\n\nSQK-RPB114.24\n超低量（1–5 ng）、eDNA、水體過濾膜\n1–5 ng / 樣本\n~90 min\n\n\nSQK-RAD114\n單樣本、最快速定序\n100–150 ng\n~10 min\n\n\nSQK-MAB114.24\n16S 細菌 / ITS 真菌群落鑑定\n10 ng / 樣本\n~75 min + PCR\n\n\nRNA / cDNA 定序\ntranscript / native RNA / cDNA-PCR kit 選擇\nRNA input\n依 kit"
+    "text": "📋 可用文件\n\n\n\n文件\n適用情境\nDNA 投入量\n建庫時間\n\n\n\n\n核酸 QC 判定標準\n所有樣本建庫前\n—\n—\n\n\nONT 產品選擇器\n依核酸類型、設備、用途查 kit / flow cell / 定價\n—\n—\n\n\nDNA sample clean-up\nSera-Mag Select beads clean-up / size selection\n依樣本\n—\n\n\nSQK-RBK114.24\n多樣本、環境 DNA、低品質樣本\n200 ng / 樣本\n~55 min\n\n\nSQK-NBD114.24\n多樣本、高品質 gDNA、最長讀長\n1,000 ng / 樣本\n~140 min\n\n\nSQK-LSK114\n單樣本、最大化輸出量、甲基化分析\n1,000 ng\n~80 min\n\n\nSQK-RPB114.24\n超低量（1–5 ng）、eDNA、水體過濾膜\n1–5 ng / 樣本\n~90 min\n\n\nSQK-RAD114\n單樣本、最快速定序\n100–150 ng\n~10 min\n\n\nSQK-MAB114.24\n16S 細菌 / ITS 真菌群落鑑定\n10 ng / 樣本\n~75 min + PCR\n\n\nRNA / cDNA 定序\ntranscript / native RNA / cDNA-PCR kit 選擇\nRNA input\n依 kit"
   },
   {
     "objectID": "index.html#kit-選擇決策流程",
@@ -592,7 +676,7 @@
     "href": "rna_cdna_qc_standards.html#cdna-pcr-流程中-qc",
     "title": "RNA / cDNA 核酸 QC 標準",
     "section": "cDNA-PCR 流程中 QC",
-    "text": "cDNA-PCR 流程中 QC\nSQK-PCB114.24 與 SQK-PCS114 的 workflow 會把 RNA 經過 reverse transcription、strand-switching 與 PCR amplification，產生 amplified double-stranded cDNA，再進入 Rapid Adapter attachment。\n\n\n\n\n\n\n\n\n\n時點\nQC 對象\n建議檢查\n判讀\n\n\n\n\n建庫前\nRNA input\nQubit RNA HS、NanoDrop purity、Bioanalyzer / TapeStation / Fragment Analyzer profile\n決定是否可以進入 cDNA-PCR workflow\n\n\nPCR 後 cleanup 後\namplified cDNA\nQubit dsDNA HS 檢查 quantity；Bioanalyzer / TapeStation 檢查 size、quality、primer dimer / smear\n判斷是否可取 50 fmol amplified cDNA 進入 adapter attachment\n\n\nAdapter attachment 後\nfinal cDNA library\nQubit 可作 loading 參考\n不能保證 transcript representation 或 sequencing output\n\n\n\n\n\n\n\n\n\n重要\n\n\n\ncDNA-PCR 的 post-PCR QC 不能只看 Qubit。\nONT protocol 的後續投入量是 50 fmol amplified cDNA；fmol 需要搭配 fragment size / size distribution 才能從 ng 換算。因此 Qubit dsDNA HS 是必要參考，但若要嚴謹判斷，應搭配 Bioanalyzer / TapeStation 或等效方法。\n\n\n\ncDNA-PCR post-PCR 判讀\n\n\n\n\n\n\n\n\n結果\n判讀\n建議\n\n\n\n\nQubit dsDNA HS 足量，size profile 合理，無明顯 primer dimer\ncDNA-PCR 成功，可進 adapter attachment\n依 protocol 取 50 fmol amplified cDNA\n\n\nQubit 足量但 fragment 偏短或 smear 明顯\n可能有 RNA degradation、over-cycling 或非特異產物\n可作 exploratory run；不建議作 full-length transcript 完整性結論\n\n\nQubit 低量但 profile 有目標範圍產物\n可能可嘗試上機，但 loading input 受限\n註明低 input；必要時增加 PCR cycles 或重做 RT-PCR\n\n\n主要是 primer dimer / very short fragments\n建庫風險高，會影響 pore loading 與有效 reads\n不建議直接上機；回頭檢查 RNA input、PCR cycle 與 cleanup"
+    "text": "cDNA-PCR 流程中 QC\nSQK-PCB114.24 與 SQK-PCS114 的 workflow 會把 RNA 經過 reverse transcription、strand-switching 與 PCR amplification，產生 amplified double-stranded cDNA，再進入 Rapid Adapter attachment。\n\n\n\n\n\n\n\n\n\n時點\nQC 對象\n建議檢查\n判讀\n\n\n\n\n建庫前\nRNA input\nQubit RNA HS、NanoDrop purity、Bioanalyzer / TapeStation / Fragment Analyzer profile\n決定是否可以進入 cDNA-PCR workflow\n\n\nPCR 後 cleanup 後\namplified cDNA\nQubit dsDNA HS 檢查 quantity；Bioanalyzer / TapeStation 檢查 size、quality、primer dimer / smear\n判斷是否可取 50 fmol amplified cDNA 進入 adapter attachment\n\n\nAdapter attachment 後\nfinal cDNA library\nQubit 可作 loading 參考\n不能保證 transcript representation 或 sequencing output\n\n\n\n\n\n\n\n\n\n重要\n\n\n\ncDNA-PCR 的 post-PCR QC 不能只看 Qubit。\nONT protocol 的後續投入量是 50 fmol amplified cDNA；fmol 需要搭配 fragment size / size distribution 才能從 ng 換算。因此 Qubit dsDNA HS 是必要參考，但若要嚴謹判斷，應搭配 Bioanalyzer / TapeStation 或等效方法。\n\n\n\n\n\n\n\n\n若 post-PCR amplified cDNA 需要 beads clean-up 或 size selection，可參考 DNA sample clean-up。此連結不適用於 RNA input clean-up。\n\n\n\n\ncDNA-PCR post-PCR 判讀\n\n\n\n\n\n\n\n\n結果\n判讀\n建議\n\n\n\n\nQubit dsDNA HS 足量，size profile 合理，無明顯 primer dimer\ncDNA-PCR 成功，可進 adapter attachment\n依 protocol 取 50 fmol amplified cDNA\n\n\nQubit 足量但 fragment 偏短或 smear 明顯\n可能有 RNA degradation、over-cycling 或非特異產物\n可作 exploratory run；不建議作 full-length transcript 完整性結論\n\n\nQubit 低量但 profile 有目標範圍產物\n可能可嘗試上機，但 loading input 受限\n註明低 input；必要時增加 PCR cycles 或重做 RT-PCR\n\n\n主要是 primer dimer / very short fragments\n建庫風險高，會影響 pore loading 與有效 reads\n不建議直接上機；回頭檢查 RNA input、PCR cycle 與 cleanup"
   },
   {
     "objectID": "rna_cdna_qc_standards.html#direct-rna-qc-重點",

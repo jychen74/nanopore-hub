@@ -112,6 +112,10 @@ cDNA-PCR 的 post-PCR QC 不能只看 Qubit。
 ONT protocol 的後續投入量是 **50 fmol amplified cDNA**；fmol 需要搭配 fragment size / size distribution 才能從 ng 換算。因此 Qubit dsDNA HS 是必要參考，但若要嚴謹判斷，應搭配 Bioanalyzer / TapeStation 或等效方法。
 :::
 
+::: {.callout-note appearance="simple"}
+若 post-PCR amplified cDNA 需要 beads clean-up 或 size selection，可參考 [DNA sample clean-up](dna_sample_cleanup.qmd)。此連結不適用於 RNA input clean-up。
+:::
+
 ### cDNA-PCR post-PCR 判讀
 
 | 結果 | 判讀 | 建議 |

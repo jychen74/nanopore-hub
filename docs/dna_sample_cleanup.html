@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SQK-LSK114 · Ligation Sequencing（單樣本）</title>
+<title>DNA sample clean-up</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -183,12 +183,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">本頁目錄</h2>
    
   <ul>
-  <li><a href="#kit-特性" id="toc-kit-特性" class="nav-link active" data-scroll-target="#kit-特性">📋 Kit 特性</a></li>
-  <li><a href="#投入量換算" id="toc-投入量換算" class="nav-link" data-scroll-target="#投入量換算">投入量換算</a></li>
-  <li><a href="#step-a-試劑準備" id="toc-step-a-試劑準備" class="nav-link" data-scroll-target="#step-a-試劑準備">Step A — 試劑準備</a></li>
-  <li><a href="#step-b-dna-repair-end-prep35-min" id="toc-step-b-dna-repair-end-prep35-min" class="nav-link" data-scroll-target="#step-b-dna-repair-end-prep35-min">Step B — DNA Repair &amp; End-Prep（~35 min）</a></li>
-  <li><a href="#step-c-adapter-ligation-clean-up20-min" id="toc-step-c-adapter-ligation-clean-up20-min" class="nav-link" data-scroll-target="#step-c-adapter-ligation-clean-up20-min">Step C — Adapter Ligation &amp; Clean-up（~20 min）</a></li>
-  <li><a href="#loading-mix-配製-上機量" id="toc-loading-mix-配製-上機量" class="nav-link" data-scroll-target="#loading-mix-配製-上機量">Loading Mix 配製 &amp; 上機量</a></li>
+  <li><a href="#適用情境" id="toc-適用情境" class="nav-link active" data-scroll-target="#適用情境">適用情境</a></li>
+  <li><a href="#原理與-ratio" id="toc-原理與-ratio" class="nav-link" data-scroll-target="#原理與-ratio">原理與 ratio</a></li>
+  <li><a href="#建議-ratio-起點" id="toc-建議-ratio-起點" class="nav-link" data-scroll-target="#建議-ratio-起點">建議 ratio 起點</a></li>
+  <li><a href="#標準操作流程" id="toc-標準操作流程" class="nav-link" data-scroll-target="#標準操作流程">標準操作流程</a>
+  <ul class="collapse">
+  <li><a href="#操作前準備" id="toc-操作前準備" class="nav-link" data-scroll-target="#操作前準備">操作前準備</a></li>
+  <li><a href="#binding" id="toc-binding" class="nav-link" data-scroll-target="#binding">Binding</a></li>
+  <li><a href="#ethanol-wash" id="toc-ethanol-wash" class="nav-link" data-scroll-target="#ethanol-wash">Ethanol wash</a></li>
+  <li><a href="#elution" id="toc-elution" class="nav-link" data-scroll-target="#elution">Elution</a></li>
+  </ul></li>
+  <li><a href="#volume-計算" id="toc-volume-計算" class="nav-link" data-scroll-target="#volume-計算">Volume 計算</a></li>
+  <li><a href="#qc-checkpoint" id="toc-qc-checkpoint" class="nav-link" data-scroll-target="#qc-checkpoint">QC checkpoint</a></li>
+  <li><a href="#判定標準" id="toc-判定標準" class="nav-link" data-scroll-target="#判定標準">判定標準</a></li>
+  <li><a href="#常見問題" id="toc-常見問題" class="nav-link" data-scroll-target="#常見問題">常見問題</a></li>
+  <li><a href="#nanopore-建庫注意事項" id="toc-nanopore-建庫注意事項" class="nav-link" data-scroll-target="#nanopore-建庫注意事項">Nanopore 建庫注意事項</a></li>
+  <li><a href="#紀錄欄位" id="toc-紀錄欄位" class="nav-link" data-scroll-target="#紀錄欄位">紀錄欄位</a></li>
+  <li><a href="#資料來源" id="toc-資料來源" class="nav-link" data-scroll-target="#資料來源">資料來源</a></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SQK-LSK114 · Ligation Sequencing（單樣本）</h1>
+<h1 class="title">DNA sample clean-up</h1>
 </div>
 
 
@@ -220,31 +231,77 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>版本：GDE_9161_v114_revAC_24Sep2025</strong><br>
-<strong>適用：單一樣本、最大化讀長與輸出量、甲基化分析 · 預估時間 ~65 min</strong><br>
-方法：DNA Repair + End-prep → Ligation Adapter 直接連接；無 PCR、無 Barcoding</p>
+<p>本頁整理以 <strong>Sera-Mag Select beads</strong> 進行 DNA / cDNA / amplicon clean-up 的操作原則，作為 Nanopore 建庫前與建庫中 clean-up 的參考。<br>
+本頁不是 ONT 官方 protocol；若 kit protocol 已指定 AMPure XP、SPRIselect、SFB、LFB 或其他 beads / buffer，仍以該 kit protocol 為主。</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">警告</span>注意事項
+重要
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>⚠️ <strong>勿 vortex FFPE DNA Repair Mix 或 Ultra II End-prep Enzyme Mix</strong></li>
-<li>⚠️ Adapter ligation 後的 wash <strong>不可用 ethanol</strong>，改用 LFB 或 SFB</li>
-<li>⚠️ 建議完成後<strong>立即上機</strong>（4°C 可短期保存）</li>
-</ul>
+<p>本頁預設對象是 <strong>DNA、PCR product、amplicon、post-PCR amplified cDNA</strong>。<br>
+不要把本頁直接套用到 RNA input clean-up；RNA 樣本需要使用 RNA-compatible cleanup method，並重新確認 RNA recovery、fragment profile 與 downstream kit compatibility。</p>
 </div>
 </div>
-<section id="kit-特性" class="level2">
-<h2 class="anchored" data-anchor-id="kit-特性">📋 Kit 特性</h2>
+<section id="適用情境" class="level2">
+<h2 class="anchored" data-anchor-id="適用情境">適用情境</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 38%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">情境</th>
+<th style="text-align: center;">是否適合</th>
+<th style="text-align: left;">重點</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PCR product clean-up</td>
+<td style="text-align: center;">適合</td>
+<td style="text-align: left;">去除 primer、dNTP、enzyme、buffer salts</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16S / ITS amplicon clean-up</td>
+<td style="text-align: center;">適合</td>
+<td style="text-align: left;">依 amplicon 長度選擇 ratio，避免過度丟失短 amplicon</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cDNA-PCR amplified cDNA clean-up</td>
+<td style="text-align: center;">適合</td>
+<td style="text-align: left;">PCR 後以 Qubit dsDNA HS + size profile 判斷是否可進 adapter attachment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gDNA clean-up</td>
+<td style="text-align: center;">可用，但需保守</td>
+<td style="text-align: left;">HMW DNA 容易因混勻、吸打、乾燥過度而 shearing 或 recovery 下降</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">low-input eDNA / pathogen DNA</td>
+<td style="text-align: center;">謹慎</td>
+<td style="text-align: left;">clean-up 可能降低 target recovery；除非污染物明顯影響建庫，否則不要過度純化</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RNA input clean-up</td>
+<td style="text-align: center;">不預設適用</td>
+<td style="text-align: left;">需另用 RNA 專用方法或 kit-specific 建議</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="原理與-ratio" class="level2">
+<h2 class="anchored" data-anchor-id="原理與-ratio">原理與 ratio</h2>
+<p>Sera-Mag Select 屬於 SPRI-style magnetic bead reagent。DNA 是否會被 beads 捕捉，取決於 PEG / salt 條件與 beads:sample ratio。基本原則是：</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -252,155 +309,25 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">項目</th>
-<th style="text-align: left;">規格</th>
+<th style="text-align: left;">Ratio 趨勢</th>
+<th style="text-align: left;">影響</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>DNA 投入量</strong></td>
-<td style="text-align: left;"><strong>1 µg（或 100–200 fmol）</strong> HMW gDNA</td>
+<td style="text-align: left;">較高 beads:sample ratio</td>
+<td style="text-align: left;">較短 DNA fragments 也會被回收，適合 PCR product recovery 或一般 clean-up</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>建庫時間</strong></td>
-<td style="text-align: left;"><strong>~65 min</strong>（含 repair + end-prep 35 min + ligation 20 min）</td>
+<td style="text-align: left;">較低 beads:sample ratio</td>
+<td style="text-align: left;">偏向保留較長 fragments，短片段、primer dimer、adapter dimer 較容易留在 supernatant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Barcoding</strong></td>
-<td style="text-align: left;">❌ 無（單樣本）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>PCR</strong></td>
-<td style="text-align: left;">❌ 無（PCR-free，保留 native DNA 甲基化）</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Flow cell</strong></td>
-<td style="text-align: left;">R10.4.1（FLO-MIN114）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>適合樣本</strong></td>
-<td style="text-align: left;">高品質 gDNA、基因組組裝、SV 分析、甲基化修飾研究</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>與 NBD 差異</strong></td>
-<td style="text-align: left;">無 Barcode Ligation 步驟；使用 <strong>Ligation Adapter（LA）</strong> 而非 Native Adapter</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>獨特之處</strong></td>
-<td style="text-align: left;">含 <strong>FFPE DNA Repair</strong> 步驟（修復 nick 和氧化損傷，提升長讀長效率）</td>
+<td style="text-align: left;">過窄 size selection</td>
+<td style="text-align: left;">可改善片段範圍，但會犧牲總 recovery</td>
 </tr>
 </tbody>
 </table>
-<hr>
-</section>
-<section id="投入量換算" class="level2">
-<h2 class="anchored" data-anchor-id="投入量換算">投入量換算</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Fragment 長度</th>
-<th style="text-align: left;">建議起始量</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Very short（&lt; 1 kb）</td>
-<td style="text-align: left;">200 fmol</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Short（1–10 kb）</td>
-<td style="text-align: left;">100–200 fmol</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Long（&gt; 10 kb）</td>
-<td style="text-align: left;"><strong>1 µg</strong></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="step-a-試劑準備" class="level2">
-<h2 class="anchored" data-anchor-id="step-a-試劑準備">Step A — 試劑準備</h2>
-<p>所有試劑置冰上解凍，注意以下事項：</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">縮寫</th>
-<th style="text-align: left;">備注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">NEBNext FFPE DNA Repair Buffer v2</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">vortex 至沉澱完全溶解（可能有白色沉澱/黃色是正常的）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">NEBNext FFPE DNA Repair Mix</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">⚠️ <strong>勿 vortex</strong>，flick 混勻</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ultra II End-prep Enzyme Mix</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">⚠️ <strong>勿 vortex</strong>，flick 混勻</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AMPure XP Beads</td>
-<td style="text-align: left;"><strong>AXP</strong></td>
-<td style="text-align: left;">vortex 充分混勻</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DNA Control Sample</td>
-<td style="text-align: left;"><strong>DCS</strong></td>
-<td style="text-align: left;">可選用，加入可用於 troubleshooting</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ligation Adapter</td>
-<td style="text-align: left;"><strong>LA</strong></td>
-<td style="text-align: left;">spin down，pipette mix</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ligation Buffer</td>
-<td style="text-align: left;"><strong>LNB</strong></td>
-<td style="text-align: left;">flick 混勻</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Salt-T4® DNA Ligase（NEB M0467）</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">pipette mix，<strong>勿 vortex</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Long/Short Fragment Buffer</td>
-<td style="text-align: left;"><strong>LFB/SFB</strong></td>
-<td style="text-align: left;">依讀長需求選擇（LFB → &gt; 3 kb；SFB → 所有大小）</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Elution Buffer</td>
-<td style="text-align: left;"><strong>EB</strong></td>
-<td style="text-align: left;">解凍，vortex</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Thermal cycler 程式（提前設定）：</strong></p>
-<pre><code>Repair + End-prep：20°C 5 min → 65°C 5 min（hold 4°C）</code></pre>
-<hr>
-</section>
-<section id="step-b-dna-repair-end-prep35-min" class="level2">
-<h2 class="anchored" data-anchor-id="step-b-dna-repair-end-prep35-min">Step B — DNA Repair &amp; End-Prep（~35 min）</h2>
-<div id="lsk-B">
-
-</div>
-<hr>
-</section>
-<section id="step-c-adapter-ligation-clean-up20-min" class="level2">
-<h2 class="anchored" data-anchor-id="step-c-adapter-ligation-clean-up20-min">Step C — Adapter Ligation &amp; Clean-up（~20 min）</h2>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -411,164 +338,451 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>⚠️ Wash 步驟絕對不可用 ethanol！</strong> 改用 LFB 或 SFB：</p>
-<ul>
-<li><strong>LFB（Long Fragment Buffer）</strong> → 保留 &gt; 3 kb，去除短片段（建議用於長讀長應用）</li>
-<li><strong>SFB（Short Fragment Buffer）</strong> → 保留所有片段大小</li>
-</ul>
+<p>ratio 不是固定 universal cutoff。sample buffer、PEG、ethanol、glycerol、salt、DNA input amount、fragment distribution 與 pipetting precision 都會影響 size selection。第一次導入新樣本類型時，建議先用非珍貴樣本或 pooled sample 做小規模測試。</p>
 </div>
 </div>
-<div id="lsk-C">
-
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
+</section>
+<section id="建議-ratio-起點" class="level2">
+<h2 class="anchored" data-anchor-id="建議-ratio-起點">建議 ratio 起點</h2>
+<p>以下是內部使用的起始判斷，不取代 kit protocol。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 29%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">目的</th>
+<th style="text-align: center;">建議起始 ratio</th>
+<th style="text-align: left;">主要保留</th>
+<th style="text-align: left;">主要去除 / 降低</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">一般 PCR product / amplicon recovery</td>
+<td style="text-align: center;">1.0x</td>
+<td style="text-align: left;">約 500 bp 以上 PCR product 多數可回收</td>
+<td style="text-align: left;">primer、短 oligo、部分短片段</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">最大化 DNA recovery</td>
+<td style="text-align: center;">2.0x-2.5x</td>
+<td style="text-align: left;">盡量回收 &gt;= 100 bp DNA</td>
+<td style="text-align: left;">salts、enzyme、nucleotides；短片段也可能一起保留</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ONT HMW DNA 保守 clean-up</td>
+<td style="text-align: center;">0.4x-0.6x</td>
+<td style="text-align: left;">較長 DNA fragments</td>
+<td style="text-align: left;">短片段比例下降，但 recovery 可能下降</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">去除 primer dimer / adapter dimer</td>
+<td style="text-align: center;">0.7x-0.9x 起測</td>
+<td style="text-align: left;">目標片段</td>
+<td style="text-align: left;">小片段、dimer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dual-side size selection</td>
+<td style="text-align: center;">需先小測</td>
+<td style="text-align: left;">指定片段範圍</td>
+<td style="text-align: left;">過短與過長 fragments，但 yield 下降</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-提示
+註釋
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>✅ <strong>Library 完成！</strong><br>
-4°C 短期保存（可重複上機） ／ -80°C 長期保存（&gt; 3 個月）</p>
+<p>若目標是 Nanopore long-read output，不建議為了追求乾淨的 profile 而做過窄 size selection。對低量或珍貴樣本，保留足夠 input 通常比追求漂亮膠圖更重要。</p>
 </div>
 </div>
-<hr>
 </section>
-<section id="loading-mix-配製-上機量" class="level2">
-<h2 class="anchored" data-anchor-id="loading-mix-配製-上機量">Loading Mix 配製 &amp; 上機量</h2>
+<section id="標準操作流程" class="level2">
+<h2 class="anchored" data-anchor-id="標準操作流程">標準操作流程</h2>
+<p>以下以單管操作為例；多樣本請使用 LoBind tube / plate 並保持同一批 beads、同一批 ethanol、同一個 magnet 時間。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/seramag_cleanup_workflow.svg" class="img-fluid figure-img" alt="Sera-Mag Select DNA clean-up workflow: beads ready, add beads, binding, magnet separation, ethanol wash, elution and QC."></p>
+<figcaption>Sera-Mag Select DNA clean-up workflow</figcaption>
+</figure>
+</div>
+<section id="操作前準備" class="level3">
+<h3 class="anchored" data-anchor-id="操作前準備">操作前準備</h3>
+<ol type="1">
+<li>將 Sera-Mag Select beads 從 2-8°C 取出，回到室溫。</li>
+<li>充分混勻 beads，直到懸浮液均一；瓶底不可有沉降 beads。</li>
+<li>新鮮配置 85% ethanol。</li>
+<li>確認樣本體積、目標 ratio、預計 beads 體積與最終 elution volume。</li>
+<li>若樣本體積低於 50 µL，先以 nuclease-free water 或 low TE 補到方便操作的體積，並記錄 dilution。</li>
+</ol>
+</section>
+<section id="binding" class="level3">
+<h3 class="anchored" data-anchor-id="binding">Binding</h3>
+<ol type="1">
+<li>將 DNA sample 置於 LoBind tube。</li>
+<li>依目標 ratio 加入 Sera-Mag Select beads。
+<ul>
+<li>計算式：<code>beads volume = sample volume x ratio</code></li>
+</ul></li>
+<li>以 pipette mix 或 gentle flick 充分混勻。
+<ul>
+<li>HMW gDNA 避免劇烈 vortex。</li>
+</ul></li>
+<li>室溫孵育 5-10 min。</li>
+<li>放上 magnetic rack 約 5 min，或直到溶液完全澄清。</li>
+<li>小心移除 supernatant。
+<ul>
+<li>Recovery mode：保留 beads。</li>
+<li>Left-side / right-side selection：依設計決定保留 beads 或 supernatant。</li>
+</ul></li>
+</ol>
+</section>
+<section id="ethanol-wash" class="level3">
+<h3 class="anchored" data-anchor-id="ethanol-wash">Ethanol wash</h3>
+<ol type="1">
+<li>管子留在 magnet 上，加入 85% ethanol。
+<ul>
+<li>避免沖散 beads。</li>
+</ul></li>
+<li>靜置約 30 s 後移除 ethanol。</li>
+<li>重複 ethanol wash 一次。</li>
+<li>第二次 wash 後盡量移除殘留 ethanol。
+<ul>
+<li>可短暫 spin 後再放回 magnet，去除底部殘液。</li>
+</ul></li>
+<li>室溫乾燥約 3-5 min，直到 beads 表面不再發亮。
+<ul>
+<li>不要過度乾燥至裂開。</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+警告
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ONT library 對 ethanol carryover 很敏感。若 ethanol 殘留，可能降低 ligation / adapter attachment 效率，也可能影響 pore performance。<br>
+但 beads 過度乾燥會讓 DNA 難以 elute，特別是 HMW DNA。</p>
+</div>
+</div>
+</section>
+<section id="elution" class="level3">
+<h3 class="anchored" data-anchor-id="elution">Elution</h3>
+<ol type="1">
+<li>加入 nuclease-free water、low TE 或 kit protocol 指定的 elution buffer。</li>
+<li>輕柔 resuspend beads。
+<ul>
+<li>HMW DNA 避免劇烈 vortex。</li>
+</ul></li>
+<li>室溫孵育 5-10 min。</li>
+<li>放回 magnet 約 5 min，直到 beads 完全吸附。</li>
+<li>將 eluate 轉移到新的 LoBind tube。
+<ul>
+<li>避免吸到 beads。</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="volume-計算" class="level2">
+<h2 class="anchored" data-anchor-id="volume-計算">Volume 計算</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Fragment 長度</th>
-<th style="text-align: left;">Loading 量</th>
+<th style="text-align: center;">Sample volume</th>
+<th style="text-align: right;">0.5x</th>
+<th style="text-align: right;">0.8x</th>
+<th style="text-align: right;">1.0x</th>
+<th style="text-align: right;">1.8x</th>
+<th style="text-align: right;">2.5x</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Very short（&lt; 1 kb）</td>
-<td style="text-align: left;">100 fmol</td>
+<td style="text-align: center;">20 µL</td>
+<td style="text-align: right;">10 µL</td>
+<td style="text-align: right;">16 µL</td>
+<td style="text-align: right;">20 µL</td>
+<td style="text-align: right;">36 µL</td>
+<td style="text-align: right;">50 µL</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Short（1–10 kb）</td>
-<td style="text-align: left;">35–50 fmol</td>
+<td style="text-align: center;">50 µL</td>
+<td style="text-align: right;">25 µL</td>
+<td style="text-align: right;">40 µL</td>
+<td style="text-align: right;">50 µL</td>
+<td style="text-align: right;">90 µL</td>
+<td style="text-align: right;">125 µL</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Long（&gt; 10 kb）</td>
-<td style="text-align: left;"><strong>300 ng</strong></td>
+<td style="text-align: center;">100 µL</td>
+<td style="text-align: right;">50 µL</td>
+<td style="text-align: right;">80 µL</td>
+<td style="text-align: right;">100 µL</td>
+<td style="text-align: right;">180 µL</td>
+<td style="text-align: right;">250 µL</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">200 µL</td>
+<td style="text-align: right;">100 µL</td>
+<td style="text-align: right;">160 µL</td>
+<td style="text-align: right;">200 µL</td>
+<td style="text-align: right;">360 µL</td>
+<td style="text-align: right;">500 µL</td>
 </tr>
 </tbody>
 </table>
-<p>Priming mix（加 BSA 可改善 MinION R10.4.1 效能）：</p>
+</section>
+<section id="qc-checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="qc-checkpoint">QC checkpoint</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">試劑</th>
-<th style="text-align: left;">體積</th>
+<th style="text-align: left;">時點</th>
+<th style="text-align: left;">建議檢查</th>
+<th style="text-align: left;">判讀</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Flow Cell Flush（FCF）</td>
-<td style="text-align: left;">1,170 µL</td>
+<td style="text-align: left;">Clean-up 前</td>
+<td style="text-align: left;">Qubit dsDNA HS、NanoDrop、gel / TapeStation</td>
+<td style="text-align: left;">決定是否需要 cleanup，以及 ratio 是否要偏 recovery 或 size selection</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">BSA（50 mg/mL）</td>
-<td style="text-align: left;">5 µL</td>
+<td style="text-align: left;">Clean-up 後</td>
+<td style="text-align: left;">Qubit dsDNA HS</td>
+<td style="text-align: left;">計算 recovery 與是否達 kit input</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Flow Cell Tether（FCT）</td>
-<td style="text-align: left;">30 µL</td>
+<td style="text-align: left;">Clean-up 後</td>
+<td style="text-align: left;">NanoDrop A260/A280、A260/A230</td>
+<td style="text-align: left;">確認污染物是否改善；但濃度仍以 Qubit 為主</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Total</strong></td>
-<td style="text-align: left;"><strong>1,205 µL</strong></td>
+<td style="text-align: left;">Clean-up 後</td>
+<td style="text-align: left;">gel / TapeStation / Bioanalyzer</td>
+<td style="text-align: left;">確認 fragment profile、primer dimer / adapter dimer 是否下降</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">上機後</td>
+<td style="text-align: left;">pore occupancy、yield、read length N50、短 read 比例</td>
+<td style="text-align: left;">回推是否可能有 ethanol、salt、beads 或短片段 carryover</td>
 </tr>
 </tbody>
 </table>
-<hr>
-<script>
-const lskB = [
-  { id:'lskb1', text:'取 <strong>1 µg（或 100–200 fmol）gDNA</strong>，加 nuclease-free water 至 <strong>47 µL</strong>，置 1.5 mL LoBind tube', note:'Qubit 定量確認；pipette mix 或 flick 混勻；短暫離心', warn:'' },
-  { id:'lskb2', text:'在 0.2 mL PCR tube 中依序加入（每加一種 pipette mix 10–20 次）：<br>DNA <strong>47 µL</strong> + DCS <strong>1 µL</strong>（可選）+ FFPE Repair Buffer v2 <strong>7 µL</strong> + FFPE Repair Mix <strong>2 µL</strong> + Ultra II End-prep Enzyme Mix <strong>3 µL</strong> = 總 <strong>60 µL</strong>', note:'勿 vortex FFPE Repair Mix 和 Enzyme Mix；若省略 DCS 以 1 µL NFW 補足', warn:'' },
-  { id:'lskb3', text:'輕柔 pipette 混勻，短暫離心', note:'', warn:'' },
-  { id:'lskb4', text:'Thermal cycler：<strong>20°C 5 min → 65°C 5 min</strong>，結束後置冰上或 4°C', note:'', time:'⏱ 10 min', warn:'' },
-  { id:'lskb5', text:'Vortex 充分混勻 AXP beads', note:'', warn:'' },
-  { id:'lskb6', text:'轉移 DNA 樣本至 1.5 mL LoBind tube，加入 <strong>AXP 60 µL</strong>，flick 混勻', note:'', warn:'' },
-  { id:'lskb7', text:'Hula mixer 室溫孵育 <strong>5 min</strong>', note:'', time:'⏱ 5 min', warn:'' },
-  { id:'lskb8', text:'新鮮配製 <strong>500 µL 80% ethanol</strong>', note:'', warn:'' },
-  { id:'lskb9', text:'磁架吸附至澄清，移除上清液', note:'', warn:'' },
-  { id:'lskb10', text:'加入 <strong>200 µL 80% ethanol</strong> wash，不打散 pellet，移除（× 2）', note:'', warn:'' },
-  { id:'lskb11', text:'短暫離心，磁架，移除殘餘 ethanol，<strong>風乾約 30 秒</strong>（勿過乾龜裂）', note:'', warn:'' },
-  { id:'lskb12', text:'加入 <strong>61 µL nuclease-free water</strong> 輕彈重懸，室溫孵育 2 min', note:'', time:'⏱ 2 min', warn:'' },
-  { id:'lskb13', text:'磁架吸附至澄清，轉移 <strong>61 µL eluate</strong>', note:'⚠️ Qubit 量測 1 µL 確認濃度。可 4°C 隔夜保存', warn:'' },
-];
-const lskC = [
-  { id:'lskc1', text:'確認 LFB 或 SFB 已在室溫解凍，vortex 混勻，spin down，置室溫備用', note:'LFB → 保留 > 3 kb；SFB → 保留所有片段', warn:'' },
-  { id:'lskc2', text:'在 1.5 mL LoBind tube 中依序加入（每加一種 pipette mix 10–20 次）：<br>End-prepped DNA <strong>60 µL</strong> + LA <strong>5 µL</strong> + LNB <strong>25 µL</strong> + Salt-T4® Ligase <strong>10 µL</strong> = 總 <strong>100 µL</strong>', note:'', warn:'勿 vortex Ligase' },
-  { id:'lskc3', text:'輕柔 pipette 混勻，短暫離心', note:'', warn:'' },
-  { id:'lskc4', text:'室溫孵育 <strong>10 min</strong>', note:'', time:'⏱ 10 min', warn:'' },
-  { id:'lskc5', text:'Vortex 充分混勻 AXP beads，加入 <strong>40 µL AXP</strong>，flick 混勻', note:'', warn:'' },
-  { id:'lskc6', text:'Hula mixer 室溫孵育 <strong>5 min</strong>', note:'', time:'⏱ 5 min', warn:'' },
-  { id:'lskc7', text:'磁架吸附，移除上清液', note:'', warn:'' },
-  { id:'lskc8', text:'加入 <strong>250 µL LFB 或 SFB</strong>，flick 重懸，spin，磁架，移除（× 2）', note:'', warn:'此步驟絕對不可用 ethanol！' },
-  { id:'lskc9', text:'短暫離心，磁架，移除殘餘 buffer，<strong>風乾約 30 秒</strong>', note:'', warn:'' },
-  { id:'lskc10', text:'加入 <strong>15 µL EB</strong> 重懸，室溫孵育 10 min（HMW DNA 可改 37°C 孵育以提升長片段回收）', note:'', time:'⏱ 10 min', warn:'' },
-  { id:'lskc11', text:'磁架吸附至澄清，轉移 <strong>15 µL eluate</strong>（最終 library）', note:'⚠️ Qubit 量測 1 µL；依 fragment 長度決定 loading 量', warn:'' },
-];
-document.addEventListener('DOMContentLoaded', function() {
-  renderSteps('lsk-B', lskB, 0);
-  renderSteps('lsk-C', lskC, lskB.length);
-});
-</script>
-<!-- _sop_shared.html：所有 SOP 頁面共用的 CSS + JS 機制 -->
-<!-- 在每個 sop_*.qmd 底部加入：{{< include _sop_shared.html >}} -->
-<style>
-.sop-step {
-  display: flex; gap: 12px; padding: 10px 14px;
-  border-bottom: 1px solid #f1f5f9; cursor: pointer;
-  border-radius: 6px; transition: background 0.15s;
-  align-items: flex-start;
-}
-.sop-step:hover { background: #f8fafc; }
-.sop-step.checked { background: #f0fdf4; opacity: 0.65; }
-.step-cb { font-size: 16px; flex-shrink: 0; line-height: 1.5; user-select: none; }
-.step-num { font-weight: 700; color: #2d4a7a; margin-right: 6px; }
-.step-time {
-  font-size: 10px; background: #dbeafe; color: #1e40af;
-  border-radius: 4px; padding: 2px 6px; margin-left: 8px;
-  font-family: monospace; white-space: nowrap;
-}
-.step-note { font-size: 11px; color: #64748b; margin-top: 4px; padding-left: 20px; }
-.step-warn {
-  font-size: 11px; color: #92400e; background: #fef3c7;
-  border-radius: 4px; padding: 4px 8px; margin-top: 4px;
-}
-</style>
-<script>
-const _checkedSteps = {};
-function renderSteps(containerId, steps, globalOffset) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = steps.map((s, i) => {
-    const num = (globalOffset || 0) + i + 1;
-    const time = s.time ? `<span class="step-time">${s.time}</span>` : '';
-    const note = s.note ? `<div class="step-note">${s.note}</div>` : '';
-    const warn = s.warn ? `<div class="step-warn">⚠️ ${s.warn}</div>` : '';
-    return `<div class="sop-step" id="step-${s.id}" onclick="toggleStep('${s.id}')">
-      <span class="step-cb" id="cb-${s.id}">⬜</span>
-      <div><span class="step-num">${num}.</span>${s.text}${time}${note}${warn}</div>
-    </div>`;
-  }).join('');
-}
-function toggleStep(id) {
-  _checkedSteps[id] = !_checkedSteps[id];
-  document.getElementById(`step-${id}`).classList.toggle('checked', _checkedSteps[id]);
-  document.getElementById(`cb-${id}`).textContent = _checkedSteps[id] ? '✅' : '⬜';
-}
-</script>
+</section>
+<section id="判定標準" class="level2">
+<h2 class="anchored" data-anchor-id="判定標準">判定標準</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">結論</th>
+<th style="text-align: left;">條件</th>
+<th style="text-align: left;">建議</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>GO</strong></td>
+<td style="text-align: left;">Qubit 達 kit input，A260/A230 改善，無明顯 beads / ethanol carryover，fragment profile 符合目的</td>
+<td style="text-align: left;">可進入建庫或 adapter attachment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>GO with caution</strong></td>
+<td style="text-align: left;">recovery 偏低但仍達 input，或 fragment profile 有部分短片段 / smear</td>
+<td style="text-align: left;">可做 exploratory run；報告中註明限制</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Repeat clean-up</strong></td>
+<td style="text-align: left;">明顯 primer dimer / adapter dimer、A260/A230 仍低、或疑似 ethanol / salt carryover</td>
+<td style="text-align: left;">重新 cleanup 或調整 ratio，但注意 low-input 樣本損失</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>No-go</strong></td>
+<td style="text-align: left;">Qubit 不足、beads carryover 明顯、樣本過度 shearing 或無法達 kit input</td>
+<td style="text-align: left;">不建議進建庫；回到 extraction / PCR / sample strategy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="常見問題" class="level2">
+<h2 class="anchored" data-anchor-id="常見問題">常見問題</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">現象</th>
+<th style="text-align: left;">可能原因</th>
+<th style="text-align: left;">處理</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Recovery 很低</td>
+<td style="text-align: left;">beads 未完全回溫 / 混勻、ratio 太低、beads 過度乾燥、eluate 體積太小</td>
+<td style="text-align: left;">beads 回溫並充分混勻；提高 ratio；縮短乾燥時間；增加 elution volume</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">仍有 primer dimer</td>
+<td style="text-align: left;">ratio 太高，短片段也被回收</td>
+<td style="text-align: left;">降低 ratio 或做 size selection 小測</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HMW DNA 變短</td>
+<td style="text-align: left;">vortex / pipetting 過度、磁珠混勻太劇烈</td>
+<td style="text-align: left;">改用 wide-bore tip、gentle inversion、減少吸打次數</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A260/A230 沒改善</td>
+<td style="text-align: left;">鹽類、phenol、guanidine 或 PEG carryover 仍存在</td>
+<td style="text-align: left;">重做 cleanup 或改用 column / precipitation strategy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">下游 pore 表現差</td>
+<td style="text-align: left;">ethanol、salt、beads carryover 或過多短片段</td>
+<td style="text-align: left;">延長但不過度乾燥；避免吸到 beads；上機前確認 final library clean</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">多樣本差異大</td>
+<td style="text-align: left;">beads 分裝不均、magnet 時間不同、ethanol 新舊不一</td>
+<td style="text-align: left;">同批 beads 充分混勻後分裝；固定孵育與 magnet 時間</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nanopore-建庫注意事項" class="level2">
+<h2 class="anchored" data-anchor-id="nanopore-建庫注意事項">Nanopore 建庫注意事項</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kit / 情境</th>
+<th style="text-align: left;">Clean-up 風險</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SQK-LSK114 / SQK-NBD114.24</td>
+<td style="text-align: left;">HMW DNA 應避免劇烈混勻；過窄 size selection 會降低 input</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SQK-RBK114.24</td>
+<td style="text-align: left;">Rapid chemistry 對 DNA 量與短片段較有彈性，但污染物仍會影響建庫</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SQK-RPB114.24</td>
+<td style="text-align: left;">input 只有 1-5 ng 時，clean-up 造成的 loss 可能比污染物更嚴重</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SQK-MAB114.24</td>
+<td style="text-align: left;">PCR product clean-up 可去除 primer / dimer；但 ratio 要配合 amplicon 長度</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SQK-PCB114.24 / SQK-PCS114</td>
+<td style="text-align: left;">post-PCR amplified cDNA clean-up 後需用 Qubit dsDNA HS + size profile 判斷 50 fmol input</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="紀錄欄位" class="level2">
+<h2 class="anchored" data-anchor-id="紀錄欄位">紀錄欄位</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">欄位</th>
+<th style="text-align: left;">建議紀錄</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sample ID</td>
+<td style="text-align: left;">與建庫紀錄一致</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sample type</td>
+<td style="text-align: left;">gDNA、eDNA、PCR product、amplicon、amplified cDNA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Starting volume</td>
+<td style="text-align: left;">clean-up 前樣本體積</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beads lot</td>
+<td style="text-align: left;">Sera-Mag Select lot number</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Beads ratio</td>
+<td style="text-align: left;">例如 0.8x、1.0x、2.5x</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beads volume</td>
+<td style="text-align: left;">實際加入體積</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ethanol</td>
+<td style="text-align: left;">85% ethanol，新鮮配置日期</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Elution buffer / volume</td>
+<td style="text-align: left;">nuclease-free water、low TE 或 kit buffer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Qubit before / after</td>
+<td style="text-align: left;">concentration、total amount、recovery %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Purity before / after</td>
+<td style="text-align: left;">A260/A280、A260/A230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fragment profile</td>
+<td style="text-align: left;">gel / TapeStation / Bioanalyzer 結果摘要</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Final decision</td>
+<td style="text-align: left;">GO、GO with caution、Repeat clean-up、No-go</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="資料來源" class="level2">
+<h2 class="anchored" data-anchor-id="資料來源">資料來源</h2>
+<ul>
+<li>Cytiva Sera-Mag Select Size Selection and PCR Cleanup Reagent User Guide 29435668 AB：PCR clean-up、recovery mode、left / right / dual-side size selection、85% ethanol wash 與操作注意事項。</li>
+<li><a href="https://www.cytivalifesciences.com/en/us/support/documentation/instructions-for-use">Cytiva documentation search</a></li>
+<li><a href="https://www.cytivalifesciences.co.jp/catalog/44160.html">Cytiva Sera-Mag Select product information</a></li>
+</ul>
 
 
 </section>
