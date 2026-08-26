@@ -77,7 +77,9 @@ ratio 不是固定 universal cutoff。sample buffer、PEG、ethanol、glycerol�
 2. 充分混勻 beads，直到懸浮液均一；瓶底不可有沉降 beads。
 3. 新鮮配置 85% ethanol。
 4. 確認樣本體積、目標 ratio、預計 beads 體積與最終 elution volume。
-5. 若樣本體積低於 50 µL，先以 nuclease-free water 或 low TE 補到方便操作的體積，並記錄 dilution。
+5. 若樣本體積較低，可選擇直接 clean-up，或以 nuclease-free water / low TE 補到較方便操作的體積。
+   - 30-40 µL 通常可直接操作；重點是 beads ratio 計算準確、混勻充分，並避免吸到 beads。
+   - 若有補體積，需記錄 dilution 與最終 sample volume。
 
 ### Binding {#cleanup-binding}
 
