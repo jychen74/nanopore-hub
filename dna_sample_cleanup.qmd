@@ -13,7 +13,7 @@ format:
 :::
 
 ::: {.callout-important}
-本頁預設對象是 **DNA、PCR product、amplicon、post-PCR amplified cDNA**。  
+本頁預設對象是 **DNA、PCR product、amplicon、post-PCR amplified cDNA**，也可用於 nucleic acid extraction kit 萃取後的 DNA cleanup。  
 不要把本頁直接套用到 RNA input clean-up；RNA 樣本需要使用 RNA-compatible cleanup method，並重新確認 RNA recovery、fragment profile 與 downstream kit compatibility。
 :::
 
@@ -24,6 +24,7 @@ format:
 | PCR product clean-up | 適合 | 去除 primer、dNTP、enzyme、buffer salts |
 | 16S / ITS amplicon clean-up | 適合 | 依 amplicon 長度選擇 ratio，避免過度丟失短 amplicon |
 | cDNA-PCR amplified cDNA clean-up | 適合 | PCR 後以 Qubit dsDNA HS + size profile 判斷是否可進 adapter attachment |
+| nucleic acid extraction kit 後 cleanup | 適合 | 萃取後若懷疑 salts、guanidine、ethanol、column carryover 或其他抑制物，可用於去除雜質 |
 | gDNA clean-up | 可用，但需保守 | HMW DNA 容易因混勻、吸打、乾燥過度而 shearing 或 recovery 下降 |
 | low-input eDNA / pathogen DNA | 謹慎 | clean-up 可能降低 target recovery；除非污染物明顯影響建庫，否則不要過度純化 |
 | RNA input clean-up | 不預設適用 | 需另用 RNA 專用方法或 kit-specific 建議 |
@@ -49,6 +50,7 @@ ratio 不是固定 universal cutoff。sample buffer、PEG、ethanol、glycerol�
 | 目的 | 建議起始 ratio | 主要保留 | 主要去除 / 降低 |
 |:---|:---:|:---|:---|
 | 一般 PCR product / amplicon recovery | 1.0x | 約 500 bp 以上 PCR product 多數可回收 | primer、短 oligo、部分短片段 |
+| extraction kit 後去除雜質 | 1.0x 起始；低量或 fragmented DNA 才考慮 1.8x-2.0x | 萃取後 DNA；1.0x 對多數 gDNA / amplicon-sized DNA 已足夠 | salts、guanidine、ethanol、column carryover、enzyme inhibitors |
 | 最大化 DNA recovery | 2.0x-2.5x | 盡量回收 >= 100 bp DNA | salts、enzyme、nucleotides；短片段也可能一起保留 |
 | ONT HMW DNA 保守 clean-up | 0.4x-0.6x | 較長 DNA fragments | 短片段比例下降，但 recovery 可能下降 |
 | 去除 primer dimer / adapter dimer | 0.7x-0.9x 起測 | 目標片段 | 小片段、dimer |
@@ -56,6 +58,11 @@ ratio 不是固定 universal cutoff。sample buffer、PEG、ethanol、glycerol�
 
 ::: {.callout-note}
 若目標是 Nanopore long-read output，不建議為了追求乾淨的 profile 而做過窄 size selection。對低量或珍貴樣本，保留足夠 input 通常比追求漂亮膠圖更重要。
+:::
+
+::: {.callout-note}
+Extraction kit 後的 cleanup 若只是為了去除污染物，建議先從 **1.0x** 測試。  
+`1.8x-2.0x` 比較適合 DNA 已 fragmented、樣本量很低且希望最大化 recovery 的情境；但較高 ratio 也會更容易保留短片段，不一定符合 Nanopore long-read 的目的。
 :::
 
 ## 標準操作流程

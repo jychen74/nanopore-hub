@@ -246,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>本頁預設對象是 <strong>DNA、PCR product、amplicon、post-PCR amplified cDNA</strong>。<br>
+<p>本頁預設對象是 <strong>DNA、PCR product、amplicon、post-PCR amplified cDNA</strong>，也可用於 nucleic acid extraction kit 萃取後的 DNA cleanup。<br>
 不要把本頁直接套用到 RNA input clean-up；RNA 樣本需要使用 RNA-compatible cleanup method，並重新確認 RNA recovery、fragment profile 與 downstream kit compatibility。</p>
 </div>
 </div>
@@ -282,16 +282,21 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">PCR 後以 Qubit dsDNA HS + size profile 判斷是否可進 adapter attachment</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">nucleic acid extraction kit 後 cleanup</td>
+<td style="text-align: center;">適合</td>
+<td style="text-align: left;">萃取後若懷疑 salts、guanidine、ethanol、column carryover 或其他抑制物，可用於去除雜質</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">gDNA clean-up</td>
 <td style="text-align: center;">可用，但需保守</td>
 <td style="text-align: left;">HMW DNA 容易因混勻、吸打、乾燥過度而 shearing 或 recovery 下降</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">low-input eDNA / pathogen DNA</td>
 <td style="text-align: center;">謹慎</td>
 <td style="text-align: left;">clean-up 可能降低 target recovery；除非污染物明顯影響建庫，否則不要過度純化</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">RNA input clean-up</td>
 <td style="text-align: center;">不預設適用</td>
 <td style="text-align: left;">需另用 RNA 專用方法或 kit-specific 建議</td>
@@ -368,24 +373,30 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">primer、短 oligo、部分短片段</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">extraction kit 後去除雜質</td>
+<td style="text-align: center;">1.0x 起始；低量或 fragmented DNA 才考慮 1.8x-2.0x</td>
+<td style="text-align: left;">萃取後 DNA；1.0x 對多數 gDNA / amplicon-sized DNA 已足夠</td>
+<td style="text-align: left;">salts、guanidine、ethanol、column carryover、enzyme inhibitors</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">最大化 DNA recovery</td>
 <td style="text-align: center;">2.0x-2.5x</td>
 <td style="text-align: left;">盡量回收 &gt;= 100 bp DNA</td>
 <td style="text-align: left;">salts、enzyme、nucleotides；短片段也可能一起保留</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ONT HMW DNA 保守 clean-up</td>
 <td style="text-align: center;">0.4x-0.6x</td>
 <td style="text-align: left;">較長 DNA fragments</td>
 <td style="text-align: left;">短片段比例下降，但 recovery 可能下降</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">去除 primer dimer / adapter dimer</td>
 <td style="text-align: center;">0.7x-0.9x 起測</td>
 <td style="text-align: left;">目標片段</td>
 <td style="text-align: left;">小片段、dimer</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">dual-side size selection</td>
 <td style="text-align: center;">需先小測</td>
 <td style="text-align: left;">指定片段範圍</td>
@@ -404,6 +415,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>若目標是 Nanopore long-read output，不建議為了追求乾淨的 profile 而做過窄 size selection。對低量或珍貴樣本，保留足夠 input 通常比追求漂亮膠圖更重要。</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+註釋
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Extraction kit 後的 cleanup 若只是為了去除污染物，建議先從 <strong>1.0x</strong> 測試。<br>
+<code>1.8x-2.0x</code> 比較適合 DNA 已 fragmented、樣本量很低且希望最大化 recovery 的情境；但較高 ratio 也會更容易保留短片段，不一定符合 Nanopore long-read 的目的。</p>
 </div>
 </div>
 </section>
